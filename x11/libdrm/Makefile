@@ -13,7 +13,7 @@ COMMENT=		Userspace interface to kernel DRM services
 PKG_DESTDIR_SUPPORT=	user-destdir
 
 ONLY_FOR_PLATFORM=	NetBSD-*-* DragonFly-*-* FreeBSD-*-* OpenBSD-*-* \
-			Linux-*-* 
+			Linux-*-* SunOS-*-*
 
 USE_PKGLOCALEDIR=	yes
 USE_TOOLS+=		pkg-config

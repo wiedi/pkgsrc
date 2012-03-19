@@ -71,6 +71,7 @@ CONFIGURE_ENV+=		DSOFLAGS=${LDFLAGS:M*:Q}
 
 .if ${OPSYS} == "SunOS"
 CONFIGURE_ENV+=		LIBS_SSP=-lssp_nonshared
+LIBS.SunOS+=		-liconv
 .endif
 
 PLIST_VARS+=		notmac
@@ -171,6 +172,7 @@ post-install:
 	${INSTALL_DATA} ${WRKDIR}/cups.pam ${DESTDIR}${EGDIR}
 .endif
 
+.include "../../converters/libiconv/buildlink3.mk"
 .include "../../devel/zlib/buildlink3.mk"
 .include "../../graphics/png/buildlink3.mk"
 .include "../../graphics/tiff/buildlink3.mk"

@@ -5,3 +5,5 @@ RMD160 (postgis-1.5.1.tar.gz) = 7c8b600e60c751b0ddc6c76f6cbb41d5997366d6
 Size (postgis-1.5.1.tar.gz) = 3721030 bytes
 SHA1 (patch-configure) = 5995e773b9f8ec20e710d6cb690e928856c2650e
 SHA1 (patch-configure.ac) = 993358912b61670733602511d507e497c9677875
+SHA1 (patch-postgis_Makefile.in) = ce1cd687ef74450b319aa6a93c7b251096a48861
+SHA1 (patch-postgis__lwgeom_accum.c) = a2e8b8dda0a666bd3a1eef257b65f490aba6ec30

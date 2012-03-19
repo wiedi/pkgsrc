@@ -133,6 +133,14 @@ SUBST_FILES.paths=	${WRKDIR}/mailer.conf
 SUBST_SED.paths+=	-e 's,@PREFIX@,${PREFIX},g'
 SUBST_STAGE.paths=	post-patch
 
+.if ${OPSYS} == "SunOS" && !exists(/usr/include/rpcsvc/nis_cache.h)
+SUBST_CLASSES+=		nis
+SUBST_FILES.nis=	src/util/sys_defs.h
+SUBST_MESSAGE.nis=	Working around dropped support for NIS+ on SunOS
+SUBST_STAGE.nis=	post-patch
+SUBST_SED.nis=		-e 's,\#define HAS_NISPLUS,\#undef HAS_NISPLUS,g'
+.endif
+
 .if !empty(USE_DESTDIR:M[Yy][Ee][Ss])
 DESTDIR_INSTALLOPTIONS=-package install_root="${DESTDIR}"
 .endif

@@ -1224,5 +1224,5 @@ ${GEM_HOME}/specifications/puppet-${PKGVERSION}.gemspec
 ${EGDIR}/puppet.conf
 share/examples/rc.d/puppetd
 share/examples/rc.d/puppetmasterd
-${PLIST.sunos}share/examples/puppet/svc/puppetd.xml
-${PLIST.sunos}share/examples/puppet/svc/puppetmasterd.xml
+${PLIST.sunos}${EGDIR}/svc/puppetd.xml
+${PLIST.sunos}${EGDIR}/svc/puppetmasterd.xml

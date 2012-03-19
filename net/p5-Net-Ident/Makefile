@@ -20,8 +20,5 @@ USE_LANGUAGES=		#empty
 
 PERL5_PACKLIST=		auto/Net/Ident/.packlist
 
-pre-configure:
-	${FIND} ${WRKSRC} -name "*.orig" -type f | ${XARGS} ${RM}
-
 .include "../../lang/perl5/module.mk"
 .include "../../mk/bsd.pkg.mk"

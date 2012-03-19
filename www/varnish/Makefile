@@ -51,9 +51,9 @@ BUILD_DEPENDS+=		${PYPKGPREFIX}-docutils>=0.5:../../textproc/py-docutils
 
 .if ${OPSYS} == "SunOS"
 .  if ${PKGSRC_COMPILER} == "sunpro"
-CONFIGURE_ENV+=	VCC="cc -Kpic -G -o %o %s"
+CONFIGURE_ENV+=	VCC_CC="cc ${_COMPILER_ABI_FLAG.${ABI}} -Kpic -G -o %o %s"
 .  else
-CONFIGURE_ENV+=	VCC_CC="gcc -fpic -shared -o %o %s"
+CONFIGURE_ENV+=	VCC_CC="gcc ${_COMPILER_ABI_FLAG.${ABI}} -fpic -shared -o %o %s"
 .  endif
 .endif
 

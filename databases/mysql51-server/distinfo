@@ -25,3 +25,4 @@ SHA1 (patch-as) = 8167416a083a011ded19d176bc488c94d9eb7abf
 SHA1 (patch-at) = 307a0785190f8bc175226ce83288cc85f7da4631
 SHA1 (patch-au) = 51291771b994d199fb6de6a17dd7809a7bf39b68
 SHA1 (patch-ax) = dbf68af2d2ded85140aac3602d4f6ce5d68cc78a
+SHA1 (patch-sql__ha_ndbcluster.cc) = 0d1b60e962b0ae66bc9bf9f78f38988c8135bb4d

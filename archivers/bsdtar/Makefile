@@ -18,6 +18,7 @@ GNU_CONFIGURE=	yes
 #
 #USE_LIBTOOL=	yes
 
+.include "options.mk"
 .include "../../archivers/bzip2/builtin.mk"
 .include "../../devel/zlib/builtin.mk"
 

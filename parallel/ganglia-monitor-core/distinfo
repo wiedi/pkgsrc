@@ -6,3 +6,4 @@ Size (ganglia-3.1.2.tar.gz) = 1213196 bytes
 SHA1 (patch-aa) = e258e4efb1ae012db51901de87e614cede78812c
 SHA1 (patch-ab) = 260a78711c2c7f1111ce8c4b0d54d2edd60dde08
 SHA1 (patch-ac) = d7fa7c4509589a88a568717296b1c7ea0b09fb1e
+SHA1 (patch-lib__gm_protocol_dr.c) = 9d17d79bb1a6426a2547c00006819483aff47363

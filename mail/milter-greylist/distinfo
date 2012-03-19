@@ -4,3 +4,5 @@ SHA1 (milter-greylist-4.2.7.tgz) = 560d823b0d4fd25fba6f100ca3073b8e6c89edc2
 RMD160 (milter-greylist-4.2.7.tgz) = a0f9b01bb625b1ab125a681822ec516b8adc627a
 Size (milter-greylist-4.2.7.tgz) = 213919 bytes
 SHA1 (patch-aa) = f884ba7efce512f51b6e5593255c4f7fdd468333
+SHA1 (patch-p0f.c) = 0ccd6386d53a993fab2037eeb5bcb60d96aa13b0
+SHA1 (patch-spamd.c) = 2364cd075723b60cc47516c6c5f108052862f16a

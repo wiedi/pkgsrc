@@ -93,6 +93,11 @@ ${_BUILD_INFO_FILE}: plist
 	done | ${SED} -e 's,^PROVIDES=${DESTDIR},PROVIDES=,'		\
 		>> ${.TARGET}.tmp;					\
 	for req in "" $$requires; do					\
+		stripreq=`${ECHO} $$req | ${AWK} '{gsub(/.*\//, "", $$0); print}'`; \
+		for i in "" $$libs; do					\
+			striplib=`${ECHO} $$i | ${AWK} '{gsub(/.*\//, "", $$0); print}'`; \
+			${TEST} "$${stripreq}" != "$${striplib}" || req="";	\
+		done;							\
 		${TEST} "$$req" != "" || continue;			\
 		${ECHO} "REQUIRES=$$req" >> ${.TARGET}.tmp;		\
 	done

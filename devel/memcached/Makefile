@@ -21,6 +21,8 @@ INSTALLATION_DIRS=	share/doc/${PKGBASE} share/examples/rc.d
 
 .include "../../mk/bsd.prefs.mk"
 
+.include "options.mk"
+
 MEMCACHED_USER?=	memcached
 MEMCACHED_GROUP?=	memcached
 PKG_GROUPS=		${MEMCACHED_GROUP}

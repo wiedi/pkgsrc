@@ -14,6 +14,8 @@ $NetBSD: patch-at,v 1.24 2011/11/27 19:11:59 marino Exp $
 . Enable suport for x86_64-DragonFly
 . Enable profiling and native dynamic loading for all DragonFly platforms
 . Add pkgsrc X11 checks in case X11 support is enabled in the future
+. Change Solaris ASPP calls to use the 'gcc' wrapper (fixes SmartOS) 
+. Fix Solaris linker args for 64bit platforms
 
 --- configure.orig	2010-07-28 13:18:22.000000000 +0000
 +++ configure
@@ -100,6 +102,24 @@ $NetBSD: patch-at,v 1.24 2011/11/27 19:11:59 marino Exp $
  esac
  
  # Some platforms exist both in 32-bit and 64-bit variants, not distinguished
+@@ -733,7 +745,7 @@ case "$arch,$nativecc,$system,$host_type
+                        if $arch64; then partialld="ld -r -arch ppc64"; fi;;
+   *,gcc*,cygwin,*)     nativecccompopts="$gcc_warnings -U_WIN32";;
+   amd64,gcc*,macosx,*) partialld="ld -r -arch x86_64";;
+-  amd64,gcc*,solaris,*) partialld="ld -r -m elf_x86_64";;
++  amd64,gcc*,solaris,*) partialld="ld -r -64";;
+   *,gcc*,*,*)          nativecccompopts="$gcc_warnings";;
+ esac
+ 
+@@ -756,7 +768,7 @@ case "$arch,$model,$system" in
+   hppa,*,*)         as='as';
+                     aspp='gcc -traditional -c';;
+   i386,*,solaris)   as='as'
+-                    aspp='/usr/ccs/bin/as -P';;
++                    aspp='gcc -traditional -c';;
+   i386,*,*)         as='as'
+                     aspp='gcc -c';;
+   ia64,*,*)         as='as -xexplicit'
 @@ -794,6 +806,8 @@ case "$arch,$model,$system" in
      case "$nativecc" in gcc*) ;; *) cc_profile='-xpg';; esac;;
    amd64,*,linux) profiling='prof';;

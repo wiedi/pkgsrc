@@ -21,7 +21,7 @@ PATCHDIR=	${.CURDIR}/../../devel/poco/patches
 DISTINFO_FILE=	${.CURDIR}/../../devel/poco/distinfo
 
 HAS_CONFIGURE=	yes
-USE_LANGUAGES=	c c++
+USE_LANGUAGES=	c c++ c99
 USE_TOOLS+=	gmake
 
 CONFIGURE_ARGS+=	--prefix=${PREFIX} --omit=Data
@@ -38,4 +38,14 @@ CONFIGURE_ARGS+=	--config=FreeBSD
 # NetBSD doesn't have fenv.h. We should add one.
 CONFIGURE_ARGS+=	--no-fpenvironment
 CONFIGURE_ARGS+=	--no-shaedmemory
+.endif
+
+.if ${OPSYS} == "SunOS"
+. if ${PKGSRC_COMPILER} == "sunpro"
+CONFIGURE_ARGS+=	--config=SunOS-SunStudio
+. elif ${PKGSRC_COMPILER} == "gcc"
+CONFIGURE_ARGS+=	--config=SunOS-GCC
+. else
+CONFIGURE_ARGS+=	--config=SunOS
+. endif
 .endif

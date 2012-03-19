@@ -43,7 +43,7 @@ CONFIGURE_ARGS+=	--with-libxml-dir=${PREFIX:Q}
 # Note: This expression is the same as ${PKGBASE}, but the latter is
 # not defined yet, so we cannot use it here.
 PKG_OPTIONS_VAR=	PKG_OPTIONS.${PKGNAME:C/-[0-9].*//}
-PKG_SUPPORTED_OPTIONS+=	inet6 ssl maintainer-zts suhosin
+PKG_SUPPORTED_OPTIONS+=	inet6 ssl maintainer-zts suhosin readline
 PKG_SUGGESTED_OPTIONS+=	ssl
 
 SUBST_CLASSES+=		ini
@@ -92,6 +92,13 @@ CONFIGURE_ARGS+=	--without-openssl
 
 .if !empty(PKG_OPTIONS:Mmaintainer-zts)
 CONFIGURE_ARGS+=	--enable-maintainer-zts
+.endif
+
+.if !empty(PKG_OPTIONS:Mreadline)
+CONFIGURE_ARGS+=	--with-readline=${BUILDLINK_PREFIX.readline}
+.include "../../devel/readline/buildlink3.mk"
+.else
+CONFIGURE_ARGS+=	--without-readline
 .endif
 
 DL_AUTO_VARS=		yes

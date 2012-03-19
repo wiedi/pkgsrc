@@ -10,6 +10,7 @@ DISTFILES=	# empty
 MAINTAINER=	joerg@NetBSD.org
 HOMEPAGE=	http://code.google.com/p/libarchive/
 COMMENT=	Library to read/create different archive formats
+LICENSE=	modified-bsd
 
 PKG_DESTDIR_SUPPORT=	user-destdir
 
@@ -18,6 +19,8 @@ USE_LIBTOOL=	yes
 
 CONFIGURE_ARGS+=	--disable-bsdtar --without-expat --without-xml2 \
 			--disable-bsdcpio
+
+.include "options.mk"
 
 do-extract:
 	${CP} -r ${FILESDIR} ${WRKSRC}

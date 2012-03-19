@@ -19,6 +19,8 @@ USE_LANGUAGES+=		c++ c
 USE_TOOLS+=		autoconf automake pkg-config
 USE_LIBTOOL=		yes
 
+LDFLAGS.SunOS=		-lnsl
+
 .include "options.mk"
 
 .include "../../devel/libidn/buildlink3.mk"

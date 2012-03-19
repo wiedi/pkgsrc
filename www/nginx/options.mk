@@ -2,7 +2,8 @@
 
 PKG_OPTIONS_VAR=	PKG_OPTIONS.nginx
 PKG_SUPPORTED_OPTIONS=	dav flv gtools inet6 mail-proxy memcache pcre \
-			push realip ssl sub uwsgi image-filter upload debug
+			push realip ssl sub uwsgi image-filter upload debug \
+			status
 PKG_SUGGESTED_OPTIONS=	pcre ssl
 
 PLIST_VARS+=		uwsgi
@@ -91,4 +92,8 @@ SITES.${NGX_UPLOAD_DISTFILE}=	http://www.grid.net.ru/nginx/download/
 .if !empty(PKG_OPTIONS:Mimage-filter)
 .include "../../graphics/gd/buildlink3.mk"
 CONFIGURE_ARGS+=	--with-http_image_filter_module
+.endif
+
+.if !empty(PKG_OPTIONS:Mstatus)
+CONFIGURE_ARGS+=	--with-http_stub_status_module
 .endif

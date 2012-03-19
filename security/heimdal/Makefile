@@ -59,8 +59,11 @@ PLIST_VARS+=		afskauth hcrypto
 .if ${OPSYS} == "IRIX"
 PLIST.afskauth=		yes
 .endif
+
+.include "../../security/openssl/builtin.mk"
+
 .if ${MACHINE_PLATFORM:MNetBSD-[1-3]*} != "" || \
-    ${OPSYS} == "SunOS"
+    (${OPSYS} == "SunOS" && !empty(USE_BUILTIN.openssl:Myes))
 PLIST.hcrypto=		yes
 .endif
 

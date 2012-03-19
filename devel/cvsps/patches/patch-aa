@@ -16,7 +16,7 @@ $NetBSD: patch-aa,v 1.6 2011/11/29 06:12:51 sbd Exp $
  
  cvsps: $(OBJS)
 -	$(CC) -o cvsps $(OBJS) -lz
-+	$(CC) $(LDFLAGS) -o cvsps $(OBJS) -lz
++	$(CC) $(LDFLAGS) -o cvsps $(OBJS) -lz $(LIBS)
  
  install:
  	[ -d $(prefix)/bin ] || mkdir -p $(prefix)/bin

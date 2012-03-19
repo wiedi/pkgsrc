@@ -3,7 +3,7 @@
 # Global and legacy options
 
 PKG_OPTIONS_VAR=	PKG_OPTIONS.ffmpeg
-PKG_SUPPORTED_OPTIONS=	theora vorbis xvid faac x264 opencore-amr libvpx
+PKG_SUPPORTED_OPTIONS=	theora vorbis xvid faac x264 opencore-amr libvpx tools
 PKG_SUGGESTED_OPTIONS=	theora vorbis xvid x264 libvpx
 #PKG_OPTIONS_OPTIONAL_GROUPS=	aac-decoder
 #PKG_OPTIONS_GROUP.aac-decoder=	faac
@@ -101,4 +101,10 @@ CONFIGURE_ARGS+=	--enable-libvpx
 .include "../../multimedia/libvpx/buildlink3.mk"
 .else
 CONFIGURE_ARGS+=	--disable-libvpx
+.endif
+
+PLIST_VARS+=		tools
+.if !empty(PKG_OPTIONS:Mtools)
+BUILD_TARGET=		all alltools
+PLIST.tools=		yes
 .endif

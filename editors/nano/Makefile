@@ -33,5 +33,11 @@ CONFIGURE_ARGS+=	--enable-extra
 
 .include "options.mk"
 
+INSTALLATION_DIRS+=	share/examples/nano
+CONF_FILES+=		share/examples/nano/nanorc ${PKG_SYSCONFDIR}/nanorc
+
+post-install:
+	${INSTALL_DATA} ${WRKSRC}/doc/nanorc.sample ${DESTDIR}${PREFIX}/share/examples/nano/nanorc
+
 .include "../../devel/gettext-lib/buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"

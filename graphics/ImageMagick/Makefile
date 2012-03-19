@@ -19,6 +19,7 @@ CONFIGURE_ARGS+=	--disable-assert
 CONFIGURE_ARGS+=	--with-fontconfig
 CONFIGURE_ARGS+=	--with-ltdl-include=${BUILDLINK_PREFIX.libltdl}/include
 CONFIGURE_ARGS+=	--with-ltdl-lib=${BUILDLINK_PREFIX.libltdl}/lib
+CONFIGURE_ARGS+=	--with-xml=yes
 CONFIGURE_ARGS+=	--without-perl
 PKGCONFIG_OVERRIDE=	Magick++/lib/ImageMagick++.pc.in
 PKGCONFIG_OVERRIDE+=	magick/ImageMagick.pc.in

@@ -23,6 +23,8 @@ PLIST_SRC=		${PKGDIR}/PLIST
 PKGSRC_INFOPATH=	${PREFIX}/${PKGINFODIR}:${X11BASE}/${PKGINFODIR}:${LOCALBASE}/${PKGINFODIR}
 MAKE_ENV+=		PKGSRC_INFOPATH=${PKGSRC_INFOPATH:Q}
 
+REPLACE_BASH+=		util/texi2dvi
+
 .include "../../mk/bsd.prefs.mk"
 .include "options.mk"
 

@@ -14,7 +14,7 @@ LICENSE=	gnu-gpl-v2
 
 PKG_DESTDIR_SUPPORT=	user-destdir
 
-PGSQL_VERSIONS_ACCEPTED=	84 83
+PGSQL_VERSIONS_ACCEPTED=	91 90 84 83
 
 DEPENDS+=		postgresql${PGSQL_VERSION}-server>=0:../../databases/postgresql${PGSQL_VERSION}-server
 
@@ -43,6 +43,9 @@ SUBST_VARS.paths+=	PKG_SYSCONFDIR
 SUBST_STAGE.paths=	pre-configure
 
 INSTALLATION_DIRS=	${DOCDIR} ${DOCDIR}/images ${PKGMANDIR}/man1
+
+MAKE_ENV+=		PERL5=${PERL5:Q}
+INSTALL_ENV+=		mkinstalldirs=${INSTALL_DATA_DIR:Q}
 
 post-install:
 	${INSTALL_DATA} ${BUILD_DIRS:Q}/README.postgis ${DESTDIR}${DOCDIR}
