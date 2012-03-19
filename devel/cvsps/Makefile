@@ -9,6 +9,7 @@ MASTER_SITES=	${HOMEPAGE}
 MAINTAINER=	schmonz@NetBSD.org
 HOMEPAGE=	http://www.cobite.com/cvsps/
 COMMENT=	Generates 'patchset' information from a CVS repository
+LICENSE=	gnu-gpl-v2
 
 PKG_INSTALLATION_TYPES=	overwrite pkgviews
 PKG_DESTDIR_SUPPORT=	user-destdir

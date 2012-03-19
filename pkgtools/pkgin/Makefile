@@ -33,6 +33,7 @@ SUBST_SED.path+=	-e "s|/usr/pkg|${PREFIX}|g"
 
 GNU_CONFIGURE=		yes
 USE_FEATURES=		nbcompat
+USE_TOOLS+=		nroff
 
 DEPENDS+=		pkg_install>=20110215:../../pkgtools/pkg_install
 

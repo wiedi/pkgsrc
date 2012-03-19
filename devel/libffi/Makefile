@@ -16,7 +16,7 @@ PKG_DESTDIR_SUPPORT=	user-destdir
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--includedir=${PREFIX}/include
 USE_LIBTOOL=	yes
-USE_TOOLS+=	pkg-config
+USE_TOOLS+=	pkg-config autoconf
 USE_LANGUAGES=	c c++
 INFO_FILES=	yes
 
@@ -46,5 +46,8 @@ LIBS+=	-lm68k
 .if !empty(MACHINE_PLATFORM:MSunOS-*-i386) && !empty(CC_VERSION:Mgcc-[23]*)
 CPPFLAGS += -D__PIC__
 .endif
+
+pre-configure:
+	cd ${WRKSRC} && autoconf
 
 .include "../../mk/bsd.pkg.mk"

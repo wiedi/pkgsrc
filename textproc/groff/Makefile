@@ -9,6 +9,7 @@ MASTER_SITES=	${MASTER_SITE_GNU:=groff/}
 MAINTAINER=	pkgsrc-users@NetBSD.org
 HOMEPAGE=	http://www.gnu.org/software/groff/groff.html
 COMMENT=	GNU roff text processing suite
+LICENSE=	gnu-gpl-v3
 
 CHECK_PERMS=		NO
 MAKE_JOBS_SAFE=		NO
@@ -19,7 +20,7 @@ INSTALLATION_DIRS=	share/groff/site-tmac
 USE_LANGUAGES=		c c++
 GNU_CONFIGURE=		YES
 CONFIGURE_ENV+=		PERLPATH=${PERL5:Q}
-USE_TOOLS+=		perl:run sed:run awk:run
+USE_TOOLS+=		perl sed:run awk:run
 USE_FEATURES=		getopt_long
 
 INFO_FILES=		YES
@@ -44,12 +45,7 @@ PLIST_SRC+=		PLIST
 
 .include "../../mk/bsd.prefs.mk"
 
-.if ${OPSYS} == "SunOS"
-PLIST_SUBST+=	GNU_PREFIX="g"
-
-.else
-PLIST_SUBST+=	GNU_PREFIX=""
-.endif
+PLIST_SUBST+=	GNU_PREFIX=${GNU_PROGRAM_PREFIX}
 
 BUILD_DEFS+=	PAPERSIZE
 .if defined(PAPERSIZE)

@@ -17,7 +17,7 @@ GNU_CONFIGURE=		yes
 
 CONFIGURE_ARGS+=	--with-gmetad
 USE_LIBTOOL=		yes
-USE_LANGUAGES+=		c c++ fortran77
+USE_LANGUAGES+=		c c++ c99 fortran77
 
 PLIST_VARS+=		python
 

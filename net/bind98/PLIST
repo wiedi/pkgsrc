@@ -517,5 +517,6 @@ share/doc/bind9/rfc/rfc5702.txt
 share/doc/bind9/rfc/rfc5933.txt
 share/doc/bind9/rfc/rfc6303.txt
 share/doc/bind9/rfc/rfc952.txt
+share/examples/bind9/named.conf
 share/examples/rc.d/lwresd
 share/examples/rc.d/named9

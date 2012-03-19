@@ -18,3 +18,9 @@ PKG_USERS_VARS+=	COURIER_USER
 GNU_CONFIGURE=		yes
 CONFIGURE_ARGS+=	--with-mailuser=${COURIER_USER}
 CONFIGURE_ARGS+=	--with-mailgroup=${COURIER_GROUP}
+
+.include "../../mk/bsd.prefs.mk"
+
+.if ${OPSYS} == "SunOS"
+CONFIGURE_ARGS+=	--with-waitfunc=wait3
+.endif

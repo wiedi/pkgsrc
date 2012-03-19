@@ -36,6 +36,7 @@ BUILD_TARGET+=	opt opt.opt
 PLIST_SRC+=	${PKGDIR}/PLIST.opt
 .  if empty(MACHINE_PLATFORM:MDarwin-*-powerpc) && \
       empty(MACHINE_PLATFORM:MSunOS-*-i386) && \
+      empty(MACHINE_PLATFORM:MSunOS-*-x86_64) && \
       empty(MACHINE_PLATFORM:MNetBSD-*-powerpc) && \
       empty(MACHINE_PLATFORM:MNetBSD-*-x86_64) && \
       empty(MACHINE_PLATFORM:MFreeBSD-*-x86_64) && \

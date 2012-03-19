@@ -78,6 +78,14 @@ SHAREMODE=		644
 
 .include "../../mk/bsd.prefs.mk"
 
+# Avoid visibility on SunOS
+.if ${OPSYS} == "SunOS"
+CONFIGURE_ENV+=		r_cv_visibility_attribute=no
+CONFIGURE_ENV+=		gl_cv_cc_visibility=no
+.endif
+
+CONFIGURE_ENV+=		FC=${FCPATH}
+
 # R_PAPERSIZE can be: A4, Letter, Legal, Executive
 .if defined(PAPERSIZE)
 R_PAPERSIZE?=		${PAPERSIZE}

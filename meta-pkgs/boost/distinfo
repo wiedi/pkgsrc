@@ -12,5 +12,6 @@ SHA1 (patch-af) = 560157e198b416be700f15fe816e0196134fe414
 SHA1 (patch-ag) = b19bf29b0c08ede6470e0a697f99d4ea796ab987
 SHA1 (patch-ah) = c32b43bdbbe3cecc15ad56172083ee6ed926b45b
 SHA1 (patch-ai) = 2565d3ca95641104ebbfd5e96d5c56df67e06719
+SHA1 (patch-libs__signals__src__named_slot_map.cpp) = 2e10815c6c5dc299949a448c0e8121b3249a8d73
 SHA1 (patch-aq) = e5c7b72ffa2942ce401f3d9bf05498fd761df17a
 SHA1 (patch-ar) = 91981e2edb93666de78c203a6cef3d5011b2b26a

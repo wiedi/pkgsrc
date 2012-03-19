@@ -1,0 +1,14 @@
+$NetBSD$
+
+c99 implies at least _XPG6 on SunOS and GCC 4.6
+--- Makefile.in.orig	2011-07-09 16:12:32.000000000 +0000
++++ Makefile.in
+@@ -62,7 +62,7 @@ bin_PROGRAMS = tmux$(EXEEXT)
+ @IS_STATIC_TRUE@am__append_8 = -static
+ 
+ # Set flags for Solaris.
+-@IS_SUNOS_TRUE@am__append_9 = -D_XPG4_2 -D__EXTENSIONS__ -D_POSIX_PTHREAD_SEMANTICS
++@IS_SUNOS_TRUE@am__append_9 = -D_XPG6 -D__EXTENSIONS__ -D_POSIX_PTHREAD_SEMANTICS
+ 
+ # Set flags for Sun CC.
+ @IS_SUNCC_TRUE@am__append_10 = -erroff=E_EMPTY_DECLARATION

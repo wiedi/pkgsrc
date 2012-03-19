@@ -1,0 +1,14 @@
+$NetBSD$
+
+--- fficonfig.h.in.orig	2009-12-29 15:22:26.000000000 +0000
++++ fficonfig.h.in
+@@ -46,6 +46,9 @@
+ /* Define if your assembler supports PC relative relocs. */
+ #undef HAVE_AS_X86_PCREL
+ 
++/* Define if your assembler supports unwind section type. */
++#undef HAVE_AS_X86_64_UNWIND_SECTION_TYPE
++
+ /* Define to 1 if you have the <dlfcn.h> header file. */
+ #undef HAVE_DLFCN_H
+ 

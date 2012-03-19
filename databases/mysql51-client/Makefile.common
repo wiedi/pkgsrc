@@ -111,6 +111,10 @@ USE_LANGUAGES=		c c++
 USE_TOOLS+=		autoconf bash autoheader gmake perl:run
 LDFLAGS+=		${COMPILER_RPATH_FLAG}${PREFIX}/lib/mysql
 
+.if ${OPSYS} == "SunOS"
+TOOLS_PLATFORM.diff=	# empty
+.endif
+
 SUBST_CLASSES=		mk
 SUBST_STAGE.mk=		pre-configure
 SUBST_FILES.mk=		dbug/Makefile.in heap/Makefile.in	\

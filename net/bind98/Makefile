@@ -23,14 +23,16 @@ BIND_VERSION=	9.8.1-P1
 BUILD_DEFS+=	BIND_DIR VARBASE
 
 .include "options.mk"
-
+SMF_NAME=${SMF_NAME.${PKGBASE:tl}}
 USE_TOOLS+=		pax perl
 USE_LIBTOOL=		yes
 GNU_CONFIGURE=		yes
 #CONFIG_SHELL=		sh -x
 
+#PKG_SYSCONFSUBDIR=	named
+
 CONFIGURE_ARGS+=	--with-libtool
-CONFIGURE_ARGS+=	--sysconfdir=/etc
+CONFIGURE_ARGS+=	--sysconfdir=${PKG_SYSCONFDIR}
 CONFIGURE_ARGS+=	--localstatedir=${VARBASE:Q}
 CONFIGURE_ARGS+=	--disable-openssl-version-check
 CONFIGURE_ARGS+=	--with-openssl=${SSLBASE:Q}
@@ -70,7 +72,9 @@ PLIST.inet6=	yes
 RCD_SCRIPTS=		lwresd named9
 
 INSTALLATION_DIRS=	${DOCDIR} share/doc/bind9/arm share/doc/bind9/draft \
-			share/doc/bind9/rfc
+			share/doc/bind9/rfc share/examples/bind9
+
+CONF_FILES+=		share/examples/bind9/named.conf ${PKG_SYSCONFDIR}/named.conf
 
 post-install:
 	${INSTALL_DATA} ${WRKSRC}/README ${DOCDIR}
@@ -78,6 +82,8 @@ post-install:
 	${INSTALL_DATA} ${WRKSRC}/doc/arm/*.html ${DOCDIR}/arm
 	${INSTALL_DATA} ${WRKSRC}/doc/draft/draft-*.txt ${DOCDIR}/draft
 	${INSTALL_DATA} ${WRKSRC}/doc/rfc/rfc*.txt ${DOCDIR}/rfc
+	${INSTALL_DATA} ${FILESDIR}/named.conf ${DESTDIR}${PREFIX}/share/examples/bind9
+	${RM} -f ${DESTDIR}${PKG_SYSCONFDIR}/bind.keys
 
 .include "../../security/openssl/buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"

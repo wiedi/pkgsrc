@@ -35,7 +35,7 @@ BUILD_TARGET=	generic
 CFLAGS+=	-O
 .endif
 
-.if !empty(PKGSRC_COMPILER:Msunpro)
+.if !empty(PKGSRC_COMPILER:Msunpro) || ${OPSYS} == "SunOS"
 MAKE_FLAGS+=	DISABLE_ASM=YES
 .endif
 

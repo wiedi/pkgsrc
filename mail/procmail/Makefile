@@ -61,7 +61,7 @@ do-install:
 	for f in procmailex.5 procmailrc.5 procmailsc.5; do		\
 		${INSTALL_MAN} $$f ${DESTDIR}${PREFIX}/${PKGMANDIR}/man5/$$f; \
 	done
-	${SH} ${WRKSRC}/suid.sh
+	DESTDIR=${DESTDIR:Q} ${SH} ${WRKSRC}/suid.sh
 .endif
 
 .include "../../mk/bsd.pkg.mk"

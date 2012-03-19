@@ -21,7 +21,13 @@ USE_LANGUAGES=	c c++
 # not really GNU configure, but close enough
 GNU_CONFIGURE=	yes
 
+.include "../../mk/bsd.prefs.mk"
+
 CONFIGURE_ARGS+=	--disable-wx
+CONFIGURE_ARGS+=	--X11-path=${X11BASE}
+.if ${OPSYS} == "SunOS"
+CONFIGURE_ARGS+=	--enable-pic
+.endif
 
 .include "../../audio/faad2/buildlink3.mk"
 .include "../../audio/liba52/buildlink3.mk"

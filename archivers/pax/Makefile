@@ -24,10 +24,10 @@ CONFIGURE_ARGS+=	--program-prefix=${NBPAX_PROGRAM_PREFIX:Q}
 .else
 
 # pax installs "tar" and "cpio"
-.if defined(GNU_PROGRAM_PREFIX) && empty(GNU_PROGRAM_PREFIX)
+.if defined(GNU_PROGRAM_PREFIX) && empty(GNU_PROGRAM_PREFIX) && empty(NBPAX_PROGRAM_PREFIX)
 CONFLICTS+=		gcpio-[0-9]*
 .endif
-.if defined(GTAR_PROGRAM_PREFIX) && empty(GTAR_PROGRAM_PREFIX)
+.if defined(GTAR_PROGRAM_PREFIX) && empty(GTAR_PROGRAM_PREFIX) && empty(NBPAX_PROGRAM_PREFIX)
 CONFLICTS+=		gtar-base-[0-9]*
 .endif
 
@@ -35,11 +35,18 @@ CONFLICTS+=		gtar-base-[0-9]*
 
 PLIST_SUBST+=		NBPAX_PROGRAM_PREFIX=${NBPAX_PROGRAM_PREFIX:Q}
 BUILD_DEFS+=		NBPAX_PROGRAM_PREFIX
+PLIST_VARS+=		nbprefix
 
 GNU_CONFIGURE=		yes
 
 do-extract:
 	${CP} -R ${FILESDIR} ${WRKSRC}
+
+.if !empty(NBPAX_PROGRAM_PREFIX)
+PLIST.nbprefix=		yes
+post-install:
+	${LN} -s ${NBPAX_PROGRAM_PREFIX}pax ${DESTDIR}${PREFIX}/bin/pax
+.endif
 
 # Haiku (BeFS) cannot support hard link
 .if ${OPSYS} == "Haiku"

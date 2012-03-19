@@ -50,4 +50,8 @@ do-install:
 .  endif
 .endfor
 
+.if ${OPSYS} == "SunOS" && (${MACHINE_ARCH} == i386 || ${MACHINE_ARCH} == x86_64)
+CFLAGS.SunOS=	-DLITTLE_ENDIAN
+.endif
+
 .include "../../mk/bsd.pkg.mk"

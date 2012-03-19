@@ -43,6 +43,10 @@ CONFIGURE_ENV+=	LDSHARED="${CC} -G"
 LIBS.SunOS+=	-lm
 .endif
 
+.if ${OPSYS} == "SunOS"
+CONFIGURE_ENV+=	OBJCOPY=:
+.endif
+
 # Ruby build process depends on config.status's content
 CONFIG_STATUS_OVERRIDE=	# empty
 

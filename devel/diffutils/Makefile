@@ -9,6 +9,7 @@ MASTER_SITES=		${MASTER_SITE_GNU:=diffutils/}
 MAINTAINER=		pkgsrc-users@NetBSD.org
 HOMEPAGE=		http://www.gnu.org/software/diffutils/diffutils.html
 COMMENT=		GNU diff utilities - find the differences between files
+LICENSE=		gnu-gpl-v3
 
 PKG_INSTALLATION_TYPES=	overwrite pkgviews
 PKG_DESTDIR_SUPPORT=	user-destdir
@@ -17,6 +18,7 @@ GNU_CONFIGURE=		YES
 INFO_FILES=		# PLIST
 
 CONFIGURE_ENV+=	gt_cv_func_gnugettext1_libintl=yes
+CONFIGURE_ENV+=	ac_cv_sys_xsi_stack_overflow_heuristic=no
 
 .include "../../mk/bsd.prefs.mk"
 

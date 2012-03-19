@@ -19,7 +19,8 @@ PKG_SUGGESTED_OPTIONS+=		${MACHINE_ARCH}
      ${MACHINE_ARCH} == "sparc64") && \
     ((${OPSYS} == "NetBSD" && ${X11_TYPE} == "modular") || \
      ${OPSYS} == "FreeBSD" || ${OPSYS} == "OpenBSD" || \
-     ${OPSYS} == "DragonFly" || ${OPSYS} == "Linux")
+     ${OPSYS} == "DragonFly" || ${OPSYS} == "Linux" || \
+     ${OPSYS} == "SunOS")
 PKG_SUPPORTED_OPTIONS+=		dri
 .endif
 ###
