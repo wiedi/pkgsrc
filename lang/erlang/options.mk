@@ -1,7 +1,7 @@
-# $NetBSD: options.mk,v 1.4 2011/04/14 19:34:07 asau Exp $
+# $NetBSD: options.mk,v 1.3 2009/12/15 12:07:57 asau Exp $
 
 PKG_OPTIONS_VAR=	PKG_OPTIONS.erlang
-PKG_SUPPORTED_OPTIONS=	java erlang-hipe
+PKG_SUPPORTED_OPTIONS=	java erlang-hipe dtrace
 PKG_OPTIONS_OPTIONAL_GROUPS=	odbc
 PKG_OPTIONS_GROUP.odbc=		iodbc unixodbc
 
@@ -49,6 +49,26 @@ PLIST.odbc=	yes
 .  include "../../databases/unixodbc/buildlink3.mk"
 CONFIGURE_ARGS+=	--with-odbc=${BUILDLINK_PREFIX.unixodbc}
 PLIST.odbc=	yes
+.endif
+
+###
+### Provide DTrace support
+###
+.if !empty(PKG_OPTIONS:Mdtrace)
+USE_TOOLS+=		autoconf
+CONFIGURE_ARGS+=	--enable-dtrace
+PLIST_SRC+=		PLIST.dtrace
+VERSION.dtrace=		0.8
+PLIST_SUBST=		VERSION.dtrace=${VERSION.dtrace}
+
+post-patch:
+	cd ${WRKSRC} && \
+	  ${MKDIR} lib/dtrace/ebin && \
+	  ${FIND} lib/dtrace -xdev -type f -name '*.orig' \
+	    -exec ${RM} -f {} \;
+
+pre-configure:
+	cd ${WRKSRC} && ERL_TOP=${WRKSRC} ./otp_build autoconf
 .endif
 
 # Help generate optional PLIST parts:
