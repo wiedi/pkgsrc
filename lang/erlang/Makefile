@@ -72,6 +72,9 @@ CONFIGURE_ARGS+=	--enable-kernel-poll
 
 .include "Makefile.versions"
 
+post-extract:
+	${CP} ${FILESDIR}/prim_file.beam ${WRKSRC}/erts/preloaded/ebin/
+
 ###
 ### Ensure this gets rebuilt.
 ###
