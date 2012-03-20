@@ -66,7 +66,8 @@ ${_BUILD_INFO_FILE}: plist
 	ELF)								\
 		libs=`${AWK} '/\/lib.*\.so(\.[0-9]+)*$$/ { print "${DESTDIR}${PREFIX}/" $$0 } END { exit 0 }' ${_PLIST_NOKEYWORDS}`; \
 		if ${TEST} -n "$$bins" -o -n "$$libs"; then		\
-			requires=`($$ldd $$bins $$libs 2>/dev/null || ${TRUE}) | ${AWK} '$$2 == "=>" && $$3 ~ "/" { print $$3 }' | ${SORT} -u`; \
+			requires=`(LD_LIBRARY_PATH=${DESTDIR}${PREFIX}/lib $$ldd $$bins $$libs 2>/dev/null || ${TRUE}) |\
+			${AWK} '$$2 == "=>" && $$3 ~ "/" { print $$3 }' | ${SED} -e 's,${DESTDIR},,' | ${SORT} -u`; \
 		fi;							\
 		linklibs=`${AWK} '/.*\.so(\.[0-9]+)*$$/ { print "${DESTDIR}${PREFIX}/" $$0 }' ${_PLIST_NOKEYWORDS}`; \
 		for i in $$linklibs; do					\
@@ -93,11 +94,6 @@ ${_BUILD_INFO_FILE}: plist
 	done | ${SED} -e 's,^PROVIDES=${DESTDIR},PROVIDES=,'		\
 		>> ${.TARGET}.tmp;					\
 	for req in "" $$requires; do					\
-		stripreq=`${ECHO} $$req | ${AWK} '{gsub(/.*\//, "", $$0); print}'`; \
-		for i in "" $$libs; do					\
-			striplib=`${ECHO} $$i | ${AWK} '{gsub(/.*\//, "", $$0); print}'`; \
-			${TEST} "$${stripreq}" != "$${striplib}" || req="";	\
-		done;							\
 		${TEST} "$$req" != "" || continue;			\
 		${ECHO} "REQUIRES=$$req" >> ${.TARGET}.tmp;		\
 	done
