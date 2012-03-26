@@ -84,7 +84,7 @@ SUBST_STAGE.fix-cd-P=	pre-build
 SUBST_SED.fix-cd-P=	-e "s/cd -P/cd/g"
 .endif
 
-LDFLAGS.SunOS+=		-lintl
+LDFLAGS.SunOS+=		-lintl -lnsl
 
 .include "options.mk"
 
