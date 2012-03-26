@@ -29,7 +29,7 @@ CONFIGURE_ARGS+=	--without-python
 
 # allow thread-awareness, but make sure the library is not
 # linked against libpthread
-#CONFIGURE_ARGS+=	--without-threads
+CONFIGURE_ARGS+=	--without-threads
 
 MAKE_ENV+=	PAX=${PAX:Q}
 
@@ -47,7 +47,6 @@ SUBST_SED.cat+=	-e "s,@@XML_DEFAULT_CATALOG@@,${XML_DEFAULT_CATALOG},g"
 post-install:
 	test -z "`ldd ${DESTDIR}${PREFIX}/lib/libxml2.so | grep pthread`"
 
-.include "../../mk/pthread.buildlink3.mk"
 .include "../../devel/zlib/buildlink3.mk"
 .include "../../converters/libiconv/buildlink3.mk"
 .include "../../textproc/xmlcatmgr/catalogs.mk"
