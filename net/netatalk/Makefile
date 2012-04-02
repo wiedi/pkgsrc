@@ -51,6 +51,7 @@ CONFIGURE_ARGS+=	--localstatedir=${VARBASE}/netatalk
 CONFIGURE_ARGS+=	--with-uams-path=${PREFIX}/libexec/netatalk/uams
 CONFIGURE_ARGS+=	--with-bdb=${BDBBASE}
 CONFIGURE_ARGS+=	--with-ssl-dir=${BUILDLINK_PREFIX.openssl}
+CONFIGURE_ARGS+=	--with-ldap=no
 
 MAKE_DIRS+=		${PKG_SYSCONFDIR}/msg
 
@@ -60,10 +61,19 @@ SUBST_STAGE.paths=	pre-configure
 SUBST_FILES.paths=	etc/psf/etc2ps.sh distrib/initscripts/Makefile.in
 SUBST_SED.paths=	-e "s,^\\(DVIPS=\\)\\(/usr/local/tex\\)\\(/bin\\),\\1${PREFIX}\\3,"
 
+PLIST_VARS+=		rcd
+.if ${OPSYS} == "NetBSD"
 RCD_SCRIPTS=		afpd atalkd papd timelord cnid_metad
-.for f in ${RCD_SCRIPTS}
+.  for f in ${RCD_SCRIPTS}
 RCD_SCRIPT_SRC.${f}=	${WRKSRC}/distrib/initscripts/${f}
-.endfor
+.  endfor
+PLIST.rcd=		yes
+.endif
+
+PLIST_VARS+=		ea
+.if ${OPSYS} == "SunOS"
+PLIST.ea=		yes
+.endif
 
 .include "options.mk"
 
