@@ -16,7 +16,9 @@ CHECK_BUILTIN.libarchive:=     no
 # A built-in libarchive is always using built-in zlib, bzip2, and xz.
 .if empty(USE_BUILTIN.libarchive:M[yY][eE][sS])
 .include "../../archivers/bzip2/buildlink3.mk"
+.if !empty(PKG_BUILD_OPTIONS.libarchive:Mlzma)
 .include "../../archivers/xz/buildlink3.mk"
+.endif
 .include "../../devel/zlib/buildlink3.mk"
 .endif
 .endif # LIBARCHIVE_BUILDLINK3_MK
