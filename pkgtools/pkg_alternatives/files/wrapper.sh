@@ -33,6 +33,8 @@
 
 wrapper="__WRAPPER__"
 progname="${wrapper##*/} (wrapper)"
+alias tr=@PREFIX@/bin/tr
+alias cut=@PREFIX@/bin/cut
 
 if [ ! -f __DB_FILE__ ]; then
     echo "${progname}: cannot open __DB_FILE__" 1>&2
