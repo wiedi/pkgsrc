@@ -74,7 +74,73 @@ $NetBSD: patch-ab,v 1.7 2011/04/08 22:56:12 morr Exp $
  then
  
  cat >>confdefs.h <<_ACEOF
-@@ -20882,7 +20882,7 @@ if test -n "$PATH_TO_APTGET" ; then
+@@ -20200,6 +20200,10 @@ cat confdefs.h >>conftest.$ac_ext
+ cat >>conftest.$ac_ext <<_ACEOF
+ /* end confdefs.h.  */
+ 
++#if __sun__ && !defined(_LP64) && _FILE_OFFSET_BITS == 64
++#undef _FILE_OFFSET_BITS
++#endif
++
+ #ifdef HAVE_SYS_PARAM_H
+ #include <sys/param.h>
+ #endif
+@@ -20258,6 +20262,10 @@ cat confdefs.h >>conftest.$ac_ext
+ cat >>conftest.$ac_ext <<_ACEOF
+ /* end confdefs.h.  */
+ 
++#if __sun__ && !defined(_LP64) && _FILE_OFFSET_BITS == 64
++#undef _FILE_OFFSET_BITS
++#endif
++
+                #include <unistd.h>
+                #include <sys/types.h>
+                #include <sys/param.h>
+@@ -20333,6 +20341,10 @@ cat confdefs.h >>conftest.$ac_ext
+ cat >>conftest.$ac_ext <<_ACEOF
+ /* end confdefs.h.  */
+ 
++#if __sun__ && !defined(_LP64) && _FILE_OFFSET_BITS == 64
++#undef _FILE_OFFSET_BITS
++#endif
++
+                #include <sys/types.h>
+                #include <sys/param.h>
+                #include <sys/stat.h>
+@@ -20400,6 +20412,10 @@ cat confdefs.h >>conftest.$ac_ext
+ cat >>conftest.$ac_ext <<_ACEOF
+ /* end confdefs.h.  */
+ 
++#if __sun__ && !defined(_LP64) && _FILE_OFFSET_BITS == 64
++#undef _FILE_OFFSET_BITS
++#endif
++
+                #include <sys/types.h>
+                #include <sys/param.h>
+                #include <sys/stat.h>
+@@ -20468,6 +20484,10 @@ cat confdefs.h >>conftest.$ac_ext
+ cat >>conftest.$ac_ext <<_ACEOF
+ /* end confdefs.h.  */
+ 
++#if __sun__ && !defined(_LP64) && _FILE_OFFSET_BITS == 64
++#undef _FILE_OFFSET_BITS
++#endif
++
+                  #include <unistd.h>
+                  #include <sys/types.h>
+                  #include <sys/param.h>
+@@ -20514,6 +20534,10 @@ cat confdefs.h >>conftest.$ac_ext
+ cat >>conftest.$ac_ext <<_ACEOF
+ /* end confdefs.h.  */
+ 
++#if __sun__ && !defined(_LP64) && _FILE_OFFSET_BITS == 64
++#undef _FILE_OFFSET_BITS
++#endif
++
+                  #include <unistd.h>
+                  #include <sys/types.h>
+                  #include <sys/param.h>
+@@ -20882,7 +20906,7 @@ if test -n "$PATH_TO_APTGET" ; then
  fi
  
  
