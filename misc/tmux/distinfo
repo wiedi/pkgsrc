@@ -3,3 +3,4 @@ $NetBSD: distinfo,v 1.17 2012/01/28 23:04:53 christos Exp $
 SHA1 (tmux-1.6.tar.gz) = 8756f6bcecb18102b87e5d6f5952ba2541f68ed3
 RMD160 (tmux-1.6.tar.gz) = e88d1ac4751920bf5a6b52be80f332f1eb2e8694
 Size (tmux-1.6.tar.gz) = 388633 bytes
+SHA1 (patch-Makefile.in) = 10fecf0f86089c8e8052af255e390db792cf4a49
