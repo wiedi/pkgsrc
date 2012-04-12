@@ -1,0 +1,34 @@
+$NetBSD$
+
+--- build/config/SunOS-GCC.orig	2010-12-16 05:43:24.000000000 +0000
++++ build/config/SunOS-GCC
+@@ -20,7 +20,7 @@ CXX     = g++
+ LINK    = $(CXX)
+ LIB     = ar -cr
+ RANLIB  = ranlib
+-SHLIB   = $(CXX) -shared -Wl,-soname,$(notdir $@) -o $@
++SHLIB   = $(CXX) $(LINKFLAGS) -G -o $@ -h$(notdir $@)
+ SHLIBLN = $(POCO_BASE)/build/script/shlibln
+ STRIP   = strip
+ DEP     = $(POCO_BASE)/build/script/makedepend.gcc 
+@@ -52,7 +52,7 @@ STATICOPT_CXX   =
+ STATICOPT_LINK  = -static
+ SHAREDOPT_CC    = -fPIC
+ SHAREDOPT_CXX   = -fPIC
+-SHAREDOPT_LINK  = -Wl,-rpath,$(LIBPATH)
++SHAREDOPT_LINK  = -Wl,-R,$(LIBPATH)
+ DEBUGOPT_CC     = -g -D_DEBUG
+ DEBUGOPT_CXX    = -g -D_DEBUG
+ DEBUGOPT_LINK   = -g
+@@ -63,9 +63,9 @@ RELEASEOPT_LINK = -O2
+ #
+ # System Specific Flags
+ #
+-SYSFLAGS = -D_XOPEN_SOURCE=500 -D_REENTRANT -D_THREAD_SAFE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE
++SYSFLAGS = -D_XOPEN_SOURCE=600 -D_REENTRANT -D_THREAD_SAFE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE
+ 
+ #
+ # System Specific Libraries
+ #
+-SYSLIBS  = -lpthread -ldl -lrt
++SYSLIBS  = -lpthread -ldl -lrt -lxnet -lsocket -lnsl -lresolv -ldl
