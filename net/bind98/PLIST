@@ -372,5 +372,6 @@ share/doc/bind9/misc/options
 share/doc/bind9/misc/rfc-compliance
 share/doc/bind9/misc/roadmap
 share/doc/bind9/misc/sdb
+share/examples/bind9/named.conf
 share/examples/rc.d/lwresd
 share/examples/rc.d/named9
