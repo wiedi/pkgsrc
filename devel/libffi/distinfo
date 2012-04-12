@@ -13,4 +13,7 @@ SHA1 (patch-ag) = 6333317170f6e92f89db966315276dcd8e3484f2
 SHA1 (patch-ah) = e9580069ede90cd616da7bc230b28acbf5d204a6
 SHA1 (patch-ai) = f85a6cb64d4a9d7c3e56b47b7092fce10a744b5b
 SHA1 (patch-aj) = cd8369bef0149ed044ef16c0eae7b537b4090f1f
+SHA1 (patch-configure.ac) = 79b0962b3eff0a5300f2d0039be97d60c94c126d
+SHA1 (patch-fficonfig.h.in) = 3630c6fe4bd2fe437578a0f59b00dfbfcbf376b5
 SHA1 (patch-src_arm_sysv.S) = b4a4a1641e116df8dd9bd3896e6bfaa759489cb3
+SHA1 (patch-src_x86_unix64.S) = 68141b900d505cf3d3ea6cf8128bda1b5bf1e864
