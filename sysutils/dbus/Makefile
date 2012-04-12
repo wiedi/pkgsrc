@@ -35,6 +35,7 @@ CONFIGURE_ARGS+=	--localstatedir=${VARBASE:Q}
 CONFIGURE_ARGS+=	--sysconfdir=${PKG_SYSCONFDIR:Q}
 
 #CFLAGS.NetBSD+=		-D_NETBSD_SOURCE
+LIBS.SunOS+=			-ltsol
 
 CONFIGURE_ARGS_GROUPS=	enable disable with without
 
