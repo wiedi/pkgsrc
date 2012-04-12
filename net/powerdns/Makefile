@@ -11,6 +11,8 @@ COMMENT=		Modern, advanced and high performance nameserver
 CONFIGURE_ARGS+=	--with-modules="geo"
 CONFIGURE_ARGS+=	--with-dynmodules="pipe"
 
+LDFLAGS.SunOS+=		-lnsl -lsocket
+
 RCD_SCRIPTS=		pdns
 
 EGDIR=			${PREFIX}/share/examples/pdns
