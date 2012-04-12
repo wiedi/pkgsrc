@@ -21,6 +21,8 @@ CONFIGURE_ARGS+=	--with-tdsver=7.0
 # no thread-safe resolver functions on NetBSD
 CONFIGURE_ARGS+=	--disable-threadsafe
 
+BUILDLINK_TRANSFORM+=	rm:-O[23]
+
 EGDIR=		${PREFIX}/share/examples/freetds
 CONF_FILES+=	${EGDIR}/freetds.conf ${PKG_SYSCONFDIR}/freetds.conf
 CONF_FILES+=	${EGDIR}/locales.conf ${PKG_SYSCONFDIR}/locales.conf
