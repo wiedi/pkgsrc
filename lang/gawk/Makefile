@@ -34,12 +34,20 @@ PKG_SUPPORTED_OPTIONS=	portals
 
 .include "../../mk/bsd.options.mk"
 
+PLIST_SUBST+=		GNU_PROGRAM_PREFIX=${GNU_PROGRAM_PREFIX:Q}
+BUILD_DEFS+=		GNU_PROGRAM_PREFIX
+
 .if !empty(PKG_OPTIONS:Mportals)
 CONFIGURE_ARGS+=	--enable-portals
 .endif
 
 .if !empty(MACHINE_PLATFORM:MDarwin-*-x86_64)
 CFLAGS+=	-Dvm_region=vm_region_64
+.endif
+
+.if defined(GNU_PROGRAM_PREFIX)
+post-install:
+	${MV} ${DESTDIR}${PREFIX}/bin/gawk ${DESTDIR}${PREFIX}/bin/${GNU_PROGRAM_PREFIX}awk
 .endif
 
 BUILDLINK_API_DEPENDS.gettext+=	gettext-lib>=0.10.36
