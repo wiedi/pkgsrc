@@ -22,6 +22,13 @@ MAKE_FLAGS+=		bin_SCRIPTS= # don't install problematic scripts
 CFLAGS+=		-D_NETBSD_SOURCE # hack for ulong along with patch-aa
 .endif
 
+.if ${OPSYS} == "SunOS"
+SUBST_CLASSES+=		sun
+SUBST_STAGE.sun=	post-configure
+SUBST_FILES.sun=	sysbench/drivers/mysql/Makefile
+SUBST_SED.sun=		-e 's,-D_XOPEN_SOURCE=500 ,,g'
+.endif
+
 .include "options.mk"
 .include "../../mk/pthread.buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"
