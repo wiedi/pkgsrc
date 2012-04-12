@@ -39,11 +39,18 @@ CONFLICTS+=		gtar-base-[0-9]*
 
 PLIST_SUBST+=		NBPAX_PROGRAM_PREFIX=${NBPAX_PROGRAM_PREFIX:Q}
 BUILD_DEFS+=		NBPAX_PROGRAM_PREFIX
+PLIST_VARS+=		nbprefix
 
 GNU_CONFIGURE=		yes
 
 do-extract:
 	${CP} -R ${FILESDIR} ${WRKSRC}
+
+.if !empty(NBPAX_PROGRAM_PREFIX)
+PLIST.nbprefix=		yes
+post-install:
+	${LN} -s ${NBPAX_PROGRAM_PREFIX}pax ${DESTDIR}${PREFIX}/bin/pax
+.endif
 
 # Haiku (BeFS) cannot support hard link
 .if ${OPSYS} == "Haiku"
