@@ -10,6 +10,7 @@ DISTFILES=	# empty
 MAINTAINER=	joerg@NetBSD.org
 HOMEPAGE=	http://code.google.com/p/libarchive/
 COMMENT=	Library to read/create different archive formats
+LICENSE=	modified-bsd
 
 PKG_DESTDIR_SUPPORT=	user-destdir
 
@@ -18,6 +19,8 @@ USE_LIBTOOL=	yes
 
 CONFIGURE_ARGS+=	--disable-bsdtar --without-expat --without-xml2 \
 			--disable-bsdcpio
+
+.include "options.mk"
 
 do-extract:
 	${CP} -r ${FILESDIR} ${WRKSRC}
@@ -30,6 +33,5 @@ CONFIGURE_ENV+=	ac_cv_header_ext2fs_ext2_fs_h=no
 .endif
 
 .include "../../archivers/bzip2/buildlink3.mk"
-.include "../../archivers/xz/buildlink3.mk"
 .include "../../devel/zlib/buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"
