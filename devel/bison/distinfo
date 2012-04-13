@@ -5,4 +5,4 @@ RMD160 (bison-2.5.tar.bz2) = 9f90e477c9c397a8b136aa7bcee887767d94eea7
 Size (bison-2.5.tar.bz2) = 2030863 bytes
 SHA1 (patch-aa) = 7e83fa995e9406a67811b56fff2a25ef0feb06cf
 SHA1 (patch-doc_Makefile.in) = 11371a773019ada76396d36334abc6c8cac75ec6
-SHA1 (patch-lib_isnan.c) = 9f45d96cac3f861834f0dcba1430abd17813b48e
+SHA1 (patch-lib_isnan.c) = 6a71b612ee790297eca3fee355ac00359e9f987d
