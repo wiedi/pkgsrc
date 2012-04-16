@@ -25,6 +25,7 @@ REPLACE_PYTHON+=	spectrumctl/spectrumctl.py
 PY_PATCHPLIST=		yes
 
 BUILD_DEFS+=		JABBER_USER JABBER_GROUP
+BUILD_DEFS+=		SPECTRUM_RUN SPECTRUM_DB SPECTRUM_LOG
 
 .include "../../mk/bsd.prefs.mk"
 
@@ -37,6 +38,14 @@ FILES_SUBST+=		JABBER_GROUP=${JABBER_GROUP}
 PKG_GROUPS+=		${JABBER_GROUP}
 PKG_USERS+=		${JABBER_USER}:${JABBER_GROUP}
 
+SPECTRUM_RUN?=		/var/run/spectrum
+SPECTRUM_DB?=		/var/db/spectrum
+SPECTRUM_LOG?=		/var/log/spectrum
+
+OWN_DIRS+=		${SPECTRUM_RUN} ${SPECTRUM_DB} ${SPECTRUM_LOG}
+OWN_DIRS_PERMS+=	${SPECTRUM_RUN} ${JABBER_USER} ${JABBER_GROUP} 770
+OWN_DIRS_PERMS+=	${SPECTRUM_DB} ${JABBER_USER} ${JABBER_GROUP} 770
+OWN_DIRS_PERMS+=	${SPECTRUM_LOG} ${JABBER_USER} ${JABBER_GROUP} 770
 
 PKG_SYSCONFSUBDIR=	spectrum
 EGDIR=			${PREFIX}/share/examples/spectrum
@@ -71,6 +80,14 @@ SUBST_FILES.users+=	man/spectrumctl.8
 SUBST_MESSAGE.users=	Correcting spectrum user
 SUBST_SED.users=	-e 's/@SPECTRUM_USER@/${JABBER_USER}/g'
 
+SUBST_CLASSES+=		cfg
+SUBST_STAGE.cfg=	post-patch
+SUBST_FILES.cfg=	spectrum.cfg
+SUBST_MESSAGE.cfg=	Fixing paths in default config file
+SUBST_SED.cfg=		-e 's,/var/run/spectrum,${SPECTRUM_RUN},g'
+SUBST_SED.cfg+=		-e 's,/var/lib/spectrum,${SPECTRUM_DB},g'
+SUBST_SED.cfg+=		-e 's,/var/log/spectrum,${SPECTRUM_LOG},g'
+
 MESSAGE_SUBST+=		EGDIR=${EGDIR}
 MESSAGE_SUBST+=		PREFIX=${PREFIX}
 MESSAGE_SUBST+=		PKG_SYSCONFDIR=${PKG_SYSCONFDIR}
@@ -83,6 +100,7 @@ INSTALLATION_DIRS+=	share/locales
 INSTALLATION_DIRS+=	${EGDIR}
 # INSTALLATION_DIRS+=	${DOCDIR}
 
+CFLAGS+=		-fpermissive
 LDFLAGS.SunOS+=		-lsocket -lnsl
 
 pre-install:
