@@ -52,11 +52,11 @@ PKG_SYSCONFSUBDIR=	ejabberd
 
 .include "../../mk/bsd.prefs.mk"
 
-EJABBERD_USER=		ejabberd
-EJABBERD_GROUP=		ejabberd
-EJABBERD_PIDDIR=	${VARBASE}/run/ejabberd
-EJABBERD_LOGDIR=	${VARBASE}/log/ejabberd
-EJABBERD_DB=		${VARBASE}/spool/ejabberd
+EJABBERD_USER?=		ejabberd
+EJABBERD_GROUP?=	ejabberd
+EJABBERD_PIDDIR?=	${VARBASE}/run/ejabberd
+EJABBERD_LOGDIR?=	${VARBASE}/log/ejabberd
+EJABBERD_DB?=		${VARBASE}/spool/ejabberd
 EJABBERD_EXDIR=		share/examples/ejabberd
 
 OWN_DIRS+=		${EJABBERD_PIDDIR}
