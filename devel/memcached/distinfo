@@ -7,3 +7,4 @@ SHA1 (patch-Makefile.in) = 1f1b924b47840c7aa3e2a11c03300bbce58629e2
 SHA1 (patch-aa) = a888e2d8ff08278514ff081706465a93c19c44a8
 SHA1 (patch-ab) = a870c803752bca12550da73d19ee0e675b5e576d
 SHA1 (patch-configure) = 7f776205954f8a12bf52d97722ce59693f6f5aa6
+SHA1 (patch-memcached_dtrace.d) = c33b8a4e03d3e4d721ed08fc8ff328f67bca5b97
