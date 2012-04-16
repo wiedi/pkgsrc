@@ -1,4 +1,4 @@
-# $NetBSD: gcc.mk,v 1.114 2012/03/06 11:39:55 hans Exp $
+# $NetBSD: gcc.mk,v 1.117 2012/04/16 05:00:44 sbd Exp $
 #
 # This is the compiler definition for the GNU Compiler Collection.
 #
@@ -458,6 +458,7 @@ _GCC_SUBPREFIX!=	\
 	if ${PKG_INFO} -qe ${_GCC_PKGBASE}; then			\
 		${PKG_INFO} -f ${_GCC_PKGBASE} |			\
 		${GREP} "File:.*bin/gcc" |				\
+		${GREP} -v "/gcc[0-9][0-9]*-.*" |			\
 		${SED} -e "s/.*File: *//;s/bin\/gcc.*//;q";		\
 	else								\
 		case ${_CC} in						\
