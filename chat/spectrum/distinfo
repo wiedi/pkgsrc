@@ -9,3 +9,4 @@ SHA1 (patch-spectrumctl_spectrum_env.py) = 0c266de23d0af8d317fcd4efdfec64bb85714
 SHA1 (patch-spectrumctl_spectrumctl.py) = 56166fa6477a3dba56b30501f2112cd6d21db40f
 SHA1 (patch-src_geventloop.h) = b28685cb69b9759ea3496e163d48de641a49eccb
 SHA1 (patch-src_spectrum_util.cpp) = 19201297fe085f093010346c8600399332a60265
+SHA1 (patch-src_transport.h) = 11c7541c8b41556cbaa7a0d99046dd4edc4293e0
