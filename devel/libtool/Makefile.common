@@ -52,7 +52,7 @@ AUTOMAKE_OVERRIDE=	NO
 # The configure script persists in trying to find the path to ld, which
 # always ends up in ${BUILDLINK_DIR}.  Prevent it from caring.
 #
-#CONFIGURE_ENV+=		lt_cv_path_LD=${LD:Q}
+CONFIGURE_ENV+=		lt_cv_path_LD=${LD:Q}
 
 # The configure script persists in trying to find the path to sed or gsed,
 # which breaks when SED is nbsed.  Tell it explicitly to use the sed
