@@ -1,4 +1,4 @@
-$NetBSD: CHANGES-pkgsrc-2012Q1,v 1.1.2.11 2012/04/16 13:43:56 tron Exp $
+$NetBSD: CHANGES-pkgsrc-2012Q1,v 1.1.2.15 2012/04/18 14:00:42 tron Exp $
 
 Changes to the packages collection and infrastructure in pkgsrc-2012Q1:
 
@@ -68,3 +68,16 @@ Pullup ticket #3738 - requested by dholland
 devel/ruby-railties31: build fix
 Pullup ticket #3740 - requested by dholland
 multimedia/kmplayer-kde3: build fix
+Pullup ticket #3741 - requested by drochner
+net/wireshark: security update
+Pullup ticket #3739 - requested by tron
+databases/phpmyadmin: security update
+Pullup ticket #3742 - requested by taca
+www/typo3_45: security update
+Pullup ticket #3743 - requested by taca
+www/typo3_46: security update
+Pullup ticket #3744 - requested by taca
+databases/mysql5-client: security update
+databases/mysql5-server: security update
+Pullup ticket #3745 - requested by hauke
+net/netatalk: build fix

@@ -1,4 +1,4 @@
-$NetBSD$
+$NetBSD: patch-src_xineplayer_cpp,v 1.2.2.2 2012/04/16 13:37:30 tron Exp $
 
 Fix build with xine-lib 1.2.x.
 
