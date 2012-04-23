@@ -360,6 +360,31 @@ _GCC_DEPENDENCY=	gcc46>=${_GCC_REQD}:../../lang/gcc46
 _USE_GCC_SHLIB?=	yes
 .    endif
 .  endif
+.elif !empty(_NEED_GCC47:M[yY][eE][sS])
+#
+# We require gcc-4.7.x in the lang/gcc47 directory.
+#
+_GCC_PKGBASE=		gcc47
+.  if !empty(PKGPATH:Mlang/gcc47)
+_IGNORE_GCC=		yes
+MAKEFLAGS+=		_IGNORE_GCC=yes
+.  endif
+.  if !defined(_IGNORE_GCC) && !empty(_LANGUAGES.gcc)
+_GCC_PKGSRCDIR=		../../lang/gcc47
+_GCC_DEPENDENCY=	gcc47>=${_GCC_REQD}:../../lang/gcc47
+.if !empty(GCC_USE_RUNTIME:Myes)
+_GCC_PKGSRCDIR+=	../../lang/gcc47-runtime
+_GCC_DEPENDENCY+=	gcc47-runtime>=${_GCC_REQD}:../../lang/gcc47-runtime
+.endif
+.    if !empty(_LANGUAGES.gcc:Mc++) || \
+        !empty(_LANGUAGES.gcc:Mfortran) || \
+        !empty(_LANGUAGES.gcc:Mfortran77) || \
+        !empty(_LANGUAGES.gcc:Mgo) || \
+        !empty(_LANGUAGES.gcc:Mobjc) || \
+        !empty(_LANGUAGES.gcc:Mobj-c++)
+_USE_GCC_SHLIB?=	yes
+.    endif
+.  endif
 .endif
 _GCC_DEPENDS=		${_GCC_PKGBASE}>=${_GCC_REQD}
 
