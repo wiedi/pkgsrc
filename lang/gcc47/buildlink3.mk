@@ -25,7 +25,7 @@ _USE_GCC_SHLIB= yes
 .endif
 
 # Packages that link against shared libraries need a full dependency.
-.if defined(_USE_GCC_SHLIB)
+.if defined(_USE_GCC_SHLIB) && empty(GCC_USE_RUNTIME:Myes)
 BUILDLINK_DEPMETHOD.gcc47+=	full
 .else
 BUILDLINK_DEPMETHOD.gcc47?=	build
