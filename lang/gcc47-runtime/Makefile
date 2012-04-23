@@ -6,8 +6,8 @@ GCC_RUNTIME:=	yes
 
 PKGNAME=	${GCC_PKGNAME}-runtime-${GCC_DIST_VERSION}
 
-PATCHDIR=	${GCC_PKGPATH}/patches
-DISTINFO_FILE=	${GCC_PKGPATH}/distinfo
+PATCHDIR=	${.CURDIR}/../../lang/gcc47/patches
+DISTINFO_FILE=	${.CURDIR}/../../lang/gcc47/distinfo
 
 PKG_PRESERVE=   yes
 
