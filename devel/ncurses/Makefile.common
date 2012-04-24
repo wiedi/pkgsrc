@@ -50,6 +50,10 @@ CONFIGURE_ARGS+=	--without-manpage-tbl
 .if ${OPSYS} == "SunOS"
 TERMINFO_SRC=	${WRKSRC}/misc/terminfo.src
 TERMINFODIR=	share/lib/terminfo
+.include "../../mk/compiler.mk"
+. if !empty(CC_VERSION:Mgcc-4.[6-9].*)
+BUILDLINK_TRANSFORM+=	rm:-D_XOPEN_SOURCE_EXTENDED
+. endif
 .else
 TERMINFODIR=	share/terminfo
 .endif
