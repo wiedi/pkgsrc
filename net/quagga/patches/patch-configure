@@ -1,0 +1,13 @@
+$NetBSD$
+
+--- configure.orig	2012-03-12 11:43:02.000000000 +0000
++++ configure
+@@ -16451,7 +16451,7 @@ cat confdefs.h - <<_ACEOF >conftest.$ac_
+ int
+ main ()
+ {
+-#if (defined(__FreeBSD__) && ((__FreeBSD_version >= 500022 && __FreeBSD_version < 700000) || (__FreeBSD_version < 500000 && __FreeBSD_version >= 440000))) || (defined(__NetBSD__) && defined(__NetBSD_Version__) && __NetBSD_Version__ >= 106010000)
++#if (defined(__FreeBSD__) && ((__FreeBSD_version >= 500022 && __FreeBSD_version < 700000) || (__FreeBSD_version < 500000 && __FreeBSD_version >= 440000))) || (defined(__NetBSD__) && defined(__NetBSD_Version__) && __NetBSD_Version__ >= 106010000) || defined(__sun)
+   return (0);
+ #else
+   #error No support for BSD struct ip_mreq hack detected
