@@ -33,8 +33,9 @@
 
 wrapper="__WRAPPER__"
 progname="${wrapper##*/} (wrapper)"
-alias tr=@PREFIX@/bin/tr
-alias cut=@PREFIX@/bin/cut
+
+LC_ALL_BAK=${LC_ALL}
+LC_ALL=C
 
 if [ ! -f __DB_FILE__ ]; then
     echo "${progname}: cannot open __DB_FILE__" 1>&2
@@ -62,5 +63,7 @@ if [ -z "${found}" ]; then
     echo "${progname}: no alternatives found" 1>&2
     exit 1
 fi
+
+LC_ALL=${LC_ALL_BAK:-C}
 
 exec ${found} "${@}"

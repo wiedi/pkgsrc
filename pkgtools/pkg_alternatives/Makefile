@@ -12,8 +12,6 @@ COMMENT=	Generic wrappers for programs with similar interfaces
 PKG_INSTALLATION_TYPES=	overwrite pkgviews
 PKG_DESTDIR_SUPPORT=	user-destdir
 
-DEPENDS+=	coreutils-[0-9]*:../../sysutils/coreutils
-
 NO_BUILD=		YES
 WRKSRC=			${WRKDIR}
 
