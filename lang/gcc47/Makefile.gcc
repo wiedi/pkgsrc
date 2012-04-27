@@ -3,6 +3,7 @@
 PKGNAME=        ${GCC_PKGNAME}-${GCC_DIST_VERSION}
 
 DEPENDS+=	${GCC_PKGNAME}-runtime-${PKGVERSION}:../../${PKGPATH}-runtime
+DEPENDS+=	binutils>=2.19:../../wip/binutils
 
 post-install:
 	${TEST} -f ${DESTDIR}${GCC_PREFIX}/bin/cc || \

@@ -88,7 +88,6 @@ CONFIGURE_ARGS+=	--with-gnu-as --with-as=/usr/sfw/bin/gas
 . elif exists(/usr/ccs/bin/as)
 CONFIGURE_ARGS+=	--without-gnu-as --with-as=/usr/ccs/bin/as
 . else
-DEPENDS+=		binutils>=2.19:../../wip/binutils
 CONFIGURE_ARGS+=	--with-gnu-as --with-as=${PREFIX}/bin/${GNU_PROGRAM_PREFIX}as
 . endif
 .endif

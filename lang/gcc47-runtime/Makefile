@@ -11,6 +11,8 @@ DISTINFO_FILE=	${.CURDIR}/../../lang/gcc47/distinfo
 
 PKG_PRESERVE=   yes
 
+BUILD_DEPENDS+=	binutils>=2.19:../../wip/binutils
+
 do-install:
 	cd ${WRKDIR}/build && \
 		${SETENV} ${MAKE_ENV} ${GMAKE} install-target DESTDIR=${DESTDIR}
