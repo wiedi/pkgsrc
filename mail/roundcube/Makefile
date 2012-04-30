@@ -132,7 +132,7 @@ do-install:
 
 .for f in ${CONF_PLUGINS}
 	${MKDIR} ${DESTDIR}${EGDIR}/plugins/${f}
-	test -f ${DESTDIR}${EGDIR}/plugins/${f}/config.inc.php ] ||
+	test -f ${DESTDIR}${EGDIR}/plugins/${f}/config.inc.php || \
 		${MV} ${DESTDIR}${RCDIR}/plugins/${f}/config.inc.php.dist \
 			${DESTDIR}${EGDIR}/plugins/${f}/config.inc.php
 .endfor
