@@ -6,7 +6,7 @@ POST-INSTALL)
 This package is SMF enabled, which means you can use SMF to 'enable',
 'disable' or 'restart' the persistent daemon process, e.g.:
 
-  svcadm enable @SMF_NAME@
+  svcadm enable @SMF_NAME@:@SMF_INSTANCE@
 
 EOF
 	if [ -z "${PKG_SKIP_SMF}" ]; then
