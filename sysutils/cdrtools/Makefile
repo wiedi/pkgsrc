@@ -26,6 +26,8 @@ WRKSRC=		${WRKDIR}/${DISTNAME:C/a[0-9]*//}
 
 USE_TOOLS+=	gm4 gmake tbl
 
+MAKE_JOBS_SAFE=	no
+
 CFLAGS.NetBSD+=	-DUSE_GETRAWPARTITION
 LDFLAGS.NetBSD+=	-lutil
 
