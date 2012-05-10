@@ -12,7 +12,7 @@ PKG_DESTDIR_SUPPORT=	user-destdir
 
 CONFLICTS+=	 rake-[0-9]*
 
-USE_TOOLS+=	gzip
+USE_TOOLS+=	gzcat
 FIX_PERM=	doc/release_notes/rake-0.7.3.rdoc \
 		lib/rake/ruby182_test_unit_fix.rb
 
@@ -38,7 +38,7 @@ RAKE_SPEC=	${GEM_HOME}/specifications/${GEM_NAME}.gemspec
 
 # rake.1.gz has one extra byte at EOF.
 pre-configure:
-	cd ${WRKSRC}/doc && (gzip -d rake.1.gz 2>/dev/null || ${TRUE})
+	cd ${WRKSRC}/doc && (gzcat rake.1.gz > rake.1 2>/dev/null || ${TRUE})
 	cd ${WRKSRC}; ${CHMOD} -x ${FIX_PERM}
 	cd ${WRKSRC}/bin && ${MV} rake ${RAKEBIN}
 
