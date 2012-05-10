@@ -16,6 +16,8 @@ USE_LANGUAGES+=	c99
 USE_LIBTOOL=	YES
 USE_TOOLS+=	gmake texi2html pod2man
 
+MAKE_JOBS_SAFE=	no
+
 .include "../../mk/compiler.mk"
 
 .if ${OPSYS} == "SunOS" && empty(CC_VERSION:Mgcc*)
