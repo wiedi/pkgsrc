@@ -1,4 +1,4 @@
-$NetBSD: CHANGES-pkgsrc-2012Q1,v 1.1.2.20 2012/04/22 23:07:10 spz Exp $
+$NetBSD: CHANGES-pkgsrc-2012Q1,v 1.1.2.30 2012/05/09 06:27:17 tron Exp $
 
 Changes to the packages collection and infrastructure in pkgsrc-2012Q1:
 
@@ -99,3 +99,51 @@ lang/ruby193-base: security fix
 Pullup ticket #3752 - requested by taca
 lang/ruby: version bump
 lang/ruby19-base: security fix
+Pullup ticket #3755 - requested by taca
+security/openssl security update.
+Pullup ticket #3754 - requested by obache
+emulators/suse121_openssl: security update
+Pullup ticket #3756 - requested by morr
+www/wordpress: security update
+Pullup ticket #3757 - requested by gls
+www/moodle: security update
+Pullup ticket #3758 - requested by sbd
+multimedia/xine-lib: build fix
+Pullup ticket #3760 - requested by dholland
+graphics/aqsis: build fix update
+Pullup ticket #3760 - requested by dholland
+graphics/aqsis: build fix update
+Pullup ticket #3761 - requested by dholland
+lang/objc: build fix
+Pullup ticket #3762 - requested by taca
+net/bind99: security patch
+Pullup ticket #3763 - requested by taca
+net/bind98: security patch
+Pullup ticket #3764 - requested by taca
+net/bind97: security patch
+Pullup ticket #3765 - requested by taca
+net/bind96: security patch
+Pullup ticket #3766 - requested by taca
+net/samba: security update
+Pullup ticket #3767 - requested by taca
+net/samba35: security update
+Pullup ticket #3768 - requested by taca
+www/drupal7: security update
+Pullup ticket #3769 - requested by taca
+lang/php53: security update
+Pullup ticket #3770 - requested by gls
+graphics/feh: build fix
+Pullup ticket #3771 - requested by gls
+devel/p5-Config-IniFiles: security update
+Pullup ticket #3772 - requested by dholland
+devel/guile-gnome: build fix
+Pullup ticket #3773 - requested by joerg
+graphics/digikam-kde3: packaging fix
+Pullup ticket #3774 - requested by taca
+lang/php53 security update
+Pullup ticket #3775 - requested by dholland
+lang/pfe builde fix
+Pullup ticket #3776 - requested by sbd
+x11/xorg-cf-files: portability fix
+Pullup ticket #3777 - requested by dholland
+mail/oe2mbx: build fix
