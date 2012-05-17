@@ -3,7 +3,7 @@
 PKG_OPTIONS_VAR=	PKG_OPTIONS.nginx
 PKG_SUPPORTED_OPTIONS=	dav flv gtools inet6 mail-proxy memcache pcre \
 			push realip ssl sub uwsgi image-filter upload debug \
-			status
+			status passenger
 PKG_SUGGESTED_OPTIONS=	pcre ssl
 
 PLIST_VARS+=		uwsgi
@@ -96,4 +96,24 @@ CONFIGURE_ARGS+=	--with-http_image_filter_module
 
 .if !empty(PKG_OPTIONS:Mstatus)
 CONFIGURE_ARGS+=	--with-http_stub_status_module
+.endif
+
+.if !empty(PKG_OPTIONS:Mpassenger)
+PKGNAME=		${DISTNAME}
+FILEBASE=		${PKGBASE}+passenger
+
+DEPENDS+=		${RUBY_PKGPREFIX}-passenger-[0-9]*:../../wip/ruby-passenger
+
+CONFIGURE_ARGS+=	--add-module=${WRKDIR}/passenger/ext/nginx
+
+MESSAGE_SRC=		MESSAGE
+MESSAGE_SRC+=		MESSAGE.passenger
+
+.include "../../wip/ruby-passenger/inplace.mk"
+
+pre-configure: build-passenger-files
+
+build-passenger-files:
+	cd ${WRKDIR}/passenger/build && ${RAKE} nginx:clean nginx
+
 .endif
