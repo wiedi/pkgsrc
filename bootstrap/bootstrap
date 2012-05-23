@@ -678,6 +678,9 @@ SunOS)
 	groupsprog="/usr/xpg4/bin/id -gn"
 	whoamiprog="/usr/xpg4/bin/id -un"
 	machine_arch=`uname -p | sed -e 's/i86pc/i386/'`
+	if [ "${abi}" == 64 ]; then
+		machine_arch=`echo $machine_arch | sed -e 's/i386/x86_64/'`
+	fi
 	check_compiler=yes
 	;;
 UnixWare)
