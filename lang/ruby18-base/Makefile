@@ -47,6 +47,10 @@ CONFIGURE_ENV+=	LDSHARED="${CC} -G"
 LIBS.SunOS+=	-lm
 .endif
 
+.if !empty(CC_VERSION:Mgcc-4.[7-9].*)
+CFLAGS+=	-fno-tree-dce -fno-optimize-sibling-calls
+.endif
+
 .if !empty(PKGSRC_COMPILER:Mclang)
 CONFIGURE_ARGS+=	--enable-frame-address
 .endif
