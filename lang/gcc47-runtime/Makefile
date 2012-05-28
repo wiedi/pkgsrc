@@ -9,8 +9,6 @@ PKGNAME=	${GCC_PKGNAME}-runtime-${GCC_DIST_VERSION}
 PATCHDIR=	${.CURDIR}/../../lang/gcc47/patches
 DISTINFO_FILE=	${.CURDIR}/../../lang/gcc47/distinfo
 
-PKG_PRESERVE=   yes
-
 BUILD_DEPENDS+=	binutils>=2.19:../../wip/binutils
 
 do-install:
