@@ -1,4 +1,4 @@
-$NetBSD: CHANGES-pkgsrc-2012Q1,v 1.1.2.36 2012/05/16 12:51:52 tron Exp $
+$NetBSD: CHANGES-pkgsrc-2012Q1,v 1.1.2.48 2012/05/28 22:46:59 tron Exp $
 
 Changes to the packages collection and infrastructure in pkgsrc-2012Q1:
 
@@ -171,3 +171,47 @@ databases/mysql51-client: security update
 databases/mysql51-server: security update
 Pullup ticket #3788 - requested by taca
 lang/php5: security patch
+Pullup ticket #3789 - requested by wiz
+chat/pidgin-otr: security update
+Pullup ticket #3790 - requested by taca
+security/sudo: security update
+Pullup ticket #3791 - requested by he
+databases/p5-DBD-postgresql: security update
+Pullup ticket #3792 - requested by joerg
+pkgtools/pbulk: bug fix update
+Pullup ticket #3793 - requested by bouyer
+security/p5-AuthCAS: new package required for security update
+Pullup ticket #3794 - requested by bouyer
+textproc/p5-Unicode-LineBreak: new package required for security update
+Pullup ticket #3795 - requested by taca
+textproc/libxml2: security patch
+Pullup ticket #3796 - requested by bouyer
+mail/sympa: security update
+Pullup ticket #3797 - requested by taca
+net/bind99/: security update
+Pullup ticket #3798 - requested by taca
+net/bind98: security update
+Pullup ticket #3799 - requested by taca
+net/bind97: security update
+Pullup ticket #3800 - requested by taca
+net/bind96: security update
+Pullup ticket #3802 - requested by reed
+x11/slock: security update
+Pullup ticket #3803 - requested by he
+graphics/gdk-pixbuf: security patch
+Pullup ticket #3801 - requested by tron
+net/wireshark: security update
+Pullup ticket #3804 - requested by he
+shells/tcsh: bugfix
+Pullup ticket #3805 - requested by schmonz
+textproc/py-feedparser: security update
+Pullup ticket #3806 - requested by morr
+net/haproxy: security update
+Pullup ticket #3809 - requested by schmonz
+www/ikiwiki: security update
+Pullup ticket #3807 - requested by spz
+textproc/p5-YAML-LibYAML: security update
+Pullup ticket #3808 - requested by spz
+devel/rt3: security update
+Pullup ticket #3811 - requested by abs
+audio/arts: build fix
