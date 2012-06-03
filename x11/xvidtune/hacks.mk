@@ -13,6 +13,7 @@
 # pkgsrc. The fact that the native xf86vidmode is "too old" does not
 # itself break the package.
 #
+.include "../../mk/bsd.prefs.mk"
 .if ${MACHINE_PLATFORM:MNetBSD-5*} && ${X11_TYPE} == "native"
 NEEDED_LIBS=		-Wl,-R${X11BASE}/lib -L${X11BASE}/lib
 NEEDED_LIBS+=		-lXxf86vm -lXaw7 -lXmu -lXt -lSM -lICE -lX11
