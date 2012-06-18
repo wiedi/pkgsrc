@@ -9,6 +9,7 @@ SHA1 (patch-client_completion_hash.cc) = b86ec80beac624b2aa21c7587e351ff126400ec
 SHA1 (patch-client_mysqladmin.cc) = 901c2b675cff7589ab629e591dabf26d17e4d8a7
 SHA1 (patch-client_mysqlbinlog.cc) = f78dd6538b978e1ae95bb720e8baa91087ecc149
 SHA1 (patch-client_sql_string.cc) = 4a18442fa16ccbc8f34c11a460209209017c3bc5
+SHA1 (patch-cmake_dtrace.cmake) = 2837279f942ff5e75c4157144ee42ce0e9b7ff79
 SHA1 (patch-cmake_libutils.cmake) = 5d75a1762e3db6724bec2d75b45d40b17a5e9d09
 SHA1 (patch-include_CMakeLists.txt) = 4781c69315624fb5567ae70cee87f1ddb3f89847
 SHA1 (patch-include_my_compare.h) = f45bac4b488332a668b0005751856279b67401f5
