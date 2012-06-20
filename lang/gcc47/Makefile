@@ -92,6 +92,8 @@ CONFIGURE_ARGS+=	--with-gnu-as --with-as=${PREFIX}/bin/${GNU_PROGRAM_PREFIX}as
 . endif
 .endif
 
+FILES_SUBST+=		MACHINE_ARCH=${MACHINE_ARCH}
+
 pre-configure:
 	${RUN} cd ${WRKSRC} && ${MKDIR} ${OBJDIR}
 
