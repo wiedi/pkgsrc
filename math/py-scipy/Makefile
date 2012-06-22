@@ -29,6 +29,7 @@ BROKEN=		Requires fortran 95
 .endif
 
 CPPFLAGS+=	-D__STDC_FORMAT_MACROS
+FFLAGS+=	-fPIC
 
 .include "../../lang/python/extension.mk"
 .include "../../math/fftw/buildlink3.mk"
