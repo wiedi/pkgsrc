@@ -132,7 +132,8 @@ _ONLY_FOR_PLATFORMS.sun-jdk6= \
 	Linux-*-i[3-6]86 \
 	Linux-*-x86_64 \
 	NetBSD-*-i386 NetBSD-*-x86_64 \
-	SunOS-5.11-i386
+	SunOS-5.11-i386 \
+	SunOS-5.11-x86_64
 _ONLY_FOR_PLATFORMS.openjdk7= \
 	DragonFly-*-* \
 	NetBSD-[4-9]*-i386 \
@@ -251,9 +252,9 @@ _JDK_PKGSRCDIR=		../../lang/openjdk7-bin
 _JRE_PKGSRCDIR=		${_JDK_PKGSRCDIR}
 _JAVA_HOME_DEFAULT=	${LOCALBASE}/java/openjdk7-bin
 .elif ${_PKG_JVM} == "sun-jdk6"
-_JDK_PKGSRCDIR=		../../lang/sun-jdk6
-_JRE_PKGSRCDIR=		../../lang/sun-jre6
-_JAVA_HOME_DEFAULT=	${LOCALBASE}/java/sun-6
+_JDK_PKGSRCDIR=		../../joyent/sun-jdk6
+_JRE_PKGSRCDIR=		../../joyent/sun-jre6
+_JAVA_HOME_DEFAULT=	${LOCALBASE}/java/sun6
 UNLIMIT_RESOURCES+=	datasize
 .endif
 
