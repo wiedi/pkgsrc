@@ -98,6 +98,11 @@ PKGWILDCARD?=		${PKGBASE}-[0-9]*
 SVR4_PKGNAME?=		${PKGNAME}
 WRKSRC?=		${WRKDIR}/${DISTNAME}
 
+# Turn on multi-architecture support.
+.if defined(MULTIARCH) && !empty(MULTIARCH:M[Yy][Ee][Ss]) && defined(USE_MULTIARCH)
+_MULTIARCH=		YES
+.endif
+
 # Override for SU_CMD user check
 _IS_ROOT_CMD?=		${TEST}	`${ID} -u` = `${ID} -u ${_SU_ROOT_USER}`
 _SU_ROOT_USER?=		${ROOT_USER}
@@ -235,6 +240,10 @@ _NULL_COOKIE=		${WRKDIR}/.null
 SHCOMMENT?=		${ECHO_MSG} >/dev/null '***'
 
 LIBABISUFFIX?=
+
+# Multi-architecture builds
+BINARCHSUFFIX?=
+LIBARCHSUFFIX?=
 
 TOUCH_FLAGS?=		-f
 
