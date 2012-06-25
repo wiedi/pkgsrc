@@ -27,6 +27,8 @@ CHECK_PERMS=		no
 CFLAGS+=	-fPIC
 .endif
 
+BUILDLINK_TRANSFORM+=	rm:-O[23]
+
 INSTALLATION_DIRS=	include lib ${PKGMANDIR}/cat3 ${PKGMANDIR}/man3
 
 BUILD_TARGET=	depend all
