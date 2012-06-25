@@ -371,7 +371,7 @@ BUILDLINK_LDFLAGS.${_pkg_}?=	# empty
 BUILDLINK_LIBS.${_pkg_}?=	# empty
 BUILDLINK_AUTO_DIRS.${_pkg_}?=	yes
 BUILDLINK_INCDIRS.${_pkg_}?=	include
-BUILDLINK_LIBDIRS.${_pkg_}?=	lib
+BUILDLINK_LIBDIRS.${_pkg_}?=	lib${LIBARCHSUFFIX}
 .  if !empty(BUILDLINK_DEPMETHOD.${_pkg_}:Mfull)
 BUILDLINK_RPATHDIRS.${_pkg_}?=	${BUILDLINK_LIBDIRS.${_pkg_}}
 .  else
