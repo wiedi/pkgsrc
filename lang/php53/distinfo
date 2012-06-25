@@ -18,5 +18,6 @@ SHA1 (patch-ai) = d4766893a2c47a4e4a744248dda265b0a9a66a1f
 SHA1 (patch-aj) = d611d13fcc28c5d2b9e9586832ce4b8ae5707b48
 SHA1 (patch-al) = fbbee5502e0cd1c47c6e7c15e0d54746414ec32e
 SHA1 (patch-ext_standard_basic__functions.c) = 18596d281017760293189d87d19de9c5c772232d
+SHA1 (patch-main_main.c) = 48bce43d0a5430a6ed4756c6fd2a29a5846ef482
 SHA1 (patch-main_streams_cast.c) = c169ccb73dc660e40eff9f9e168374f35eedadad
 SHA1 (patch-php__mssql.c) = b46c688ff2d8da33ca2f9beb0eb9182b6edf7e23
