@@ -15,4 +15,4 @@ SHA1 (patch-ag) = 945a594376393462e1cc0f881532d2294adf5816
 SHA1 (patch-ah) = f8debbf7b416fc562f5af321be739e0d4481a130
 SHA1 (patch-ai) = 9feef00a05372578d957c68b53657e6468f65f6a
 SHA1 (patch-build_config_Linux) = ba79d12efeea09e0e24e0d95a457dcbce265cd75
-SHA1 (patch-build_config_SunOS-GCC) = 3f8e4c69095cb7d5debd71427283927f3e10cfd3
+SHA1 (patch-build_config_SunOS-GCC) = 52728c581fcaa89e6933e2a3230852aaaadfcd97
