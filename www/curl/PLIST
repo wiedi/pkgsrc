@@ -10,8 +10,8 @@ include/curl/mprintf.h
 include/curl/multi.h
 include/curl/stdcheaders.h
 include/curl/typecheck-gcc.h
-lib/libcurl.la
-lib/pkgconfig/libcurl.pc
+lib${LIBARCHSUFFIX}/libcurl.la
+lib${LIBARCHSUFFIX}/pkgconfig/libcurl.pc
 man/man1/curl-config.1
 man/man1/curl.1
 man/man1/mk-ca-bundle.1
