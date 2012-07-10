@@ -1,0 +1,21 @@
+# $NetBSD$
+
+PKGNAME=        ${GCC_PKGNAME}-${GCC_DIST_VERSION}
+
+DEPENDS+=	${GCC_PKGNAME}-runtime-${PKGVERSION}:../../${PKGPATH}-runtime
+
+post-install:
+	${TEST} -f ${DESTDIR}${GCC_PREFIX}/bin/cc || \
+		( cd ${DESTDIR}${GCC_PREFIX}/bin ; ${LN} -f gcc cc )
+	${RM} -f ${DESTDIR}${GCC_PREFIX}/lib/lib* ${DESTDIR}${GCC_PREFIX}/lib/amd64/lib* \
+		${DESTDIR}${GCC_PREFIX}/lib/32/lib* ${DESTDIR}${GCC_PREFIX}/info/lib*
+.if !empty(PKG_OPTIONS:Mgcc-java)
+	${RM} -f ${DESTDIR}${JAVA_HOME}/bin/javadoc
+	${RM} -f ${DESTDIR}${JAVA_HOME}/jre/lib/${JAVA_ARCH}/libjawt.so
+.endif
+.if !empty(MACHINE_PLATFORM:MSunOS-*-*86*) && ${OS_VERSION} != "5.11"
+ 	${SH} files/values.c ${DESTDIR}${GCC_PREFIX}/bin/gcc -m32 || ${TRUE}
+	${SH} files/values.c ${DESTDIR}${GCC_PREFIX}/bin/gcc -m64 || ${TRUE}
+.endif
+
+.include "../../mk/bsd.pkg.mk"
