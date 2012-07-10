@@ -78,14 +78,26 @@ MAKE_ENV+=		lt_cv_path_SED=${TOOLS_SED}
 
 # Determine whether to use binutils
 .if ${OPSYS} == "SunOS"
+. if exists(/usr/sfw/bin/gobjdump)
 CONFIGURE_ENV+=		OBJDUMP=/usr/sfw/bin/gobjdump
-CONFIGURE_ARGS+=	--without-gnu-ld --with-ld=/usr/ccs/bin/ld
-. if !exists(/usr/sfw/bin/gas)
-CONFIGURE_ARGS+=	--without-gnu-as --with-as=/usr/ccs/bin/as
+. endif
+. if exists(/usr/bin/ld)
+CONFIGURE_ARGS+=	--without-gnu-ld --with-ld=/usr/bin/ld
 . else
+CONFIGURE_ARGS+=	--without-gnu-ld --with-ld=/usr/ccs/bin/ld
+. endif
+. if exists(/usr/sfw/bin/gas)
 CONFIGURE_ARGS+=	--with-gnu-as --with-as=/usr/sfw/bin/gas
+. else
+CONFIGURE_ARGS+=	--with-gnu-as --with-as=${PREFIX}/bin/${GNU_PROGRAM_PREFIX}as
+.  if empty(GCC_RUNTIME:Myes)
+BUILDLINK_DEPMETHOD.binutils=	full
+.  endif
+.  include "../../wip/binutils/buildlink3.mk"
 . endif
 .endif
+
+FILES_SUBST+=		MACHINE_ARCH=${MACHINE_ARCH}
 
 pre-configure:
 	${RUN} cd ${WRKSRC} && ${MKDIR} ${OBJDIR}
@@ -104,20 +116,10 @@ post-test:
 	${SHELL} ${WRKSRC}/contrib/test_summary >${WRKDIR}/test_summary.log
 	@${INFO_MSG} "Test summary are available in ${WRKDIR}/test_summary.log"
 
-post-install:
-	${TEST} -f ${DESTDIR}${GCC_PREFIX}/bin/cc || \
-		( cd ${DESTDIR}${GCC_PREFIX}/bin ; ${LN} -f gcc cc )
-.if !empty(PKG_OPTIONS:Mgcc-java)
-	${RM} -f ${DESTDIR}${JAVA_HOME}/bin/javadoc
-	${RM} -f ${DESTDIR}${JAVA_HOME}/jre/lib/${JAVA_ARCH}/libjawt.so
-.endif
-.if !empty(MACHINE_PLATFORM:MSunOS-*-*86*) && ${OS_VERSION} != "5.11"
-	${SH} files/values.c ${DESTDIR}${GCC_PREFIX}/bin/gcc -m32 || ${TRUE}
-	${SH} files/values.c ${DESTDIR}${GCC_PREFIX}/bin/gcc -m64 || ${TRUE}
-.endif
-
 GENERATE_PLIST+= \
 	cd ${DESTDIR}${PREFIX} && 					\
 	${FIND} ${GCC_SUBPREFIX} \( -type f -o -type l \) -print | ${SORT} ;
 
-.include "../../mk/bsd.pkg.mk"
+.if empty(GCC_RUNTIME:Myes)
+.include "Makefile.gcc"
+.endif

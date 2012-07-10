@@ -396,6 +396,8 @@ MAKEFLAGS+=		_IGNORE_GCC=yes
 .  if !defined(_IGNORE_GCC) && !empty(_LANGUAGES.gcc)
 _GCC_PKGSRCDIR=		../../lang/gcc47
 _GCC_DEPENDENCY=	gcc47>=${_GCC_REQD}:../../lang/gcc47
+_GCC_PKGSRCDIR+=	../../lang/gcc47-runtime
+_GCC_DEPENDENCY+=	gcc47-runtime>=${_GCC_REQD}:../../lang/gcc47-runtime
 .    if !empty(_LANGUAGES.gcc:Mc++) || \
         !empty(_LANGUAGES.gcc:Mfortran) || \
         !empty(_LANGUAGES.gcc:Mfortran77) || \

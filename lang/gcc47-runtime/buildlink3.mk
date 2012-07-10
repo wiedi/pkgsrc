@@ -1,20 +1,20 @@
-# $NetBSD: buildlink3.mk,v 1.1 2012/04/16 04:55:17 sbd Exp $
+# $NetBSD$
 
-BUILDLINK_TREE+=	gcc47
+BUILDLINK_TREE+=	gcc47-runtime
 
-.if !defined(GCC47_BUILDLINK3_MK)
-GCC47_BUILDLINK3_MK:=
+.if !defined(GCC47_RUNTIME_BUILDLINK3_MK)
+GCC47_RUNTIME_BUILDLINK3_MK:=
 
-BUILDLINK_API_DEPENDS.gcc47+=	gcc47>=${_GCC_REQD}
-BUILDLINK_ABI_DEPENDS.gcc47?=	gcc47>=4.7.0
-BUILDLINK_PKGSRCDIR.gcc47?=	../../lang/gcc47
+BUILDLINK_API_DEPENDS.gcc47-runtime+=	gcc47-runtime>=${_GCC_REQD}
+BUILDLINK_ABI_DEPENDS.gcc47-runtime?=	gcc47-runtime>=4.7.0
+BUILDLINK_PKGSRCDIR.gcc47-runtime?=	../../lang/gcc47-runtime
 
-FIND_PREFIX:=	BUILDLINK_PREFIX.gcc47=gcc47
+FIND_PREFIX:=	BUILDLINK_PREFIX.gcc47-runtime=gcc47-runtime
 .include "../../mk/find-prefix.mk"
-BUILDLINK_PASSTHRU_DIRS+=	${BUILDLINK_PREFIX.gcc47}/gcc47
+BUILDLINK_PASSTHRU_DIRS+=	${BUILDLINK_PREFIX.gcc47-runtime}/gcc47-runtime
 
-BUILDLINK_FILES.gcc47=		#empty
-BUILDLINK_AUTO_VARS.gcc47=	no
+BUILDLINK_FILES.gcc47-runtime=		#empty
+BUILDLINK_AUTO_VARS.gcc47-runtime=	no
 
 # When not using the GNU linker, gcc will always link shared libraries
 # against the shared version of libgcc. Always enable _USE_GCC_SHILB on
@@ -26,10 +26,12 @@ _USE_GCC_SHLIB= yes
 
 # Packages that link against shared libraries need a full dependency.
 .if defined(_USE_GCC_SHLIB)
-BUILDLINK_DEPMETHOD.gcc47?=	build
+BUILDLINK_DEPMETHOD.gcc47-runtime+=	full
+.else
+BUILDLINK_DEPMETHOD.gcc47-runtime?=	build
 .endif
 
-pkgbase := gcc47
+pkgbase := gcc47-runtime
 .include "../../mk/pkg-build-options.mk"
 .if !empty(PKG_BUILD_OPTIONS.gcc47:Mgcc-java) || \
     !empty(PKG_BUILD_OPTIONS.gcc47:Mgcc-go)
@@ -40,5 +42,5 @@ pkgbase := gcc47
 .include "../../mk/dlopen.buildlink3.mk"
 .endif
 
-.endif # GCC46_BUILDLINK3_MK
-BUILDLINK_TREE+=	-gcc47
+.endif # GCC47_RUNTIME_BUILDLINK3_MK
+BUILDLINK_TREE+=	-gcc47-runtime
