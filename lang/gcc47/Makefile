@@ -5,6 +5,7 @@ GCC_PKGNAME=		gcc47
 
 DISTNAME=		gcc-${GCC_DIST_VERSION}
 PKGNAME=		${GCC_PKGNAME}-${GCC_DIST_VERSION}
+PKGREVISION=		1
 CATEGORIES=		lang
 MASTER_SITES=		${MASTER_SITE_GNU:=gcc/gcc-${GCC_DIST_VERSION}/}
 EXTRACT_SUFX=		.tar.bz2
@@ -85,8 +86,6 @@ CONFIGURE_ARGS+=	--without-gnu-ld --with-ld=/usr/ccs/bin/ld
 . endif
 . if exists(/usr/sfw/bin/gas)
 CONFIGURE_ARGS+=	--with-gnu-as --with-as=/usr/sfw/bin/gas
-. elif exists(/usr/ccs/bin/as)
-CONFIGURE_ARGS+=	--without-gnu-as --with-as=/usr/ccs/bin/as
 . else
 CONFIGURE_ARGS+=	--with-gnu-as --with-as=${PREFIX}/bin/${GNU_PROGRAM_PREFIX}as
 . endif
