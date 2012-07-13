@@ -40,6 +40,13 @@ SUBST_SED.pthread+=	-e 's/-L\(.\)libdir/-L\1libdir ${COMPILER_RPATH_FLAG}\1libdi
 
 LDFLAGS.OpenBSD+=	${PTHREAD_LINKFLAGS}
 
+SUBST_CLASSES+=		archdir
+SUBST_STAGE.archdir=	pre-configure
+SUBST_MESSAGE.archdir=	Making multi-arch aware
+SUBST_FILES.archdir=	config.mk.in
+SUBST_SED.archdir=	-e '/PROGRAMINST_DIR/s,bin,bin${BINARCHSUFFIX},'
+SUBST_SED.archdir+=	-e '/LIBINST_DIR/s,lib,lib${LIBARCHSUFFIX},'
+
 .include "../../www/curl/buildlink3.mk"
 .include "../../www/libwww/buildlink3.mk"
 .include "../../mk/pthread.buildlink3.mk"
