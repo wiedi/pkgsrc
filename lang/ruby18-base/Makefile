@@ -3,6 +3,7 @@
 
 DISTNAME=	${RUBY_DISTNAME}
 PKGNAME=	${RUBY_PKGPREFIX}-base-${RUBY_VERSION_FULL}
+PKGREVISION=	1
 CATEGORIES=	lang ruby
 MASTER_SITES=	${MASTER_SITE_RUBY}
 
@@ -45,6 +46,10 @@ LDFLAGS.SunOS+=	-L${SUNWSPROBASE}/lib ${COMPILER_RPATH_FLAG}${SUNWSPROBASE}/lib
 CONFIGURE_ENV+=	LDSHARED="${CC} -G"
 .else
 LIBS.SunOS+=	-lm
+.endif
+
+.if ${OPSYS} == "SunOS" && ${MACHINE_ARCH} == "x86_64"
+CONFIGURE_ENV+=	ARCH_FLAG=-m64 DLDFLAGS=-m64
 .endif
 
 # Ruby build process depends on config.status's content
