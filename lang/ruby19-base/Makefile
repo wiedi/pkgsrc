@@ -3,7 +3,7 @@
 
 DISTNAME=	${RUBY_DISTNAME}
 PKGNAME=	${RUBY_PKGPREFIX}-base-${RUBY_VERSION_FULL}
-PKGREVISION=	5
+PKGREVISION=	6
 CATEGORIES=	lang ruby
 MASTER_SITES=	${MASTER_SITE_RUBY}
 #PKGREVISION=
@@ -45,6 +45,15 @@ LIBS.SunOS+=	-lm
 
 .if ${OPSYS} == "SunOS"
 CONFIGURE_ENV+=	OBJCOPY=:
+.endif
+
+.if ${OPSYS} == "SunOS" && ${MACHINE_ARCH} == "x86_64"
+CONFIGURE_ENV+=	DLDFLAGS=-m64
+SUBST_CLASSES+=		abi
+SUBST_STAGE.abi=	post-build
+SUBST_FILES.abi=	rbconfig.rb
+SUBST_SED.abi=		-e "s,gcc,gcc -m64,g"
+SUBST_SED.abi+=		-e "s,g++,gcc++ -m64,g"
 .endif
 
 # Ruby build process depends on config.status's content
