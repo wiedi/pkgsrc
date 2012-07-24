@@ -3,7 +3,7 @@
 
 DISTNAME=		nagios-3.3.1
 PKGNAME=		${DISTNAME:S/-/-base-/}
-PKGREVISION=		2
+PKGREVISION=		3
 CATEGORIES=		net sysutils
 MASTER_SITES=		${MASTER_SITE_SOURCEFORGE:=nagios/}
 
@@ -28,7 +28,7 @@ CONFIGURE_ARGS+=	--with-nagios-group=${NAGIOS_GROUP}
 CONFIGURE_ARGS+=	--with-command-user=${NAGIOS_USER}
 CONFIGURE_ARGS+=	--with-command-group=${NAGIOSCMD_GROUP}
 CONFIGURE_ARGS+=	--with-init-dir=${PREFIX}/share/examples/rc.d
-CONFIGURE_ARGS+=	--with-lockfile=/var/run/nagios/nagios.lock
+CONFIGURE_ARGS+=	--with-lockfile=${NAGIOSDIR}/nagios.lock
 
 USE_TOOLS+=		mail:run perl
 CONFIGURE_ARGS+=	--with-mail=${TOOLS_PLATFORM.mail:Q}
