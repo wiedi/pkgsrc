@@ -2,6 +2,7 @@
 #
 
 DISTNAME=	apache-tomcat-${TOMCAT_VER}
+PKGREVISION=	1
 CATEGORIES=	www
 MASTER_SITES=	${MASTER_SITE_APACHE:=tomcat/tomcat-7/v${TOMCAT_VER}/bin/}
 
