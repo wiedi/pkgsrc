@@ -1,7 +1,7 @@
 # $NetBSD: Makefile,v 1.88 2011/10/22 07:33:34 shattered Exp $
 
 DISTNAME=	net-snmp-5.6.1.1
-PKGREVISION=	2
+PKGREVISION=	3
 CATEGORIES=	net
 MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=net-snmp/}
 
@@ -107,6 +107,8 @@ REPLACE.bash.old=	/bin/bash
 REPLACE.bash.new=	${SH}
 REPLACE_FILES.bash=	local/mib2c-update
 
+CONF_FILES+=		share/examples/net-snmp/snmpd.conf ${PKG_SYSCONFDIR}/snmpd.conf
+
 INSTALLATION_DIRS+=	share/examples/net-snmp
 
 post-extract:
@@ -125,6 +127,8 @@ post-install:
 		${DESTDIR}${PREFIX}/share/examples/net-snmp/EXAMPLE.conf
 	${INSTALL_DATA} ${WRKSRC}/agent/snmp_perl.pl \
 		${DESTDIR}${PREFIX}/share/snmp/
+	${INSTALL_DATA} ${FILESDIR}/snmpd.conf \
+		${DESTDIR}${PREFIX}/share/examples/net-snmp/snmpd.conf
 
 .include "../../security/tcp_wrappers/buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"
