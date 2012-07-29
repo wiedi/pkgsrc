@@ -19,6 +19,10 @@ WRKSRC=		${WRKDIR}/tuntap
 
 .include "../../mk/bsd.prefs.mk"
 
+.if ${MACHINE_PLATFORM} != "x86_64"
+CONFIGURE_ARGS+=	--disable-64bit
+.endif
+
 INSTALLATION_DIRS=	include/net lkm
 
 do-install:
