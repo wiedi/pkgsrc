@@ -4,3 +4,4 @@ SHA1 (lighttpd-1.4.29.tar.bz2) = fe8ee6dc5f5302bffef905fcdf0b35f255e59b32
 RMD160 (lighttpd-1.4.29.tar.bz2) = d4369e8970001d2ebe4e49767053c341c4bd2f27
 Size (lighttpd-1.4.29.tar.bz2) = 659974 bytes
 SHA1 (patch-aa) = 12969ff0e488494e83188ba8130466c8d7e0275e
+SHA1 (patch-doc_config_lighttpd.conf) = 1f5d884ec3cc9ee1ec18b51f0d25ca2a7aae0b8c
