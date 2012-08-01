@@ -7,6 +7,7 @@
 # change in the pkg_* tools that pkgsrc relies on for proper operation.
 
 DISTNAME=		pkg_install-${VERSION}
+PKGREVISION=		1
 CATEGORIES=		pkgtools
 MASTER_SITES=		# empty
 DISTFILES=		# empty
@@ -178,7 +179,7 @@ pre-configure:
 		${CONFIG_SHELL} ${CONFIG_SHELL_FLAGS}			\
 		./configure --disable-shared --disable-bsdtar		\
 		--disable-bsdcpio --without-expat --without-xml2	\
-		--disable-dependency-tracking
+		--disable-dependency-tracking --without-openssl
 	cd ${WRKDIR}/libarchive && ${BUILD_MAKE_CMD}
 .endif
 	cd ${WRKDIR}/libfetch && ${SETENV} ${MAKE_ENV} ${BSD_MAKE_ENV}	\
