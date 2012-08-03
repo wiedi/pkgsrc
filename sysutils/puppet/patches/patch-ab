@@ -1,29 +1,80 @@
-$NetBSD: patch-ab,v 1.4 2010/06/11 01:27:58 tonnerre Exp $
+$NetBSD$
 
 Make the FreeBSD provider the default for NetBSD as well.
 Omit _enabled for init scripts under NetBSD, which doesn't look for them.
 
---- lib/puppet/provider/service/freebsd.rb.orig	2009-02-08 16:47:46.000000000 +0100
+--- lib/puppet/provider/service/freebsd.rb.orig	2012-05-24 13:31:54.238311739 +0000
 +++ lib/puppet/provider/service/freebsd.rb
-@@ -8,7 +8,7 @@ Puppet::Type.type(:service).provide :freebsd, :parent => :init do
+@@ -2,8 +2,8 @@ Puppet::Type.type(:service).provide :fre
  
-     confine :operatingsystem => [:freebsd, :netbsd, :openbsd]
+   desc "Provider for FreeBSD. Uses the `rcvar` argument of init scripts and parses/edits rc files."
  
--    defaultfor :operatingsystem => :freebsd
-+    defaultfor :operatingsystem => [:freebsd, :netbsd]
+-  confine :operatingsystem => [:freebsd]
+-  defaultfor :operatingsystem => [:freebsd]
++  confine :operatingsystem => [:freebsd, :netbsd]
++  defaultfor :operatingsystem => [:freebsd, :netbsd]
  
-     @@rcconf_dir = '/etc/rc.conf.d'
+   @@rcconf = '/etc/rc.conf'
+   @@rcconf_local = '/etc/rc.conf.local'
+@@ -13,6 +13,15 @@ Puppet::Type.type(:service).provide :fre
+     superclass.defpath
+   end
  
-@@ -41,7 +41,11 @@ Puppet::Type.type(:service).provide :freebsd, :parent => :init do
-             Dir.mkdir(@@rcconf_dir)
-         end
-         rcfile = File.join(@@rcconf_dir, @model[:name])
--        open(rcfile, 'w') { |f| f << "%s_enable=\"YES\"\n" % @model[:name] }
-+        if Facter.value(:operatingsystem) == "NetBSD"
-+            open(rcfile, 'w') { |f| f << "%s=\"YES\"\n" % @model[:name] }
-+        else
-+            open(rcfile, 'w') { |f| f << "%s_enable=\"YES\"\n" % @model[:name] }
-+        end
-     end
++  # rcvar name suffix ('_enable' on FreeBSD, blank on NetBSD)
++  def rcvar_suffix
++    if Facter.value(:operatingsystem) == "NetBSD"
++      value = ""
++    else
++      value = "_enable"
++    end
++  end
++
+   # Executing an init script with the 'rcvar' argument returns
+   # the service name, rcvar name and whether it's enabled/disabled
+   def rcvar
+@@ -36,8 +45,9 @@ Puppet::Type.type(:service).provide :fre
+   # Extract rcvar name
+   def rcvar_name
+     name = self.rcvar[1]
++    suffix = self.rcvar_suffix
+     self.error("No rcvar name found in rcvar") if name.nil?
+-    name = name.gsub!(/(.*)_enable=(.*)/, '\1')
++    name = name.gsub!(/(.*)#{suffix}=(.*)/, '\1')
+     self.error("rcvar name is empty") if name.nil?
+     self.debug("rcvar name is #{name}")
+     name
+@@ -46,8 +56,9 @@ Puppet::Type.type(:service).provide :fre
+   # Extract rcvar value
+   def rcvar_value
+     value = self.rcvar[1]
++    suffix = self.rcvar_suffix
+     self.error("No rcvar value found in rcvar") if value.nil?
+-    value = value.gsub!(/(.*)_enable="?(\w+)"?/, '\2')
++    value = value.gsub!(/(.*)#{suffix}="?(\w+)"?/, '\2')
+     self.error("rcvar value is empty") if value.nil?
+     self.debug("rcvar value is #{value}")
+     value
+@@ -65,11 +76,12 @@ Puppet::Type.type(:service).provide :fre
+   # and replace the value
+   def rc_replace(service, rcvar, yesno)
+     success = false
++    suffix = self.rcvar_suffix
+     # Replace in all files, not just in the first found with a match
+     [@@rcconf, @@rcconf_local, @@rcconf_dir + "/#{service}"].each do |filename|
+       if File.exists?(filename)
+         s = File.read(filename)
+-        if s.gsub!(/(#{rcvar}_enable)=\"?(YES|NO)\"?/, "\\1=\"#{yesno}\"")
++        if s.gsub!(/(#{rcvar}#{suffix})=\"?(YES|NO)\"?/, "\\1=\"#{yesno}\"")
+           File.open(filename, File::WRONLY) { |f| f << s }
+           self.debug("Replaced in #{filename}")
+           success = true
+@@ -81,7 +93,8 @@ Puppet::Type.type(:service).provide :fre
  
-     # Override stop/start commands to use one<cmd>'s and the avoid race condition
+   # Add a new setting to the rc files
+   def rc_add(service, rcvar, yesno)
+-    append = "\# Added by Puppet\n#{rcvar}_enable=\"#{yesno}\"\n"
++    suffix = self.rcvar_suffix
++    append = "\# Added by Puppet\n#{rcvar}#{suffix}=\"#{yesno}\"\n"
+     # First, try the one-file-per-service style
+     if File.exists?(@@rcconf_dir)
+       File.open(@@rcconf_dir + "/#{service}", File::WRONLY | File::APPEND | File::CREAT, 0644) {
