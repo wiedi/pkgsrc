@@ -1,0 +1,21 @@
+===========================================================================
+$NetBSD$
+
+Please install the SMF manifest depending for the agent or master
+as needed:
+
+  svccfg import ${PREFIX}/share/smf/${PKGBASE}/puppetd.xml
+
+or
+
+  svccfg import ${PREFIX}/share/smf/${PKGBASE}/puppetmasterd.xml
+
+Enable using svccadm:
+
+  svcadm enable puppetd
+
+or
+
+  svcadm enable puppetmasterd
+
+===========================================================================
