@@ -3,6 +3,7 @@
 
 PKGNAME=		rabbitmq-${RMQ_VERSION}
 DISTNAME=		rabbitmq-server-${RMQ_VERSION}
+PKGREVISION=		1
 CATEGORIES=		net
 MASTER_SITES=		http://www.rabbitmq.com/releases/rabbitmq-server/v${RMQ_VERSION}/
 
