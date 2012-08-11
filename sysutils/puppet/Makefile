@@ -1,6 +1,7 @@
 # $NetBSD: Makefile,v 1.12 2010/09/13 14:39:30 taca Exp $
 
 DISTNAME=		puppet-2.7.18
+PKGREVISION=		1
 CATEGORIES=		sysutils
 #MASTER_SITES=		http://puppetlabs.com/downloads/puppet/
 
@@ -30,19 +31,19 @@ SUBST_VARS.prefix+=	PREFIX PKG_SYSCONFDIR
 EGDIR=			share/examples/${PKGBASE}
 CONF_FILES=		${EGDIR}/puppet.conf ${PKG_SYSCONFDIR}/puppet.conf
 
-## Since these users are needed only for puppet server,
-## puppet-server package should be created.
-#SUBST_CLASSES+=		user
-#SUBST_STAGE.user=	post-patch
-#SUBST_FILES.user=	lib/puppet/defaults.rb
-#SUBST_VARS.user=	PUPPET_GROUP PUPPET_USER
-#
-#PKG_GROUPS_VARS=		PUPPET_GROUP
-#PKG_USERS_VARS=			PUPPET_USER
-#
-#PKG_GROUPS=			${PUPPET_GROUP}
-#PKG_USERS=			${PUPPET_USER}:${PUPPET_GROUP}
-#PKG_GECOS.${PUPPET_USER}=       Puppet configuration management pseudo-user
+# Since these users are needed only for puppet server,
+# puppet-server package should be created.
+SUBST_CLASSES+=		user
+SUBST_STAGE.user=	post-patch
+SUBST_FILES.user=	lib/puppet/defaults.rb
+SUBST_VARS.user=	PUPPET_GROUP PUPPET_USER
+
+PKG_GROUPS_VARS=		PUPPET_GROUP
+PKG_USERS_VARS=			PUPPET_USER
+
+PKG_GROUPS=			${PUPPET_GROUP}
+PKG_USERS=			${PUPPET_USER}:${PUPPET_GROUP}
+PKG_GECOS.${PUPPET_USER}=	Puppet configuration management pseudo-user
 
 PLIST_SUBST+=		EGDIR=${EGDIR}
 PLIST_VARS+=		sunos
@@ -52,16 +53,16 @@ INSTALLATION_DIRS+=	${EGDIR}
 
 .include "../../mk/bsd.prefs.mk"
 
-#PUPPET_GROUP?=		puppet
-#PUPPET_USER?=		puppet
+PUPPET_GROUP?=		puppet
+PUPPET_USER?=		puppet
 
 PUPPET_LOGDIR?=		${VARBASE}/log/puppet
 PUPPET_RUNDIR?=		${VARBASE}/run/puppet
 PUPPET_VARDIR?=		${VARBASE}/lib/puppet
 
-OWN_DIRS+=	${PUPPET_LOGDIR}
-OWN_DIRS+=	${PUPPET_RUNDIR}
-OWN_DIRS+=	${PUPPET_VARDIR}
+OWN_DIRS_PERMS+=	${PUPPET_LOGDIR} ${PUPPET_USER} ${PUPPET_GROUP} 0750
+OWN_DIRS_PERMS+=	${PUPPET_RUNDIR} ${PUPPET_USER} ${PUPPET_GROUP} 0750
+OWN_DIRS_PERMS+=	${PUPPET_VARDIR} ${PUPPET_USER} ${PUPPET_GROUP} 0750
 
 .if ${OPSYS} == "SunOS"
 INSTALLATION_DIRS+=	share/smf/${PKGBASE}
