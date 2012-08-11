@@ -3,7 +3,7 @@
 
 DISTNAME=	${RUBY_DISTNAME}
 PKGNAME=	${RUBY_PKGPREFIX}-base-${RUBY_VERSION_FULL}
-PKGREVISION=	3
+PKGREVISION=	4
 CATEGORIES=	lang ruby
 MASTER_SITES=	${MASTER_SITE_RUBY}
 #PKGREVISION=
@@ -53,7 +53,7 @@ SUBST_CLASSES+=		abi
 SUBST_STAGE.abi=	post-build
 SUBST_FILES.abi=	rbconfig.rb
 SUBST_SED.abi=		-e "s,gcc,gcc -m64,g"
-SUBST_SED.abi+=		-e "s,g++,gcc++ -m64,g"
+SUBST_SED.abi+=		-e "s,g++,g++ -m64,g"
 .endif
 
 # Ruby build process depends on config.status's content
