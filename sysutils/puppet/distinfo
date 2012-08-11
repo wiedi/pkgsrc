@@ -8,3 +8,4 @@ SHA1 (patch-ab) = e63fe5b714d2d8f6af9b03bc8135ae538e6047f8
 SHA1 (patch-ac) = 93a290bd485fb4ac129176ca5b697503172ad14b
 SHA1 (patch-conf_solaris_smf_puppetd.xml) = e34af0c7d349084a77d77a5c18bc406ee4208350
 SHA1 (patch-conf_solaris_smf_puppetmasterd.xml) = 6882a3ada019d7dcdb1acf4d899c64dc83c50248
+SHA1 (patch-lib_puppet_defaults.rb) = c2f83e85e00d7a197a740fdae9955bb8c3a8f381
