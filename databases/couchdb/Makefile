@@ -3,7 +3,7 @@
 
 DISTNAME=		apache-couchdb-1.1.1
 PKGNAME=		${DISTNAME:S/apache-//}
-PKGREVISION=		1
+PKGREVISION=		2
 CATEGORIES=		databases
 MASTER_SITES=		${MASTER_SITE_APACHE:=couchdb/1.1.1/}
 
