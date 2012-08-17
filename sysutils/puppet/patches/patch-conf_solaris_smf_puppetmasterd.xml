@@ -1,0 +1,36 @@
+$NetBSD$
+
+--- conf/solaris/smf/puppetmasterd.xml.orig	2012-08-01 19:52:27.175807998 +0000
++++ conf/solaris/smf/puppetmasterd.xml
+@@ -18,7 +18,7 @@
+                 grouping='require_all'
+                 restart_on='none'
+                 type='path'>
+-        <service_fmri value='file:///etc/puppet/puppet.conf'/>
++        <service_fmri value='file:///@PKG_SYSCONFDIR@/puppet.conf'/>
+     </dependency>
+ 
+     <dependency name='loopback'
+@@ -45,19 +45,19 @@
+     <exec_method
+         type='method'
+         name='start'
+-        exec='/opt/csw/lib/svc/method/svc-puppetmasterd start'
++        exec='@PREFIX@/bin/puppetmasterd'
+         timeout_seconds='60' />
+ 
+     <exec_method
+         type='method'
+         name='stop'
+-        exec='/opt/csw/lib/svc/method/svc-puppetmasterd stop'
++        exec=':kill'
+         timeout_seconds='60' />
+ 
+     <exec_method
+         type='method'
+         name='refresh'
+-        exec='/opt/csw/lib/svc/method/svc-puppetmasterd reload'
++        exec=':kill -HUP'
+         timeout_seconds='60' />
+ 
+     <stability value='Unstable' />
