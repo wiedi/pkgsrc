@@ -1,4 +1,4 @@
-$NetBSD: CHANGES-pkgsrc-2012Q2,v 1.1.2.36 2012/08/12 14:50:31 tron Exp $
+$NetBSD: CHANGES-pkgsrc-2012Q2,v 1.1.2.39 2012/08/18 16:35:05 spz Exp $
 
 Changes to the packages collection and infrastructure on the
 pkgsrc-2012Q2 branch:
@@ -236,3 +236,13 @@ mail/ruby-actionmailer32: security update
 www/ruby-actionpack32: security update
 www/ruby-activeresource32: security update
 www/ruby-rails32: security update
+Pullup ticket #3898 - requested by wiz
+editors/emacs24-nox11: security patch
+editors/emacs24: security patch
+Pullup ticket #3899 - requested by wiz
+editors/emacs-nox11: security patch
+editors/emacs: security patch
+Pullup ticket #3900 - requested by markd
+misc/kdepimlibs4: functionality fix
+Pullup ticket #3901 - requested by tron
+databases/phpmyadmin: security update
