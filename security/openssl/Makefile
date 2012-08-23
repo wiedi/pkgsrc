@@ -38,6 +38,7 @@ PKG_DESTDIR_SUPPORT=	user-destdir
 .include "../../mk/compiler.mk"
 
 EXTRACT_USING=		gtar
+USE_GCC_RUNTIME=	yes
 USE_TOOLS+=		gmake perl
 TEST_TARGET=		tests
 MAKE_JOBS_SAFE=		no
