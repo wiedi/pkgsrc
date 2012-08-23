@@ -81,6 +81,11 @@ CONFIGURE_ARGS+=	--disable-bootstrap
 CONFIGURE_ARGS+=	--with-arch=i486 --with-tune=i486
 .endif
 
+SUBST_CLASSES+=		vars
+SUBST_STAGE.vars=	pre-configure
+SUBST_FILES.vars=	gcc/config/sol2-bi.h gcc/config/sol2.h
+SUBST_VARS.vars=	PREFIX
+
 .include "options.mk"
 
 # ${WRKSRC}/fixincludes/ looks for sed and compiles the path to sed into
