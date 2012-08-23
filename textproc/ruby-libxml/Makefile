@@ -9,6 +9,8 @@ HOMEPAGE=	http://libxml.rubyforge.org/
 COMMENT=	Support module for libxml2 library
 LICENSE=	mit
 
+USE_GCC_RUNTIME=	yes
+
 GEM_CLEANBUILD=	ext/libxml/*
 CONFIGURE_ARGS+=	\
 	--with-xml2-include=${BUILDLINK_PREFIX.libxml2}/include/libxml2

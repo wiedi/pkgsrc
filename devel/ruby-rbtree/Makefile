@@ -10,5 +10,7 @@ LICENSE=	mit
 
 GEM_CLEANBUILD=	Makefile *.o mkmf.log
 
+USE_GCC_RUNTIME=	yes
+
 .include "../../lang/ruby/gem.mk"
 .include "../../mk/bsd.pkg.mk"
