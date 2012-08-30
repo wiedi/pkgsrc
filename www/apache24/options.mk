@@ -55,11 +55,9 @@ APACHE_SUEXEC_CONFIGURE_ARGS+=						\
 	--with-suexec-docroot=${APACHE_SUEXEC_DOCROOT:Q}		\
 	--with-suexec-logfile=${APACHE_SUEXEC_LOGFILE}
 
-.  if !empty(PKG_OPTIONS:Mapache-shared-modules)
 CONFIGURE_ARGS+=	--enable-modules="all suexec"
-.  else
 APACHE_MODULES+=	suexec
-.  endif
+
 CONFIGURE_ARGS+=	${APACHE_SUEXEC_CONFIGURE_ARGS:M--with-suexec-*}
 BUILD_DEFS+=		APACHE_SUEXEC_CONFIGURE_ARGS
 BUILD_TARGET=		all suexec
