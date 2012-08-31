@@ -2,6 +2,7 @@
 
 DISTNAME=	bind-${BIND_VERSION}
 PKGNAME=	${DISTNAME:S/-P/pl/}
+PKGREVISION=	1
 CATEGORIES=	net
 MASTER_SITES=	ftp://ftp.isc.org/isc/bind9/${BIND_VERSION}/ \
 		http://ftp.belnet.be/pub/mirror/ftp.isc.org/isc/bind9/${BIND_VERSION}/
@@ -54,6 +55,9 @@ PKG_USERS=		${BIND_USER}:${BIND_GROUP}
 
 PKG_GECOS.${BIND_USER}=	Named pseudo-user
 PKG_HOME.${BIND_USER}=	${BIND_DIR}
+
+BIND_DIR?=		${VARBASE}/named
+OWN_DIRS_PERMS+=	${BIND_DIR} ${BIND_USER} ${BIND_GROUP} 0755
 
 PTHREAD_OPTS+=		native
 PTHREAD_AUTO_VARS=	yes
