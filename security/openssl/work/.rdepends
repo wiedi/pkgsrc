@@ -1,0 +1,5 @@
+bootstrap	digest>=20010302	digest-20111104
+build	p5-Perl4-CoreLibs-[0-9]*	p5-Perl4-CoreLibs-0.003nb1
+build	nbpatch-[0-9]*	nbpatch-20100124
+build	perl>=5.8.0	perl-5.16.2nb1
+build	checkperms>=1.1	checkperms-1.11

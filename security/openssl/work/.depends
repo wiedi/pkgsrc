@@ -1,0 +1,5 @@
+bootstrap	digest>=20010302	../../pkgtools/digest
+build	p5-Perl4-CoreLibs-[0-9]*	../../devel/p5-Perl4-CoreLibs
+build	nbpatch-[0-9]*	../../devel/nbpatch
+build	perl>=5.8.0	../../lang/perl5
+build	checkperms>=1.1	../../sysutils/checkperms

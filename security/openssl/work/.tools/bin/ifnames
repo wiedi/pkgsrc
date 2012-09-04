@@ -1,0 +1,5 @@
+#!/bin/sh
+wrapperlog="${TOOLS_WRAPPER_LOG-/work/git/pkgsrc/security/openssl/work/.work.log}"
+echo "[*] "/work/git/pkgsrc/security/openssl/work/.tools/bin/ifnames" $@" >> $wrapperlog
+echo "<.> /work/git/pkgsrc/mk/gnu-config/missing ifnames" >> $wrapperlog
+/work/git/pkgsrc/mk/gnu-config/missing ifnames

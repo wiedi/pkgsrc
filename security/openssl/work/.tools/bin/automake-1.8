@@ -1,0 +1,5 @@
+#!/bin/sh
+wrapperlog="${TOOLS_WRAPPER_LOG-/work/git/pkgsrc/security/openssl/work/.work.log}"
+echo "[*] "/work/git/pkgsrc/security/openssl/work/.tools/bin/automake-1.8" $@" >> $wrapperlog
+echo "<.> /work/git/pkgsrc/mk/gnu-config/missing automake" >> $wrapperlog
+/work/git/pkgsrc/mk/gnu-config/missing automake
