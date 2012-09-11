@@ -13,3 +13,6 @@ HOMEPAGE=	http://www.perl.org/
 LICENSE=	${PERL5_LICENSE}
 
 MAKE_JOBS_SAFE=	no
+
+USE_MULTIARCH=		lib
+MULTIARCH_DIRS.lib=	# empty
