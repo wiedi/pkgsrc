@@ -14,5 +14,6 @@ LICENSE=	${PERL5_LICENSE}
 
 MAKE_JOBS_SAFE=	no
 
-USE_MULTIARCH=		lib
+USE_MULTIARCH=		bin lib
+MULTIARCH_DIRS.bin=	# configured manually
 MULTIARCH_DIRS.lib=	# empty
