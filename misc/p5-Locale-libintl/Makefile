@@ -12,6 +12,8 @@ LICENSE=	gnu-lgpl-v2.1
 
 PKG_INSTALLATION_TYPES=	overwrite pkgviews
 
+USE_MULTIARCH=	lib
+
 PERL5_PACKLIST=		auto/libintl-perl/.packlist
 # Interpreter /bin/false
 CHECK_INTERPRETER_SKIP+=${PERL5_SUB_INSTALLVENDORLIB}/Locale/Messages.pm
