@@ -1,8 +1,7 @@
-# $NetBSD: Makefile,v 1.44 2012/07/25 11:24:21 fhajny Exp $
+# $NetBSD: Makefile,v 1.43.2.1 2012/09/04 20:30:25 tron Exp $
 
-DISTNAME=	roundcubemail-0.7.2-dep
+DISTNAME=	roundcubemail-0.8.1-dep
 PKGNAME=	${DISTNAME:S/mail-/-/:S/-dep//}
-PKGREVISION=	2
 CATEGORIES=	mail
 MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=roundcubemail/}
 
@@ -103,7 +102,7 @@ pre-install:
 do-install:
 	${INSTALL_DATA} ${WRKSRC}/INSTALL ${DESTDIR}${DOCDIR}
 	${INSTALL_DATA} ${WRKSRC}/LICENSE ${DESTDIR}${DOCDIR}
-	${INSTALL_DATA} ${WRKSRC}/README ${DESTDIR}${DOCDIR}
+	${INSTALL_DATA} ${WRKSRC}/README.md ${DESTDIR}${DOCDIR}
 	${INSTALL_DATA} ${WRKSRC}/UPGRADING ${DESTDIR}${DOCDIR}
 
 	${INSTALL_DATA} ${WRKSRC}/.htaccess ${DESTDIR}${RCDIR}/

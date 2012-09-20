@@ -1,4 +1,4 @@
-$NetBSD: CHANGES-pkgsrc-2012Q2,v 1.1.2.44 2012/08/24 09:04:23 tron Exp $
+$NetBSD: CHANGES-pkgsrc-2012Q2,v 1.1.2.50 2012/09/15 10:54:35 spz Exp $
 
 Changes to the packages collection and infrastructure on the
 pkgsrc-2012Q2 branch:
@@ -268,3 +268,22 @@ Pullup ticket #3911 - requested by drochner
 net/wireshark: security update
 Pullup ticket #3912 - requested by obache
 multimedia/adobe-flash-plugin10.1: security update
+Pullup ticket #3913 - requested by obache
+www/opera: security update
+Pullup ticket #3914 - requested by obache
+lang/sun-jdk6: security update
+lang/sun-jre6: security update
+Pullup ticket #3915 - requested by taca
+mail/roundcube: security update
+Pullup ticket #3917 - requested by wen
+www/mediawiki: security update
+Pullup ticket #3918 - requested by morr
+www/wordpress: security update
+Pullup ticket #3916 - requested by tron
+net/wireshark: security patch
+Pullup ticket #3919 - requested by taca
+net/bind?? CVE-2012-4244 security fix
+Pullup ticket #3920 - requested by taca
+net/{isc-dhcp4,isc-dhcpd4,isc-dhclient4,isc-dhcrelay} security fix
+Pullup ticket #3921 - requested by bouyer
+net/freeradius2: security patch
