@@ -24,4 +24,6 @@ SUBST_FILES.conf=	pdns/pdns.conf-dist
 SUBST_SED.conf=		-e 's,@PREFIX@,${PREFIX},'
 SUBST_SED.conf+=	-e 's,@PKG_SYSCONFDIR@,${PKG_SYSCONFDIR},'
 
+LDFLAGS.SunOS+=		-lsocket -lnsl
+
 .include "../../mk/bsd.pkg.mk"
