@@ -14,6 +14,7 @@ COMMENT=		xkbui library
 PKG_DESTDIR_SUPPORT=	user-destdir
 
 USE_LIBTOOL=		yes
+USE_MULTIARCH=		lib
 PKGCONFIG_OVERRIDE+=	xkbui.pc.in
 USE_TOOLS+=		pkg-config
 GNU_CONFIGURE=		yes

@@ -15,6 +15,7 @@ PKG_DESTDIR_SUPPORT=	user-destdir
 CONFLICTS+=	libev<3.9nb1
 
 USE_LIBTOOL=		yes
+USE_MULTIARCH=		lib
 GNU_CONFIGURE=		yes
 PKGCONFIG_OVERRIDE+=	libevent_openssl.pc.in
 PKGCONFIG_OVERRIDE+=	libevent_pthreads.pc.in

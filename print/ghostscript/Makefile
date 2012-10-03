@@ -21,6 +21,7 @@ CONFLICTS+=		ghostscript-gnu{,-nox11,-x11}-[0-9]*
 
 PKG_DESTDIR_SUPPORT=	user-destdir
 
+USE_MULTIARCH=		lib
 USE_TOOLS+=		gmake perl:run lex pkg-config
 GNU_CONFIGURE=		yes
 UNLIMIT_RESOURCES+=	datasize	# gsromfs1.c
@@ -69,7 +70,7 @@ CFLAGS+=		-fPIC
 BUILDLINK_TRANSFORM+=	l:fontconfig:fontconfig:iconv
 .endif
 
-CONFIGURE_ENV+=	LPLIBDIR=${LOCALBASE}/lib
+CONFIGURE_ENV+=	LPLIBDIR=${LOCALBASE}/lib${LIBARCHSUFFIX}
 
 post-extract:
 	${MKDIR} ${WRKSRC}/bin

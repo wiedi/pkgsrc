@@ -18,6 +18,7 @@ PKG_DESTDIR_SUPPORT=	user-destdir
 
 GNU_CONFIGURE=	yes
 USE_LIBTOOL=	yes
+USE_MULTIARCH=	lib
 USE_TOOLS+=	pkg-config
 
 CONFIGURE_ARGS+=	--disable-build-docs	# or needs doxygen

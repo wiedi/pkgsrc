@@ -3,7 +3,7 @@ $NetBSD: distinfo,v 1.49 2012/09/20 12:22:27 jperkin Exp $
 SHA1 (boost_1_51_0.tar.bz2) = 52ef06895b97cc9981b8abf1997c375ca79f30c5
 RMD160 (boost_1_51_0.tar.bz2) = e92733c82785a38049f2d6a8126eadd3f8ac0c40
 Size (boost_1_51_0.tar.bz2) = 50811407 bytes
-SHA1 (patch-aa) = 408a63a807aaa491130db018cd89bca6a427090d
+SHA1 (patch-aa) = ad7146b2c6cc3d15b6a65ecc564be7c69ea8fc5c
 SHA1 (patch-ab) = f1c95ae229465a4d2da76ce6ff88d76ace52fdd8
 SHA1 (patch-ac) = 5ecd12564259e4ad9d439990e198b889762ec733
 SHA1 (patch-ad) = 0e5dc31c3425de94444f97a9b7dec97ed5967733

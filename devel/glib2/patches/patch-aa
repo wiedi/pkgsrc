@@ -10,6 +10,15 @@ $NetBSD: patch-aa,v 1.53 2012/05/04 10:22:08 obache Exp $
  G_MODULE_BROKEN_RTLD_GLOBAL
  G_MODULE_HAVE_DLERROR
  G_MODULE_LDFLAGS
+@@ -5526,7 +5527,7 @@
+ fi
+
+ GLIB_RUNTIME_LIBDIR="$with_runtime_libdir"
+-ABS_GLIB_RUNTIME_LIBDIR="`readlink -f $libdir/$with_runtime_libdir`"
++ABS_GLIB_RUNTIME_LIBDIR=""
+
+
+  if test "x$with_runtime_libdir" != "x"; then
 @@ -22511,8 +22512,8 @@ else
  fi
  

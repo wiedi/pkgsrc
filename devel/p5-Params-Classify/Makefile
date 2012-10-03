@@ -13,6 +13,8 @@ LICENSE=	${PERL5_LICENSE}
 PKG_INSTALLATION_TYPES=	overwrite pkgviews
 PKG_DESTDIR_SUPPORT=	user-destdir
 
+USE_MULTIARCH=	lib
+
 PERL5_PACKLIST=		auto/Params/Classify/.packlist
 PERL5_MODULE_TYPE=	Module::Build
 

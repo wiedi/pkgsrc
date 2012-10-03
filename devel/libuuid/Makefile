@@ -16,6 +16,7 @@ CONFLICTS=	ossp-uuid-[0-9]* # libuuid.* uuid.pc uuid.3
 PKG_DESTDIR_SUPPORT=	user-destdir
 
 USE_LIBTOOL=		yes
+USE_MULTIARCH=		lib
 GNU_CONFIGURE=		yes
 CONFIGURE_ARGS+=	--disable-agetty
 CONFIGURE_ARGS+=	--disable-cramfs
@@ -32,6 +33,8 @@ CONFIGURE_ARGS+=	--disable-unshare
 CONFIGURE_ARGS+=	--disable-uuidd
 CONFIGURE_ARGS+=	--disable-wall
 CONFIGURE_ARGS+=	--without-ncurses
+
+CONFIGURE_ENV+=		LIBARCHSUFFIX=${LIBARCHSUFFIX:Q}
 
 PKGCONFIG_OVERRIDE+=	shlibs/uuid/uuid.pc.in
 

@@ -32,6 +32,8 @@
 
 .include "../../lang/perl5/license.mk"
 
+MULTIARCH_DIRS.lib=	# PERL5_INSTALLVENDORARCH
+
 .if !defined(PERL5_MODULE_MK)
 PERL5_MODULE_MK=	# defined
 

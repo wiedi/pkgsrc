@@ -15,6 +15,7 @@ PKG_DESTDIR_SUPPORT=	user-destdir
 PKG_INSTALLATION_TYPES=	overwrite pkgviews
 
 USE_LIBTOOL=		yes
+USE_MULTIARCH=		bin lib
 USE_TOOLS+=		pkg-config
 PKGCONFIG_OVERRIDE+=	apr.pc.in
 GNU_CONFIGURE=		yes

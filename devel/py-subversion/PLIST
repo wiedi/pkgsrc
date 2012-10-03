@@ -1,5 +1,5 @@
 @comment $NetBSD: PLIST,v 1.8 2009/06/14 17:49:06 joerg Exp $
-lib/libsvn_swig_py-1.la
+lib${LIBARCHSUFFIX}/libsvn_swig_py-1.la
 ${PYSITELIB}/libsvn/__init__.py
 ${PYSITELIB}/libsvn/__init__.pyc
 ${PYSITELIB}/libsvn/_client.la

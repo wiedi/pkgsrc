@@ -1,3 +1,6 @@
 @comment $NetBSD: PLIST,v 1.5 2005/08/06 06:18:45 jlam Exp $
-bin/perllink
+bin${BINARCHSUFFIX}/a2p
+bin${BINARCHSUFFIX}/perl
+bin${BINARCHSUFFIX}/perl5.14.2
+bin${BINARCHSUFFIX}/perllink
 man/man1/perllink.1

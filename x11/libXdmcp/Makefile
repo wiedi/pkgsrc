@@ -13,6 +13,7 @@ COMMENT=		X Display Manager Control Protocol library from X.org
 PKG_DESTDIR_SUPPORT=	user-destdir
 
 USE_LIBTOOL=		yes
+USE_MULTIARCH=		lib
 USE_TOOLS+=		pkg-config
 PKGCONFIG_OVERRIDE+=	xdmcp.pc.in
 GNU_CONFIGURE=		yes

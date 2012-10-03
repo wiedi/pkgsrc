@@ -13,6 +13,7 @@ PKG_INSTALLATION_TYPES=	overwrite pkgviews
 PKG_DESTDIR_SUPPORT=	user-destdir
 
 USE_LIBTOOL=		yes
+USE_MULTIARCH=		bin lib
 GNU_CONFIGURE=		yes
 CONFIGURE_ARGS+=	--with-internal-glib
 
@@ -47,7 +48,7 @@ PKGCONFIG_EXTRA_PATHS+=	${X11BASE}/lib/pkgconfig
 .endif
 
 .if ${LOCALBASE} != "/usr"
-PKGCONFIG_EXTRA_PATHS+=	/usr/lib/pkgconfig
+PKGCONFIG_EXTRA_PATHS+=	/usr/lib${LIBARCHSUFFIX}/pkgconfig
 .endif
 
 .if !empty(PKGCONFIG_EXTRA_PATHS)

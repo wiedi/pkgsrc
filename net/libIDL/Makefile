@@ -14,6 +14,7 @@ PKG_INSTALLATION_TYPES=	overwrite pkgviews
 PKG_DESTDIR_SUPPORT=	user-destdir
 
 USE_LIBTOOL=		yes
+USE_MULTIARCH=		bin lib
 USE_TOOLS+=		bison flex pkg-config
 PKGCONFIG_OVERRIDE=	libIDL-2.0.pc.in
 GNU_CONFIGURE=		yes

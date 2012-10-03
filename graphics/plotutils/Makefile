@@ -17,6 +17,7 @@ PKG_DESTDIR_SUPPORT=	user-destdir
 
 USE_LANGUAGES=		c c++
 USE_LIBTOOL=		yes
+USE_MULTIARCH=		lib
 USE_TOOLS+=		lex yacc
 GNU_CONFIGURE=		yes
 CONFIGURE_ARGS+=	--enable-libplotter

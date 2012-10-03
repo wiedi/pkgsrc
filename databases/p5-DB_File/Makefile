@@ -13,6 +13,8 @@ LICENSE=	${PERL5_LICENSE}
 
 PKG_DESTDIR_SUPPORT=	user-destdir
 
+USE_MULTIARCH=	lib
+
 PERL5_PACKLIST=	auto/DB_File/.packlist
 
 .include "../../mk/bsd.prefs.mk"

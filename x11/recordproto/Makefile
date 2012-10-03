@@ -14,5 +14,6 @@ PKG_DESTDIR_SUPPORT=	user-destdir
 
 GNU_CONFIGURE=		yes
 PKGCONFIG_OVERRIDE+=	recordproto.pc.in
+USE_MULTIARCH=		lib
 
 .include "../../mk/bsd.pkg.mk"
