@@ -24,6 +24,8 @@ SUPERSEDES+=	p5-Memoize<1.02
 SUPERSEDES+=	p5-I18N-LangTags<=0.35
 SUPERSEDES+=	p5-Locale-Maketext<=1.15
 
+USE_GCC_RUNTIME=	yes
+
 .include "../../mk/bsd.prefs.mk"
 
 # Determine the Perl API version from the patchlevel.h file from the
