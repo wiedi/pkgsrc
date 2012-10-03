@@ -14,6 +14,7 @@ LICENSE=	modified-bsd
 PKG_DESTDIR_SUPPORT=	user-destdir
 
 USE_LIBTOOL=		YES
+USE_MULTIARCH=		lib
 GNU_CONFIGURE=		YES
 PKGCONFIG_OVERRIDE=	speex.pc.in
 PKGCONFIG_OVERRIDE+=	speexdsp.pc.in

@@ -19,6 +19,7 @@ GNU_CONFIGURE=		yes
 TEST_TARGET=		check
 USE_LIBTOOL=		yes
 USE_LANGUAGES=		c c++
+USE_MULTIARCH=		lib
 
 BUILD_DEPENDS+=		help2man-[0-9]*:../../converters/help2man
 

@@ -12,6 +12,7 @@ COMMENT=	Checksum-based differencing library
 PKG_DESTDIR_SUPPORT=	user-destdir
 
 USE_LIBTOOL=		yes
+USE_MULTIARCH=		lib
 GNU_CONFIGURE=		yes
 CONFIGURE_ARGS+=	--without-included-popt
 

@@ -14,6 +14,7 @@ PKG_DESTDIR_SUPPORT=	user-destdir
 
 GNU_CONFIGURE=		yes
 PKGCONFIG_OVERRIDE+=	xf86miscproto.pc.in
+USE_MULTIARCH=		lib
 
 .include "../../x11/xproto/buildlink3.mk"
 

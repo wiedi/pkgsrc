@@ -14,6 +14,7 @@ PKG_DESTDIR_SUPPORT=	user-destdir
 
 GNU_CONFIGURE=		yes
 PKGCONFIG_OVERRIDE+=	xineramaproto.pc.in
+USE_MULTIARCH=		lib
 
 BUILDLINK_DEPMETHOD.libX11?=	build # uses headers
 .include "../../x11/libX11/buildlink3.mk"

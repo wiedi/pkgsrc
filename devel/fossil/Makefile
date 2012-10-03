@@ -10,14 +10,16 @@ HOMEPAGE=	http://www.fossil-scm.org/
 COMMENT=	Simple, high-reliability, distributed software configuration management
 LICENSE=	2-clause-bsd
 
+USE_MULTIARCH=	bin
+
 PKG_DESTDIR_SUPPORT=	user-destdir
 MAKE_JOBS_SAFE=	no
 HAS_CONFIGURE=	yes
 
-INSTALLATION_DIRS+=	bin
+INSTALLATION_DIRS+=	bin${BINARCHSUFFIX}
 
 do-install:
-	${INSTALL_PROGRAM} ${WRKSRC}/fossil ${DESTDIR}${PREFIX}/bin
+	${INSTALL_PROGRAM} ${WRKSRC}/fossil ${DESTDIR}${PREFIX}/bin${BINARCHSUFFIX}
 
 .include "../../devel/readline/buildlink3.mk"
 .include "../../security/openssl/buildlink3.mk"

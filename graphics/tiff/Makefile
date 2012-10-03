@@ -17,6 +17,7 @@ PKG_DESTDIR_SUPPORT=	user-destdir
 
 USE_LANGUAGES=	c c++
 USE_LIBTOOL=	yes
+USE_MULTIARCH=	lib
 
 GNU_CONFIGURE=		yes
 CONFIGURE_ARGS+=	--enable-rpath
@@ -31,7 +32,7 @@ TEST_TARGET=		check
 post-install:
 	cd ${DESTDIR}/${PREFIX}/${PKGMANDIR}/man3 && for file in *.3tiff; do\
 		target=`echo $$file | sed "s/3tiff/3/"`; \
-		${MV} $$file $$target; \
+		[ -f $$file ] && ${MV} $$file $$target || ${TRUE}; \
 	done
 
 .include "options.mk"

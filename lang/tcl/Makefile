@@ -17,6 +17,9 @@ PKG_DESTDIR_SUPPORT=	user-destdir
 
 WRKSRC=			${WRKDIR}/tcl${TCL_VERSION}
 
+USE_MULTIARCH=		lib
+MULTIARCH_DIRS.lib=	# manually set in PLIST
+
 GNU_CONFIGURE=		yes
 CONFIGURE_DIRS=		unix
 BUILD_DIRS=		${CONFIGURE_DIRS}
@@ -37,7 +40,7 @@ CONFIGURE_ARGS+=	--enable-64bit
 SUBST_CLASSES+=		tcl-config
 SUBST_STAGE.tcl-config=	post-build
 SUBST_FILES.tcl-config=	unix/tclConfig.sh
-SUBST_SED.tcl-config+=	-e "s|${WRKSRC}/unix|${PREFIX}/lib|"
+SUBST_SED.tcl-config+=	-e "s|${WRKSRC}/unix|${PREFIX}/lib${LIBARCHSUFFIX}|"
 SUBST_SED.tcl-config+=	-e "s|${WRKSRC}|${PREFIX}/include/tcl|"
 
 PLIST_SUBST+=		SONUM=${TCL_SONUM}
