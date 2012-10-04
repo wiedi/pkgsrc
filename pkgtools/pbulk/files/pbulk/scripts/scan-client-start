@@ -1,7 +1,7 @@
 #!@SH@
 # $NetBSD: scan-client-start,v 1.2 2008/09/16 18:21:30 joerg Exp $
 
-. @PBULK_CONFIG@
+. ${PBULK_CONF:-@PBULK_CONFIG@}
 
 set -e
 
@@ -12,5 +12,5 @@ if [ "${config_version}" != "@PBULK_CONFIG_VERSION@" ]; then
 fi
 
 for client in ${scan_clients}; do
-	ssh $client "${pscan_prepare} && ${pscan} -c ${master_port_scan} -M ${make} ${pkgsrc}" &
+	ssh $client "PBULK_CONF=${PBULK_CONF} ${pscan_prepare} && ${pscan} -c ${master_port_scan} -M ${make} ${pkgsrc}" &
 done

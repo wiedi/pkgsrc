@@ -49,6 +49,7 @@
 #include "pscan.h"
 
 int verbosity;
+int limited_scan;
 
 static const char *bmake_path;
 static const char *output_file;
@@ -70,7 +71,7 @@ int
 main(int argc, char **argv)
 {
 	const char *client_port = NULL, *master_port = NULL, *start_script = NULL;
-	int ch, limited_scan;
+	int ch;
 	struct sigaction sa;
 
 	setprogname("pbulk-scan");
