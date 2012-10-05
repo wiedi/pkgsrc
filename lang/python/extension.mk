@@ -14,6 +14,8 @@
 .if defined(PYDISTUTILSPKG)
 .include "../../mk/bsd.prefs.mk"
 
+USE_GCC_RUNTIME=	yes
+
 PYSETUP?=		setup.py
 PYSETUPBUILDTARGET?=	build
 PYSETUPBUILDARGS?=	#empty
