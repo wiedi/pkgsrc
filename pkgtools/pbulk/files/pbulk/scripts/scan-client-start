@@ -12,5 +12,9 @@ if [ "${config_version}" != "@PBULK_CONFIG_VERSION@" ]; then
 fi
 
 for client in ${scan_clients}; do
-	ssh $client "PBULK_CONF=${PBULK_CONF} ${pscan_prepare} && ${pscan} -c ${master_port_scan} -M ${make} ${pkgsrc}" &
+	if [ -n "${chroot_dir}" -a -n "${chroot_cmd}" ]; then
+		ssh $client "${chroot_cmd} ${chroot_dir}; PBULK_CONF=${PBULK_CONF} /usr/sbin/chroot /home/chroots/${chroot_dir} /bin/sh -c \"${pscan_prepare} && ${pscan} -c ${master_port_scan} -M ${make} ${pkgsrc}\"" &
+	else
+		ssh $client "PBULK_CONF=${PBULK_CONF}; export PBULK_CONF; ${pscan_prepare} && ${pscan} -c ${master_port_scan} -M ${make} ${pkgsrc}" &
+	fi
 done
