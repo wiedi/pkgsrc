@@ -22,6 +22,7 @@ ONLY_FOR_PLATFORM+=	NetBSD-*-sparc64 NetBSD-*-hppa
 
 GNU_CONFIGURE=	yes
 USE_LIBTOOL=	yes
+USE_MULTIARCH=	lib
 USE_TOOLS+=	pkg-config
 ###
 ### XXX When our patches make it upstream, this will no longer be
