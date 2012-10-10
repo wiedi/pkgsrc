@@ -44,6 +44,11 @@ SUBST_STAGE.vars=	pre-configure
 SUBST_FILES.vars=	gcc/Makefile.in
 SUBST_VARS.vars=	GCC_TARGET_MACHINE
 
+SUBST_CLASSES+=		prefix
+SUBST_STAGE.prefix=	pre-configure
+SUBST_FILES.prefix=	gcc/config/sol2-bi.h gcc/config/sol2.h
+SUBST_SED.prefix=	-e "s,@PREFIX@,${PREFIX},g"
+
 .include "../../mk/bsd.prefs.mk"
 
 LANGS=			c
