@@ -2,6 +2,7 @@
 #
 
 DISTNAME=		logrotate-3.8.1
+PKGREVISION=		1
 CATEGORIES=		sysutils
 MASTER_SITES=		${MASTER_SITE_GENTOO:=distfiles/}
 MASTER_SITES+=		${MASTER_SITE_FREEBSD:=distfiles/}
