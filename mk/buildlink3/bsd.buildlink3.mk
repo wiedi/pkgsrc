@@ -473,8 +473,8 @@ BUILDLINK_LDFLAGS+=	${COMPILER_RPATH_FLAG}${_dir_}
 #
 # Ensure that ${LOCALBASE}/lib is in the runtime library search path.
 #
-.if empty(BUILDLINK_LDFLAGS:M${COMPILER_RPATH_FLAG}${LOCALBASE}/lib)
-BUILDLINK_LDFLAGS+=	${COMPILER_RPATH_FLAG}${LOCALBASE}/lib
+.if empty(BUILDLINK_LDFLAGS:M${COMPILER_RPATH_FLAG}${LOCALBASE}/lib${LIBARCHSUFFIX})
+BUILDLINK_LDFLAGS+=	${COMPILER_RPATH_FLAG}${LOCALBASE}/lib${LIBARCHSUFFIX}
 .endif
 #
 # Add the X11 library directory to the library search paths if the package
@@ -834,7 +834,7 @@ _BLNK_PASSTHRU_RPATHDIRS+=	${BUILDLINK_PREFIX.${_pkg_}}/${_dir_}
 # that wildcard dependencies work correctly when installing from binary
 # packages.
 #
-_BLNK_PASSTHRU_RPATHDIRS+=	${LOCALBASE}/lib
+_BLNK_PASSTHRU_RPATHDIRS+=	${LOCALBASE}/lib${LIBARCHSUFFIX}
 #
 # Allow ${X11BASE}/lib in the runtime library search path for USE_X11
 # packages so that X11 libraries can be found.
