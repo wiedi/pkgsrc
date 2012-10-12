@@ -16,6 +16,8 @@ PKG_DESTDIR_SUPPORT=	user-destdir
 
 DEPENDS+=	${PYPKGPREFIX}-libxml2>=2.6.8:../../textproc/py-libxml2
 
+USE_MULTIARCH=	lib
+
 WRKSRC=		${WRKDIR}/${DISTNAME}/python
 PYDISTUTILSPKG=	YES
 NO_CONFIGURE=	YES
