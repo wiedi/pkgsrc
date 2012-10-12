@@ -49,7 +49,14 @@ INSTALL_ENV+=		PKGSRC_PYTHON_NO_EGG=defined
 .endif
 
 .if defined(PY_PATCHPLIST)
-PLIST_SUBST+=	PYINC=${PYINC} PYLIB=${PYLIB} PYSITELIB=${PYSITELIB}
+PLIST_SUBST+=	PYINC=${PYINC} PYLIB=${PYLIB}
+# Ok, this is ugly :/
+.  if defined(MULTIARCH)
+PLIST_SUBST+=		PYSITELIB=${PYSITELIB.32}${LIBARCHSUFFIX}
+MULTIARCH_DIRS.lib=	${PYSITELIB.32}
+.  else
+PLIST_SUBST+=	PYSITELIB=${PYSITELIB}
+.  endif
 .endif
 
 # prepare Python>=32 bytecode file location change
