@@ -11,7 +11,6 @@ COMMENT=	Python interface to expat
 
 PKG_DESTDIR_SUPPORT=	user-destdir
 
-USE_MULTIARCH=		lib
 MULTIARCH_DIRS.lib=	${PYLIB}/lib-dynload
 
 PYTHON_VERSIONS_INCLUDE_3X=	yes
