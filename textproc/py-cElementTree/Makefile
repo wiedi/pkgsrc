@@ -15,7 +15,6 @@ PYTHON_VERSIONS_INCLUDE_3X=	yes
 
 EXTRACT_ELEMENTS=	${PYSUBDIR}/Modules/_elementtree.c
 
-USE_MULTIARCH=		lib
 MULTIARCH_DIRS.lib=	${PYLIB}/lib-dynload
 
 USE_TOOLS+=	patch

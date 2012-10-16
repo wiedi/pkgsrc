@@ -12,8 +12,6 @@ SHLIBTOOL_OVERRIDE=	# empty
 
 CONFIGURE_ENV+=		PYTHON2=${PYTHONBIN:Q}
 
-MULTIARCH_DIRS.lib=	# specific manually in PLIST
-
 PY_PATCHPLIST=		YES
 PYTHON_PATCH_SCRIPTS=	tools/hook-scripts/mailer/mailer.py
 

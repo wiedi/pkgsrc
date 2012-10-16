@@ -2,6 +2,9 @@
 
 .include "../../lang/python/pyversion.mk"
 
+# Python packages need to be multiarch by default.
+USE_MULTIARCH=		lib
+
 # Packages that are a non-egg distutils extension should set
 # PYDISTUTILSPKG=YES and include this mk file.
 
