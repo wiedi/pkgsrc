@@ -1,4 +1,48 @@
-$NetBSD: CHANGES-pkgsrc-2012Q3,v 1.1.2.1 2012/09/30 20:55:41 wiz Exp $
+$NetBSD: CHANGES-pkgsrc-2012Q3,v 1.1.2.14 2012/10/17 09:48:34 tron Exp $
 
 Changes to the packages collection and infrastructure in 2012Q3:
 
+Pullup ticket #3924 - requested by dholland
+games/flightgear-data: update to match "flightgear" package
+Pullup ticket #3925 - requested by he
+security/p5-Crypt-OpenSSL-DSA: security patch
+Pullup ticket #3926 - requested by mrg
+net/youtube-dl: compatibility update
+Pullup ticket #3927 - requested by tron
+graphics/cairo: build fix
+Pullup ticket #3929 - requested by bsiegert
+fonts/fontconfig: build fix
+Pullup ticket #3930 - requested by dholland
+x11/gtksourceview: build fix
+Pullup ticket #3931 - requested by marino
+textproc/yamcha: build fix
+Pullup ticket #3932 - requested by marino
+editors/emacs24: build fix
+Pullup ticket #3933 - requested by tron
+net/wireshark: security update
+Pullup ticket #3934 - requested by obache
+emulators/suse121_gtk2: security update
+Pullup ticket #3935 - requested by obache
+security/qoauth: build fix
+Pullup ticket #3936 - requested by dholland
+devel/frama-c: build fix update
+Pullup ticket #3937 - requested by sbd
+net/libfetch: build fix
+Pullup ticket #3939 - requested by taca
+lang/ruby193-base: security patch
+Pullup ticket #3940 - requested by taca
+lang/ruby18-base: security patch
+Pullup ticket #3941 - requested by taca
+net/bind96: security update
+Pullup ticket #3942 - requested by taca
+net/bind97: security update
+Pullup ticket #3943 - requested by taca
+net/bind98: security update
+Pullup ticket #3944 - requested by taca
+net/bind99: security update
+Pullup ticket #3945 - requested by taca
+sysutils/libpciaccess: build fix
+Pullup ticket #3948 - requested by taca
+mail/roundcube: security patch
+Pullup ticket #3947 - requested by taca
+lang/ruby193-base: security update

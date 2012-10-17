@@ -1,12 +1,10 @@
-# $NetBSD: Makefile,v 1.17 2012/09/22 11:43:28 obache Exp $
+# $NetBSD: Makefile,v 1.17.2.2 2012/10/17 09:47:20 tron Exp $
 #
 
 DISTNAME=	${RUBY_DISTNAME}
 PKGNAME=	${RUBY_PKGPREFIX}-base-${RUBY_VERSION_FULL}
-PKGREVISION=	2
 CATEGORIES=	lang ruby
 MASTER_SITES=	${MASTER_SITE_RUBY}
-DIST_SUBDIR=	ruby193-base-201202170
 
 MAINTAINER=	taca@NetBSD.org
 HOMEPAGE=	${RUBY_HOMEPAGE}
@@ -14,8 +12,6 @@ COMMENT=	Ruby ${RUBY_VERSION} release minimum base package
 LICENSE=	${RUBY_LICENSE}
 
 RUBY_VERSION_SUPPORTED=	193
-
-PKG_DESTDIR_SUPPORT=	user-destdir
 
 MAKE_JOBS_SAFE=		no
 USE_LANGUAGES=		c
@@ -74,11 +70,12 @@ SUBST_MESSAGE.conf=	Fixing configuration files.
 .include "../../lang/ruby/rubyversion.mk"
 
 .if !empty(RUBY_SUFFIX)
-CONFIGURE_ARGS+=	--program-suffix=${RUBY_SUFFIX}
-CONFIGURE_ARGS+=	--with-soname=${RUBY_NAME}
-CONFIGURE_ARGS+=	--with-sitedir=${PREFIX}/${RUBY_SITELIB_BASE}
-CONFIGURE_ARGS+=	--with-vendordir=${PREFIX}/${RUBY_VENDORLIB_BASE}
-CONFIGURE_ARGS+=	--with-ruby-version=${RUBY_VERSION}
+CONFIGURE_ARGS+= --program-suffix=${RUBY_SUFFIX}
+CONFIGURE_ARGS+= --with-soname=${RUBY_NAME}
+CONFIGURE_ARGS+= --with-sitedir=${PREFIX}/${RUBY_SITELIB_BASE}
+CONFIGURE_ARGS+= --with-vendordir=${PREFIX}/${RUBY_VENDORLIB_BASE}
+CONFIGURE_ARGS+= --with-ruby-version=${RUBY_VERSION}
+CONFIGURE_ARGS+= --with-ruby-pc="ruby-${RUBY_VERSION}.pc"
 .endif
 
 #
