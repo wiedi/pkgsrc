@@ -17,6 +17,7 @@ PKG_DESTDIR_SUPPORT=	user-destdir
 
 DEPENDS+=	p5-XML-LibXML>=1.70:../../textproc/p5-XML-LibXML
 
+USE_MULTIARCH=	lib
 USE_TOOLS+=	pkg-config
 PERL5_PACKLIST=	auto/XML/LibXSLT/.packlist
 
