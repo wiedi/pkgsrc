@@ -17,6 +17,7 @@ PKG_DESTDIR_SUPPORT=	user-destdir
 GNU_CONFIGURE=		yes
 USE_PKGLOCALEDIR=	yes
 USE_LIBTOOL=		yes
+USE_MULTIARCH=		lib
 USE_TOOLS+=		bison flex gmake perl pkg-config
 
 # queue2 moved from gst-plugins-base to here
