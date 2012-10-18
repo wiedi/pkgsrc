@@ -14,6 +14,7 @@ PKG_INSTALLATION_TYPES=	overwrite pkgviews
 PKG_DESTDIR_SUPPORT=	user-destdir
 
 USE_LANGUAGES=		c
+USE_MULTIARCH=		lib
 PERL5_PACKLIST=		auto/DBI/.packlist
 REPLACE_PERL=		dbixs_rev.pl
 
