@@ -15,6 +15,7 @@ PKG_DESTDIR_SUPPORT=	user-destdir
 
 GNU_CONFIGURE=	yes
 USE_LIBTOOL=	yes
+USE_MULTIARCH=	lib
 USE_TOOLS+=	gmake pkg-config
 
 PKGCONFIG_OVERRIDE+=	gupnp-igd-1.0.pc.in
