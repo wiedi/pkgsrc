@@ -13,6 +13,7 @@ LICENSE=	gnu-lgpl-v2
 
 GNU_CONFIGURE=	yes
 USE_LIBTOOL=	yes
+USE_MULTIARCH=	lib
 USE_TOOLS+=	pkg-config
 PKG_DESTDIR_SUPPORT= user-destdir
 
@@ -23,7 +24,7 @@ REPLACE_PYTHON=	tools/gupnp-binding-tool
 
 .if !empty(OPSYS:M*BSD) || ${OPSYS} == "DragonFly" || ${OPSYS} == "Darwin"
 pre-configure:
-	cp ${FILESDIR}/uuid.pc ${BUILDLINK_DIR}/lib/pkgconfig/
+	cp ${FILESDIR}/uuid.pc ${BUILDLINK_DIR}/lib${LIBARCHSUFFIX}/pkgconfig/
 .else
 .include "../../devel/libuuid/buildlink3.mk"
 .endif
