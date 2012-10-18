@@ -14,6 +14,7 @@ PKG_DESTDIR_SUPPORT=	user-destdir
 PKG_INSTALLATION_TYPES=	overwrite pkgviews
 
 USE_LANGUAGES=		c c++ c99
+USE_MULTIARCH=		bin lib
 USE_TOOLS+=		gmake pkg-config
 CONFIGURE_ARGS+=	--disable-assert
 CONFIGURE_ARGS+=	--with-fontconfig
