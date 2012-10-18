@@ -26,10 +26,12 @@ USE_NCURSES=		yes
 USE_PKGLOCALEDIR=	yes
 INFO_FILES=		yes
 
+MULTIARCH_DIRS.lib=	# manually configured in PLIST
+
 CONFIGURE_ARGS+=	--enable-doc-dir=${PREFIX}/share/doc/aspell
 CONFIGURE_ARGS+=	--enable-curses=ncurses
 CONFIGURE_ARGS+=	--enable-pkgdatadir=${PREFIX}/share/aspell
-CONFIGURE_ARGS+=	--enable-dict-dir=${PREFIX}/lib${LIBARCHSUFFIX}/aspell
+CONFIGURE_ARGS+=	--enable-dict-dir=${PREFIX}/lib/aspell
 CONFIGURE_ENV+=		gt_cv_func_gnugettext1_libintl=yes
 
 .include "../../mk/bsd.prefs.mk"
