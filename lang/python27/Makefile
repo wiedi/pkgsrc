@@ -170,7 +170,9 @@ SUBST_SED.findlib=	-e 's,/usr/local,${PREFIX},'
 SUBST_CLASSES+=		vars
 SUBST_MESSAGE.vars=	Substituting multiarch vars.
 SUBST_STAGE.vars=	pre-configure
-SUBST_FILES.vars=	Makefile.pre.in Lib/distutils/sysconfig.py Lib/sysconfig.py Modules/getpath.c
+SUBST_FILES.vars=	Makefile.pre.in Modules/getpath.c
+SUBST_FILES.vars+=	Lib/distutils/command/install.py Lib/site.py
+SUBST_FILES.vars+=	Lib/distutils/sysconfig.py Lib/sysconfig.py
 SUBST_SED.vars=		-e 's,@LIBARCHSUFFIX@,${LIBARCHSUFFIX},'
 .if !empty(MULTIARCH:M[Yy][Ee][Ss])
 SUBST_SED.vars+=	-e 's,@LIBARCHSUFFIX.32@,${LIBARCHSUFFIX.32},'
