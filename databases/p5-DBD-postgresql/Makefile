@@ -14,7 +14,6 @@ LICENSE=	${PERL5_LICENSE}
 
 PKG_DESTDIR_SUPPORT=	user-destdir
 
-USE_MULTIARCH=	lib
 DEPENDS+=	{p5-version-[0-9]*,perl>=5.10.0}:../../devel/p5-version
 
 PKG_INSTALLATION_TYPES=	overwrite pkgviews

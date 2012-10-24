@@ -14,7 +14,6 @@ LICENSE=	${PERL5_LICENSE}
 
 PKG_DESTDIR_SUPPORT=	user-destdir
 
-USE_MULTIARCH=	lib
 PERL5_PACKLIST=	auto/GSSAPI/.packlist
 
 .include "../../lang/perl5/module.mk"

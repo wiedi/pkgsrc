@@ -14,7 +14,6 @@ PKG_DESTDIR_SUPPORT=	user-destdir
 PKG_INSTALLATION_TYPES=	overwrite pkgviews
 
 USE_LANGUAGES=		c
-USE_MULTIARCH=		lib
 PERL5_PACKLIST=		auto/DBD/SQLite2/.packlist
 
 .include "../../databases/p5-DBI/buildlink3.mk"
