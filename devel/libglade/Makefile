@@ -17,6 +17,7 @@ PKG_DESTDIR_SUPPORT=	user-destdir
 USE_TOOLS+=		gmake msgfmt pkg-config
 GNU_CONFIGURE=		YES
 USE_LIBTOOL=		YES
+USE_MULTIARCH=		lib
 PKGCONFIG_OVERRIDE=	libglade-2.0.pc.in
 
 CONFLICTS+=		libglade2-[0-9]*
