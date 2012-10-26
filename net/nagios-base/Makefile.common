@@ -31,4 +31,4 @@ CONFIGURE_ARGS+=	--with-htmurl=/nagios
 
 BUILD_DEFS+=		NAGIOSDIR
 
-MAKE_ENV+=		ABI=${ABI:Q}
+CONFIGURE_ENV+=		ABI=${ABI:Q}
