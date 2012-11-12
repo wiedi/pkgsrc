@@ -1,4 +1,4 @@
-$NetBSD: patch-bin_tests_system_Makefile.in,v 1.2.2.2 2012/05/22 09:29:13 tron Exp $
+$NetBSD$
 
 Build fix for DragonFly while linking of driver.so.
 

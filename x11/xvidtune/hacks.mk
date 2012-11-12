@@ -1,4 +1,4 @@
-# $NetBSD: hacks.mk,v 1.2.2.2 2012/06/06 20:47:03 tron Exp $
+# $NetBSD$
 
 #
 # Work around x11-links lossage with native X on NetBSD 5.
