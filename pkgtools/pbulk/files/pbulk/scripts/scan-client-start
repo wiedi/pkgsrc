@@ -1,7 +1,7 @@
 #!@SH@
 # $NetBSD: scan-client-start,v 1.2 2008/09/16 18:21:30 joerg Exp $
 
-. ${PBULK_CONF:-@PBULK_CONFIG@}
+. @PBULK_CONFIG@
 
 set -e
 
@@ -12,9 +12,5 @@ if [ "${config_version}" != "@PBULK_CONFIG_VERSION@" ]; then
 fi
 
 for client in ${scan_clients}; do
-	if [ -n "${chroot_dir}" -a -n "${chroot_cmd}" ]; then
-		ssh $client "${chroot_cmd} ${chroot_dir}; PBULK_CONF=${PBULK_CONF} /usr/sbin/chroot /home/chroots/${chroot_dir} /bin/sh -c \"${pscan_prepare} && ${pscan} -c ${master_port_scan} -M ${make} ${pkgsrc}\"" &
-	else
-		ssh $client "PBULK_CONF=${PBULK_CONF}; export PBULK_CONF; ${pscan_prepare} && ${pscan} -c ${master_port_scan} -M ${make} ${pkgsrc}" &
-	fi
+	ssh $client "${pscan_prepare} && ${pscan} -c ${master_port_scan} -M ${make} ${pkgsrc}" &
 done

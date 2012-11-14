@@ -36,11 +36,13 @@
 #include <nbcompat/types.h>
 #include <nbcompat/queue.h>
 #include <sys/ioctl.h>
+#ifdef __sun
+#include <sys/filio.h>
+#endif
 #include <sys/socket.h>
 #include <nbcompat/time.h>
 #include <sys/wait.h>
 #include <nbcompat/err.h>
-#include <fcntl.h>
 #include <signal.h>
 #include <nbcompat/stdlib.h>
 #include <nbcompat/stdio.h>
@@ -245,7 +247,6 @@ master_mode(const char *master_port, const char *start_script)
 {
 	struct sockaddr_in dst;
 	int fd;
-	int sockopt = 1;
 
 	LIST_INIT(&active_peers);
 	LIST_INIT(&inactive_peers);
@@ -258,13 +259,10 @@ master_mode(const char *master_port, const char *start_script)
 	fd = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
 	if (fd == -1)
 		err(1, "Could not create socket");	
-	if (fcntl(fd, F_SETFD, FD_CLOEXEC) == -1)
+#ifdef FIOCLEX
+	if (ioctl(fd, FIOCLEX, NULL) == -1)
 		err(1, "Could not set close-on-exec flag");
-	if (limited_scan) {
-		if (setsockopt(fd, SOL_SOCKET, SO_REUSEADDR, &sockopt,
-		    sizeof(sockopt)) == -1)
-			err(1, "Could not set SO_REUSEADDR");
-	}
+#endif
 	if (bind(fd, (struct sockaddr *)&dst, sizeof(dst)) == -1)
 		err(1, "Could not bind socket");
 	if (listen(fd, 5) == -1)
