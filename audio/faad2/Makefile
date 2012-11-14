@@ -10,6 +10,7 @@ HOMEPAGE=	http://www.audiocoding.com/
 COMMENT=	AAC decoding library
 
 LICENSE=	gnu-gpl-v2
+
 # Disable these, for the limitation is only on sale of de/en-coders
 # RESTRICTED=	Dolby doesn't allow binary distributions
 # NO_BIN_ON_FTP=	${RESTRICTED}
