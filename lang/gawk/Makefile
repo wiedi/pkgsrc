@@ -39,8 +39,8 @@ CFLAGS+=	-Dvm_region=vm_region_64
 INSTALLATION_DIRS+=	gnu/bin gnu/man/man1
 
 post-install:
-	${LN} -s ../../bin/gawk ${DESTDIR}${PREFIX}/gnu/bin/awk
-	${LN} -s ../../../man/man1/gawk.1 ${DESTDIR}${PREFIX}/gnu/man/man1/awk.1
+	${LN} -s ${PREFIX}/bin/gawk ${DESTDIR}${PREFIX}/${PKGGNUDIR}bin/awk
+	${LN} -s ${PREFIX}/${PKGMANDIR}/man1/gawk.1 ${DESTDIR}${PREFIX}/${PKGGNUDIR}${PKGMANDIR}/man1/awk.1
 
 BUILDLINK_API_DEPENDS.gettext+=	gettext-lib>=0.10.36
 
