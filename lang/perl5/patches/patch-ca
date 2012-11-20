@@ -12,6 +12,15 @@ $NetBSD: patch-ca,v 1.13 2013/01/24 18:23:51 apb Exp $
 
 --- Configure.orig	2012-10-26 02:44:14.000000000 +0000
 +++ Configure
+@@ -1341,7 +1341,7 @@
+ loclibpth="$loclibpth /opt/gnu/lib /usr/GNU/lib /opt/GNU/lib"
+ 
+ : general looking path for locating libraries
+-glibpth="/lib /usr/lib $xlibpth"
++glibpth="/lib /usr/lib /system/usr/lib $xlibpth"
+ glibpth="$glibpth /usr/ccs/lib /usr/ucblib /usr/local/lib"
+ test -f /usr/shlib/libc.so && glibpth="/usr/shlib $glibpth"
+ test -f /shlib/libc.so     && glibpth="/shlib $glibpth"
 @@ -3099,7 +3099,7 @@ myuname=`$uname -a 2>/dev/null`
  $test -z "$myuname" && myuname=`hostname 2>/dev/null`
  # tr '[A-Z]' '[a-z]' would not work in EBCDIC
@@ -38,7 +47,7 @@ $NetBSD: patch-ca,v 1.13 2013/01/24 18:23:51 apb Exp $
  		genix)	osname=genix ;;
  		gnu)	osname=gnu
  			osvers="$3" ;;
-@@ -3293,7 +3294,7 @@ EOM
+@@ -3293,7 +3294,7 @@
  		MiNT)	osname=mint
  			;;
  		netbsd*) osname=netbsd
@@ -47,7 +56,7 @@ $NetBSD: patch-ca,v 1.13 2013/01/24 18:23:51 apb Exp $
  			;;
  		news-os) osvers="$3"
  			case "$3" in
-@@ -3304,7 +3305,7 @@ EOM
+@@ -3304,7 +3305,7 @@
  		next*) osname=next ;;
  		nonstop-ux) osname=nonstopux ;;
  		openbsd) osname=openbsd
@@ -56,7 +65,7 @@ $NetBSD: patch-ca,v 1.13 2013/01/24 18:23:51 apb Exp $
                  	;;
  		os2)	osname=os2
  			osvers="$4"
-@@ -4713,7 +4714,7 @@ case "$plibpth" in
+@@ -4713,7 +4714,7 @@
  esac
  case "$libpth" in
  ' ') dlist='';;
@@ -65,7 +74,7 @@ $NetBSD: patch-ca,v 1.13 2013/01/24 18:23:51 apb Exp $
  *) dlist="$libpth";;
  esac
  
-@@ -4721,7 +4722,7 @@ esac
+@@ -4721,7 +4722,7 @@
  libpth=''
  for xxx in $dlist
  do
@@ -74,7 +83,7 @@ $NetBSD: patch-ca,v 1.13 2013/01/24 18:23:51 apb Exp $
  		case " $libpth " in
  		*" $xxx "*) ;;
  		*) libpth="$libpth $xxx";;
-@@ -6451,7 +6452,9 @@ rp='Pathname for the site-specific libra
+@@ -6451,7 +6452,9 @@
  . ./getfile
  prefixvar=sitelib
  . ./setprefixvar
@@ -85,7 +94,7 @@ $NetBSD: patch-ca,v 1.13 2013/01/24 18:23:51 apb Exp $
  
  : Determine list of previous versions to include in @INC
  $cat > getverlist <<EOPL
-@@ -6964,7 +6967,9 @@ case "$vendorprefix" in
+@@ -6964,7 +6967,9 @@
  	vendorlibexp="$ansexp"
  	;;
  esac
@@ -96,7 +105,7 @@ $NetBSD: patch-ca,v 1.13 2013/01/24 18:23:51 apb Exp $
  prefixvar=vendorlib
  . ./installprefix
  
-@@ -7441,6 +7446,15 @@ case "$nm_so_opt" in
+@@ -7441,6 +7446,15 @@
  	;;
  esac
  
@@ -112,7 +121,7 @@ $NetBSD: patch-ca,v 1.13 2013/01/24 18:23:51 apb Exp $
  : Figure out where the libc is located
  case "$runnm" in
  true)
-@@ -8303,7 +8317,7 @@ if "$useshrplib"; then
+@@ -8303,7 +8317,7 @@
  		# beos doesn't like the default, either.
  		;;
  	haiku)
@@ -121,7 +130,7 @@ $NetBSD: patch-ca,v 1.13 2013/01/24 18:23:51 apb Exp $
  		;;
  	hpux*)
  		# hpux doesn't like the default, either.
-@@ -9377,6 +9391,13 @@ esac
+@@ -9377,6 +9391,13 @@
  : Check if we want perlio
  useperlio="$define"
  
@@ -135,7 +144,7 @@ $NetBSD: patch-ca,v 1.13 2013/01/24 18:23:51 apb Exp $
  : Set the vendorbin variables
  case "$vendorprefix" in
  '')	d_vendorbin="$undef"
-@@ -19082,7 +19103,15 @@ RCAT(Rei,ser)
+@@ -19082,7 +19103,15 @@
  ACAT(Cir,cus)
  EOCP
  $cppstdin $cppflags $cppminus <cpp_stuff.c >cpp_stuff.out 2>&1
