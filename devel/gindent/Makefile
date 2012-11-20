@@ -23,10 +23,12 @@ MAKE_JOBS_SAFE=		no
 
 AUTO_MKDIRS=		yes
 
+.include "../../mk/bsd.prefs.mk"
+
 post-install:
-	${LN} -sf ${PREFIX}/bin/gindent ${DESTDIR}${PREFIX}/gnu/bin/indent
-	${LN} -sf ${PREFIX}/${PKGMANDIR}/man1/gindent.1 ${DESTDIR}${PREFIX}/gnu/man/man1/indent.1
-	${LN} -sf ${PREFIX}/bin/gtexinfo2man ${DESTDIR}${PREFIX}/gnu/bin/texinfo2man
+	${LN} -sf ${PREFIX}/bin/gindent ${DESTDIR}${PREFIX}/${PKGGNUDIR}bin/indent
+	${LN} -sf ${PREFIX}/${PKGMANDIR}/man1/gindent.1 ${DESTDIR}${PREFIX}/${PKGGNUDIR}${PKGMANDIR}/man1/indent.1
+	${LN} -sf ${PREFIX}/bin/gtexinfo2man ${DESTDIR}${PREFIX}/${PKGGNUDIR}bin/texinfo2man
 
 CONFIGURE_ARGS+=	--program-prefix=g
 
