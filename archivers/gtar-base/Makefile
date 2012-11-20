@@ -47,9 +47,9 @@ PLIST.rmt=		yes
 CONFIGURE_ENV+=		gt_cv_func_gnugettext3_libintl=yes
 .endif
 
-SYMLINKS		= bin/gtar gnu/bin/tar \
-			man/man1/gtar.1 gnu/man/man1/tar.1 \
-			libexec/grmt gnu/libexec/rmt
+SYMLINKS		= bin/gtar ${PKGGNUDIR}bin/tar \
+			man/man1/gtar.1 ${PKGGNUDIR}${PKGMANDIR}/man1/tar.1 \
+			libexec/grmt ${PKGGNUDIR}libexec/rmt
 
 post-install:
 	${INSTALL_MAN} ${FILESDIR}/gtar.1 \
