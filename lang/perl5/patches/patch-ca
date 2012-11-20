@@ -10,6 +10,24 @@ $NetBSD: patch-ca,v 1.16 2013/09/11 14:31:31 jperkin Exp $
 
 --- Configure.orig	2013-08-12 02:44:47.000000000 +0000
 +++ Configure
+@@ -1346,7 +1346,7 @@ loclibpth="/usr/local/lib /opt/local/lib
+ loclibpth="$loclibpth /opt/gnu/lib /usr/GNU/lib /opt/GNU/lib"
+ 
+ : general looking path for locating libraries
+-glibpth="/lib /usr/lib $xlibpth"
++glibpth="/lib /usr/lib /system/usr/lib $xlibpth"
+ glibpth="$glibpth /usr/ccs/lib /usr/ucblib /usr/local/lib"
+ test -f /usr/shlib/libc.so && glibpth="/usr/shlib $glibpth"
+ test -f /shlib/libc.so     && glibpth="/shlib $glibpth"
+@@ -3108,7 +3108,7 @@ $test -z "$myuname" && myuname=`hostname
+ # Remove newlines so myuname is sane to use elsewhere.
+ # tr '[A-Z]' '[a-z]' would not work in EBCDIC
+ # because the A-Z/a-z are not consecutive.
+-myuname=`echo $myuname | $sed -e "s,['/],,g" | \
++myuname=`echo $myuname | $sed -e 's/^[^= ]*=//' -e "s,['/],,g" | \
+ 	./tr '[A-Z]' '[a-z]' | $tr $trnl ' '`
+ newmyuname="$myuname"
+ dflt=n
 @@ -3274,13 +3274,14 @@ EOM
  			osvers="$3"
  			;;
