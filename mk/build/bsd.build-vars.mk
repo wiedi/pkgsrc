@@ -40,6 +40,7 @@ MAKE_ENV+=	X11BASE=${X11BASE:Q}
 MAKE_ENV+=	X11PREFIX=${X11PREFIX:Q}
 MAKE_ENV+=	PKGMANDIR=${PKGMANDIR:Q}
 MAKE_ENV+=	PKGINFODIR=${PKGINFODIR:Q}
+MAKE_ENV+=	PKGGNUDIR=${PKGGNUDIR:Q}
 
 # Provide a consistent environment for packages using (Net)BSD-style
 # Makefiles.
