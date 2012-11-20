@@ -23,12 +23,14 @@ TEXINFO_REQD=		4.0
 
 INSTALLATION_DIRS=	gnu/bin gnu/man/man1
 
+.include "../../mk/bsd.prefs.mk"
+
 post-install:
-.for g n in  bin/ggrep gnu/bin/grep   bin/gegrep gnu/bin/egrep \
-             bin/gfgrep gnu/bin/fgrep   \
-             man/man1/ggrep.1 gnu/man/man1/grep.1 \
-             man/man1/ggrep.1 gnu/man/man1/egrep.1 \
-             man/man1/ggrep.1 gnu/man/man1/fgrep.1
+.for g n in  bin/ggrep ${PKGGNUDIR}bin/grep bin/gegrep ${PKGGNUDIR}bin/egrep \
+             bin/gfgrep ${PKGGNUDIR}bin/fgrep   \
+             man/man1/ggrep.1 ${PKGGNUDIR}${PKGMANDIR}/man1/grep.1 \
+             man/man1/ggrep.1 ${PKGGNUDIR}${PKGMANDIR}/man1/egrep.1 \
+             man/man1/ggrep.1 ${PKGGNUDIR}${PKGMANDIR}/man1/fgrep.1
 	${LN} -sf ${PREFIX}/${g} ${DESTDIR}${PREFIX}/${n}
 .endfor
 
