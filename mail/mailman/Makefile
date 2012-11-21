@@ -2,7 +2,7 @@
 
 DISTNAME=	mailman-2.1.14-1
 PKGNAME=	mailman-2.1.14.1
-PKGREVISION=	3
+PKGREVISION=	4
 CATEGORIES=	mail www
 MASTER_SITES=	http://launchpad.net/mailman/2.1/2.1.14/+download/
 EXTRACT_SUFX=	.tgz
