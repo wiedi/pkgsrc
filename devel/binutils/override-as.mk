@@ -4,7 +4,7 @@
 # override the default selection of as(1) and use the one from devel/binutils
 # instead.
 
-PKG_AS=		${PREFIX}/gnu/bin/as
+PKG_AS=		${PREFIX}/bin/gas
 
 .include "../../mk/compiler.mk"
 
