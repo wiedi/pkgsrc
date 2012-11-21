@@ -96,7 +96,7 @@ CONFIGURE_ARGS+=	--without-gnu-as --with-as=/usr/ccs/bin/as
 .  else
 BUILDLINK_DEPMETHOD.binutils=	full
 .    include "../../devel/binutils/buildlink3.mk"
-CONFIGURE_ARGS+=	--with-gnu-as --with-as=${PREFIX}/gnu/bin/as
+CONFIGURE_ARGS+=	--with-gnu-as --with-as=${PREFIX}/bin/gas
 .  endif
 .endif
 

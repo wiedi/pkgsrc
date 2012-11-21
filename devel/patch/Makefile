@@ -40,8 +40,8 @@ do-patch:
 		< ${WRKSRC}/pch.c.orig 					\
 		> ${WRKSRC}/pch.c
 
-SYMLINKS	= bin/gpatch gnu/bin/patch \
-		man/man1/gpatch.1 gnu/man/man1/patch.1
+SYMLINKS	= bin/gpatch ${PKGGNUDIR}bin/patch \
+		man/man1/gpatch.1 ${PKGGNUDIR}${PKGMANDIR}/man1/patch.1
 post-install:
 .for o n in ${SYMLINKS}
 	${LN} -sf ${PREFIX}/${o} ${DESTDIR}${PREFIX}/${n}

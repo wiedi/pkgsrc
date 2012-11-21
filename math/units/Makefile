@@ -20,8 +20,7 @@ INSTALLATION_DIRS=	gnu/bin
 REPLACE_PYTHON=	units_cur
 
 post-install:
-	set -e; cd ${DESTDIR}${PREFIX}/gnu/bin; \
-	ln -s ../../bin/gunits units
+	${LN} -sf ${PREFIX}/bin/gunits ${DESTDIR}${PREFIX}/${PKGGNUDIR}bin/units
 
 .include "../../devel/readline/buildlink3.mk"
 .include "../../lang/python/application.mk"

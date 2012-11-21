@@ -30,7 +30,7 @@ AUTO_MKDIRS=		yes
 
 post-install:
 	${INSTALL_DATA} ${WRKSRC}/examples/*.m4 ${DESTDIR}${PREFIX}/share/examples/m4
-	${LN} -sf ${PREFIX}/bin/gm4 ${DESTDIR}${PREFIX}/gnu/bin/m4
-	${LN} -sf ${PREFIX}/${PKGMANDIR}/man1/gm4.1 ${DESTDIR}${PREFIX}/gnu/man/man1/m4.1
+	${LN} -sf ${PREFIX}/bin/gm4 ${DESTDIR}${PREFIX}/${PKGGNUDIR}bin/m4
+	${LN} -sf ${PREFIX}/${PKGMANDIR}/man1/gm4.1 ${DESTDIR}${PREFIX}/${PKGGNUDIR}${PKGMANDIR}/man1/m4.1
 
 .include "../../mk/bsd.pkg.mk"

@@ -68,11 +68,11 @@ post-install:
 	  windmc windres
 	set -e; \
 	if [ -f ${DESTDIR}${PREFIX}/bin/g${f:Q} ]; then \
-	    ${LN} -sf ${PREFIX}/bin/g${f} ${DESTDIR}${PREFIX}/gnu/bin/${f}; \
+	    ${LN} -sf ${PREFIX}/bin/g${f} ${DESTDIR}${PREFIX}/${PKGGNUDIR}bin/${f}; \
 	fi
 	if [ -f ${DESTDIR}${PREFIX}/${PKGMANDIR}/man1/g${f:Q}.1 ]; then \
 	    ${LN} -sf ${PREFIX}/${PKGMANDIR}/man1/g${f}.1 \
-	              ${DESTDIR}${PREFIX}/gnu/man/man1/${f}.1; \
+	              ${DESTDIR}${PREFIX}/${PKGGNUDIR}${PKGMANDIR}/man1/${f}.1; \
 	fi
 .endfor
 
