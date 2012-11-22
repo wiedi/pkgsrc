@@ -102,7 +102,8 @@ _PKG_JVM_DEFAULT?=	openjdk7
 _PKG_JVM_DEFAULT?=	sun-jdk6
 .  elif !empty(MACHINE_PLATFORM:MDarwin-*-*)
 _PKG_JVM_DEFAULT?=	sun-jdk6
-.  elif !empty(MACHINE_PLATFORM:MSunOS-5.11-i386)
+.  elif !empty(MACHINE_PLATFORM:MSunOS-5.11-i386) || \
+        !empty(MACHINE_PLATFORM:MSunOS-5.11-x86_64)
 _PKG_JVM_DEFAULT?=	sun-jdk6
 .  elif !empty(MACHINE_PLATFORM:MDragonFly-*-*)
 _PKG_JVM_DEFAULT?=	openjdk7
