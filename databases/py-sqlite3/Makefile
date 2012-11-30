@@ -10,6 +10,7 @@ COMMENT=	Built-in sqlite support for Python 2.5 and up
 
 PKG_DESTDIR_SUPPORT=	user-destdir
 
+USE_GCC_RUNTIME=	yes
 USE_TOOLS+=		patch
 
 EXTRACT_ELEMENTS=	${PYSUBDIR}/Modules/_sqlite
