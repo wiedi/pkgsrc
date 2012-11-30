@@ -11,6 +11,7 @@ COMMENT=	ISO MPEG-4 compliant video codec
 LICENSE=	gnu-gpl-v2
 
 PKG_DESTDIR_SUPPORT=	user-destdir
+USE_GCC_RUNTIME=yes
 USE_TOOLS+=	gmake
 
 .include "../../mk/bsd.prefs.mk"
