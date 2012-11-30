@@ -15,6 +15,7 @@ CONFLICTS=	ossp-uuid-[0-9]* # libuuid.* uuid.pc uuid.3
 
 PKG_DESTDIR_SUPPORT=	user-destdir
 
+USE_GCC_RUNTIME=	yes
 USE_LIBTOOL=		yes
 GNU_CONFIGURE=		yes
 CONFIGURE_ARGS+=	--disable-agetty
