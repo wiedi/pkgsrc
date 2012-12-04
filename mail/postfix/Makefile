@@ -86,6 +86,8 @@ SUBST_SED.postfix+=	\
 SUBST_SED.postfix+=	\
 	-e '/^\#define DEF_SGID_GROUP[ 	]/s,postdrop,maildrop,g'
 
+CONF_FILES=		# empty
+
 # options.mk appends to CCARGS and AUXLIBS the options needed to build
 # Postfix with support for various add-on modules.
 #
@@ -120,7 +122,6 @@ PKG_USERS?=		postfix:postfix
 PKG_GECOS.postfix=	Postfix User
 PKG_HOME.postfix=	${POSTFIX_QUEUE_DIR}
 
-CONF_FILES=		# empty
 .for i in main.cf master.cf
 CONF_FILES+=		${EXAMPLEDIR}/${i} ${PKG_SYSCONFDIR}/${i}
 .endfor
