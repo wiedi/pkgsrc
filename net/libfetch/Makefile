@@ -14,6 +14,7 @@ LICENSE=	modified-bsd
 PKG_DESTDIR_SUPPORT=	user-destdir
 
 USE_FEATURES=		nbcompat
+USE_MULTIARCH=		lib
 
 USE_BSD_MAKEFILE=	yes
 
@@ -29,10 +30,12 @@ CFLAGS+=	-fPIC
 
 BUILDLINK_TRANSFORM+=	rm:-O[23]
 
-INSTALLATION_DIRS=	include lib ${PKGMANDIR}/cat3 ${PKGMANDIR}/man3
+INSTALLATION_DIRS=	include lib${LIBARCHSUFFIX} ${PKGMANDIR}/cat3 ${PKGMANDIR}/man3
 
 BUILD_TARGET=	depend all
 INSTALL_TARGET=	install includes
+
+#WRKSRC=			${WRKDIR}/${DISTNAME}-${ABI}
 
 do-extract:
 	${CP} -r ${FILESDIR} ${WRKSRC}

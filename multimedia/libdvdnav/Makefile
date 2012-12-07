@@ -14,6 +14,7 @@ PKG_DESTDIR_SUPPORT=	user-destdir
 
 GNU_CONFIGURE=		YES
 USE_LIBTOOL=		YES
+USE_MULTIARCH=		bin lib
 USE_TOOLS+=		automake autoconf aclocal autoreconf
 
 pre-configure:

@@ -16,6 +16,7 @@ PKG_DESTDIR_SUPPORT=	user-destdir
 CONFLICTS+=		Xrender-[0-9]*
 
 USE_LIBTOOL=		yes
+USE_MULTIARCH=		lib
 GNU_CONFIGURE=		yes
 USE_TOOLS+=		pkg-config
 

@@ -24,6 +24,7 @@ PKG_DESTDIR_SUPPORT=	user-destdir
 
 USE_LANGUAGES=		c c++
 USE_LIBTOOL=		yes
+USE_MULTIARCH=		bin lib
 USE_TOOLS+=		pax
 GNU_CONFIGURE=		yes
 CONFIGURE_DIRS=		build_unix
@@ -36,6 +37,16 @@ CONFIGURE_ARGS+=	--program-transform-name=s,db_,db4_,
 OPSYSVARS+=		LIBSO_LIBS
 LIBSO_LIBS.SunOS+=	-lnsl -lrt
 CONFIGURE_ENV+=		LIBSO_LIBS=${LIBSO_LIBS:Q}
+
+.include "options.mk"
+
+SUBST_CLASSES+=		docs
+SUBST_MESSAGE.docs=	Configuring documentation installation
+SUBST_STAGE.docs=	post-patch
+SUBST_FILES.docs=	dist/Makefile.in
+SUBST_SED.docs=		-e 's,@install_docs@,${INSTALL_DOCS},'
+
+PLIST_VARS+=		docs
 
 # DB4 only want pthreads because it's really after POSIX 1003.1
 # inter-process mutexes.  In this case, we only care to use the native

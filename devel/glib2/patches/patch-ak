@@ -2,6 +2,15 @@ $NetBSD: patch-ak,v 1.12 2012/05/04 10:22:08 obache Exp $
 
 --- configure.ac.orig	2012-05-01 00:06:39.000000000 +0000
 +++ configure.ac
+@@ -275,7 +275,7 @@                                                                                                                 
+            [],
+	   [with_runtime_libdir=""])
+ GLIB_RUNTIME_LIBDIR="$with_runtime_libdir"
+-ABS_GLIB_RUNTIME_LIBDIR="`readlink -f $libdir/$with_runtime_libdir`"
++ABS_GLIB_RUNTIME_LIBDIR=""
+ AC_SUBST(GLIB_RUNTIME_LIBDIR)
+ AC_SUBST(ABS_GLIB_RUNTIME_LIBDIR)
+ AM_CONDITIONAL(HAVE_GLIB_RUNTIME_LIBDIR, [test "x$with_runtime_libdir" != "x"])
 @@ -852,7 +852,7 @@ int main (int argc, char **argv)
  AC_MSG_RESULT($g_have_gnuc_visibility)
  AM_CONDITIONAL(HAVE_GNUC_VISIBILITY, [test x$g_have_gnuc_visibility = xyes])

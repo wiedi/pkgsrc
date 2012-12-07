@@ -12,6 +12,7 @@ COMMENT=		Fonts extension headers from X.org
 
 PKG_DESTDIR_SUPPORT=	user-destdir
 
+USE_MULTIARCH=		lib
 USE_PKGLOCALEDIR=	yes
 PKGCONFIG_OVERRIDE+=	${WRKSRC}/fontsproto.pc.in
 GNU_CONFIGURE=		yes

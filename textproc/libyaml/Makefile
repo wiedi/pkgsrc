@@ -14,6 +14,7 @@ LICENSE=	mit
 PKG_DESTDIR_SUPPORT=	user-destdir
 GNU_CONFIGURE=		yes
 USE_LIBTOOL=		yes
+USE_MULTIARCH=		lib
 PKGCONFIG_OVERRIDE=	yaml-0.1.pc.in
 
 .include "../../mk/bsd.pkg.mk"

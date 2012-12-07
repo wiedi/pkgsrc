@@ -13,6 +13,7 @@ COMMENT=		Library for the XFree86-Misc X extension
 PKG_DESTDIR_SUPPORT=	user-destdir
 
 USE_LIBTOOL=		yes
+USE_MULTIARCH=		lib
 PKGCONFIG_OVERRIDE+=	xxf86misc.pc.in
 USE_TOOLS+=		pkg-config
 GNU_CONFIGURE=		yes

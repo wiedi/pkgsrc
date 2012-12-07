@@ -16,6 +16,7 @@ PKG_DESTDIR_SUPPORT=	user-destdir
 
 USE_LANGUAGES=	c c++
 USE_LIBTOOL=	yes
+USE_MULTIARCH=	bin lib
 USE_TOOLS+=	gmake pkg-config gs:run
 USE_FEATURES=	vsnprintf		# optional but recommended for security
 GNU_CONFIGURE=	yes
@@ -37,7 +38,7 @@ FIND_PREFIX:=	URW_FONTS_DIR=urw-fonts
 
 CONFIGURE_ARGS+=	--without-perl
 CONFIGURE_ARGS+=	--with-ltdl-include=${BUILDLINK_PREFIX.libltdl}/include
-CONFIGURE_ARGS+=	--with-ltdl-lib=${BUILDLINK_PREFIX.libltdl}/lib
+CONFIGURE_ARGS+=	--with-ltdl-lib=${BUILDLINK_PREFIX.libltdl}/lib${LIBARCHSUFFIX}
 
 .include "../../devel/libltdl/buildlink3.mk"
 .include "../../devel/zlib/buildlink3.mk"

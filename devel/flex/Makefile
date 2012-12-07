@@ -18,6 +18,7 @@ COMMENT=		Fast clone of lex(1), the lexical scanner generator
 PKG_DESTDIR_SUPPORT=	user-destdir
 
 GNU_CONFIGURE=		YES
+USE_MULTIARCH=		bin lib
 USE_TOOLS+=		gm4:run makeinfo
 MAKE_JOBS_SAFE=		no
 TEST_TARGET=		check
