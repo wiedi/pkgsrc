@@ -27,10 +27,12 @@ CONFIGURE_ENV+=		SH=${TOOLS_SH}
 
 CONFIGURE_ARGS+=	--program-prefix=g
 
+.include "../../mk/bsd.prefs.mk"
+
 post-install:
 .for f in shar unshar
-	${LN} -sf ${PREFIX}/bin/g${f} ${DESTDIR}${PREFIX}/gnu/bin/${f}
-	${LN} -sf ${PREFIX}/${PKGMANDIR}/man1/g${f}.1 ${DESTDIR}${PREFIX}/gnu/man/man1/${f}.1
+	${LN} -sf ${PREFIX}/bin/g${f} ${DESTDIR}${PREFIX}/${PKGGNUDIR}bin/${f}
+	${LN} -sf ${PREFIX}/${PKGMANDIR}/man1/g${f}.1 ${DESTDIR}${PREFIX}/${PKGGNUDIR}${PKGMANDIR}/man1/${f}.1
 .endfor
 
 .include "../../devel/gettext-lib/buildlink3.mk"

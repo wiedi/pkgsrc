@@ -20,7 +20,9 @@ INFO_FILES=		yes
 CONFIGURE_ARGS+=	--program-prefix=g
 INSTALLATION_DIRS=	gnu/bin
 
+.include "../../mk/bsd.prefs.mk"
+
 post-install:
-	ln -f -s ../../bin/gtime ${DESTDIR}${PREFIX}/gnu/bin/time
+	${LN} -fs ${PREFIX}/bin/gtime ${DESTDIR}${PREFIX}/${PKGGNUDIR}bin/time
 
 .include "../../mk/bsd.pkg.mk"
