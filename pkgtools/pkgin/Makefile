@@ -45,6 +45,8 @@ pre-install:
 		${WRKSRC}/repositories.conf
 .endif
 
+CPPFLAGS.SunOS+=	-D_FILE_OFFSET_BITS=64
+
 do-install:
 	${INSTALL_PROGRAM} ${WRKSRC}/pkgin ${DESTDIR}${PREFIX}/bin
 	${INSTALL_MAN} ${WRKSRC}/pkgin.1				\
