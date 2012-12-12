@@ -38,10 +38,14 @@ PERL5_MODULE_MK=	# defined
 .include "../../mk/bsd.prefs.mk"
 .include "../../mk/compiler.mk"
 
-MULTIARCH_DIRS.lib=	# PERL5_INSTALLVENDORARCH
-
+#
+# Automatically handle multiarch of perl modules.  The multiarch library
+# dirs are under PERL5_INSTALLVENDORARCH so ensure that lib/perl5 is not
+# expanded.
+#
 .if !empty(USE_LANGUAGES)
-USE_MULTIARCH=		lib
+USE_MULTIARCH=			lib
+MULTIARCH_SKIP_DIRS.lib=	lib/perl5
 .endif
 
 PERL5_MODULE_TYPE?=		MakeMaker
