@@ -3,10 +3,11 @@ $NetBSD: distinfo,v 1.56 2012/06/18 17:36:55 gdt Exp $
 SHA1 (git-1.7.10.5.tar.gz) = 9d0767ef195d3971a891efaf11996158cb341499
 RMD160 (git-1.7.10.5.tar.gz) = 870fc615575828abb14f418387fb316948fe022e
 Size (git-1.7.10.5.tar.gz) = 3813587 bytes
-SHA1 (patch-aa) = ce4ba3241b44e81f9a39986008fbb361062f8470
+SHA1 (patch-aa) = 3e5f242302c04949f746849b7ac842fe81467c44
 SHA1 (patch-ac) = ae75c6ca3abb5edf688e4877f3df8b6c6297f091
 SHA1 (patch-ae) = d420c0a1db0de77bd9713d066434981b20bd4299
 SHA1 (patch-af) = d6c942f7d8a0fe0074ea3edb7e6d858354c85232
 SHA1 (patch-ag) = 4f0b9a5745203ea7ef369c8272b3ea7c644762f0
 SHA1 (patch-ah) = f22a2160631fb624e9e20616c68ad1a4aa2bebc7
 SHA1 (patch-ai) = 56b63d4790a11f5eb128186ad5efdd1bcf102f2e
+SHA1 (patch-compat_terminal.c) = 08cee75388da94be9a632e6debce17a6e2fe1d73
