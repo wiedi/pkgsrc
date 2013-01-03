@@ -13,6 +13,7 @@ LICENSE=		gnu-gpl-v2
 
 GNU_CONFIGURE=		yes
 USE_LIBTOOL=		yes
+USE_MULTIARCH=		lib
 USE_PKGLOCALEDIR=	yes
 USE_TOOLS+=		gmake
 PKGCONFIG_OVERRIDE+=	${WRKSRC}/enca.pc.in
