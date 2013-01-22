@@ -1,6 +1,7 @@
 $NetBSD$
 
 o Fix XSS in query from repository, 7dc8d57d6952fe681cb9e8818df7f103220457bd.
+  CVE-2012-0834
 
 --- lib/QueryRender.php.orig	2011-10-27 02:07:09.000000000 +0000
 +++ lib/QueryRender.php
