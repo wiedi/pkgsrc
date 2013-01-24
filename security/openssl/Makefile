@@ -1,25 +1,7 @@
 # $NetBSD: Makefile,v 1.170.2.1 2013/02/08 16:18:59 tron Exp $
 
-OPENSSL_SNAPSHOT?=	# empty
-OPENSSL_STABLE?=	# empty
-OPENSSL_VERS?=		0.9.8y
-
-.if empty(OPENSSL_SNAPSHOT)
-DISTNAME=	openssl-${OPENSSL_VERS}
-MASTER_SITES=	ftp://ftp.openssl.org/source/ \
-				ftp://sunsite.cnlab-switch.ch/mirror/openssl/source/ \
-				ftp://sunsite.uio.no/pub/security/openssl/source/
-.else
-.  if !empty(OPENSSL_STABLE:M[yY][eE][sS])
-DISTNAME=	openssl-${OPENSSL_VERS:C/[a-z]$//}-stable-SNAP-${OPENSSL_SNAPSHOT}
-PKGNAME=	openssl-${OPENSSL_VERS}beta${OPENSSL_SNAPSHOT}
-MASTER_SITES=	ftp://ftp.openssl.org/snapshot/
-.  else
-DISTNAME=	openssl-SNAP-${OPENSSL_SNAPSHOT}
-PKGNAME=	openssl-${OPENSSL_VERS}alpha${OPENSSL_SNAPSHOT}
-MASTER_SITES=	ftp://ftp.openssl.org/snapshot/
-.  endif
-.endif
+DISTNAME=	openssl-1.0.1c
+MASTER_SITES=	ftp://ftp.openssl.org/source/
 
 SVR4_PKGNAME=	ossl
 CATEGORIES=	security
