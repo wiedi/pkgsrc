@@ -10,3 +10,4 @@ SHA1 (patch-ae) = 7a58f1765a3761321dcc8dafc5fe2e33207be480
 SHA1 (patch-af) = 376f474f3809365a20a53cfe1c91eca4bc02a5cd
 SHA1 (patch-ag) = b407200455878a8a151fc9b4f771fe17552d04fc
 SHA1 (patch-ak) = 049250b9bd42e6f155145703135dab39a7ec17e0
+SHA1 (patch-engines_ccgost_Makefile) = 08999f0f40969883482ad9ffc1aa9959ed7d402c
