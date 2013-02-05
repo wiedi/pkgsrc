@@ -1,4 +1,4 @@
-$NetBSD: CHANGES-pkgsrc-2012Q4,v 1.1.2.20 2013/01/27 14:11:18 spz Exp $
+$NetBSD: CHANGES-pkgsrc-2012Q4,v 1.1.2.25 2013/02/02 10:41:01 tron Exp $
 
 Changes to the packages collection and infrastructure on the
 pkgsrc-2012Q4 branch:
@@ -134,3 +134,26 @@ Pullup ticket #4041 - requested by tron
 multimedia/libvpx: MacOS fix
 Pullup ticket #4042 - requested by morr
 www/wordpress: security update
+Pullup ticket #4046 - requested by drochner
+net/libupnp: security patch
+Pullup ticket #4048 - requested by drochner
+multimedia/vlc2: security patch
+Pullup ticket #4049 - requested by ryoon
+pkgsrc/x11/py-gtk2: build fix
+Pullup ticket #4050 - requested by obache
+emulators/suse121_qt4: security update
+Pullup ticket #4051 - requested by obache
+www/opera: security update
+Pullup ticket #4053 - requested by taca
+net/samba35: security update
+Pullup ticket #4052 - requested by taca
+databases/ruby-activerecord3: security update
+devel/ruby-activemodel: security update
+devel/ruby-activesupport3: security update
+devel/ruby-railties: security update
+mail/ruby-actionmailer3: security update
+www/ruby-actionpack3: security update
+www/ruby-activeresource3: security update
+www/ruby-rails3: security update
+Pullup ticket #4054 - requested by taca
+net/samba: security update
