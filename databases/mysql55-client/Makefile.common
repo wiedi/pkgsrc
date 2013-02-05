@@ -75,6 +75,11 @@ GNU_ARCH.i386=		i486
 CFLAGS+=		-march=i486
 .endif
 
+# Ensure the correct DTrace ABI is used.
+.if !empty(ABI)
+CMAKE_ARGS+=		-DDTRACE_FLAGS="-${ABI}"
+.endif
+
 CPPFLAGS+=		-Dunix
 CFLAGS+=		-DUSE_OLD_FUNCTIONS # 3.23.x compat
 
