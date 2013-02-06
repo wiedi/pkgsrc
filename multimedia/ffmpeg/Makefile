@@ -26,7 +26,7 @@ CONFIGURE_ARGS+=	--disable-asm
 
 TEST_TARGET=	check
 
-FFTOOLS=	cws2fws graph2dot lavfi-showfiltfmts pktdumper
+FFTOOLS=	aviocat cws2fws graph2dot pktdumper
 FFTOOLS+=	probetest qt-faststart trasher
 
 .include "options.mk"
@@ -47,5 +47,7 @@ post-install:
 .if !empty(PKGSRC_COMPILER:Mclang)
 CFLAGS+=	-no-integrated-as
 .endif
+
+MAKE_JOBS_SAFE=	no
 
 .include "../../multimedia/ffmpeg/Makefile.common"
