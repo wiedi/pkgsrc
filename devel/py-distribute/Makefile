@@ -15,5 +15,8 @@ CONFLICTS+=	${PYPKGPREFIX}-setuptools-[0-9]*
 PYTHON_VERSIONS_INCLUDE_3X= yes
 PLIST_SUBST+=	PYVERSSUFFIX=${PYVERSSUFFIX}
 
+post-extract:
+	cd ${WRKSRC} && ${CHMOD} -R g-w,o-w *
+
 .include "../../lang/python/distutils.mk"
 .include "../../mk/bsd.pkg.mk"
