@@ -17,11 +17,23 @@ USE_LIBTOOL=	YES
 
 INSTALLATION_DIRS=	bin lib
 
+.include "../../mk/bsd.prefs.mk"
+
+.if ${OPSYS} == "SunOS"
+.  if !empty(ABI:M64) || !empty(MACHINE_ARCH:Mx86_64)
+BUILD_PLATFORM=	${LOWER_OPSYS}-64bit
+.  else
+BUILD_PLATFORM=	${LOWER_OPSYS}-32bit
+.  endif
+.else
+BUILD_PLATFORM=	${LOWER_OPSYS}
+.endif
+
 do-configure:
 	${CP} ${FILESDIR}/config.netbsd ${WRKSRC}
 	${CP} ${FILESDIR}/config.netbsd ${WRKSRC}/config.dragonfly
 	${CP} ${FILESDIR}/config.netbsd ${WRKSRC}/config.darwin
-	cd ${WRKSRC} && ${SH} ./genMakefiles ${LOWER_OPSYS}
+	cd ${WRKSRC} && ${SH} ./genMakefiles ${BUILD_PLATFORM}
 
 do-install:
 .for lib in BasicUsageEnvironment UsageEnvironment groupsock liveMedia
