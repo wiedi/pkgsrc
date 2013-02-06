@@ -1,0 +1,15 @@
+$NetBSD$
+
+Add missing LDFLAGS.
+
+--- modules/pulseaudio/Makefile.orig	2011-04-21 15:06:51.000000000 +0000
++++ modules/pulseaudio/Makefile
+@@ -25,7 +25,7 @@ LIB=gm_pulseaudio.$(DYN_LIB_SUFFIX)
+ all: $(LIB)
+ 
+ $(LIB): $(OBJS)
+-	$(CC) $(SHFLAGS) -o ../../bin/gcc/$@ $(OBJS) $(EXTRALIBS) -L../../bin/gcc -lgpac -L/usr/lib -lpulse-simple
++	$(CC) $(SHFLAGS) $(LDFLAGS) -o ../../bin/gcc/$@ $(OBJS) $(EXTRALIBS) -L../../bin/gcc -lgpac -L/usr/lib -lpulse-simple
+ 
+ 
+ %.o: %.c
