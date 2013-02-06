@@ -36,6 +36,7 @@ ${PLIST.idea}include/openssl/idea.h
 include/openssl/krb5_asn.h
 include/openssl/kssl.h
 include/openssl/lhash.h
+${PLIST.md2}include/openssl/md2.h
 include/openssl/md4.h
 include/openssl/md5.h
 ${PLIST.mdc2}include/openssl/mdc2.h
@@ -672,8 +673,8 @@ man/man3/EVP_PKEY_sign_init.3
 man/man3/EVP_PKEY_type.3
 man/man3/EVP_PKEY_verify.3
 man/man3/EVP_PKEY_verify_init.3
-man/man3/EVP_PKEY_verifyrecover.3
-man/man3/EVP_PKEY_verifyrecover_init.3
+man/man3/EVP_PKEY_verify_recover.3
+man/man3/EVP_PKEY_verify_recover_init.3
 man/man3/EVP_SealFinal.3
 man/man3/EVP_SealInit.3
 man/man3/EVP_SealUpdate.3
