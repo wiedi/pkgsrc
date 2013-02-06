@@ -16,6 +16,7 @@ BUILDLINK_DEPMETHOD.instantclient=	build
 .include "../../joyent/instantclient/buildlink3.mk"
 CONFIGURE_ARGS+=		--with-${MODNAME}=instantclient,${BUILDLINK_PREFIX.instantclient}/${ORACLE_IC_HOME}
 MESSAGE_SRC+=			${.CURDIR}/../../joyent/instantclient/MESSAGE.instantclient
+CHECK_SHLIBS=			no
 .elif !exists(${ORACLE_HOME})
 PKG_FAIL_REASON+=		"The location of ORACLE_HOME does not exist"
 .else
