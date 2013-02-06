@@ -84,7 +84,7 @@ $NetBSD: patch-aa,v 1.8 2010/10/18 08:42:31 pettai Exp $
  
  dnl smfi_addheader() -- older versions of libmilter
  dnl
-@@ -172,3 +183,22 @@
+@@ -172,3 +183,23 @@
  dnl instead.  It will still work, but it breaks the DKIM specification.
  dnl To enable this, remove the "dnl" from the front of the line.
  dnl APPENDDEF(`conf_dkim_filter_ENVDEF', `-DNO_SMFI_INSHEADER ')
@@ -107,3 +107,4 @@ $NetBSD: patch-aa,v 1.8 2010/10/18 08:42:31 pettai Exp $
 +dnl option fixes for pkgsrc          
 +dnl                                  
 +define(`confLIBSEARCH', `@DBLIB@ @RESOLVLIB@') 
++define(`confCCLINK', `confCC @LDFLAGS@')
