@@ -1,8 +1,8 @@
 # $NetBSD: options.mk,v 1.7 2012/08/16 15:11:49 drochner Exp $
 
 PKG_OPTIONS_VAR=	PKG_OPTIONS.wireshark
-PKG_SUPPORTED_OPTIONS=	gtk2 lua
-PKG_SUGGESTED_OPTIONS=	gtk2 lua
+PKG_SUPPORTED_OPTIONS=	gtk2 lua kerberos
+PKG_SUGGESTED_OPTIONS=	gtk2 lua kerberos
 
 .include "../../mk/bsd.options.mk"
 
@@ -25,4 +25,11 @@ CONFIGURE_ARGS+=	--with-lua=no
 
 CONFIGURE_ARGS+=	--with-lua=${BUILDLINK_PREFIX.lua}
 PLIST.lua=		yes
+.endif
+
+.if !empty(PKG_OPTIONS:Mkerberos)
+CONFIGURE_ARGS+=	--with-krb5=${KRB5BASE}
+.include "../../mk/krb5.buildlink3.mk"
+.else
+CONFIGURE_ARGS+=	--with-krb5=no
 .endif

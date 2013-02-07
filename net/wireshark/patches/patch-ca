@@ -1,10 +1,11 @@
-$NetBSD: patch-ca,v 1.1 2012/08/16 14:52:27 drochner Exp $
+$NetBSD$
 
 allow gnutls >= 3
+fix heimdal search path
 
---- configure.orig	2012-08-15 15:34:16.000000000 +0000
+--- configure.orig	2012-11-28 18:51:02.000000000 +0000
 +++ configure
-@@ -16599,12 +16599,12 @@ if test -n "$LIBGNUTLS_CFLAGS"; then
+@@ -16601,12 +16601,12 @@ if test -n "$LIBGNUTLS_CFLAGS"; then
      pkg_cv_LIBGNUTLS_CFLAGS="$LIBGNUTLS_CFLAGS"
   elif test -n "$PKG_CONFIG"; then
      if test -n "$PKG_CONFIG" && \
@@ -20,7 +21,7 @@ allow gnutls >= 3
  		      test "x$?" != "x0" && pkg_failed=yes
  else
    pkg_failed=yes
-@@ -16616,12 +16616,12 @@ if test -n "$LIBGNUTLS_LIBS"; then
+@@ -16618,12 +16618,12 @@ if test -n "$LIBGNUTLS_LIBS"; then
      pkg_cv_LIBGNUTLS_LIBS="$LIBGNUTLS_LIBS"
   elif test -n "$PKG_CONFIG"; then
      if test -n "$PKG_CONFIG" && \
@@ -36,7 +37,7 @@ allow gnutls >= 3
  		      test "x$?" != "x0" && pkg_failed=yes
  else
    pkg_failed=yes
-@@ -16642,9 +16642,9 @@ else
+@@ -16644,9 +16644,9 @@ else
          _pkg_short_errors_supported=no
  fi
          if test $_pkg_short_errors_supported = yes; then
@@ -48,3 +49,12 @@ allow gnutls >= 3
          fi
  	# Put the nasty error message in config.log where it belongs
  	echo "$LIBGNUTLS_PKG_ERRORS" >&5
+@@ -26487,7 +26487,7 @@ $as_echo "yes" >&6; }
+ 	  # searches the specified directory.
+ 	  #
+ 	  CPPFLAGS="$CPPFLAGS -I$krb5_dir/include"
+-	  ac_heimdal_version=`grep heimdal $krb5_dir/include/krb5.h | head -n 1 | sed 's/^.*heimdal.*$/HEIMDAL/'`
++	  ac_heimdal_version=`grep heimdal $krb5_dir/include/krb5/krb5.h | head -n 1 | sed 's/^.*heimdal.*$/HEIMDAL/'`
+ 	  # MIT Kerberos moved krb5.h to krb5/krb5.h starting with release 1.5
+ 	  ac_mit_version_olddir=`grep 'Massachusetts Institute of Technology' $krb5_dir/include/krb5.h | head -n 1 | sed 's/^.*Massachusetts Institute of Technology.*$/MIT/'`
+ 	  ac_mit_version_newdir=`grep 'Massachusetts Institute of Technology' $krb5_dir/include/krb5/krb5.h | head -n 1 | sed 's/^.*Massachusetts Institute of Technology.*$/MIT/'`
