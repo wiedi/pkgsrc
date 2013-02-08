@@ -19,6 +19,8 @@ GNU_CONFIGURE=	yes
 .include "../../archivers/bzip2/builtin.mk"
 .include "../../devel/zlib/builtin.mk"
 
+.include "options.mk"
+
 .if empty(USE_BUILTIN.bzip2:M[yY][eE][sS])
 CPPFLAGS+=	-I${WRKDIR}/bzip2
 LDFLAGS+=	-L${WRKDIR}/bzip2
