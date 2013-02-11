@@ -5,3 +5,4 @@ RMD160 (libapreq2-2.12.tar.gz) = 576b3a514e943ef3c28c45530d9e5a6d75132902
 Size (libapreq2-2.12.tar.gz) = 859412 bytes
 SHA1 (patch-aa) = 8fa12ccc0a959c0b2430f4a3165185d3a4f1bf03
 SHA1 (patch-ab) = 46d68205d1759a74ee630a2a33c6fcb29b56bbe9
+SHA1 (patch-apreq2-config.in) = 9c6c50f7e127305b64f7b06f784733947ba6c66e

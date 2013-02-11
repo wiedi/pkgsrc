@@ -16,5 +16,6 @@ CONFIGURE_ARGS+=	--sysconfdir=${PKG_SYSCONFDIR:Q}
 
 .include "options.mk"
 
+.include "../../devel/gettext-lib/buildlink3.mk"
 .include "../../mk/termcap.buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"

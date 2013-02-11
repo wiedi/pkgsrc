@@ -28,6 +28,7 @@ INSTALL_MAKE_FLAGS=	${MAKE_FLAGS} sysconfdir=${EGDIR}
 
 .include "options.mk"
 
+.include "../../devel/libuuid/buildlink3.mk"
 .include "../../devel/zlib/buildlink3.mk"
 .include "../../devel/gettext-lib/buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"

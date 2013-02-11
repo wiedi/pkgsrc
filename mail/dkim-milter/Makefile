@@ -44,6 +44,7 @@ SUBST_SED.libs+=	-e 's|@PREFIX@|${PREFIX}|g'
 SUBST_SED.libs+=	-e 's|@PKGMANDIR@|${PKGMANDIR}|g'
 SUBST_SED.libs+=	-e 's|/etc/mail|${PKG_SYSCONFDIR}|g'
 SUBST_SED.libs+=	-e 's|.I /etc/dkim-filter.conf|.I ${PKG_SYSCONFDIR}/dkim-filter.conf|g'
+SUBST_SED.libs+=	-e 's|@LDFLAGS@|${LDFLAGS}|g'
 SUBST_MESSAGE.libs=	Fixing Makefile references and man pages.
 
 CONF_FILES=		${EGDIR}/dkim-filter.conf.sample \
