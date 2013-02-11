@@ -1,8 +1,8 @@
-# $NetBSD: Makefile,v 1.170.2.1 2013/02/08 16:18:59 tron Exp $
+# $NetBSD: Makefile,v 1.170 2012/10/23 18:16:38 asau Exp $
 
 OPENSSL_SNAPSHOT?=	# empty
 OPENSSL_STABLE?=	# empty
-OPENSSL_VERS?=		0.9.8y
+OPENSSL_VERS?=		0.9.8x
 
 .if empty(OPENSSL_SNAPSHOT)
 DISTNAME=	openssl-${OPENSSL_VERS}
@@ -21,6 +21,7 @@ MASTER_SITES=	ftp://ftp.openssl.org/snapshot/
 .  endif
 .endif
 
+PKGREVISION=	1
 SVR4_PKGNAME=	ossl
 CATEGORIES=	security
 
