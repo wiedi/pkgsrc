@@ -1,4 +1,4 @@
-@comment $NetBSD: PLIST.common,v 1.17 2010/03/01 08:15:40 taca Exp $
+@comment $NetBSD: PLIST.common,v 1.18 2013/02/06 21:40:33 jperkin Exp $
 bin/c_rehash
 bin/openssl
 include/openssl/aes.h
