@@ -1,4 +1,4 @@
-$NetBSD$
+$NetBSD: patch-engines_ccgost_Makefile,v 1.1 2013/02/06 21:40:34 jperkin Exp $
 
 * Make sure rpath is set properly on the libgost.so engine lib.
 

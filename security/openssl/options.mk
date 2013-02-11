@@ -1,4 +1,4 @@
-# $NetBSD: options.mk,v 1.8 2012/01/20 17:07:38 drochner Exp $
+# $NetBSD: options.mk,v 1.9 2013/02/06 21:40:33 jperkin Exp $
 
 PKG_OPTIONS_VAR=	PKG_OPTIONS.openssl
 PKG_SUPPORTED_OPTIONS=	idea md2 mdc2 rc5 zlib threads
