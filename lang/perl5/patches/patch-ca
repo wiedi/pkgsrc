@@ -12,7 +12,16 @@ Don't go looking in local directories.
  
  : general looking path for locating libraries
  glibpth="/lib /usr/lib $xlibpth"
-@@ -3265,13 +3265,14 @@ EOM
+@@ -1341,7 +1341,7 @@
+ loclibpth="$loclibpth /opt/gnu/lib /usr/GNU/lib /opt/GNU/lib"
+ 
+ : general looking path for locating libraries
+-glibpth="/lib /usr/lib $xlibpth"
++glibpth="/lib /usr/lib /system/usr/lib $xlibpth"
+ glibpth="$glibpth /usr/ccs/lib /usr/ucblib /usr/local/lib"
+ test -f /usr/shlib/libc.so && glibpth="/usr/shlib $glibpth"
+ test -f /shlib/libc.so     && glibpth="/shlib $glibpth"
+@@ -3265,13 +3265,14 @@
  			osvers="$3"
  			;;
  		dragonfly) osname=dragonfly
@@ -29,7 +38,7 @@ Don't go looking in local directories.
  		genix)	osname=genix ;;
  		gnu)	osname=gnu
  			osvers="$3" ;;
-@@ -3293,7 +3294,7 @@ EOM
+@@ -3293,7 +3294,7 @@
  		MiNT)	osname=mint
  			;;
  		netbsd*) osname=netbsd
@@ -38,7 +47,7 @@ Don't go looking in local directories.
  			;;
  		news-os) osvers="$3"
  			case "$3" in
-@@ -3304,7 +3305,7 @@ EOM
+@@ -3304,7 +3305,7 @@
  		next*) osname=next ;;
  		nonstop-ux) osname=nonstopux ;;
  		openbsd) osname=openbsd
@@ -47,7 +56,7 @@ Don't go looking in local directories.
                  	;;
  		os2)	osname=os2
  			osvers="$4"
-@@ -4713,7 +4714,7 @@ case "$plibpth" in
+@@ -4713,7 +4714,7 @@
  esac
  case "$libpth" in
  ' ') dlist='';;
@@ -56,7 +65,7 @@ Don't go looking in local directories.
  *) dlist="$libpth";;
  esac
  
-@@ -4721,7 +4722,7 @@ esac
+@@ -4721,7 +4722,7 @@
  libpth=''
  for xxx in $dlist
  do
@@ -65,7 +74,7 @@ Don't go looking in local directories.
  		case " $libpth " in
  		*" $xxx "*) ;;
  		*) libpth="$libpth $xxx";;
-@@ -6451,7 +6452,9 @@ rp='Pathname for the site-specific libra
+@@ -6451,7 +6452,9 @@
  . ./getfile
  prefixvar=sitelib
  . ./setprefixvar
@@ -76,7 +85,7 @@ Don't go looking in local directories.
  
  : Determine list of previous versions to include in @INC
  $cat > getverlist <<EOPL
-@@ -6964,7 +6967,9 @@ case "$vendorprefix" in
+@@ -6964,7 +6967,9 @@
  	vendorlibexp="$ansexp"
  	;;
  esac
@@ -87,7 +96,7 @@ Don't go looking in local directories.
  prefixvar=vendorlib
  . ./installprefix
  
-@@ -7441,6 +7446,15 @@ case "$nm_so_opt" in
+@@ -7441,6 +7446,15 @@
  	;;
  esac
  
@@ -103,7 +112,7 @@ Don't go looking in local directories.
  : Figure out where the libc is located
  case "$runnm" in
  true)
-@@ -8303,7 +8317,7 @@ if "$useshrplib"; then
+@@ -8303,7 +8317,7 @@
  		# beos doesn't like the default, either.
  		;;
  	haiku)
@@ -126,7 +135,7 @@ Don't go looking in local directories.
  : Set the vendorbin variables
  case "$vendorprefix" in
  '')	d_vendorbin="$undef"
-@@ -19082,7 +19103,15 @@ RCAT(Rei,ser)
+@@ -19082,7 +19103,15 @@
  ACAT(Cir,cus)
  EOCP
  $cppstdin $cppflags $cppminus <cpp_stuff.c >cpp_stuff.out 2>&1
