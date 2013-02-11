@@ -1,4 +1,4 @@
-$NetBSD: distinfo,v 1.90 2012/05/22 06:00:11 joerg Exp $
+$NetBSD: distinfo,v 1.90.6.1 2013/02/08 16:18:59 tron Exp $
 
 SHA1 (openssl-1.0.1d.tar.gz) = 5e586810ea516a5eec1c7d7c730a17fb528de32d
 RMD160 (openssl-1.0.1d.tar.gz) = 37710d9841a9d89e55d01a09083801ee0cc63f76
