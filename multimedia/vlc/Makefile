@@ -33,6 +33,14 @@ PLIST_VARS+=		x86simd altivec v4l2
 BUILDLINK_API_DEPENDS.zlib+=		zlib>=1.2.0
 BUILDLINK_API_DEPENDS.vcdimager+=	vcdimager>=0.7.20nb1
 
+.include "../../mk/compiler.mk"
+.if !empty(MACHINE_PLATFORM:MSunOS-5.1[0-9]-*) && \
+    !empty(CC_VERSION:Mgcc-4.[6-9].*)
+CFLAGS.SunOS+=  -D_XOPEN_SOURCE=600
+.else
+CFLAGS.SunOS+=	-D_XOPEN_SOURCE -D_XOPEN_SOURCE_EXTENDED=1
+.endif
+
 CONFIGURE_ARGS+=	--disable-speex # needs unstable 1.1.x branch [1.2 in pkgsrc]
 CONFIGURE_ARGS+=	--disable-smb
 
