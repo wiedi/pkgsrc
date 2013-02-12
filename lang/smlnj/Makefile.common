@@ -4,7 +4,7 @@
 # pkg support for those platforms, and say, solaris-x86
 # is left as an (easy) exercise for the reader.
 ONLY_FOR_PLATFORM=	NetBSD-*-i386 NetBSD-*-sparc NetBSD-*-powerpc \
-			FreeBSD-*-i386 Linux-*-i386 SunOS-*-sparc
+			FreeBSD-*-i386 Linux-*-i386 SunOS-*-*
 
 .include "../../mk/bsd.prefs.mk"
 
