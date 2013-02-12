@@ -44,6 +44,14 @@ SML_LIBDIR=	${SML_BASE}/lib
 SML_BINDIR=	${SML_BASE}/bin
 SML_SCRIPTS=	_link-sml _run-sml _ml-build _ml-makedepend
 
+SUBST_CLASSES+=		ccs
+SUBST_STAGE.ccs=	post-patch
+SUBST_MESSAGE.ccs=	Fixing SunOS tool paths
+SUBST_FILES.ccs=	base/runtime/objs/mk.x86-solaris
+SUBST_FILES.ccs+=	config/install.sh
+SUBST_FILES.ccs+=	src/runtime/objs/mk.x86-solaris
+SUBST_SED.ccs=		-e 's,/usr/ccs/bin/,,g'
+
 .include "../../lang/smlnj/Makefile.common"
 
 # create parent directory for the runtime system
