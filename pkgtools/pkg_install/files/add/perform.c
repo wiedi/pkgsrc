@@ -731,6 +731,7 @@ extract_files(struct pkg_task *pkg)
 			}
 			linkpath = xasprintf("%s/%s", pkg->prefix, linksrc);
 			fullpath = xasprintf("%s/%s", pkg->prefix, linkdst);
+			(void)unlink(fullpath);
 			(void)link(linkpath, fullpath);
 			free(linkpath);
 			pkgdb_store(fullpath, pkg->pkgname);
