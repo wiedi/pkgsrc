@@ -208,6 +208,7 @@ find_full_tree(void)
 	char *cat_path;
 	char *buf, *buf_orig, *cat, *cat_orig;
 	size_t buf_len, cat_len;
+	int count, i;
 
 	buf = read_from_child(pkgsrc_tree, bmake_path, extract_subdir);
 
@@ -220,6 +221,19 @@ find_full_tree(void)
 		cat_len = strcspn(cat, " \t\n");
 		if (cat_len == 0)
 			break;
+
+		/*
+		* Check for SUBDIR including a '/', if so we assume it has
+		* been passed as part of SPECIFIC_PKGS or USER_ADDITIONAL_PKGS
+		* and should be added as a package path directly.
+		*/
+		for (count = i = 0; i < cat_len; i++)
+			count += (cat[i] == '/');
+		if (count) {
+			add_job_pkgpath(cat, cat_len);
+			cat += cat_len;
+			continue;
+		}
 
 		cat_path = xasprintf("%s/%.*s", pkgsrc_tree, (int)cat_len, cat);
 		buf_orig = buf = read_from_child(cat_path, bmake_path, extract_subdir);
