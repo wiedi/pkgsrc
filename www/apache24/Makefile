@@ -2,7 +2,7 @@
 
 DISTNAME=	httpd-2.4.3
 PKGNAME=	${DISTNAME:S/httpd/apache/}
-PKGREVISION=	2
+PKGREVISION=	3
 CATEGORIES=	www
 MASTER_SITES=	${MASTER_SITE_APACHE:=httpd/} \
 		http://archive.apache.org/dist/httpd/ \
@@ -30,8 +30,6 @@ CONFIGURE_ARGS+=	--with-port=80
 CONFIGURE_ENV+=		perlbin=${PERL5:Q}
 CONFIGURE_ENV+=		ac_cv_path_RSYNC=/nonexistent
 CONFIGURE_ENV+=		CFLAGS=${APACHE_CUSTOM_CFLAGS:M*:Q}
-
-CFLAGS.SunOS+=	-D_XOPEN_SOURCE -D_XOPEN_SOURCE_EXTENDED=1 -D__EXTENSIONS__
 
 .include "../../mk/bsd.prefs.mk"
 .include "../../devel/apr/buildlink3.mk"
