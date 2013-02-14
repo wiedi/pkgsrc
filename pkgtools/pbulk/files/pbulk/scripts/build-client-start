@@ -15,7 +15,7 @@ for client in ${build_clients}; do
 	if [ -n "${chroot_create}" -a \
 	     -n "${chroot_delete}" -a \
 	     -n "${chroot_dir}" ]; then
-		ssh $client "${chroot_create} ${chroot_dir}; PBULK_CONF=${PBULK_CONF} /usr/sbin/chroot ${chroot_dir} /bin/sh -c \"${pbuild} -c ${master_port_build} -b ${pbuild_script}\"; ${chroot_delete} ${chroot_dir}" &
+		ssh $client "${chroot_create} ${chroot_dir}; PBULK_CONF=${PBULK_CONF} /usr/sbin/chroot ${chroot_dir} /bin/bash -c \"${pbuild} -c ${master_port_build} -b ${pbuild_script}\"; ${chroot_delete} ${chroot_dir}" &
 	else
 		ssh $client "PBULK_CONF=${PBULK_CONF} ${pbuild} -c ${master_port_build} -b ${pbuild_script}" &
 	fi

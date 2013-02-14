@@ -21,7 +21,7 @@ for client in ${scan_clients}; do
 	if [ -n "${chroot_create}" -a \
 	     -n "${chroot_delete}" -a \
 	     -n "${chroot_dir}" ]; then
-		ssh $client "${chroot_create} ${chroot_dir}; PBULK_CONF=${PBULK_CONF} /usr/sbin/chroot ${chroot_dir} /bin/sh -c \"${pscan_prepare} && ${pscan} -c ${master_port_scan} -M ${make} ${extra_pscan_args} ${pkgsrc}\"; ${chroot_delete} ${chroot_dir}" &
+		ssh $client "${chroot_create} ${chroot_dir}; PBULK_CONF=${PBULK_CONF} /usr/sbin/chroot ${chroot_dir} /bin/bash -c \"${pscan_prepare} && ${pscan} -c ${master_port_scan} -M ${make} ${extra_pscan_args} ${pkgsrc}\"; ${chroot_delete} ${chroot_dir}" &
 	else
 		ssh $client "PBULK_CONF=${PBULK_CONF}; export PBULK_CONF; ${pscan_prepare} && ${pscan} -c ${master_port_scan} -M ${make} ${extra_pscan_args} ${pkgsrc}" &
 	fi
