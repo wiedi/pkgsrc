@@ -75,11 +75,6 @@ _check-interpreter: error-check .PHONY
 			continue;;					\
 		esac;							\
 									\
-		case "$$interp" in					\
-		*${PREFIX}/*bin${BINARCHSUFFIX}/*) ;;			\
-		*) interp=`${ECHO} $$interp | ${SED} -e "s;${PREFIX}/\(s*\)bin/;${PREFIX}/\1bin${BINARCHSUFFIX}/;"` ;; \
-		esac;							\
-									\
 		if { [ ! -f ${DESTDIR:Q}"$$interp" ] &&			\
 		     [ ! -f "$$interp" ]; }; then			\
 									\
