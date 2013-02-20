@@ -6,4 +6,4 @@ Size (numpy-1.6.2.tar.gz) = 2585329 bytes
 SHA1 (patch-aa) = 4118f705888a933e73a3403d91c697d19b89097d
 SHA1 (patch-ab) = 18ef5b7ad8386a4e991bde9f7112ec7b13d2a39c
 SHA1 (patch-numpy_distutils_fcompiler_g95.py) = a45933022149d7a6ccac5f50d66afc6038d6ed95
-SHA1 (patch-numpy_distutils_fcompiler_gnu.py) = 57a960e8374fa506528d5da4b87c568983107641
+SHA1 (patch-numpy_distutils_fcompiler_gnu.py) = 25453ef02b0fa46897e974761eb6137a647794bf
