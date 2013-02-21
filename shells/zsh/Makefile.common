@@ -53,7 +53,7 @@ _ZSH_OPSYS.IRIX=		ldflags tcsetpgrp
 _ZSH_OPSYS.Interix=		ldflags notcsetpgrp
 _ZSH_OPSYS.DragonFly=		ldflags tcsetpgrp
 _ZSH_OPSYS.FreeBSD=		ldflags tcsetpgrp
-_ZSH_OPSYS.SunOS=		-       tcsetpgrp
+_ZSH_OPSYS.SunOS=		ldflags tcsetpgrp
 
 _ZSH_OPSYS.${OPSYS}?=		ldflags tcsetpgrp
 
