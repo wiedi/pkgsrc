@@ -8,3 +8,4 @@ SHA1 (patch-ba) = dc6fa32b1fa2fcfb84d4917f49c966ea5f938568
 SHA1 (patch-ca) = 20d35409d7fe63e0088d3105d5cd54809da13097
 SHA1 (patch-cb) = ed98aa446cc4c6cf3c861101637e619d32cc9e95
 SHA1 (patch-cc) = 1e968b8742c913f67654d83612bafe4fe01364c0
+SHA1 (patch-config.solaris-64bit) = a353d599817eca52a35589aea598c993d9b210d0
