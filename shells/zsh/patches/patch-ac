@@ -79,7 +79,7 @@ zsh-workers on 2012-08-16.
        *)       DLCFLAGS="${DLCFLAGS=-fPIC}" ;;
      esac
    else
-@@ -11613,10 +11654,9 @@ $as_echo "$zsh_cv_sys_elf" >&6; }
+@@ -11613,12 +11654,11 @@ $as_echo "$zsh_cv_sys_elf" >&6; }
    fi
    case "$host_os" in
      osf*) DLLDFLAGS="${DLLDFLAGS=-shared -expect_unresolved '*'}" ;;
@@ -89,5 +89,8 @@ zsh-workers on 2012-08-16.
      sysv4*|esix*) DLLDFLAGS="${DLLDFLAGS=-G $ldflags}" ;;
 -    netbsd*)      DLLDFLAGS="${DLLDFLAGS=${DLLDARG}-x -shared --whole-archive}" ;;
      aix*)         DLLDFLAGS="${DLLDFLAGS=-G -bexpall -lc}" ;;
-     solaris*|sysv4*|esix*) DLLDFLAGS="${DLLDFLAGS=-G}" ;;
+-    solaris*|sysv4*|esix*) DLLDFLAGS="${DLLDFLAGS=-G}" ;;
++    solaris*|sysv4*|esix*) DLLDFLAGS="${DLLDFLAGS=-shared}" ;;
      darwin*)      DLLDFLAGS="${DLLDFLAGS=-bundle -flat_namespace -undefined suppress}" ;;
+     beos*|haiku*) DLLDFLAGS="${DLLDFLAGS=-nostart}" ;;
+     openbsd*)
