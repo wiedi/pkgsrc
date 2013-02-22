@@ -11,3 +11,4 @@ SHA1 (patch-ae) = ca74cfab6d9010d037a1e72e7c39b7982888c476
 SHA1 (patch-af) = 03df09e853819816034109429762a3bb01b59fb0
 SHA1 (patch-ag) = 1dfcb56284528b307f44d911f84f64832d907139
 SHA1 (patch-ah) = 1dee26c42c30e60be83a5e574183f2394d23e340
+SHA1 (patch-src_target-based_sftarget__reader.c) = c0f4bde7a1a0fa00e4efecf26eb579cc2b1cb2ee
