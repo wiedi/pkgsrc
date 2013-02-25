@@ -1,6 +1,6 @@
 $NetBSD: manual-libtool.m4,v 1.33 2012/07/26 12:04:04 bsiegert Exp $
 
---- libltdl/m4/libtool.m4.orig	Mon Nov 16 13:11:35 2009
+--- libltdl/m4/libtool.m4.orig	2009-11-16 13:11:59.000000000 +0000
 +++ libltdl/m4/libtool.m4
 @@ -118,7 +118,10 @@ m4_defun([_LT_CC_BASENAME],
      *) break;;
@@ -14,7 +14,7 @@ $NetBSD: manual-libtool.m4,v 1.33 2012/07/26 12:04:04 bsiegert Exp $
  ])
  
  
-@@ -1527,6 +1530,13 @@ AC_CACHE_VAL([lt_cv_sys_max_cmd_len], [d
+@@ -1527,13 +1530,20 @@ AC_CACHE_VAL([lt_cv_sys_max_cmd_len], [d
      lt_cv_sys_max_cmd_len=8192;
      ;;
  
@@ -28,7 +28,6 @@ $NetBSD: manual-libtool.m4,v 1.33 2012/07/26 12:04:04 bsiegert Exp $
    amigaos*)
      # On AmigaOS with pdksh, this test takes hours, literally.
      # So we just punt and use a minimum line length of 8192.
-@@ -1533,7 +1543,7 @@ AC_CACHE_VAL([lt_cv_sys_max_cmd_len], [d
      lt_cv_sys_max_cmd_len=8192;
      ;;
  
@@ -65,7 +64,7 @@ $NetBSD: manual-libtool.m4,v 1.33 2012/07/26 12:04:04 bsiegert Exp $
        need_version=no
        need_lib_prefix=no
        ;;
-@@ -2327,7 +2336,7 @@ freebsd* | dragonfly*)
+@@ -2327,13 +2336,24 @@ freebsd* | dragonfly*)
      shlibpath_overrides_runpath=no
      hardcode_into_libs=yes
      ;;
@@ -74,7 +73,6 @@ $NetBSD: manual-libtool.m4,v 1.33 2012/07/26 12:04:04 bsiegert Exp $
      shlibpath_overrides_runpath=yes
      hardcode_into_libs=yes
      ;;
-@@ -2334,6 +2343,17 @@ freebsd* | dragonfly*)
    esac
    ;;
  
@@ -244,11 +242,11 @@ $NetBSD: manual-libtool.m4,v 1.33 2012/07/26 12:04:04 bsiegert Exp $
        # Common symbols not allowed in MH_DYLIB files
        _LT_TAGVAR(lt_prog_compiler_pic, $1)='-fno-common'
 +      _LT_TAGVAR(lt_prog_compiler_static, $1)=''
-       ;;
++      ;;
 +    *mint*)
 +      # FreeMiNT does not support shared libraries at all
 +      _LT_TAGVAR(lt_prog_compiler_pic, $1)=
-+      ;;
+       ;;
      *djgpp*)
        # DJGPP does not support shared libraries at all
        _LT_TAGVAR(lt_prog_compiler_pic, $1)=
@@ -271,7 +269,7 @@ $NetBSD: manual-libtool.m4,v 1.33 2012/07/26 12:04:04 bsiegert Exp $
        freebsd* | dragonfly*)
  	# FreeBSD uses GNU C++
  	;;
-@@ -3888,11 +3967,19 @@ m4_if([$1], [CXX], [
+@@ -3888,9 +3967,17 @@ m4_if([$1], [CXX], [
        ;;
  
      darwin* | rhapsody*)
@@ -281,17 +279,15 @@ $NetBSD: manual-libtool.m4,v 1.33 2012/07/26 12:04:04 bsiegert Exp $
        # Common symbols not allowed in MH_DYLIB files
        _LT_TAGVAR(lt_prog_compiler_pic, $1)='-fno-common'
 +      _LT_TAGVAR(lt_prog_compiler_static, $1)=''
-       ;;
- 
++      ;;
++
 +    haiku*)
 +      # PIC is the default for Haiku.
 +      # The "-static" flag exists, but is broken.
 +      _LT_TAGVAR(lt_prog_compiler_static, $1)=
-+      ;;
-+
+       ;;
+ 
      hpux*)
-       # PIC is the default for 64-bit PA HP-UX, but not for 32-bit
-       # PA HP-UX.  On IA64 HP-UX, PIC is the default but the pic flag
 @@ -3912,6 +3999,13 @@ m4_if([$1], [CXX], [
        # Instead, we relocate shared libraries at runtime.
        ;;
@@ -471,6 +467,24 @@ $NetBSD: manual-libtool.m4,v 1.33 2012/07/26 12:04:04 bsiegert Exp $
  	;;
  
        openbsd2*)
+@@ -6197,7 +6362,7 @@ if test "$_lt_caught_CXX_error" != yes; 
+ 	      if $CC --version | $GREP -v '^2\.7' > /dev/null; then
+ 	        _LT_TAGVAR(archive_cmds, $1)='$CC -shared -nostdlib $LDFLAGS $predep_objects $libobjs $deplibs $postdep_objects $compiler_flags ${wl}-h $wl$soname -o $lib'
+ 	        _LT_TAGVAR(archive_expsym_cmds, $1)='echo "{ global:" > $lib.exp~cat $export_symbols | $SED -e "s/\(.*\)/\1;/" >> $lib.exp~echo "local: *; };" >> $lib.exp~
+-		  $CC -shared -nostdlib ${wl}-M $wl$lib.exp -o $lib $predep_objects $libobjs $deplibs $postdep_objects $compiler_flags~$RM $lib.exp'
++		  $CC -shared -nostdlib ${wl}-M $wl$lib.exp $wl-h $wl$soname -o $lib $predep_objects $libobjs $deplibs $postdep_objects $compiler_flags~$RM $lib.exp'
+ 
+ 	        # Commands to make compiler produce verbose output that lists
+ 	        # what "hidden" libraries, object files and flags are used when
+@@ -6208,7 +6373,7 @@ if test "$_lt_caught_CXX_error" != yes; 
+ 	        # platform.
+ 	        _LT_TAGVAR(archive_cmds, $1)='$CC -G -nostdlib $LDFLAGS $predep_objects $libobjs $deplibs $postdep_objects $compiler_flags ${wl}-h $wl$soname -o $lib'
+ 	        _LT_TAGVAR(archive_expsym_cmds, $1)='echo "{ global:" > $lib.exp~cat $export_symbols | $SED -e "s/\(.*\)/\1;/" >> $lib.exp~echo "local: *; };" >> $lib.exp~
+-		  $CC -G -nostdlib ${wl}-M $wl$lib.exp -o $lib $predep_objects $libobjs $deplibs $postdep_objects $compiler_flags~$RM $lib.exp'
++		  $CC -G -nostdlib ${wl}-M $wl$lib.exp $wl-h $wl$soname -o $lib $predep_objects $libobjs $deplibs $postdep_objects $compiler_flags~$RM $lib.exp'
+ 
+ 	        # Commands to make compiler produce verbose output that lists
+ 	        # what "hidden" libraries, object files and flags are used when
 @@ -6481,6 +6646,11 @@ $RM -f confest.$objext
  # PORTME: override above test on systems where it is broken
  m4_if([$1], [CXX],
