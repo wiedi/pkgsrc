@@ -360,7 +360,10 @@ post-install:
 .  for tgt in stage-install-vars install-makedirs pre-install do-install post-install
 # This is a bit ugly, but we need a hook here so that we can modify
 # the DESTDIR in between each ABI install, for example to move ABI
-# specific headers to their own sub-directory.
+# specific headers to their own sub-directory.  Also the ugly PATH
+# setting is required for packages which call ${LIBTOOL} directly
+# in a do-install target as it may need to relink and we must ensure
+# the correct wrappers are used.
 .PHONY: ${tgt}-multiarch-hook
 .    if !target(${tgt}-multiarch-hook)
 ${tgt}-multiarch-hook:
@@ -369,8 +372,8 @@ ${tgt}-multiarch-hook:
 .PHONY: ${tgt}-multi
 ${tgt}-multi:
 .    for _abi_ in ${MULTIARCH_ABIS}
-	@${MAKE} ${MAKE_FLAGS} ABI=${_abi_} WRKSRC=${WRKSRC}-${_abi_} ${tgt}
-	@${MAKE} ${MAKE_FLAGS} ABI=${_abi_} WRKSRC=${WRKSRC}-${_abi_} ${tgt}-multiarch-hook
+	@${MAKE} ${MAKE_FLAGS} ABI=${_abi_} PATH=${WRAPPER_DIR}/bin${BINARCHSUFFIX.${_abi_}}:${TOOLS_DIR}/bin${BINARCHSUFFIX.${_abi_}}:${PATH} WRKSRC=${WRKSRC}-${_abi_} ${tgt}
+	@${MAKE} ${MAKE_FLAGS} ABI=${_abi_} PATH=${WRAPPER_DIR}/bin${BINARCHSUFFIX.${_abi_}}:${TOOLS_DIR}/bin${BINARCHSUFFIX.${_abi_}}:${PATH} WRKSRC=${WRKSRC}-${_abi_} ${tgt}-multiarch-hook
 .    endfor
 .  endfor
 .endif
