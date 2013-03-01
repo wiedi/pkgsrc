@@ -25,5 +25,7 @@ PKGCONFIG_OVERRIDE=	tdb.pc.in
 PYTHON_FOR_BUILD_ONLY=	yes
 REPLACE_PYTHON+= buildtools/bin/waf
 
+USE_GCC_RUNTIME=	yes
+
 .include "../../lang/python/application.mk"
 .include "../../mk/bsd.pkg.mk"
