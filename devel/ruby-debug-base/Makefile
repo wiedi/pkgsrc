@@ -14,5 +14,7 @@ DEPENDS+=	${RUBY_PKGPREFIX}-linecache>=0.3:../../devel/ruby-linecache
 
 RUBY_VERSION_SUPPORTED= 18
 
+USE_GCC_RUNTIME=	yes
+
 .include "../../lang/ruby/gem.mk"
 .include "../../mk/bsd.pkg.mk"

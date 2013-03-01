@@ -10,6 +10,8 @@ BUILD_TARGET=		world
 MAKE_JOBS_SAFE=		no
 UNLIMIT_RESOURCES=	stacksize
 
+USE_GCC_RUNTIME=	yes
+
 ###
 ### PLIST components
 ###

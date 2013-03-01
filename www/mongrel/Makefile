@@ -14,6 +14,8 @@ DEPENDS+=	${RUBY_PKGPREFIX}-gem_plugin>=0.2.3:../../misc/ruby-gem_plugin
 
 CONFLICTS+=	ruby[1-9][0-9]-mongrel-[0-9]* mongrel-[0-9]*
 
+USE_GCC_RUNTIME=	yes
+
 # use pre-generated gemspec file to avoid rubygems's incompatibility.
 post-extract:
 	${CP} ${FILESDIR}/gemspec ${WRKDIR}/${DISTNAME}.gemspec
