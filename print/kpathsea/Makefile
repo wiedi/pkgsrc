@@ -42,7 +42,7 @@ MAKE_FLAGS+=	LIBTOOL=${LIBTOOL:Q}
 SUBST_CLASSES+=		texmfdir
 SUBST_MESSAGE.texmfdir=	Setting texmf directories.
 SUBST_STAGE.texmfdir=	pre-configure
-SUBST_FILES.texmfdir=	texmf.cnf
+SUBST_FILES.texmfdir=	${CONFIGURE_DIRS}/texmf.cnf
 SUBST_SED.texmfdir=	-e 's,@PREFIX@,${PREFIX:C;///*;/;g:C;/$;;},'
 SUBST_SED.texmfdir+=	-e 's,@TEXMFLOCAL@,${TEXMFLOCAL:C;///*;/;g:C;/$;;},'
 SUBST_SED.texmfdir+=	-e 's,@VARBASE@,${VARBASE:C;///*;/;g:C;/$;;},'
@@ -51,8 +51,9 @@ SUBST_SED.texmfdir+=	-e 's,@PKG_SYSCONFDIR@,${PKG_SYSCONFDIR:C;///*;/;g:C;/$;;},
 SUBST_CLASSES+=		paths
 SUBST_MESSAGE.paths=	Setting paths to commands.
 SUBST_STAGE.paths=	pre-configure
-SUBST_FILES.paths=	mktex.opt mktexdir mktexlsr mktexmf \
-			mktexnam mktexnam.opt mktexpk mktextfm mktexupd
+.for file in mktex.opt mktexdir mktexlsr mktexmf mktexnam mktexnam.opt mktexpk mktextfm mktexupd
+SUBST_FILES.paths+=	${CONFIGURE_DIRS}/${file}
+.endfor
 SUBST_SED.paths=	-e 's,@KPSEWHICH@,${PREFIX}/bin/kpsewhich,g'
 SUBST_SED.paths+=	-e 's,@MKTEXMF@,${PREFIX}/bin/mktexmf,g'
 
