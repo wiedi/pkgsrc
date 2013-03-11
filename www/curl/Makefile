@@ -1,6 +1,7 @@
-# $NetBSD: Makefile,v 1.113 2012/05/29 14:58:05 wiz Exp $
+# $NetBSD: Makefile,v 1.121.2.1 2013/02/13 19:09:06 tron Exp $
 
-DISTNAME=	curl-7.26.0
+DISTNAME=	curl-7.28.1
+PKGREVISION=	3
 CATEGORIES=	www
 MASTER_SITES=	http://curl.haxx.se/download/ \
 		ftp://ftp.sunet.se/pub/www/utilities/curl/
@@ -52,7 +53,6 @@ post-install:
 			${DESTDIR}${PREFIX}/share/examples/curl;	\
 	done
 
-.include "../../devel/libidn/buildlink3.mk"
 .include "../../devel/zlib/buildlink3.mk"
 .include "../../security/openssl/buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"

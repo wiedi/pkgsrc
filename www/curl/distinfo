@@ -1,6 +1,7 @@
-$NetBSD: distinfo,v 1.76 2012/05/29 14:58:05 wiz Exp $
+$NetBSD: distinfo,v 1.80.2.1 2013/02/13 19:09:06 tron Exp $
 
-SHA1 (curl-7.26.0.tar.bz2) = c2e62eaace2407d377bf544d1f808aea6dddf64c
-RMD160 (curl-7.26.0.tar.bz2) = 90d66cd2f77bf825ba01056f4f384ff74e7b04eb
-Size (curl-7.26.0.tar.bz2) = 2422651 bytes
-SHA1 (patch-aa) = 4c5c76b76dc3a43087fdd8edf0de522fde563b3f
+SHA1 (curl-7.28.1.tar.bz2) = b5aff1afc4e40fcb78db7a5e27214e0035756f3d
+RMD160 (curl-7.28.1.tar.bz2) = d4a0cb79756607c3b573970648d639744f15fc65
+Size (curl-7.28.1.tar.bz2) = 2516671 bytes
+SHA1 (patch-CVE-2013-0249) = a00098804b17c59905fcd87dc69defc43f2aaf19
+SHA1 (patch-aa) = 66dc62384fa8dcd5a68f0f9af8b3c449a46fd250
