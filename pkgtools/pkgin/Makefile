@@ -2,6 +2,7 @@
 #
 
 DISTNAME=		pkgin-0.6.0
+PKGREVISION=		1
 CATEGORIES=		pkgtools
 MASTER_SITES=		ftp://ftp.NetBSD.org/pub/NetBSD/misc/imil/
 
