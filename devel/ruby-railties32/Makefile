@@ -18,6 +18,7 @@ RUBY_RAILS_SUPPORTED=	32
 RUBY_RAILS_STRICT_DEP=	yes
 RUBY_RDOC_REQD=		3.4
 USE_RAKE=		RUN
+OVERRIDE_GEMSPEC=	thor>=0.14.6
 
 .include "../../lang/ruby/gem.mk"
 .include "../../mk/bsd.pkg.mk"
