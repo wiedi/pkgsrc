@@ -12,16 +12,7 @@ PKG_SUGGESTED_OPTIONS+=	embedded-server mysqlmanager ndb-cluster pstack ssl
 ###
 .if !empty(PKG_OPTIONS:Mssl)
 .	include "../../security/openssl/buildlink3.mk"
-.  if ${OPSYS} == "SunOS"
-CHECK_BUILTIN.openssl:=yes
-.    include "../../security/openssl/builtin.mk"
-CHECK_BUILTIN.openssl:=no
-.    if ${USE_BUILTIN.openssl} == "yes"
 CONFIGURE_ARGS+=	--with-ssl=yes
-.    endif
-.  else
-CONFIGURE_ARGS+=	--with-ssl=yes
-.  endif
 .else
 CONFIGURE_ARGS+=	--without-ssl
 .endif
