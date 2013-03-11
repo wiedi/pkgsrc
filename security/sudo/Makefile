@@ -2,6 +2,7 @@
 #
 
 DISTNAME=		sudo-1.7.9p1
+PKGREVISION=		1
 CATEGORIES=		security
 MASTER_SITES=		http://www.sudo.ws/dist/ \
 			ftp://ftp.sudo.ws/pub/sudo/ \
