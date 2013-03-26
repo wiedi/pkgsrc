@@ -36,9 +36,9 @@ New Makefile.in patch, no libtool
  
  libraries:
  
-+${PKG_LIB_A_FILE}: ${OBJS}
++${PKG_LIB_A_FILE}: $(PKG_OBJECTS)
 +	rm -rf $@
-+	ar cr $@ ${OBJS}
++	ar cr $@ $(PKG_OBJECTS)
 +	$(RANLIB) $@
 +
  doc:
