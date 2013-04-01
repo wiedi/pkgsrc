@@ -1,0 +1,3 @@
+[submodule "wip"]
+	path = wip
+	url = git://github.com/joyent/pkgsrc-wip.git
