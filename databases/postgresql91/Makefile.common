@@ -1,4 +1,4 @@
-# $NetBSD: Makefile.common,v 1.6 2012/03/11 10:32:35 wiz Exp $
+# $NetBSD: Makefile.common,v 1.13 2013/02/09 11:19:14 adam Exp $
 #
 # used by databases/postgresql91-adminpack/Makefile
 # used by databases/postgresql91-client/Makefile
@@ -21,7 +21,7 @@
 #	<lang>-postgresql	client-side interface to PostgreSQL
 #	postgresql-<lang>	server-side module for PostgreSQL backend
 
-DISTNAME=	postgresql-9.1.3
+DISTNAME=	postgresql-9.1.9
 CATEGORIES=	databases
 MASTER_SITES=	${MASTER_SITE_PGSQL:=source/v${PKGVERSION_NOREV}/}
 EXTRACT_SUFX=	.tar.bz2
@@ -30,14 +30,24 @@ MAINTAINER?=	adam@NetBSD.org
 HOMEPAGE=	http://www.postgresql.org/
 LICENSE=	postgresql-license
 
+PKG_DESTDIR_SUPPORT=	user-destdir
+
 CONFLICTS+=	postgresql-[0-9]*
-CONFLICTS+=	postgresql[0-8][0-9]-*
-CONFLICTS+=	postgresql9[02-9]-*
+CONFLICTS+=	postgresql[0-8][0-9]-[0-9]*
+CONFLICTS+=	postgresql9[02-9]-[0-9]*
+
+.if !empty(PKGNAME:M*-*-*)
+module=		${PKGNAME:C/-[0-9].*$//:C/^.*-//}
+CONFLICTS+=	postgresql[0-8][0-9]-${module}-[0-9]*
+CONFLICTS+=	postgresql9[02-9]-${module}-[0-9]*
+.endif
 
 DISTINFO_FILE?=		${.CURDIR}/../../databases/postgresql91/distinfo
 COMMON_FILESDIR?=	${.CURDIR}/../../databases/postgresql91/files
 PATCHDIR?=		${.CURDIR}/../../databases/postgresql91/patches
 
+USE_GCC_RUNTIME=	yes
+USE_MULTIARCH=		bin lib
 USE_PKGLOCALEDIR=	yes
 USE_TOOLS+=		bison gmake lex msgfmt
 PKG_SYSCONFSUBDIR=	postgresql
@@ -58,8 +68,8 @@ PG_ETC_DIR=		${PKG_SYSCONFDIR}
 GNU_CONFIGURE=		yes
 CONFIGURE_ARGS+=	--sysconfdir=${PG_ETC_DIR}
 CONFIGURE_ARGS+=	--datadir=${PG_DATA_DIR}
+CONFIGURE_ARGS+=	--docdir=${PG_DOC_DIR}
 CONFIGURE_ARGS+=	--localedir=${PG_LOCALE_DIR}
-CONFIGURE_ARGS+=	--with-docdir=${PG_DOC_DIR}
 CONFIGURE_ARGS+=	--with-template=${PG_TEMPLATE.${OPSYS}}
 
 CONFIGURE_ARGS+=	--enable-nls
@@ -69,8 +79,10 @@ CONFIGURE_ARGS+=	--without-readline
 CONFIGURE_ARGS+=	--without-tcl
 CONFIGURE_ARGS+=	--without-zlib
 
-.if ${OPSYS} == "SunOS" && ${MACHINE_ARCH} == "i386" && empty(ABI:M64)
-CONFIGURE_ARGS+=	--disable-largefile
+# sys/ucred.h shouldn't be included on Solaris, causes conflicts between
+# procfs and largefile.
+.if ${OPSYS} == "SunOS"
+CONFIGURE_ENV+=		ac_cv_header_sys_ucred_h=no
 .endif
 
 # PGSQL_BLCKSZ is the size in bytes of a PostgreSQL disk page or block.

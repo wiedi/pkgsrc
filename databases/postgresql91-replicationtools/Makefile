@@ -1,9 +1,7 @@
-# $NetBSD: Makefile,v 1.1.1.1 2011/09/15 08:33:19 adam Exp $
+# $NetBSD: Makefile,v 1.7 2013/02/09 11:19:16 adam Exp $
 
 PKGNAME=	${DISTNAME:C/-/91-replicationtools-/}
 COMMENT=	PostgreSQL replication tools
-
-PKG_DESTDIR_SUPPORT=	user-destdir
 
 .include "../../databases/postgresql91/Makefile.common"
 
