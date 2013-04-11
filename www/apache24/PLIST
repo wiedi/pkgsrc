@@ -134,6 +134,7 @@ lib/httpd/mod_mpm_event.so
 lib/httpd/mod_mpm_prefork.so
 lib/httpd/mod_mpm_worker.so
 lib/httpd/mod_negotiation.so
+${PLIST.privileges}lib/httpd/mod_privileges.so
 lib/httpd/mod_proxy.so
 lib/httpd/mod_proxy_ajp.so
 lib/httpd/mod_proxy_balancer.so
