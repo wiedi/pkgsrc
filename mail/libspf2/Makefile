@@ -15,4 +15,5 @@ USE_LIBTOOL=	YES
 CONFLICTS+=	libspf_alt-[0-9]*
 CONFLICTS+=	p5-Mail-SPF-[0-9]*
 
+.include "../../devel/gettext-lib/buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"

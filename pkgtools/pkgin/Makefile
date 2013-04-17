@@ -33,6 +33,7 @@ GNU_CONFIGURE=		yes
 USE_FEATURES=		nbcompat
 USE_TOOLS+=		nroff
 
+CFLAGS.SunOS+=		-D_FILE_OFFSET_BITS=64
 MAKE_ENV+=		MACHINE_ARCH=${MACHINE_ARCH}
 
 DEPENDS+=		pkg_install>=20110215:../../pkgtools/pkg_install

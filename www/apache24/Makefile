@@ -30,8 +30,6 @@ CONFIGURE_ENV+=		perlbin=${PERL5:Q}
 CONFIGURE_ENV+=		ac_cv_path_RSYNC=/nonexistent
 CONFIGURE_ENV+=		CFLAGS=${APACHE_CUSTOM_CFLAGS:M*:Q}
 
-CFLAGS.SunOS+=	-D_XOPEN_SOURCE -D_XOPEN_SOURCE_EXTENDED=1 -D__EXTENSIONS__
-
 .include "../../mk/bsd.prefs.mk"
 .include "../../devel/apr/buildlink3.mk"
 .include "../../devel/apr-util/buildlink3.mk"

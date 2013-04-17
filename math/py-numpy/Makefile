@@ -47,6 +47,13 @@ LDFLAGS+=		-shared
 # linking, so ensure that we pass through requisite options.
 LDFLAGS+=		${_COMPILER_ABI_FLAG.${ABI}}
 
+# This package also does its own linking of dependent packages, so we need
+# to ensure that linker is called with the correct arguments.
+SUBST_CLASSES+=		linkabi
+SUBST_STAGE.linkabi=	post-patch
+SUBST_FILES.linkabi=	numpy/distutils/fcompiler/gnu.py
+SUBST_SED.linkabi=	-e 's,@COMPILER_ABI_FLAG@,${_COMPILER_ABI_FLAG.${ABI}},'
+
 # needs devel/py-nose
 #do-test:
 #	${PYTHONBIN} -c "import numpy; numpy.test()"

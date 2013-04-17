@@ -17,6 +17,8 @@ USE_LIBTOOL=	yes
 CONFIGURE_ARGS+=	--disable-bsdtar --without-expat --without-xml2 \
 			--disable-bsdcpio
 
+.include "options.mk"
+
 do-extract:
 	${CP} -r ${FILESDIR} ${WRKSRC}
 

@@ -1,0 +1,14 @@
+$NetBSD$
+
+Stop recording DESTDIR build directory in rpath.
+
+--- apreq2-config.in.orig	2009-03-06 00:39:06.000000000 +0000
++++ apreq2-config.in
+@@ -217,6 +217,7 @@ done
+ if test -n "$flags"; then
+     if test -n "$SOLARIS"; then
+         flags=`echo $flags | sed -e 's/-L\([^ ]*\)/-R\1 -L\1/g'`
++        flags=`echo $flags | sed -e 's|-R'$thisdir'[^ ]*||g'`
+     fi
+     echo "$flags"
+ fi

@@ -23,5 +23,6 @@ PLIST_VARS+=		shm
 PLIST.shm=		yes
 .endif
 
+.include "../../security/openssl/buildlink3.mk"
 .include "../../mk/pthread.buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"
