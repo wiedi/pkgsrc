@@ -207,8 +207,8 @@ _INSTALL_ALL_TARGETS+=		post-install-multi
 _INSTALL_ALL_TARGETS+=		pre-install
 _INSTALL_ALL_TARGETS+=		do-install
 _INSTALL_ALL_TARGETS+=		post-install
-_INSTALL_ALL_TARGETS+=		post-install-smf
 .endif
+_INSTALL_ALL_TARGETS+=		post-install-smf
 _INSTALL_ALL_TARGETS+=		plist
 .if !empty(STRIP_DEBUG:M[Yy][Ee][Ss])
 _INSTALL_ALL_TARGETS+=		install-strip-debug
