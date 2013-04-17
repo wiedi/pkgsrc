@@ -19,6 +19,7 @@ LICENSE=		gnu-lgpl-v3
 
 GNU_CONFIGURE=		yes
 USE_LIBTOOL=		yes
+USE_MULTIARCH=		lib
 TEST_TARGET=		check # needs the package installed
 INFO_FILES=		yes
 
