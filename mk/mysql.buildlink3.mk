@@ -64,7 +64,7 @@ _MYSQL_PKGSRCDIR.percona55=	../../joyent/percona55-client
 #
 .if empty(_PKG_MYSQLS:M${MYSQL_VERSION_DEFAULT})
 PKG_FAIL_REASON+=	"[mysql.buildlink3.mk] Invalid mysql package \""${MYSQL_VERSION_DEFAULT:Q}"\" in MYSQL_VERSION_DEFAULT."
-MYSQL_VERSION_DEFAULT=	mysql55
+#MYSQL_VERSION_DEFAULT=	mysql55
 .endif
 
 .for _mv_ in ${MYSQL_VERSIONS_ACCEPTED}
