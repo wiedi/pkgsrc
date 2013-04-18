@@ -1,0 +1,3 @@
+[submodule "joyent"]
+	path = joyent
+	url = git://github.com/joyent/pkgsrc-joyent.git
