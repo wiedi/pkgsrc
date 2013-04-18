@@ -8,7 +8,7 @@
 # MYSQL_VERSION_DEFAULT
 #	The preferred MySQL version.
 #
-#	Possible: mysql56 mysql55 mysql51 mysql50 percona55
+#	Possible: mysql56 mysql55 mysql51 percona55
 #	Default: mysql55
 #
 # === Package-settable variables ===
@@ -45,7 +45,7 @@ BUILD_DEFS_EFFECTS+=		MYSQL_VERSION
 MYSQL_VERSIONS_ACCEPTED?=	${_PKG_MYSQLS}
 
 # The available MySQL packages:
-_PKG_MYSQLS=			mysql56 mysql55 mysql51 mysql50 percona55
+_PKG_MYSQLS=			mysql56 mysql55 mysql51 percona55
 
 _MYSQL_PKGBASE.mysql56=		mysql-client-5.6.*
 _MYSQL_PKGSRCDIR.mysql56=	../../databases/mysql56-client
@@ -55,9 +55,6 @@ _MYSQL_PKGSRCDIR.mysql55=	../../databases/mysql55-client
 
 _MYSQL_PKGBASE.mysql51=		mysql-client-5.1.*
 _MYSQL_PKGSRCDIR.mysql51=	../../databases/mysql51-client
-
-_MYSQL_PKGBASE.mysql50=		mysql-client-5.0.*
-_MYSQL_PKGSRCDIR.mysql50=	../../databases/mysql50-client
 
 _MYSQL_PKGBASE.percona55=	percona-client-5.5.*
 _MYSQL_PKGSRCDIR.percona55=	../../joyent/percona55-client
