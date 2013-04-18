@@ -83,7 +83,7 @@ MYSQL_VERSIONS_ACCEPTED=	# none
 .for _mv_ in ${MYSQL_VERSIONS_ACCEPTED}
 _MYSQL_OK.${_mv_}=	yes
 _MYSQL_INSTALLED.${_mv_}!=					\
-	if ${PKG_INFO} -qe ${_MYSQL_PKGBASE.${mv}:Q}; then	\
+	if ${PKG_INFO} -qe ${_MYSQL_PKGBASE.${_mv_}:Q}; then	\
 		${ECHO} yes;					\
 	else							\
 		${ECHO} no;					\
