@@ -108,7 +108,7 @@ MYSQL_VERSION?=		${_mv_}
 .endfor
 
 # ..otherwise prefer the default one if it is accepted..
-.if defined(_MYSQL_OK.${MYSQL_VERSION_DEFAULT}) &&
+.if defined(_MYSQL_OK.${MYSQL_VERSION_DEFAULT}) && \
     ${_MYSQL_OK.${MYSQL_VERSION_DEFAULT}} == "yes"
 MYSQL_VERSION?=		${MYSQL_VERSION_DEFAULT}
 .endif
