@@ -8,7 +8,7 @@
 # MYSQL_VERSION_DEFAULT
 #	The preferred MySQL version.
 #
-#	Possible: mysql55 mysql51 mysql50 percona55
+#	Possible: mysql56 mysql55 mysql51 mysql50 percona55
 #	Default: mysql55
 #
 # === Package-settable variables ===
@@ -21,10 +21,10 @@
 #
 # === Variables defined by this file ===
 #
-# MYSQL_PKG_PREFIX
-#	The package name prefix for mysql-dependent packages.
+# MYSQL_VERSION
+#	The MySQL version that is actually used.
 #
-#	Possible: mysql55 mysql51 mysql50 percona55
+#	Possible: (see MYSQL_VERSION_DEFAULT)
 #
 
 .if !defined(MYSQL_VERSION_MK)
@@ -33,93 +33,93 @@ MYSQL_VERSION_MK=	# defined
 _VARGROUPS+=		mysql
 _USER_VARS.mysql=	MYSQL_VERSION_DEFAULT
 _PKG_VARS.mysql=	MYSQL_VERSIONS_ACCEPTED
-_SYS_VARS.mysql=	MYSQL_PKGSRCDIR MYSQL_PKG_PREFIX
+_SYS_VARS.mysql=	MYSQL_VERSION
 
-.include "../../mk/bsd.prefs.mk"
+.include "bsd.fast.prefs.mk"
 
 MYSQL_VERSION_DEFAULT?=		mysql55
-MYSQL_VERSIONS_ACCEPTED?=	mysql55 mysql51 mysql50 percona55
+BUILD_DEFS+=			MYSQL_VERSION_DEFAULT
+BUILD_DEFS_EFFECTS+=		MYSQL_VERSION
 
-# transform the list into individual variables
-.for mv in ${MYSQL_VERSIONS_ACCEPTED}
-_MYSQL_VERSION_${mv}_OK=	yes
+# Package-settable variables
+MYSQL_VERSIONS_ACCEPTED?=	${_PKG_MYSQLS}
+
+# The available MySQL packages:
+_PKG_MYSQLS=			mysql56 mysql55 mysql51 mysql50 percona55
+
+_MYSQL_PKGBASE.mysql56=		mysql-client-5.6.*
+_MYSQL_PKGSRCDIR.mysql56=	../../databases/mysql56-client
+
+_MYSQL_PKGBASE.mysql55=		mysql-client-5.5.*
+_MYSQL_PKGSRCDIR.mysql55=	../../databases/mysql55-client
+
+_MYSQL_PKGBASE.mysql51=		mysql-client-5.1.*
+_MYSQL_PKGSRCDIR.mysql51=	../../databases/mysql51-client
+
+_MYSQL_PKGBASE.mysql50=		mysql-client-5.0.*
+_MYSQL_PKGSRCDIR.mysql50=	../../databases/mysql50-client
+
+_MYSQL_PKGBASE.percona55=	percona-client-5.5.*
+_MYSQL_PKGSRCDIR.percona55=	../../joyent/percona55-client
+
+#
+# Sanity checks
+#
+.if empty(_PKG_MYSQLS:M${MYSQL_VERSION_DEFAULT})
+PKG_FAIL_REASON+=	"[mysql.buildlink3.mk] Invalid mysql package \""${MYSQL_VERSION_DEFAULT:Q}"\" in MYSQL_VERSION_DEFAULT."
+MYSQL_VERSION_DEFAULT=	mysql55
+.endif
+
+.for _mv_ in ${MYSQL_VERSIONS_ACCEPTED}
+.  if empty(_PKG_MYSQLS:M${_mv_})
+PKG_FAIL_REASON+=		"[mysql.buildlink3.mk] Invalid mysql package \""${_mv_:Q}"\" in MYSQL_VERSIONS_ACCEPTED."
+MYSQL_VERSIONS_ACCEPTED=	# none
+.  endif
 .endfor
 
-# check what is installed
-_MYSQL_VERSION_INSTALLED!=				\
-	if ${PKG_INFO} -qe mysql-client-5.5.*; then	\
-		${ECHO} mysql55;			\
-	elif ${PKG_INFO} -qe mysql-client-5.1.*; then	\
-		${ECHO} mysql51;			\
-	elif ${PKG_INFO} -qe mysql-client-5.0.*; then	\
-		${ECHO} mysql50;			\
-	elif ${PKG_INFO} -qe percona-client-5.5.*; then	\
-		${ECHO} percona55;			\
+#
+# Mark the acceptable versions and check which packages are installed.
+#
+.for _mv_ in ${MYSQL_VERSIONS_ACCEPTED}
+_MYSQL_OK.${_mv_}=	yes
+_MYSQL_INSTALLED.${_mv_}!=					\
+	if ${PKG_INFO} -qe ${_MYSQL_PKGBASE.${mv}:Q}; then	\
+		${ECHO} yes;					\
+	else							\
+		${ECHO} no;					\
 	fi
+.endfor
+.for _mv_ in ${_PKG_MYSQLS}
+_MYSQL_OK.${_mv_}?=	no
+.endfor
 
-# if a version is explicitely required, take it
-.if defined(MYSQL_VERSION_REQD)
-_MYSQL_VERSION=	${MYSQL_VERSION_REQD}
-.endif
-# if the default is already installed, it is first choice
-.if !defined(_MYSQL_VERSION)
-.  if defined(_MYSQL_VERSION_${MYSQL_VERSION_DEFAULT}_OK)
-.    if !empty(_MYSQL_VERSION_INSTALLED:M${MYSQL_VERSION_DEFAULT})
-_MYSQL_VERSION=	${MYSQL_VERSION_DEFAULT}
-.    endif
+.undef MYSQL_VERSION
+
+# Use one of the installed MySQL packages..
+.for _mv_ in ${MYSQL_VERSIONS_ACCEPTED}
+.  if ${_MYSQL_INSTALLED.${_mv_}} == "yes"
+MYSQL_VERSION?=		${_mv_}
 .  endif
-.endif
-# prefer an already installed version, in order of "accepted"
-.if !defined(_MYSQL_VERSION)
-.  for mv in ${MYSQL_VERSIONS_ACCEPTED}
-.    if !empty(_MYSQL_VERSION_INSTALLED:M${mv})
-_MYSQL_VERSION?=	${mv}
-.    else
-# keep information as last resort - see below
-_MYSQL_VERSION_FIRSTACCEPTED?=	${mv}
-.    endif
-.  endfor
-.endif
-# if the default is OK for the addon pkg, take this
-.if !defined(_MYSQL_VERSION)
-.  if defined(_MYSQL_VERSION_${MYSQL_VERSION_DEFAULT}_OK)
-_MYSQL_VERSION=	${MYSQL_VERSION_DEFAULT}
-.  endif
-.endif
-# take the first one accepted by the package
-.if !defined(_MYSQL_VERSION)
-_MYSQL_VERSION=	${_MYSQL_VERSION_FIRSTACCEPTED}
+.endfor
+
+# ..otherwise prefer the default one if it is accepted..
+.if ${_MYSQL_OK.${MYSQL_VERSION_DEFAULT}} == "yes"
+MYSQL_VERSION?=		${MYSQL_VERSION_DEFAULT}
 .endif
 
-#
-# set variables for the version we decided to use:
-#
-.if ${_MYSQL_VERSION} == "mysql55"
-MYSQL_PKGSRCDIR=	../../databases/mysql55-client
-MYSQL_PKG_PREFIX=	mysql55
-.elif ${_MYSQL_VERSION} == "mysql51"
-MYSQL_PKGSRCDIR=	../../databases/mysql51-client
-MYSQL_PKG_PREFIX=	mysql51
-.elif ${_MYSQL_VERSION} == "mysql50"
-MYSQL_PKGSRCDIR=	../../databases/mysql5-client
-MYSQL_PKG_PREFIX=	mysql50
-.elif ${_MYSQL_VERSION} == "percona55"
-MYSQL_PKGSRCDIR=	../../joyent/percona55-client
-MYSQL_PKG_PREFIX=	percona55
+# ..otherwise just use the first default accepted.
+.for _mv_ in ${MYSQL_VERSIONS_ACCEPTED}
+MYSQL_VERSION?=		${_mv_}
+.endfor
+
+.if defined(MYSQL_VERSION)
+.  include "${_MYSQL_PKGSRCDIR.${MYSQL_VERSION}}/buildlink3.mk"
 .else
-# force an error
-PKG_FAIL_REASON+=	"[mysql.buildlink3.mk] ${_MYSQL_VERSION} is not a valid mysql package."
+PKG_FAIL_REASON+=	"[mysql.buildlink3.mk] No acceptable mysql version found."
+MYSQL_VERSION=		none
 .endif
 
-#
-# check installed version aginst required:
-#
-.if !empty(_MYSQL_VERSION_INSTALLED)
-.  if ${_MYSQL_VERSION} != ${_MYSQL_VERSION_INSTALLED}
-PKG_SKIP_REASON+=	"${PKGBASE} requires ${_MYSQL_VERSION}, but ${_MYSQL_VERSION_INSTALLED} is already installed."
-.  endif
-.endif
-
-.include "${MYSQL_PKGSRCDIR}/buildlink3.mk"
+# Variable assignment for multi-mysql packages
+MULTI+=		MYSQL_VERSION=${MYSQL_VERSION}
 
 .endif	# MYSQL_VERSION_MK

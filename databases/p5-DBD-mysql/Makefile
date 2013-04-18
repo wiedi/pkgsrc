@@ -1,7 +1,7 @@
 # $NetBSD: Makefile,v 1.53 2013/03/02 20:33:23 wiz Exp $
 
 DISTNAME=	DBD-mysql-4.022
-PKGNAME=	p5-${DISTNAME:S/mysql/${MYSQL_PKG_PREFIX}/}
+PKGNAME=	p5-${DISTNAME:S/mysql/${MYSQL_VERSION}/}
 PKGREVISION=	1
 SVR4_PKGNAME=	p5dmy
 CATEGORIES=	databases perl5
