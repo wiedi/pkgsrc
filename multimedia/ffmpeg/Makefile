@@ -27,10 +27,10 @@ CONFIGURE_ARGS+=	--disable-asm
 
 TEST_TARGET=	check
 
-FFTOOLS=	cws2fws graph2dot lavfi-showfiltfmts pktdumper
-FFTOOLS+=	probetest qt-faststart trasher
-
 .include "options.mk"
+
+FFTOOLS=	cws2fws graph2dot pktdumper
+FFTOOLS+=	probetest qt-faststart trasher
 
 post-install:
 	${INSTALL_DATA} ${WRKSRC}/doc/*.txt \

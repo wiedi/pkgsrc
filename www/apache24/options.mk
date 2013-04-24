@@ -4,6 +4,10 @@ PKG_OPTIONS_VAR=		PKG_OPTIONS.apache
 PKG_SUPPORTED_OPTIONS=		lua suexec apache-mpm-event apache-mpm-prefork apache-mpm-worker
 PKG_SUGGESTED_OPTIONS=		apache-mpm-prefork
 
+.if ${OPSYS} == "SunOS" && !empty(OS_VERSION:M5.1[0-9])
+PKG_SUPPORTED_OPTIONS+=		dtrace privileges
+.endif
+
 .include "../../mk/bsd.options.mk"
 
 # Set the "Multi-Processing Model" used by Apache to handle requests.
@@ -69,4 +73,19 @@ CONFIGURE_ARGS+=	--enable-lua
 PLIST.lua=		yes
 .else
 CONFIGURE_ARGS+=	--disable-lua
+.endif
+
+.if !empty(PKG_OPTIONS:Mdtrace)
+CONFIGURE_ARGS+=	--enable-dtrace
+SUBST_CLASSES+=		dtrace
+SUBST_STAGE.dtrace=	pre-configure
+SUBST_MESSAGE.dtrace=	Force-enabling DTrace support
+SUBST_FILES.dtrace=	configure
+SUBST_SED.dtrace=	-e '/DTrace Support in the build system is not complete/d'
+.endif
+
+PLIST_VARS+=		privileges
+.if !empty(PKG_OPTIONS:Mprivileges)
+CONFIGURE_ARGS+=	--enable-privileges
+PLIST.privileges=	yes
 .endif
