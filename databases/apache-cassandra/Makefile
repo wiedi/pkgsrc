@@ -65,6 +65,10 @@ CONF_FILES_PERMS+=	${EGDIR}/${f} ${PKG_SYSCONFDIR}/${f} \
 
 INSTALLATION_DIRS+=	${CASSANDRA_HOME} ${EGDIR} ${DOCDIR}
 
+CHECK_INTERPRETER_SKIP+=share/cassandra/interface/cassandra.thrift
+CHECK_INTERPRETER_SKIP+=share/cassandra/pylib/setup.py
+CHECK_INTERPRETER_SKIP+=share/cassandra/tools/bin/token-generator
+
 do-install:
 .for d in ${WORK_DIRS}
 		${RM} -rf ${WRKSRC}/${d}
