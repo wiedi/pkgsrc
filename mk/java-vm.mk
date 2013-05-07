@@ -104,7 +104,7 @@ _PKG_JVM_DEFAULT?=	sun-jdk6
 _PKG_JVM_DEFAULT?=	sun-jdk6
 .  elif !empty(MACHINE_PLATFORM:MSunOS-5.11-i386) || \
         !empty(MACHINE_PLATFORM:MSunOS-5.11-x86_64)
-_PKG_JVM_DEFAULT?=	sun-jdk6
+_PKG_JVM_DEFAULT?=	openjdk7
 .  elif !empty(MACHINE_PLATFORM:MDragonFly-*-*)
 _PKG_JVM_DEFAULT?=	openjdk7
 .  else
@@ -138,7 +138,9 @@ _ONLY_FOR_PLATFORMS.sun-jdk6= \
 _ONLY_FOR_PLATFORMS.openjdk7= \
 	DragonFly-*-* \
 	NetBSD-[4-9]*-i386 \
-	NetBSD-[5-9]*-x86_64
+	NetBSD-[5-9]*-x86_64 \
+	SunOS-5.11-i386 \
+	SunOS-5.11-x86_64
 _ONLY_FOR_PLATFORMS.openjdk7-bin= \
 	NetBSD-[5-9]*-i386 \
 	NetBSD-[5-9]*-x86_64
@@ -266,7 +268,7 @@ _JDK_PKGSRCDIR=		../../lang/kaffe
 _JRE_PKGSRCDIR=		${_JDK_PKGSRCDIR}
 _JAVA_HOME_DEFAULT=	${LOCALBASE}/java/kaffe
 .elif ${_PKG_JVM} == "openjdk7"
-_JDK_PKGSRCDIR=		../../lang/openjdk7
+_JDK_PKGSRCDIR=		../../joyent/openjdk7
 _JRE_PKGSRCDIR=		${_JDK_PKGSRCDIR}
 _JAVA_HOME_DEFAULT=	${LOCALBASE}/java/openjdk7
 .elif ${_PKG_JVM} == "openjdk7-bin"
@@ -274,9 +276,9 @@ _JDK_PKGSRCDIR=		../../lang/openjdk7-bin
 _JRE_PKGSRCDIR=		${_JDK_PKGSRCDIR}
 _JAVA_HOME_DEFAULT=	${LOCALBASE}/java/openjdk7-bin
 .elif ${_PKG_JVM} == "sun-jdk6"
-_JDK_PKGSRCDIR=		../../lang/sun-jdk6
-_JRE_PKGSRCDIR=		../../lang/sun-jre6
-_JAVA_HOME_DEFAULT=	${LOCALBASE}/java/sun-6
+_JDK_PKGSRCDIR=		../../joyent/sun-jdk6
+_JRE_PKGSRCDIR=		../../joyent/sun-jre6
+_JAVA_HOME_DEFAULT=	${LOCALBASE}/java/sun6
 UNLIMIT_RESOURCES+=	datasize
 .elif ${_PKG_JVM} == "sun-jdk7"
 _JDK_PKGSRCDIR=		../../lang/sun-jdk7
