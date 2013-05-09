@@ -1,4 +1,4 @@
-$NetBSD: CHANGES-2013,v 1.1595 2013/05/06 19:56:00 gls Exp $
+$NetBSD: CHANGES-2013,v 1.1607 2013/05/08 18:05:22 minskim Exp $
 
 Changes to the packages collection and infrastructure in 2013:
 
@@ -2426,3 +2426,32 @@ Changes to the packages collection and infrastructure in 2013:
 	Updated www/p5-HTTP-Body to 1.17 [hiramatsu 2013-05-06]
 	Updated emulators/suse121_krb5 to 12.1nb1 [gls 2013-05-06]
 	Updated audio/cmus to 2.5.0 [gls 2013-05-06]
+	Added sysutils/logrider version 0.2 [wiz 2013-05-07]
+	Updated x11/xf86-video-openchrome to 0.2.906 [sborrill 2013-05-07]
+	Updated www/nginx to 1.4.1 [imil 2013-05-07]
+	Updated www/nginx-devel to 1.5.0 [imil 2013-05-07]
+	Updated sysutils/logrotate to 3.8.4 [gls 2013-05-07]
+	Updated www/py-wtforms to 1.0.4 [kleink 2013-05-07]
+	Updated www/py-wtforms to 1.0.4nb1 [kleink 2013-05-08]
+	Updated devel/p5-Moose to 2.0802 [wen 2013-05-08]
+	Updated meta-pkgs/ruby-gnome2 to 2.0.0 [obache 2013-05-08]
+	Updated devel/ruby-gnome2-atk to 2.0.0 [obache 2013-05-08]
+	Updated devel/ruby-gnome2-gio to 2.0.0 [obache 2013-05-08]
+	Updated devel/ruby-gnome2-glib to 2.0.0 [obache 2013-05-08]
+	Updated devel/ruby-gnome2-gobject-introspection to 2.0.0 [obache 2013-05-08]
+	Updated devel/ruby-gnome2-pango to 2.0.0 [obache 2013-05-08]
+	Updated graphics/ruby-gnome2-gdk3 to 2.0.0 [obache 2013-05-08]
+	Updated graphics/ruby-gnome2-gdkpixbuf to 2.0.0 [obache 2013-05-08]
+	Updated graphics/ruby-gnome2-goocanvas to 2.0.0 [obache 2013-05-08]
+	Updated graphics/ruby-gnome2-rsvg to 2.0.0 [obache 2013-05-08]
+	Updated multimedia/ruby-gnome2-gstreamer to 2.0.0 [obache 2013-05-08]
+	Updated print/ruby-gnome2-poppler to 2.0.0 [obache 2013-05-08]
+	Updated x11/ruby-gnome2-gtk to 2.0.0 [obache 2013-05-08]
+	Updated x11/ruby-gnome2-gtk3 to 2.0.0 [obache 2013-05-08]
+	Updated x11/ruby-gnome2-vte to 2.0.0 [obache 2013-05-08]
+	Updated x11/ruby-gnome2-gtksourceview2 to 2.0.0 [obache 2013-05-08]
+	Updated x11/ruby-gnome2-gtksourceview3 to 2.0.0 [obache 2013-05-08]
+	Updated archivers/lhasa to 0.1.0 [shattered 2013-05-08]
+	Updated graphics/ilmbase to 2.0.0 [adam 2013-05-08]
+	Updated graphics/openexr to 2.0.0 [adam 2013-05-08]
+	Updated misc/tmux to 1.8nb1 [minskim 2013-05-08]
