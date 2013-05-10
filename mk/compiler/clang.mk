@@ -1,4 +1,4 @@
-# $NetBSD: clang.mk,v 1.8 2013/02/21 07:57:19 wiz Exp $
+# $NetBSD: clang.mk,v 1.10 2013/05/09 23:37:26 riastradh Exp $
 #
 # This is the compiler definition for the clang compiler.
 #
@@ -13,7 +13,7 @@ COMPILER_CLANG_MK=	defined
 
 # Add the dependency on clang
 # TODO: may be installed already, check for this
-#BUILD_DEPENDS+= clang-[0-9]*:../../lang/clang
+#TOOL_DEPENDS+= clang-[0-9]*:../../lang/clang
 
 .include "../../mk/bsd.prefs.mk"
 
@@ -61,9 +61,9 @@ _LANGUAGES.clang=	# empty
 _LANGUAGES.clang+=	${LANGUAGES.clang:M${_lang_}}
 .endfor
 
-PKGSRC_FORTRAN?=f2c
+PKGSRC_FORTRAN?=g95
 
-.if !empty(PKGSRC_FORTRAN)
+.if !empty(PKGSRC_FORTRAN) && (!empty(USE_LANGUAGES:Mfortran) || !empty(USE_LANGUAGES:Mfortran77))
 .  include "../../mk/compiler/${PKGSRC_FORTRAN}.mk"
 .endif
 
