@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.964 2013/04/22 17:28:42 imil Exp $
+# $NetBSD: Makefile,v 1.966 2013/05/09 16:22:45 mef Exp $
 #
 
 COMMENT=	Networking tools
@@ -268,6 +268,7 @@ SUBDIR+=	libupnp
 SUBDIR+=	libvncserver
 SUBDIR+=	libzrtpcpp
 SUBDIR+=	linc
+SUBDIR+=	lldpd
 SUBDIR+=	llnlxdir
 SUBDIR+=	llnlxftp
 SUBDIR+=	logjam
@@ -580,8 +581,11 @@ SUBDIR+=	ruby-rubytter
 SUBDIR+=	ruby-snmp
 SUBDIR+=	ruby-soap4r
 SUBDIR+=	ruby-stompserver
+SUBDIR+=	ruby-tw
 SUBDIR+=	ruby-tweetstream
+SUBDIR+=	ruby-twitter
 SUBDIR+=	ruby-twitter-stream
+SUBDIR+=	ruby-userstream
 SUBDIR+=	samba
 SUBDIR+=	samba35
 SUBDIR+=	scamper

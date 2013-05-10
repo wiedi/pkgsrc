@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.26 2013/05/08 17:49:11 adam Exp $
+# $NetBSD: Makefile,v 1.28 2013/05/09 07:59:54 adam Exp $
 
 DISTNAME=	openexr-2.0.0
 CATEGORIES=	graphics
