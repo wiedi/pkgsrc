@@ -1,4 +1,4 @@
-$NetBSD: CHANGES-2013,v 1.1607 2013/05/08 18:05:22 minskim Exp $
+$NetBSD: CHANGES-2013,v 1.1624 2013/05/09 16:00:48 mef Exp $
 
 Changes to the packages collection and infrastructure in 2013:
 
@@ -2455,3 +2455,25 @@ Changes to the packages collection and infrastructure in 2013:
 	Updated graphics/ilmbase to 2.0.0 [adam 2013-05-08]
 	Updated graphics/openexr to 2.0.0 [adam 2013-05-08]
 	Updated misc/tmux to 1.8nb1 [minskim 2013-05-08]
+	Added multimedia/liboggz version 1.1.1 [rodent 2013-05-09]
+	Added audio/libfishsound version 1.0.0 [rodent 2013-05-09]
+	Added net/lldpd version 0.7.2 [mef 2013-05-09]
+	Updated mail/getmail to 4.40.2 [schmonz 2013-05-09]
+	Updated mail/dovecot2 to 2.2.1 [manu 2013-05-09]
+	Updated textproc/icu to 51.1 [adam 2013-05-09]
+	Updated net/samba to 3.6.15 [adam 2013-05-09]
+	Updated security/mit-krb5 to 1.10.5 [adam 2013-05-09]
+	Updated graphics/rabbit to 2.0.7 [obache 2013-05-09]
+	Added devel/libtool-fortran version 2.4.2 [joerg 2013-05-09]
+	Updated ham/fldigi to 3.21.70 [mef 2013-05-09]
+	Updated devel/jenkins to 1.509.1 [ryoon 2013-05-09]
+	Updated editors/OmegaT to 3.0.0 [ryoon 2013-05-09]
+	Updated sysutils/pstree to 2.36 [wen 2013-05-09]
+	Updated www/p5-Dancer to 1.3113 [wen 2013-05-09]
+	Added misc/ruby-args_parser version 0.1.4 [mef 2013-05-09]
+	Added misc/ruby-hashie version 1.2.0 [mef 2013-05-09]
+	Added misc/ruby-parallel version 0.6.4 [mef 2013-05-09]
+	Added misc/ruby-rainbow version 1.1.4 [mef 2013-05-09]
+	Added net/ruby-tw version 0.3.9 [mef 2013-05-09]
+	Added net/ruby-twitter version 4.6.2 [mef 2013-05-09]
+	Added net/ruby-userstream version 1.3.0 [mef 2013-05-09]
