@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.1738 2013/04/29 07:43:49 adam Exp $
+# $NetBSD: Makefile,v 1.1740 2013/05/10 01:22:27 riastradh Exp $
 #
 
 COMMENT=	Development utilities
@@ -415,6 +415,7 @@ SUBDIR+=	libthai
 SUBDIR+=	libthrift
 SUBDIR+=	libtool
 SUBDIR+=	libtool-base
+SUBDIR+=	libtool-fortran
 SUBDIR+=	libtool-info
 SUBDIR+=	libts
 SUBDIR+=	libusb
@@ -1368,6 +1369,7 @@ SUBDIR+=	py-ipython013
 SUBDIR+=	py-jersey
 SUBDIR+=	py-kjbuckets
 SUBDIR+=	py-kqueue
+SUBDIR+=	py-libevent-rpcgen
 SUBDIR+=	py-lockfile
 SUBDIR+=	py-logilab-astng
 SUBDIR+=	py-logilab-common
