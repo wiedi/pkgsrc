@@ -261,6 +261,7 @@ inspircd-sqllog		Enable logging of network-wide data for your network into a dat
 inspircd-sqloper	Enable storage of oper credentials in an SQL table.
 inspircd-sqlutils	Enable developer utilities which allow certain other SQL modules to be implemented easily.
 inspircd-ziplinks	Compress data before transmitting it between servers.
+introspection		Enable GObject Introspection support.
 iodbc			Enable ODBC support via iODBC.
 ipa			Select IPA fonts.
 ipa-memfunc-debug	Enable ipa_memfunc debugging.
@@ -610,6 +611,7 @@ squid-pf		Enable use of transparent proxy with Packet Filter.
 squid-unlinkd		Enable use of unlinkd.
 ssl			Enable SSL support.
 starttls		Enable TLS support.
+static			Allows you to build static libraries.
 streamtuner-local	Enable local metadata support.
 streamtuner-xiph	Enable the Xiph plugin.
 suexec			Enable suEXEC support in Apache web server.
@@ -694,6 +696,7 @@ xapian-quartz-backend	Enable "Quartz" format Xapian database support.
 xaw			Enable Xaw support.
 xblast-mini		Use a 480x392 window instead a 960x784 window in xblast.
 xcb			Enable XCB (libxcb) support.
+xcursor			Enable Xcursor support.
 xft2			Enable Xft support.
 xim			Enable X Input Method support.
 xinerama		Enable Xinerama support.
