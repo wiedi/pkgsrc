@@ -1,4 +1,4 @@
-$NetBSD: CHANGES-2013,v 1.1624 2013/05/09 16:00:48 mef Exp $
+$NetBSD: CHANGES-2013,v 1.1639 2013/05/13 01:59:18 wen Exp $
 
 Changes to the packages collection and infrastructure in 2013:
 
@@ -2477,3 +2477,18 @@ Changes to the packages collection and infrastructure in 2013:
 	Added net/ruby-tw version 0.3.9 [mef 2013-05-09]
 	Added net/ruby-twitter version 4.6.2 [mef 2013-05-09]
 	Added net/ruby-userstream version 1.3.0 [mef 2013-05-09]
+	Added devel/py-libevent-rpcgen version 2.0.21 [riastradh 2013-05-10]
+	Updated parallel/mpi-ch to 3.0.4 [adam 2013-05-10]
+	Updated shells/bash-completion to 2.1 [imil 2013-05-10]
+	Added devel/bpython version 0.12 [imil 2013-05-10]
+	Updated sysutils/gvfs to 1.6.7 [obache 2013-05-10]
+	Updated mail/msmtp to 1.4.31 [ryoon 2013-05-10]
+	Updated devel/bpython to 0.12nb1 [imil 2013-05-10]
+	Updated mail/getmail to 4.40.3 [schmonz 2013-05-11]
+	Updated emulators/suse121_libcurl to 12.1nb1 [obache 2013-05-11]
+	Added devel/p5-Gravatar-URL version 1.06 [schmonz 2013-05-11]
+	Added devel/lua-penlight version 1.1.0 [alnsn 2013-05-11]
+	Updated comms/asterisk to 11.3.0nb2 [jnemeth 2013-05-12]
+	Added security/py-oauth2 version 1.5.211 [cheusov 2013-05-12]
+	Updated lang/mawk to 1.3.4.20130219 [wen 2013-05-13]
+	Updated devel/p5-autodie to 2.19 [wen 2013-05-13]
