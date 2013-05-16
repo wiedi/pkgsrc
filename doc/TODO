@@ -1,4 +1,4 @@
-$NetBSD: TODO,v 1.12139 2013/05/14 19:44:32 wiz Exp $
+$NetBSD: TODO,v 1.12143 2013/05/16 05:18:50 shattered Exp $
 
 Suggested new packages
 ======================
@@ -400,7 +400,7 @@ For possible Perl packages updates, see http://www.NetBSD.org/~wiz/perl.html.
 	o asc-2.5.0
 	o aspell-nb-2.0.10
 	o astyle-1.15.3
-	o asymptote-2.21
+	o asymptote-2.22
 	o at-spi2-atk-2.8.1
 	o atari800-3.0.0
 	o aterm-1.0.1
@@ -458,7 +458,7 @@ For possible Perl packages updates, see http://www.NetBSD.org/~wiz/perl.html.
 	o cint-5.16
 	o cjk-lyx-1.4.4
 	o classpath-0.98
-	o clutter-1.14.2
+	o clutter-1.14.4
 	o clutter-gst-2.0.2
 	o cmake-fedora-1.0.5
 	o coccigrep-1.12
@@ -596,7 +596,6 @@ For possible Perl packages updates, see http://www.NetBSD.org/~wiz/perl.html.
 	o gap-4r4p9
 	o gated-3.6
 	o gaupol-0.22
-	o gawk-4.1.0
 	o gcal-3.6.3
 	o gcin-1.5.5
 	o gcombust-0.1.55
@@ -783,6 +782,7 @@ For possible Perl packages updates, see http://www.NetBSD.org/~wiz/perl.html.
 	o libcares-1.10.0
 	o libchamplain08-0.12.3
 	o libdiscid-0.5
+	o libdrm-2.4.45
 	o libextractor-1.0.0
 	o libflash-0.4.13
 	o libfolks-0.8.0
@@ -911,7 +911,7 @@ For possible Perl packages updates, see http://www.NetBSD.org/~wiz/perl.html.
 	o ntp4-4.2.6p5
 	o nucleo-0.7.6
 	o nulib2-220
-	o nut-18.8
+	o nut-18.9
 	o nxtvepg-2.8.1
 	o olvwm-4.5
 	o oo2c-2.1.7
@@ -964,7 +964,7 @@ For possible Perl packages updates, see http://www.NetBSD.org/~wiz/perl.html.
 	o php-sugarcrm-6.5.12
 	o php-tt-rss-1.7.9
 	o php-tiki6-6.10
-	o phpmyadmin-4.0.0
+	o phpmyadmin-4.0.1
 	o picard-1.2
 	o picp-0.6.8
 	o pim6dd-20040819a
@@ -1018,7 +1018,6 @@ For possible Perl packages updates, see http://www.NetBSD.org/~wiz/perl.html.
 	o py-simplejson-3.3.0
 	o py-sybase-0.37
 	o py-trueskill-0.4
-	o py-urwid-1.1.0
 	o python33-3.3.1
 	o qbrew-0.3.9
 	o qemu-1.4.1
@@ -1068,7 +1067,7 @@ For possible Perl packages updates, see http://www.NetBSD.org/~wiz/perl.html.
 	o scrotwm-0.11.0
 	o scsh-1.3.0
 	o sdcc-2.9.0
-	o seahorse-3.8.0
+	o seahorse-3.8.2
 	o seahorse-nautilus-3.8.0
 	o secpanel-0.6.1
 	o sendfile-20010424
@@ -1191,7 +1190,6 @@ For possible Perl packages updates, see http://www.NetBSD.org/~wiz/perl.html.
 	o vino-3.8.1
 	o visual-regexp-3.1
 	o vm-8.0.7.522 [pkg/37707]
-	o vmips-1.4.1
 	o vnc-4.0 [http://www.realvnc.com/download.html|pkgsrc-wip]
 	o vp-1.6
 	o wMosaic-3.8.22
@@ -1202,7 +1200,7 @@ For possible Perl packages updates, see http://www.NetBSD.org/~wiz/perl.html.
 	o wdiff-1.2.1
 	o webalizer-2.23.05
 	o webkit-gtk-2.0.2
-	o webmin-1.620
+	o webmin-1.630
 	o websvn-2.3.2
 	o weechat-0.4.0
 	o windowlab-1.40
