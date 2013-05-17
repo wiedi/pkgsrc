@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.15 2013/05/16 16:27:08 taca Exp $
+# $NetBSD: Makefile,v 1.1 2013/05/16 16:30:46 taca Exp $
 #
 
 DISTNAME=	${TYPO3NAME}
@@ -9,22 +9,20 @@ DISTFILES=	${TYPO3NAME}${EXTRACT_SUFX} ${SITESRC}${EXTRACT_SUFX}
 
 MAINTAINER=	taca@NetBSD.org
 HOMEPAGE=	http://typo3.com/
-COMMENT=	The TYPO3 content management system, 4.7 based release
+COMMENT=	The TYPO3 content management system, 6.0 based release
 LICENSE=	gnu-gpl-v2
 
 DEPENDS+=	${PHP_PKG_PREFIX}-{mysql,pgsql}>=5.1.0:../../databases/php-mysql
 DEPENDS+=	${PHP_PKG_PREFIX}-zlib>=5.2.0:../../archivers/php-zlib/
 DEPENDS+=	${PHP_PKG_PREFIX}-json>=5.2.0:../../textproc/php-json
 
-VER=		4.7.11
+VER=		6.0.5
 NO_BUILD=	yes
 USE_TOOLS+=	pax
 
 TYPO3NAME=	typo3_src-${VER}
 SITESRC=	dummy-${VER}
 WRKSRC=		${WRKDIR}/${DISTNAME}
-
-PHP_VERSIONS_ACCEPTED=	53
 
 # maybe resides in lang/php/phpversion.mk
 REPLACE_INTERPRETER+=	php
@@ -51,8 +49,8 @@ EGDIR=		share/examples/typo3
 
 INSTALLATION_DIRS+= ${EGDIR} ${TYPO3DIR}/${SITEDIR} ${TYPO3DIR}/${TYPO3NAME}
 
-CONF_FILES_PERMS+=	${EGDIR}/localconf.php \
-			${TYPO3DIR}/${SITEDIR}/typo3conf/localconf.php \
+CONF_FILES_PERMS+=	${EGDIR}/LocalConfiguration.php \
+			${TYPO3DIR}/${SITEDIR}/typo3conf/LocalConfiguration.php \
 			${REAL_ROOT_USER} ${APACHE_GROUP} 0660
 
 .for d in ${TYPO3DATADIRS}
@@ -63,7 +61,7 @@ CHECK_PERMS_SKIP+= ${TYPO3DIR}/${SITEDIR}/${d}
 
 SUBST_CLASSES+=		conf
 SUBST_FILES.conf+=	${WRKDIR}/README
-SUBST_FILES.conf+=	${WRKSRC}/t3lib/config_default.php
+SUBST_FILES.conf+=	${WRKSRC}/t3lib/stddb/DefaultConfiguration.php
 SUBST_SED.conf+=	-e 's|@PREFIX@|${PREFIX}|g'
 SUBST_SED.conf+=	-e 's|@TYPO3DIR@|${TYPO3DIR}|g'
 SUBST_SED.conf+=	-e 's|@SITEDIR@|${SITEDIR}|g'
@@ -94,8 +92,8 @@ do-install:
 	    pax -rw . ${DESTDIR}${PREFIX}/${TYPO3DIR}/${TYPO3NAME}
 	cd ${WRKDIR}/${SITESRC} && \
 		pax -rw . ${DESTDIR}${PREFIX}/${TYPO3DIR}/${SITEDIR}
-	${RM} -f ${DESTDIR}${PREFIX}/${TYPO3DIR}/${SITEDIR}/typo3conf/localconf.php
-	${INSTALL_DATA} ${WRKDIR}/${SITESRC}/typo3conf/localconf.php \
+	${RM} -f ${DESTDIR}${PREFIX}/${TYPO3DIR}/${SITEDIR}/typo3conf/LocalConfiguration.php
+	${INSTALL_DATA} ${WRKDIR}/${SITESRC}/typo3conf/LocalConfiguration.php \
 		${DESTDIR}${PREFIX}/${EGDIR}
 
 .include "../../lang/php/phpversion.mk"
