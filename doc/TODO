@@ -1,4 +1,4 @@
-$NetBSD: TODO,v 1.12146 2013/05/16 16:33:56 taca Exp $
+$NetBSD: TODO,v 1.12151 2013/05/18 14:48:33 wiz Exp $
 
 Suggested new packages
 ======================
@@ -59,11 +59,6 @@ Suggested new packages
 	choosefont
 	http://choosefont.sourceforge.net/
 	Utility for browsing, previewing and selecting a X11 font.
-
-	logrider
-	http://ilya-evseev.narod.ru/posix/logrider/
-	Scan system logs for alert/hacking signatures based on set
-	of static filters.
 
 	ardour
 	http://ardour.org/
@@ -255,14 +250,6 @@ Suggested new packages
 	http://tkimg.sourceforge.net/
 	Add support for several image formats to Tk
 
-	tktable [pkg/38027]
-	http://tktable.sourceforge.net/
-	Grid/table/spreadsheet like widget for Tk
-
-	tDOM [pkg/38028]
-	http://www.tdom.org/
-	C based XML extension for Tcl
-
 	xine-plugin [pkg/38159]
 	http://xinehq.de/
 	Plugin for www/firefox for using multimedia/xine-lib
@@ -350,7 +337,6 @@ For possible Perl packages updates, see http://www.NetBSD.org/~wiz/perl.html.
 	o Sigil-0.7.2 [needs qt5]
 	o SmartEiffel-2.3
 	o TiffIO-130e
-	o Transmission-gui-2.77
 	o YoSucker-81
 	o ZIPIdent-2.9
 	o abcm2ps-7.5.2
@@ -571,6 +557,7 @@ For possible Perl packages updates, see http://www.NetBSD.org/~wiz/perl.html.
 	o fillets-ng-data-0.7.4
 	o findutils-4.4.2
 	o fisg-0.3.12
+	o fish-2.0
 	o flashplayer-0.4.13
 	o flightgear-2.10
 	o flpsed-0.4.4
@@ -627,7 +614,7 @@ For possible Perl packages updates, see http://www.NetBSD.org/~wiz/perl.html.
 	o glom-1.14.2 [GNOME 2.26]
 	o gnet1-1.1.9
 	o gnetman-20050429
-	o gnome-3.8.1
+	o gnome-3.8.2
 	o gnome-bluetooth-2.30.0 [GNOME 2.30]
 	o gnome-color-manager-2.32.0 [GNOME 2.32]
 	o gnome-devel-docs-2.30.0 [GNOME 2.30]
@@ -773,7 +760,7 @@ For possible Perl packages updates, see http://www.NetBSD.org/~wiz/perl.html.
 	o leafnode-1.11.8
 	o less-451
 	o level9-4.1
-	o lftp-4.4.0
+	o lftp-4.4.6
 	o lgeneral-1.2.3
 	o libAppleWM-1.4.1
 	o libarchive-3.0.4
@@ -782,7 +769,6 @@ For possible Perl packages updates, see http://www.NetBSD.org/~wiz/perl.html.
 	o libcares-1.10.0
 	o libchamplain08-0.12.3
 	o libdiscid-0.5
-	o libdrm-2.4.45
 	o libextractor-1.0.0
 	o libflash-0.4.13
 	o libfolks-0.8.0
@@ -863,7 +849,6 @@ For possible Perl packages updates, see http://www.NetBSD.org/~wiz/perl.html.
 	o mkvtoolnix-6.2.0
 	o mnemosyne-2.2.1
 	o moc-2.4.4
-	o modular-xorg-server-1.11.2 [wip]
 	o modular-xorg-server-1.14.1
 	o molden-4.8 [after which PR 40252 can be closed]
 	o moneyguru-2.6.3
@@ -1078,6 +1063,7 @@ For possible Perl packages updates, see http://www.NetBSD.org/~wiz/perl.html.
 	o sharity-light-1.3
 	o shc-3.8
 	o shmux-1.0.2
+	o shotwell-0.14.1
 	o showfont-1.0.4 [wip]
 	o sign-1.0.7
 	o simage-1.7.0
@@ -1209,6 +1195,7 @@ For possible Perl packages updates, see http://www.NetBSD.org/~wiz/perl.html.
 	o windowmaker-0.95.2 [wip]
 	o wine-1.4.1 [wait until NetBSD gains OSS 4 [kern/46611] or bring OSS 3 support back]
 	o wine-devel-1.5.30 [wait until NetBSD gains OSS 4 [kern/46611] or bring OSS 3 support back]
+	o wireshark-1.8.7
 	o wmi-11
 	o wml-2.0.11
 	o wmnd-0.4.13
@@ -1229,52 +1216,20 @@ For possible Perl packages updates, see http://www.NetBSD.org/~wiz/perl.html.
 	o xchm-1.22
 	o xcircuit-3.6.85
 	o xcmsdb-1.0.4 [unpackaged]
-	o xcompmgr-1.1.6
 	o xdesktopwaves-1.3
-	o xdriinfo-1.0.4
 	o xemacs-current-21.5.31
 	o xerces-j-2.4.0 [pkg/21725]
 	o xerces-j-2.9.0
 	o xf86-input-keyboard-1.7.0
-	o xf86-input-mouse-1.9.0 [needs modular-xorg-server-1.7+]
-	o xf86-input-vmmouse-13.0.0
-	o xf86-input-void-1.4.0
-	o xf86-video-apm-1.2.5
-	o xf86-video-ark-0.7.5
-	o xf86-video-ast-0.97.0
-	o xf86-video-ati-7.1.0
-	o xf86-video-chips-1.2.5
-	o xf86-video-cirrus-1.5.2
+	o xf86-input-mouse-1.9.0
 	o xf86-video-dummy-0.3.4
 	o xf86-video-geode-2.11.9 [wip]
 	o xf86-video-glide-1.0.3
-	o xf86-video-glint-1.2.8
-	o xf86-video-i128-1.3.6
-	o xf86-video-i740-1.3.4
 	o xf86-video-intel-2.21.6
-	o xf86-video-mach64-6.9.4
-	o xf86-video-mga-1.6.2
-	o xf86-video-neomagic-1.2.7
 	o xf86-video-newport-0.2.4 [unpackaged]
-	o xf86-video-nv-2.1.20
-	o xf86-video-openchrome-0.3.2
-	o xf86-video-r128-6.9.1
-	o xf86-video-rendition-4.2.5
-	o xf86-video-s3-0.6.5
-	o xf86-video-s3virge-1.10.6
-	o xf86-video-savage-2.3.6
-	o xf86-video-siliconmotion-1.7.7
-	o xf86-video-sis-0.10.7
 	o xf86-video-sisusb-0.9.4
 	o xf86-video-sunffb-1.2.1 [unpackaged]
-	o xf86-video-tdfx-1.4.5
-	o xf86-video-tga-1.2.2
-	o xf86-video-trident-1.3.6
-	o xf86-video-tseng-1.2.5
-	o xf86-video-vesa-2.3.2
-	o xf86-video-vmware-13.0.1
 	o xf86-video-voodoo-1.2.4
-	o xf86-video-wsfb-0.4.0
 	o xf86-video-xgi-1.6.0 [unpackaged]
 	o xfce4-4.10
 	o xfce4-volman-0.3.80
@@ -1282,7 +1237,6 @@ For possible Perl packages updates, see http://www.NetBSD.org/~wiz/perl.html.
 	o xforms-1.0.93sp1
 	o xfs-1.1.1 [wip]
 	o xhippo-3.5
-	o xinput-1.6.0
 	o xjman-0.7
 	o xli-2006.11.10
 	o xlsatoms-1.1.1 [unpackaged]
@@ -1302,7 +1256,6 @@ For possible Perl packages updates, see http://www.NetBSD.org/~wiz/perl.html.
 	o xosview-1.14
 	o xpaint-2.9.9
 	o xpr-1.0.4 [unpackaged]
-	o xproto-7.0.24
 	o xpuyopuyo-0.9.8
 	o xrmap-anthems-1.2
 	o xrmap-base-2.33.1
