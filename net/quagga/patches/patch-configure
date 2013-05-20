@@ -6,7 +6,7 @@ $NetBSD: patch-configure,v 1.1 2012/08/08 00:13:54 marino Exp $
  {
  #if (defined(__FreeBSD__) && ((__FreeBSD_version >= 500022 && __FreeBSD_version < 700000) || (__FreeBSD_version < 500000 && __FreeBSD_version >= 440000))) || (defined(__NetBSD__) && defined(__NetBSD_Version__) && __NetBSD_Version__ >= 106010000)
    return (0);
-+#elif defined(__DragonFly__)
++#elif defined(__DragonFly__) || defined(__sun)
 +  return (0);
  #else
    #error No support for BSD struct ip_mreq hack detected
