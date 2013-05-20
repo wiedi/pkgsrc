@@ -20,6 +20,7 @@ CMAKE_ARGS+=		-DINSTALL_INFODIR=${PKGINFODIR}
 CMAKE_ARGS+=		-DWITH_EMBEDDED_SERVER=ON
 PLIST.embedded=		yes
 .else
+CMAKE_ARGS+=		-DWITH_EMBEDDED_SERVER=OFF
 # We only need readline to placate the configure script if we don't build
 # the embedded server as it is the only binary linked against "readline".
 BUILDLINK_DEPMETHOD.readline=	build
