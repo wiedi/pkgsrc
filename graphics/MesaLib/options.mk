@@ -1,4 +1,4 @@
-# $NetBSD: options.mk,v 1.20 2013/05/16 05:22:02 richard Exp $
+# $NetBSD: options.mk,v 1.22 2013/05/20 07:04:35 sbd Exp $
 
 PKG_OPTIONS_VAR=	PKG_OPTIONS.MesaLib
 PKG_SUPPORTED_OPTIONS=
@@ -33,6 +33,9 @@ PKG_SUPPORTED_OPTIONS+=		dri
 .if !empty(MACHINE_PLATFORM:MNetBSD-[4-9]*-*86*) && ${X11_TYPE} == "modular"
 PKG_SUGGESTED_OPTIONS+=		dri
 .endif
+.if !empty(MACHINE_PLATFORM:MLinux-*-*86*) && ${X11_TYPE} == "modular"
+PKG_SUGGESTED_OPTIONS+=		dri
+.endif
 
 .if ${OPSYS} == "DragonFly" || (${OPSYS} == "SunOS" && ${OS_VERSION} == "5.11")
 PKG_SUGGESTED_OPTIONS+=		dri
@@ -57,7 +60,7 @@ BUILDLINK_API_DEPENDS.libdrm+= libdrm>=2.4.9
 .  include "../../graphics/MesaLib/dri.mk"
 CONFIGURE_ARGS+=        --with-dri-drivers="i810 i915 i965 mach64 mga r128 r200 r300 r600 radeon savage sis swrast tdfx unichrome"
 .else
-CONFIGURE_ARGS+=        --with-driver=xlib,osmesa
+CONFIGURE_ARGS+=        --with-driver=xlib
 PLIST.nodri=	yes
 ###
 ### XXX building libOSMesa breaks with -j, and GNU make has no .WAIT
