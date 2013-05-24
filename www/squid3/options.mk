@@ -1,4 +1,4 @@
-# $NetBSD: options.mk,v 1.4 2013/03/13 17:11:25 taca Exp $
+# $NetBSD: options.mk,v 1.4.2.2 2013/05/05 11:08:09 tron Exp $
 
 PKG_OPTIONS_VAR=	PKG_OPTIONS.squid
 PKG_SUPPORTED_OPTIONS=	inet6 snmp ssl squid-backend-aufs squid-backend-diskd \
@@ -15,7 +15,7 @@ PLIST_VARS+=	ba_LDAP ba_MSNT ba_NCSA ba_NIS ba_PAM ba_getpwnam
 PLIST_VARS+=	da_LDAP
 PLIST_VARS+=	na_SMB
 PLIST_VARS+=	ta_kerberos
-PLIST_VARS+=	eacl_ip_user eacl_LDAP_group eacl_unix_group
+PLIST_VARS+=	eacl_file_userip eacl_LDAP_group eacl_unix_group
 
 PKG_SUGGESTED_OPTIONS=	inet6 snmp ssl squid-backend-diskd squid-carp \
 		squid-pam-helper squid-unlinkd
@@ -60,7 +60,7 @@ SQUID_BACKENDS?=		ufs
 SQUID_BASIC_AUTH_HELPERS?=	MSNT NCSA NIS getpwnam
 SQUID_DIGEST_AUTH_HELPERS?=	password
 SQUID_NTLM_AUTH_HELPERS?=	SMB
-SQUID_EXTERNAL_ACL_HELPERS?=	fileuser_ip unix_group
+SQUID_EXTERNAL_ACL_HELPERS?=	file_userip unix_group
 
 # squid's code has preference as:
 #	squid-ipf > squid-pf > squid-netfilter
