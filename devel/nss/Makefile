@@ -19,6 +19,8 @@ WRKSRC=			${WRKDIR}/${DISTNAME}/mozilla
 
 USE_TOOLS+=		gmake perl pax pkg-config
 
+USE_GCC_RUNTIME=	yes
+
 .include		"../../mk/bsd.prefs.mk"
 
 .if ${OPSYS} == "Darwin"

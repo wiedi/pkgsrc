@@ -6,10 +6,6 @@ COMMENT=	MySQL 5, a free SQL database (server)
 
 CONFLICTS=	{mysql-server-[0-9]*,mysql3-server-[0-9]*}
 
-# might be removed in the future
-# if mysqld_safe script is installed here, or rc.d script invokes mysqld
-DEPENDS+=	mysql-client>=${PKGVERSION_NOREV}:../../databases/mysql56-client
-
 .include "../../databases/mysql56-client/Makefile.common"
 
 INFO_FILES=		yes
@@ -20,6 +16,7 @@ CMAKE_ARGS+=		-DINSTALL_INFODIR=${PKGINFODIR}
 CMAKE_ARGS+=		-DWITH_EMBEDDED_SERVER=ON
 PLIST.embedded=		yes
 .else
+CMAKE_ARGS+=		-DWITH_EMBEDDED_SERVER=OFF
 # We only need readline to placate the configure script if we don't build
 # the embedded server as it is the only binary linked against "readline".
 BUILDLINK_DEPMETHOD.readline=	build
@@ -86,6 +83,8 @@ CFLAGS+=		-D_POSIX_C_SOURCE=199506L -D__EXTENSIONS__
 CXXFLAGS+=		-D_POSIX_C_SOURCE=199506L -D__EXTENSIONS__
 .endif
 
+BUILDLINK_AUTO_DIRS.mysql-client=	no
+.include "../../databases/mysql56-client/buildlink3.mk"
 .include "../../devel/readline/buildlink3.mk"
 .include "../../security/tcp_wrappers/buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"

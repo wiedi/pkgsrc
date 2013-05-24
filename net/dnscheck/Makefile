@@ -23,7 +23,7 @@ DEPENDS+=	p5-Socket6>=0.19:../../net/p5-Socket6
 DEPENDS+=	p5-IO-Socket-INET6>=2.51:../../net/p5-IO-Socket-INET6
 DEPENDS+=	p5-Mail-RFC822-Address-[0-9]*:../../mail/p5-Mail-RFC822-Address
 DEPENDS+=	p5-DBI-[0-9]*:../../databases/p5-DBI
-DEPENDS+=	p5-DBD-mysql-[0-9]*:../../databases/p5-DBD-mysql
+DEPENDS+=	p5-DBD-{mysql,percona}*-[0-9]*:../../databases/p5-DBD-mysql
 DEPENDS+=	p5-File-Slurp-[0-9]*:../../devel/p5-File-Slurp
 DEPENDS+=	p5-JSON-XS-[0-9]*:../../converters/p5-JSON-XS
 DEPENDS+=	p5-MIME-Lite-[0-9]*:../../mail/p5-MIME-Lite
