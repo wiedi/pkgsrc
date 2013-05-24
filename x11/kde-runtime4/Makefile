@@ -1,8 +1,7 @@
-# $NetBSD: Makefile,v 1.23 2013/05/09 07:39:22 adam Exp $
+# $NetBSD: Makefile,v 1.25 2013/05/22 07:11:58 jperkin Exp $
 
 DISTNAME=	kde-runtime-${_KDE_VERSION}
 PKGNAME=	${DISTNAME:S/-4/4-4/}
-PKGREVISION=	3
 CATEGORIES=	x11
 COMMENT=	Runtime requirements for the KDE integrated X11 desktop
 
@@ -23,9 +22,11 @@ USE_TOOLS+=		gmake
 
 # Some files are conditional on 'md5sum' or 'md5' being present.
 PLIST_VARS+=	md5
-.if ${OPSYS} != "SunOS"
+.for dir in ${PATH:C/\:/ /g}
+.  if exists(${dir}/md5sum) || exists(${dir}/md5)
 PLIST.md5=	yes
-.endif
+.  endif
+.endfor
 
 SUBST_CLASSES+=		htdig
 SUBST_STAGE.htdig=	post-patch

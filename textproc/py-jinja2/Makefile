@@ -1,6 +1,6 @@
-# $NetBSD: Makefile,v 1.7 2012/10/25 06:56:50 asau Exp $
+# $NetBSD: Makefile,v 1.9 2013/05/22 14:31:48 joerg Exp $
 
-DISTNAME=	Jinja2-2.6
+DISTNAME=	Jinja2-2.7
 PKGNAME=	${PYPKGPREFIX}-${DISTNAME:tl}
 CATEGORIES=	textproc python
 MASTER_SITES=	http://pypi.python.org/packages/source/J/Jinja2/
@@ -13,6 +13,8 @@ LICENSE=	modified-bsd
 USE_LANGUAGES=		#none
 
 PYTHON_VERSIONS_INCLUDE_3X=	yes
+
+DEPENDS+=	${PYPKGPREFIX}-markupsafe-[0-9]*:../../textproc/py-markupsafe
 
 .include "../../lang/python/egg.mk"
 .include "../../mk/bsd.pkg.mk"
