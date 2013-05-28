@@ -10,24 +10,26 @@ SMFBASE?=			# none
 # Directory to hold the SMF manifest/method files
 PKG_SMF_DIR?=			share/smf
 
-# Variables that can be overriden by the user on a package by package basis
-SMF_NAME.${PKGBASE}?=		${PKGBASE:tl}
-SMF_INSTANCE.${PKGBASE}?=	default
-SMF_MANIFEST.${PKGBASE}?=	manifest.xml
-SMF_METHOD.${PKGBASE}?=		method
-SMF_USER.${PKGBASE}?=		${ROOT_USER}
-SMF_GROUP.${PKGBASE}?=		${ROOT_GROUP}
-SMF_HOME.${PKGBASE}?=		# empty
+SMF_VAR?=			${PKGBASE}
 
-SMF_NAME=			${SMF_NAME.${PKGBASE}}
-SMF_INSTANCE=			${SMF_INSTANCE.${PKGBASE}}
-SMF_MANIFEST=			${SMF_MANIFEST.${PKGBASE}}
-SMF_METHOD=			${SMF_METHOD.${PKGBASE}}
+# Variables that can be overriden by the user on a package by package basis
+SMF_NAME.${SMF_VAR}?=		${PKGBASE:tl}
+SMF_INSTANCE.${SMF_VAR}?=	default
+SMF_MANIFEST.${SMF_VAR}?=	manifest.xml
+SMF_METHOD.${SMF_VAR}?=		method
+SMF_USER.${SMF_VAR}?=		${ROOT_USER}
+SMF_GROUP.${SMF_VAR}?=		${ROOT_GROUP}
+SMF_HOME.${SMF_VAR}?=		# empty
+
+SMF_NAME=			${SMF_NAME.${SMF_VAR}}
+SMF_INSTANCE=			${SMF_INSTANCE.${SMF_VAR}}
+SMF_MANIFEST=			${SMF_MANIFEST.${SMF_VAR}}
+SMF_METHOD=			${SMF_METHOD.${SMF_VAR}}
 SMF_MANIFEST_FILE=		${PKG_SMF_DIR}/${PKGBASE}/${SMF_MANIFEST}
 SMF_METHOD_FILE=		${PKG_SMF_DIR}/${PKGBASE}/${SMF_METHOD}
-SMF_USER=			${SMF_USER.${PKGBASE}}
-SMF_GROUP=			${SMF_GROUP.${PKGBASE}}
-SMF_HOME=			${SMF_HOME.${PKGBASE}}
+SMF_USER=			${SMF_USER.${SMF_VAR}}
+SMF_GROUP=			${SMF_GROUP.${SMF_VAR}}
+SMF_HOME=			${SMF_HOME.${SMF_VAR}}
 
 SMF_MANIFEST_SRC_DEFAULT=	${SMFBASE}/${PKGPATH}/${SMF_MANIFEST}
 SMF_METHOD_SRC_DEFAULT=		${SMFBASE}/${PKGPATH}/${SMF_METHOD}
