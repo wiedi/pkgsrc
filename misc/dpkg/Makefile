@@ -1,9 +1,9 @@
-# $NetBSD: Makefile,v 1.26 2012/12/21 04:55:10 dholland Exp $
+# $NetBSD: Makefile,v 1.28 2013/05/31 20:14:24 joerg Exp $
 #
 
 DISTNAME=	dpkg_1.16.3
 PKGNAME=	dpkg-1.16.3
-PKGREVISION=	3
+PKGREVISION=	4
 CATEGORIES=	misc
 MASTER_SITES=	${MASTER_SITE_DEBIAN:=pool/main/d/dpkg/}
 EXTRACT_SUFX=	.tar.bz2
@@ -31,8 +31,8 @@ REPLACE_PERL+=		dselect/methods/ftp/update
 
 # XXX this is probably not the best way to do this but it'll have to
 # serve for the moment.
-THIS_PERL_VERSION=	5.16.0
-NEXT_PERL_VERSION=	5.18.0
+THIS_PERL_VERSION=	5.18.0
+NEXT_PERL_VERSION=	5.20.0
 PLIST_SUBST+=		PERL=${THIS_PERL_VERSION}
 PERL_DEP=		perl>=${THIS_PERL_VERSION}<${NEXT_PERL_VERSION}
 DEPENDS+=		${PERL_DEP}:../../lang/perl5

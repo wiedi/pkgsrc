@@ -1,9 +1,9 @@
-# $NetBSD: Makefile,v 1.5 2013/04/06 03:45:09 rodent Exp $
+# $NetBSD: Makefile,v 1.7 2013/05/31 22:53:23 prlw1 Exp $
 
 .include "../../devel/glib2/Makefile.common"
 
 PKGNAME:=	${PKGNAME:S/glib2/gdbus-codegen/}
-CATEGORIES=	sysutils
+CATEGORIES=	devel gnome
 
 COMMENT=	Generate code and/or documentation for one or more D-Bus interfaces
 

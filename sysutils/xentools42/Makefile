@@ -1,10 +1,11 @@
-# $NetBSD: Makefile,v 1.2 2013/05/22 05:32:43 jnemeth Exp $
+# $NetBSD: Makefile,v 1.5 2013/05/31 12:42:05 wiz Exp $
 #
 # VERSION is set in version.mk as it is shared with other packages
 .include		"version.mk"
 
 DISTNAME=		xen-${VERSION}
 PKGNAME=		xentools42-${VERSION}
+PKGREVISION=		3
 CATEGORIES=		sysutils
 MASTER_SITES=	http://bits.xensource.com/oss-xen/release/${VERSION}/
 
@@ -90,6 +91,36 @@ REPLACE_PYTHON+=	python/xen/xend/*.py
 REPLACE_PYTHON+=	python/xen/xm/*.py
 REPLACE_PYTHON+=	xenmon/xenmon.py
 
+SUBST_CLASSES+=		perlpath
+SUBST_STAGE.perlpath=	pre-configure
+SUBST_FILES.perlpath=	tools/firmware/rombios/makesym.perl
+SUBST_FILES.perlpath+=	tools/qemu-xen-traditional/texi2pod.pl
+SUBST_FILES.perlpath+=	tools/examples/xeninfo.pl
+SUBST_FILES.perlpath+=	tools/include/xen-external/bsd-sys-queue-h-seddery
+SUBST_FILES.perlpath+=	tools/qemu-xen/scripts/texi2pod.pl
+SUBST_FILES.perlpath+=	tools/qemu-xen/scripts/get_maintainer.pl
+SUBST_FILES.perlpath+=	tools/qemu-xen/scripts/checkpatch.pl
+SUBST_FILES.perlpath+=	tools/xm-test/mkreport
+SUBST_FILES.perlpath+=	tools/libxl/libxl_save_msgs_gen.pl
+SUBST_FILES.perlpath+=	tools/libxl/check-libxl-api-rules
+SUBST_FILES.perlpath+=	../../ipxe/src/Makefile
+SUBST_FILES.perlpath+=	../../ipxe/src/drivers/infiniband/qib_genbits.pl
+SUBST_FILES.perlpath+=	../../ipxe/src/include/gpxe/efi/import.pl
+SUBST_FILES.perlpath+=	../../ipxe/src/util/catrom.pl
+SUBST_FILES.perlpath+=	../../ipxe/src/util/diffsize.pl
+SUBST_FILES.perlpath+=	../../ipxe/src/util/disrom.pl
+SUBST_FILES.perlpath+=	../../ipxe/src/util/get-pci-ids
+SUBST_FILES.perlpath+=	../../ipxe/src/util/licence.pl
+SUBST_FILES.perlpath+=	../../ipxe/src/util/makerom.pl
+SUBST_FILES.perlpath+=	../../ipxe/src/util/mergerom.pl
+SUBST_FILES.perlpath+=	../../ipxe/src/util/modrom.pl
+SUBST_FILES.perlpath+=	../../ipxe/src/util/padimg.pl
+SUBST_FILES.perlpath+=	../../ipxe/src/util/parserom.pl
+SUBST_FILES.perlpath+=	../../ipxe/src/util/sortobjdump.pl
+SUBST_FILES.perlpath+=	../../ipxe/src/util/swapdevids.pl
+SUBST_FILES.perlpath+=	../../ipxe/src/util/symcheck.pl
+SUBST_SED.perlpath=	-e "s|/usr/bin/perl|${PREFIX}/bin/perl|g"
+
 SUBST_CLASSES+=		pathsvar
 SUBST_STAGE.pathsvar=	pre-configure
 SUBST_FILES.pathsvar=	Makefile \
@@ -109,8 +140,7 @@ SUBST_SED.conf=		-e "s,@XENDCONFDIR@,${PKG_SYSCONFDIR},g"
 
 .include "../../mk/bsd.prefs.mk"
 
-#XXX XEND_SCRIPTS=		block vif-bridge vif-ip qemu-ifup hotplugpath.sh
-XEND_SCRIPTS=		block vif-bridge vif-ip hotplugpath.sh
+XEND_SCRIPTS=		block vif-bridge vif-ip qemu-ifup hotplugpath.sh
 
 .if ${OPSYS} == "NetBSD"
 SUBST_CLASSES+=		proc
@@ -148,6 +178,8 @@ CONF_FILES+=		${EGDIR}/formats ${PKG_SYSCONFDIR}/formats
 CONF_FILES+=		${EGDIR}/xend-config.sxp ${PKG_SYSCONFDIR}/xend-config.sxp
 CONF_FILES+=		${EGDIR}/xl.conf ${PKG_SYSCONFDIR}/xl.conf
 CONF_FILES+=		${EGDIR}/xm-config.xml ${PKG_SYSCONFDIR}/xm-config.xml
+CONF_FILES+=		${EGDIR}/oxenstored.conf ${PKG_SYSCONFDIR}/oxenstored.conf
+
 
 OWN_DIRS=		${PKG_SYSCONFDIR}/scripts ${VARBASE}/log/xen
 OWN_DIRS+=		${VARBASE}/lib/xen
