@@ -1,7 +1,7 @@
-# $NetBSD: Makefile,v 1.20 2013/04/06 13:02:33 rodent Exp $
+# $NetBSD: Makefile,v 1.22 2013/06/04 22:16:49 tron Exp $
 
 .include "../../multimedia/ming/Makefile.common"
-PKGREVISION=		1
+PKGREVISION=		3
 PECL_VERSION=		${MING_VERSION}
 MODNAME=		ming
 CATEGORIES+=		multimedia

@@ -1,6 +1,7 @@
-# $NetBSD: Makefile,v 1.13 2013/05/21 12:49:33 markd Exp $
+# $NetBSD: Makefile,v 1.15 2013/06/04 22:16:42 tron Exp $
 
 DISTNAME=	kbruch-${_KDE_VERSION}
+PKGREVISION=	2
 CATEGORIES=	misc
 COMMENT=	KDE exercise fractions
 
