@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.3 2013/05/09 07:39:50 adam Exp $
+# $NetBSD: Makefile,v 1.6 2013/06/04 22:16:10 tron Exp $
 
 DISTNAME=	palapeli-${_KDE_VERSION}
 PKGREVISION=	2

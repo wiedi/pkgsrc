@@ -1,7 +1,8 @@
-# $NetBSD: Makefile,v 1.1 2013/04/16 15:45:09 wiz Exp $
+# $NetBSD: Makefile,v 1.3 2013/06/04 22:16:10 tron Exp $
 #
 
 DISTNAME=	pushover-0.0.4
+PKGREVISION=	2
 CATEGORIES=	games
 MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=pushover/}
 

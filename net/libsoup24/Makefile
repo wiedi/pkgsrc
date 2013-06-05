@@ -1,8 +1,8 @@
-# $NetBSD: Makefile,v 1.52 2013/05/09 07:39:18 adam Exp $
+# $NetBSD: Makefile,v 1.54 2013/05/27 11:57:19 drochner Exp $
 
 DISTNAME=	libsoup-2.42.2
 PKGNAME=	${DISTNAME:S/libsoup/libsoup24/}
-PKGREVISION=	1
+PKGREVISION=	2
 CATEGORIES=	net gnome
 MASTER_SITES=	${MASTER_SITE_GNOME:=sources/libsoup/2.42/}
 EXTRACT_SUFX=	.tar.xz
@@ -42,5 +42,4 @@ PYTHON_FOR_BUILD_ONLY= yes
 BUILDLINK_API_DEPENDS.glib2+=	glib2>=2.31.7
 .include "../../devel/glib2/buildlink3.mk"
 .include "../../textproc/libxml2/buildlink3.mk"
-.include "../../www/libproxy/buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"

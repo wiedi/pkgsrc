@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.574 2013/05/15 07:01:40 jnemeth Exp $
+# $NetBSD: Makefile,v 1.578 2013/06/03 11:22:12 rodent Exp $
 #
 
 COMMENT=	System utilities
@@ -104,6 +104,7 @@ SUBDIR+=	efreet
 SUBDIR+=	eggdbus
 SUBDIR+=	entr
 SUBDIR+=	estd
+SUBDIR+=	etckeeper
 SUBDIR+=	etcmanage
 SUBDIR+=	etcutils
 SUBDIR+=	euca2ools
@@ -133,6 +134,7 @@ SUBDIR+=	gcdmaster
 SUBDIR+=	gcombust
 SUBDIR+=	genpasswd
 SUBDIR+=	gentoo
+SUBDIR+=	gfm
 SUBDIR+=	gio-fam
 SUBDIR+=	gkrellm
 SUBDIR+=	gkrellm-est
@@ -263,6 +265,7 @@ SUBDIR+=	liboobs
 SUBDIR+=	libpciaccess
 SUBDIR+=	libvirt
 SUBDIR+=	lilo
+SUBDIR+=	lockf
 SUBDIR+=	logfinder
 SUBDIR+=	logrider
 SUBDIR+=	logrot
@@ -397,6 +400,7 @@ SUBDIR+=	slocate
 SUBDIR+=	smartmontools
 SUBDIR+=	smbldap-tools
 SUBDIR+=	socket
+SUBDIR+=	spice-protocol
 SUBDIR+=	sredird
 SUBDIR+=	sshsh
 SUBDIR+=	storage-manager

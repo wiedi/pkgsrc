@@ -1,8 +1,9 @@
-# $NetBSD: Makefile,v 1.727 2013/04/27 10:44:38 rodent Exp $
+# $NetBSD: Makefile,v 1.729 2013/05/22 13:16:28 obache Exp $
 #
 
 COMMENT=	Text processing utilities (does not include desktop publishing)
 
+SUBDIR+=	CRF++
 SUBDIR+=	FlightCrew
 SUBDIR+=	GutenMark
 SUBDIR+=	GutenMark-words
@@ -601,6 +602,7 @@ SUBDIR+=	py-libxslt
 SUBDIR+=	py-lxml
 SUBDIR+=	py-markdown
 SUBDIR+=	py-markdown2
+SUBDIR+=	py-markupsafe
 SUBDIR+=	py-mecab
 SUBDIR+=	py-pdf-parser
 SUBDIR+=	py-prettytable

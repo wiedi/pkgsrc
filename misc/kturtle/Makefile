@@ -1,7 +1,7 @@
-# $NetBSD: Makefile,v 1.12 2013/05/09 07:40:13 adam Exp $
+# $NetBSD: Makefile,v 1.15 2013/06/04 22:16:44 tron Exp $
 
 DISTNAME=	kturtle-${_KDE_VERSION}
-PKGREVISION=	1
+PKGREVISION=	2
 CATEGORIES=	misc
 COMMENT=	KDE educational programming environment
 

@@ -1,7 +1,7 @@
-# $NetBSD: Makefile,v 1.12 2013/05/09 07:40:11 adam Exp $
+# $NetBSD: Makefile,v 1.15 2013/06/04 22:16:43 tron Exp $
 
 DISTNAME=	kig-${_KDE_VERSION}
-PKGREVISION=	1
+PKGREVISION=	2
 CATEGORIES=	misc
 COMMENT=	KDE interactive geometry
 

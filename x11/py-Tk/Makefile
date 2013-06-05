@@ -1,7 +1,8 @@
-# $NetBSD: Makefile,v 1.53 2013/04/20 09:38:05 obache Exp $
+# $NetBSD: Makefile,v 1.55 2013/06/04 22:17:29 tron Exp $
 #
 
 PKGNAME=	${PYPKGPREFIX}-Tk-${PY_DISTVERSION}
+PKGREVISION=	2
 CATEGORIES=	x11 python
 
 MAINTAINER=	pkgsrc-users@NetBSD.org

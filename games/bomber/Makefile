@@ -1,7 +1,7 @@
-# $NetBSD: Makefile,v 1.2 2013/05/09 07:39:42 adam Exp $
+# $NetBSD: Makefile,v 1.5 2013/06/04 22:16:04 tron Exp $
 
 DISTNAME=	bomber-${_KDE_VERSION}
-PKGREVISION=	1
+PKGREVISION=	2
 CATEGORIES=	games
 COMMENT=	bomber game
 

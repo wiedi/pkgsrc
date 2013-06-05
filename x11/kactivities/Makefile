@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.13 2013/05/09 07:39:22 adam Exp $
+# $NetBSD: Makefile,v 1.16 2013/06/04 22:17:21 tron Exp $
 
 DISTNAME=	kactivities-${_KDE_VERSION}
 PKGREVISION=	2

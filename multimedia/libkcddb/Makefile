@@ -1,7 +1,7 @@
-# $NetBSD: Makefile,v 1.2 2013/05/09 07:40:19 adam Exp $
+# $NetBSD: Makefile,v 1.5 2013/06/04 22:16:48 tron Exp $
 
 DISTNAME=	libkcddb-${_KDE_VERSION}
-PKGREVISION=	1
+PKGREVISION=	2
 CATEGORIES=	multimedia
 COMMENT=	KDE CDDB library
 

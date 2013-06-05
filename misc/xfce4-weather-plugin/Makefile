@@ -1,14 +1,16 @@
-# $NetBSD: Makefile,v 1.30 2013/02/16 11:19:17 wiz Exp $
+# $NetBSD: Makefile,v 1.33 2013/06/04 22:16:46 tron Exp $
 
 .include "../../meta-pkgs/xfce4/Makefile.common"
 
 XFCE4_VERSION=	0.6.2
 
 DISTNAME=	xfce4-weather-plugin-${XFCE4_VERSION}
-PKGREVISION=	17
+PKGREVISION=	19
 CATEGORIES=	misc
 MASTER_SITES=	http://goodies.xfce.org/releases/xfce4-weather-plugin/
 COMMENT=	Xfce weather plugin
+
+LDFLAGS.SunOS+=	-lsocket -lnsl
 
 .include "../../x11/xfce4-panel/buildlink3.mk"
 .include "../../textproc/libxml2/buildlink3.mk"

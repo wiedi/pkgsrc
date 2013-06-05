@@ -1,10 +1,11 @@
-# $NetBSD: Makefile,v 1.93 2013/04/07 20:23:48 ryoon Exp $
+# $NetBSD: Makefile,v 1.96 2013/06/04 22:17:16 tron Exp $
 #
 
 DISTNAME=	# empty
-PKGNAME=	seamonkey-${SM_VER}
-SM_VER=		2.17
+PKGNAME=	seamonkey-${SM_VER:S/b/beta/}
+SM_VER=		2.18b4
 #LIGHTNINGVER=	1.9
+PKGREVISION=	2
 CATEGORIES=	www
 MASTER_SITES=	${MASTER_SITE_MOZILLA:=seamonkey/releases/${SM_VER}/source/} \
 		${MASTER_SITE_MOZILLA_ALL:=seamonkey/releases/${SM_VER}/source/}
@@ -17,7 +18,8 @@ MAINTAINER=	pkgsrc-users@NetBSD.org
 HOMEPAGE=	http://www.seamonkey-project.org/
 COMMENT=	Full-featured gecko-based browser
 
-WRKSRC=		${WRKDIR}/comm-release
+#WRKSRC=		${WRKDIR}/comm-release
+WRKSRC=		${WRKDIR}/comm-beta
 MOZILLA_DIR=	mozilla/
 PLIST_SRC+=	${PLIST_SRC_DFLT}
 USE_LANGUAGES+=	c c++
@@ -71,6 +73,6 @@ post-install:
 	   ${DESTDIR}${PREFIX}/lib/seamonkey/extensions/.
 	rm -rf ${WRKDIR}/extensions
 
-.include "../../devel/xulrunner/mozilla-common.mk"
+.include "../../www/firefox/mozilla-common.mk"
 .include "options.mk"
 .include "../../mk/bsd.pkg.mk"

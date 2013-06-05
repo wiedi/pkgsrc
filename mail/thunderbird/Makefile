@@ -1,10 +1,11 @@
-# $NetBSD: Makefile,v 1.113 2013/04/09 20:23:05 ryoon Exp $
+# $NetBSD: Makefile,v 1.116 2013/06/04 22:16:37 tron Exp $
 #
 
 DISTNAME=	# empty
 PKGNAME=	thunderbird-${TB_VER}
-TB_VER=		17.0.5
+TB_VER=		17.0.6
 LIGHTNINGVER=	1.9
+PKGREVISION=	2
 CATEGORIES=	mail
 MASTER_SITES=	${MASTER_SITE_MOZILLA_ESR:=thunderbird/releases/${TB_VER}esr/source/} \
 		${MASTER_SITE_MOZILLA_ALL:=thunderbird/releases/${TB_VER}esr/source/}
@@ -84,7 +85,7 @@ post-install:
 	   ${DESTDIR}${PREFIX}/lib/${MOZILLA}/extensions/.
 	rm -rf ${WRKDIR}/extensions
 
-.include "../../devel/xulrunner/mozilla-common.mk"
+.include "../../devel/xulrunner17/mozilla-common.mk"
 .include "options.mk"
 .include "../../sysutils/desktop-file-utils/desktopdb.mk"
 .include "../../mk/bsd.pkg.mk"
