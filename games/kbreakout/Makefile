@@ -1,6 +1,7 @@
-# $NetBSD: Makefile,v 1.3 2013/05/21 12:49:29 markd Exp $
+# $NetBSD: Makefile,v 1.5 2013/06/04 22:16:07 tron Exp $
 
 DISTNAME=	kbreakout-${_KDE_VERSION}
+PKGREVISION=	2
 CATEGORIES=	games
 COMMENT=	a Breakout-like game
 

@@ -1,7 +1,7 @@
-# $NetBSD: Makefile,v 1.24 2013/05/31 12:42:29 wiz Exp $
+# $NetBSD: Makefile,v 1.26 2013/06/04 22:17:13 tron Exp $
 
 DISTNAME=	fvwm-${FVWM_VER}
-PKGREVISION=	1
+PKGREVISION=	3
 CATEGORIES=	x11 wm
 MASTER_SITES=	ftp://ftp.fvwm.org/pub/fvwm/version-2/ \
 		http://www.fvwm.org/generated/icon_download/

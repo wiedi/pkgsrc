@@ -1,6 +1,7 @@
-# $NetBSD: Makefile,v 1.40 2013/05/21 12:49:36 markd Exp $
+# $NetBSD: Makefile,v 1.42 2013/06/04 22:17:04 tron Exp $
 
 DISTNAME=	filelight-${_KDE_VERSION}
+PKGREVISION=	2
 CATEGORIES=	sysutils
 COMMENT=	Graphical filesystem usage monitor
 LICENSE=	gnu-gpl-v3

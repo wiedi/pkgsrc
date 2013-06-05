@@ -1,8 +1,8 @@
-# $NetBSD: Makefile,v 1.47 2013/05/31 12:42:55 wiz Exp $
+# $NetBSD: Makefile,v 1.49 2013/06/04 22:17:16 tron Exp $
 #
 
 DISTNAME=	alacarte-0.13.1
-PKGREVISION=	19
+PKGREVISION=	21
 CATEGORIES=	x11
 MASTER_SITES=	${MASTER_SITE_GNOME:=sources/alacarte/0.13/}
 EXTRACT_SUFX=	.tar.bz2

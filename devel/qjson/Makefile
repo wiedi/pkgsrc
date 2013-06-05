@@ -1,7 +1,7 @@
-# $NetBSD: Makefile,v 1.10 2013/02/16 11:20:51 wiz Exp $
+# $NetBSD: Makefile,v 1.12 2013/06/04 22:15:56 tron Exp $
 
 DISTNAME=	qjson-0.7.1
-PKGREVISION=	7
+PKGREVISION=	9
 CATEGORIES=	devel
 MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=qjson/}
 EXTRACT_SUFX=	.tar.bz2

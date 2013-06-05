@@ -1,8 +1,8 @@
-# $NetBSD: Makefile,v 1.20 2013/02/16 11:18:18 wiz Exp $
+# $NetBSD: Makefile,v 1.22 2013/06/04 22:17:17 tron Exp $
 #
 
 DISTNAME=	eekboard-1.0.5
-PKGREVISION=	6
+PKGREVISION=	8
 CATEGORIES=	x11
 MASTER_SITES=	http://cloud.github.com/downloads/ueno/eekboard/
 
