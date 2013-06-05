@@ -1,7 +1,7 @@
-# $NetBSD: Makefile,v 1.20 2013/04/25 03:53:12 sbd Exp $
+# $NetBSD: Makefile,v 1.22 2013/06/04 22:16:59 tron Exp $
 
 DISTNAME=	libspectre-0.2.7
-PKGREVISION=	5
+PKGREVISION=	7
 CATEGORIES=	print
 MASTER_SITES=	http://libspectre.freedesktop.org/releases/
 

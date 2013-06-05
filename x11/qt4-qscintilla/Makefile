@@ -1,8 +1,9 @@
-# $NetBSD: Makefile,v 1.27 2013/04/10 15:04:27 drochner Exp $
+# $NetBSD: Makefile,v 1.29 2013/06/04 22:17:31 tron Exp $
 #
 
 DISTNAME=	QScintilla-gpl-2.7.1
 PKGNAME=	qt4-${DISTNAME:tl:S/-gpl-/-/}
+PKGREVISION=	2
 CATEGORIES=	x11
 MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=pyqt/}
 

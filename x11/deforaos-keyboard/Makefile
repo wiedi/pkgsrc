@@ -1,9 +1,9 @@
-# $NetBSD: Makefile,v 1.2 2013/02/16 11:18:48 wiz Exp $
+# $NetBSD: Makefile,v 1.4 2013/06/04 22:17:17 tron Exp $
 #
 
 DISTNAME=	Keyboard-0.2.1
 PKGNAME=	deforaos-keyboard-0.2.1
-PKGREVISION=	2
+PKGREVISION=	4
 CATEGORIES=	x11
 MASTER_SITES=	http://www.defora.org/os/download/download/3696/
 

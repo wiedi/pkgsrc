@@ -1,6 +1,7 @@
-# $NetBSD: Makefile,v 1.4 2013/05/21 12:49:35 markd Exp $
+# $NetBSD: Makefile,v 1.7 2013/06/04 22:16:44 tron Exp $
 
 DISTNAME=	nepomuk-core-${_KDE_VERSION}
+PKGREVISION=	3
 CATEGORIES=	misc
 COMMENT=	library for dealing with Nepomuk components
 

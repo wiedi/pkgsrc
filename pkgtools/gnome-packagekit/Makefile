@@ -1,8 +1,8 @@
-# $NetBSD: Makefile,v 1.31 2013/05/09 07:40:27 adam Exp $
+# $NetBSD: Makefile,v 1.34 2013/06/04 22:16:57 tron Exp $
 #
 
 DISTNAME=	gnome-packagekit-0.4.0
-PKGREVISION=	23
+PKGREVISION=	26
 CATEGORIES=	pkgtools gnome
 MASTER_SITES=	http://www.packagekit.org/releases/
 

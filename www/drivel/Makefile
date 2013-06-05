@@ -1,8 +1,8 @@
-# $NetBSD: Makefile,v 1.71 2013/02/16 11:24:51 wiz Exp $
+# $NetBSD: Makefile,v 1.73 2013/06/04 22:17:15 tron Exp $
 #
 
 DISTNAME=	drivel-2.0.3
-PKGREVISION=	32
+PKGREVISION=	34
 CATEGORIES=	www gnome
 MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=drivel/}
 EXTRACT_SUFX=	.tar.bz2
