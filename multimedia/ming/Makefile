@@ -1,9 +1,9 @@
-# $NetBSD: Makefile,v 1.15 2013/02/16 11:18:05 wiz Exp $
+# $NetBSD: Makefile,v 1.18 2013/06/04 22:16:49 tron Exp $
 #
 
 .include "Makefile.common"
 
-PKGREVISION=	2
+PKGREVISION=	5
 CATEGORIES=	multimedia
 
 MAINTAINER=	obache@NetBSD.org

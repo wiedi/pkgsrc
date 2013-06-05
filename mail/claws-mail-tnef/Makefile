@@ -1,9 +1,9 @@
-# $NetBSD: Makefile,v 1.30 2013/02/16 11:22:58 wiz Exp $
+# $NetBSD: Makefile,v 1.32 2013/06/04 22:16:35 tron Exp $
 #
 
 DISTNAME=	tnef_parse-0.3.13
 PKGNAME=	claws-mail-tnef-0.3.13
-PKGREVISION=	5
+PKGREVISION=	7
 CATEGORIES=	mail
 MASTER_SITES=	http://claws-mail.org/downloads/plugins/
 

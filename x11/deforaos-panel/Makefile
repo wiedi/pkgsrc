@@ -1,9 +1,9 @@
-# $NetBSD: Makefile,v 1.2 2013/02/16 11:18:41 wiz Exp $
+# $NetBSD: Makefile,v 1.4 2013/06/04 22:17:17 tron Exp $
 #
 
 DISTNAME=	Panel-0.2.16
 PKGNAME=	deforaos-panel-0.2.16
-PKGREVISION=	1
+PKGREVISION=	3
 CATEGORIES=	x11
 MASTER_SITES=	http://www.defora.org/os/download/download/3948/
 

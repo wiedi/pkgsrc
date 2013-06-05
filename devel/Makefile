@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.1744 2013/05/21 14:35:37 imil Exp $
+# $NetBSD: Makefile,v 1.1747 2013/06/03 21:21:40 asau Exp $
 #
 
 COMMENT=	Development utilities
@@ -512,6 +512,7 @@ SUBDIR+=	opal
 SUBDIR+=	open-vcdiff
 SUBDIR+=	opencm
 SUBDIR+=	opengrok
+SUBDIR+=	openrcs
 SUBDIR+=	orc
 SUBDIR+=	ossp-uuid
 SUBDIR+=	p5-Acme-PlayCode
@@ -1402,6 +1403,7 @@ SUBDIR+=	py-stompclient
 SUBDIR+=	py-subversion
 SUBDIR+=	py-subvertpy
 SUBDIR+=	py-sysctl
+SUBDIR+=	py-tabular
 SUBDIR+=	py-testtools
 SUBDIR+=	py-unit
 SUBDIR+=	py-unitgui
@@ -1657,7 +1659,6 @@ SUBDIR+=	xfconf
 SUBDIR+=	xmake
 SUBDIR+=	xorg-util-macros
 SUBDIR+=	xsd
-SUBDIR+=	xulrunner
 SUBDIR+=	xulrunner10
 SUBDIR+=	xulrunner17
 SUBDIR+=	xulrunner192

@@ -1,8 +1,8 @@
-# $NetBSD: Makefile,v 1.21 2013/02/26 11:00:04 joerg Exp $
+# $NetBSD: Makefile,v 1.23 2013/06/04 22:17:13 tron Exp $
 #
 
 DISTNAME=	fluxconf-0.9.9
-PKGREVISION=	15
+PKGREVISION=	17
 CATEGORIES=	wm
 MASTER_SITES=	http://devaux.fabien.free.fr/flux/
 
