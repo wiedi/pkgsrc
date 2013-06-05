@@ -1,7 +1,7 @@
-# $NetBSD: Makefile,v 1.16 2013/03/02 10:44:37 tron Exp $
+# $NetBSD: Makefile,v 1.18 2013/06/04 22:16:54 tron Exp $
 
 DISTNAME=	mbrowse-0.4.3
-PKGREVISION=	8
+PKGREVISION=	10
 CATEGORIES=	net
 MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=mbrowse/}
 

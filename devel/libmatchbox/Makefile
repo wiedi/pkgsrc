@@ -1,8 +1,8 @@
-# $NetBSD: Makefile,v 1.26 2013/02/16 11:18:15 wiz Exp $
+# $NetBSD: Makefile,v 1.28 2013/06/04 22:15:54 tron Exp $
 #
 
 DISTNAME=	libmatchbox-1.9
-PKGREVISION=	4
+PKGREVISION=	6
 CATEGORIES=	devel
 MASTER_SITES=	http://matchbox-project.org/sources/libmatchbox/1.9/
 

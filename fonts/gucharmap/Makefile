@@ -1,8 +1,8 @@
-# $NetBSD: Makefile,v 1.86 2013/02/16 11:18:27 wiz Exp $
+# $NetBSD: Makefile,v 1.88 2013/06/04 22:16:03 tron Exp $
 #
 
 DISTNAME=	gucharmap-2.32.1
-PKGREVISION=	11
+PKGREVISION=	13
 CATEGORIES=	fonts gnome
 MASTER_SITES=	${MASTER_SITE_GNOME:=sources/gucharmap/2.32/}
 EXTRACT_SUFX=	.tar.bz2

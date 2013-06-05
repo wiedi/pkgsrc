@@ -1,12 +1,13 @@
-# $NetBSD: Makefile,v 1.17 2013/05/01 17:16:06 stacktic Exp $
+# $NetBSD: Makefile,v 1.21 2013/06/02 17:33:58 stacktic Exp $
 #
 
-GIT_COMMIT=		067df5
-DISTNAME=		${GIT_COMMIT}
-PKGNAME=		rump-20130430
+VERSION=		20130602
+PKGNAME=		rump-${VERSION}
+DISTNAME=		buildrump-${VERSION}
+EXTRACT_SUFX=		.tar.bz2
 
 CATEGORIES=		misc
-MASTER_SITES=		-http://nodeload.github.com/anttikantee/buildrump.sh/tar.gz/${GIT_COMMIT}
+MASTER_SITES=		ftp://ftp.NetBSD.org/pub/NetBSD/misc/stacktic/
 
 MAINTAINER=		stacktic@NetBSD.org
 HOMEPAGE=		http://github.com/anttikantee/buildrump.sh
@@ -14,14 +15,14 @@ COMMENT=		Virtualized NetBSD kernel components in userspace
 LICENSE=		2-clause-bsd
 USE_TOOLS+=		pax
 
-ONLY_FOR_PLATFORM=	Linux-*-* SunOS-*-* NetBSD-*-*
+ONLY_FOR_PLATFORM=	Linux-*-* SunOS-*-* NetBSD-*-* DragonFly-*-*
 
 INSTALLATION_DIRS=	lib include/rump ${PKGMANDIR}/man3
 
-WRKSRC=			${WRKDIR}/buildrump.sh-${GIT_COMMIT}
+WRKSRC=			${WRKDIR}/buildrump
 
 do-build:
-	cd ${WRKSRC} && ./buildrump.sh -r checkout tools build install
+	cd ${WRKSRC} && ./buildrump.sh -r tools build install
 
 do-install:
 	cd ${WRKSRC}/rump && ${PAX} -wr lib include share ${DESTDIR}${PREFIX}/

@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.31 2013/05/19 03:21:40 ryoon Exp $
+# $NetBSD: Makefile,v 1.33 2013/05/30 16:31:33 richard Exp $
 #
 
 DISTNAME=		diffutils-3.3

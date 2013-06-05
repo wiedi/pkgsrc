@@ -1,7 +1,8 @@
-# $NetBSD: Makefile,v 1.21 2013/05/21 12:49:37 markd Exp $
+# $NetBSD: Makefile,v 1.23 2013/06/04 22:17:21 tron Exp $
 
 DISTNAME=	kde-workspace-${_KDE_VERSION}
 PKGNAME=	${DISTNAME:S/-4/4-4/}
+PKGREVISION=	2
 CATEGORIES=	x11
 COMMENT=	Base workspace for the KDE 4 integrated X11 desktop
 

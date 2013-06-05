@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.6 2013/02/12 20:36:28 adam Exp $
+# $NetBSD: Makefile,v 1.8 2013/06/04 13:31:21 adam Exp $
 
 PKGNAME=	${DISTNAME:S/-/-client-/}
 SVR4_PKGNAME=	mysqc
@@ -9,6 +9,7 @@ CONFLICTS=	{mysql-client-[0-9]*,mysql3-client-[0-9]*}
 .include "Makefile.common"
 
 CMAKE_ARGS+=		-DWITHOUT_SERVER=ON
+CMAKE_ARGS+=		-DWITH_UNIT_TESTS=OFF
 UNWRAP_FILES+=		scripts/mysql_config
 INFO_FILES=		yes
 INSTALL_DIRS+=		client include libmysql man scripts tests

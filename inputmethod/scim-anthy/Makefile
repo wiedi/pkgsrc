@@ -1,8 +1,8 @@
-# $NetBSD: Makefile,v 1.17 2013/02/16 11:22:45 wiz Exp $
+# $NetBSD: Makefile,v 1.19 2013/06/04 22:16:31 tron Exp $
 #
 
 DISTNAME=		scim-anthy-1.2.7
-PKGREVISION=		15
+PKGREVISION=		17
 CATEGORIES=		inputmethod
 MASTER_SITES=		${MASTER_SITE_SOURCEFORGE_JP:=scim-imengine/37309/}
 
