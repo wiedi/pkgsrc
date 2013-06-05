@@ -1,9 +1,9 @@
-# $NetBSD: Makefile,v 1.20 2013/04/23 19:05:14 bsiegert Exp $
+# $NetBSD: Makefile,v 1.23 2013/06/04 22:16:59 tron Exp $
 #
 
 DISTNAME=	pdf2djvu_0.7.14
 PKGNAME=	${DISTNAME:S/_/-/}
-PKGREVISION=	4
+PKGREVISION=	7
 CATEGORIES=	print
 MASTER_SITES=	http://pdf2djvu.googlecode.com/files/
 

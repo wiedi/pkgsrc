@@ -1,7 +1,8 @@
-# $NetBSD: Makefile,v 1.30 2012/12/15 22:17:31 markd Exp $
+# $NetBSD: Makefile,v 1.32 2013/06/04 22:16:55 tron Exp $
 
 DISTNAME=	nam-src-1.15
 PKGNAME=	nam-1.15
+PKGREVISION=	2
 CATEGORIES=	net
 MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=nsnam/}
 

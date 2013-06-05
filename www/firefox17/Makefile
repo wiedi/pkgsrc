@@ -1,7 +1,8 @@
-# $NetBSD: Makefile,v 1.9 2013/05/19 12:50:46 ryoon Exp $
+# $NetBSD: Makefile,v 1.12 2013/06/04 22:17:15 tron Exp $
 
 .include "../../devel/xulrunner17/dist.mk"
 PKGNAME=	firefox17-${MOZ_BRANCH}
+PKGREVISION=	2
 CATEGORIES=	www
 
 MAINTAINER=	pkgsrc-users@NetBSD.org
@@ -53,7 +54,7 @@ post-install:
 	  ${DESTDIR}${PREFIX}/share/applications/${MOZILLA}.desktop
 	${INSTALL_DATA} ${MOZILLA_ICON}					\
 	  ${DESTDIR}${PREFIX}/share/pixmaps/${MOZILLA}.png
-	rm -f ${DESTDIR}${PREFIX}/bin/firefox
+	rm -f ${DESTDIR}${PREFIX}/bin/firefox17
 	${INSTALL_SCRIPT} ${WRKDIR}/firefox ${DESTDIR}${PREFIX}/bin/firefox17
 
 BUILDLINK_API_DEPENDS.xulrunner17+=	xulrunner17>=${MOZ_BRANCH}
