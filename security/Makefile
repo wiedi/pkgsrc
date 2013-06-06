@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.469 2013/06/01 14:32:22 shattered Exp $
+# $NetBSD: Makefile,v 1.471 2013/06/05 19:57:40 khorben Exp $
 #
 
 COMMENT=	Security tools
@@ -287,6 +287,7 @@ SUBDIR+=	pgp5
 SUBDIR+=	pgpdump
 SUBDIR+=	pgpenvelope
 SUBDIR+=	php-mcrypt
+SUBDIR+=	php-ssdeep
 SUBDIR+=	php-suhosin
 SUBDIR+=	pinentry
 SUBDIR+=	pinentry-gtk
@@ -381,6 +382,7 @@ SUBDIR+=	snow
 SUBDIR+=	softhsm
 SUBDIR+=	srm
 SUBDIR+=	srp_client
+SUBDIR+=	ssdeep
 SUBDIR+=	ssh-askpass
 SUBDIR+=	ssh-ip-tunnel
 SUBDIR+=	sshfp
