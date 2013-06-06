@@ -15,12 +15,12 @@ for client in ${build_clients}; do
 	if [ -n "${chroot_create}" -a \
 	     -n "${chroot_delete}" -a \
 	     -n "${chroot_dir}" ]; then
-		if [ -n "${chroot_num}" -a ${chroot_num} -gt 1 ]; then
+		if [ -n "${build_chroots}" -a ${build_chroots} -gt 1 ]; then
 			i=1
 			while true; do
 				ssh $client "${chroot_create} ${chroot_dir}-${i}; PBULK_CONF=${PBULK_CONF} /usr/sbin/chroot ${chroot_dir}-${i} /bin/bash -c \"${pbuild} -c ${master_port_build} -b ${pbuild_script}\"; ${chroot_delete} ${chroot_dir}-${i}" &
 				i=`expr $i + 1`
-				if [ $i -gt ${chroot_num} ]; then
+				if [ $i -gt ${build_chroots} ]; then
 					break
 				fi
 			done
