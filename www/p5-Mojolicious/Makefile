@@ -1,11 +1,9 @@
-# $NetBSD: Makefile,v 1.24 2013/05/31 12:42:48 wiz Exp $
+# $NetBSD: Makefile,v 1.26 2013/06/11 08:02:56 wen Exp $
 
-DISTNAME=	Mojolicious-3.94
+DISTNAME=	Mojolicious-4.14
 PKGNAME=	p5-${DISTNAME}
-PKGREVISION=	1
 CATEGORIES=	www perl5
 MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=Mojolicious/SRI/}
-#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=../../authors/id/T/TE/TEMPIRE/}
 
 MAINTAINER=	pkgsrc-users@NetBSD.org
 HOMEPAGE=	http://mojolicious.org/

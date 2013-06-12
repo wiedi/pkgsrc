@@ -1,4 +1,4 @@
-# $NetBSD: bsd.buildlink3.mk,v 1.221 2013/05/13 12:01:51 jperkin Exp $
+# $NetBSD: bsd.buildlink3.mk,v 1.223 2013/06/08 20:23:02 dholland Exp $
 #
 # Copyright (c) 2004 The NetBSD Foundation, Inc.
 # All rights reserved.
@@ -120,6 +120,54 @@ BUILDLINK_BUILTIN_MK.${_pkg_}?=	${BUILDLINK_PKGSRCDIR.${_pkg_}}/builtin.mk
 .  sinclude "${BUILDLINK_BUILTIN_MK.${_pkg_}}"
 .endif
 .endfor
+
+# Go through the packages in tree order and make sure USE_BUILTIN.pkg
+# is set to "no" if that package depends on any other packages where
+# USE_BUILTIN.pkg is set to "no".
+#
+
+_stack_:=bot
+_ok_:=yes
+.for _pkg_ in ${BUILDLINK_TREE}
+# work around PR 47888
+_enter_:=${_pkg_:M-*}
+# work around another bug in netbsd-5's make (fixed in HEAD)
+_use_:=${USE_BUILTIN.${_pkg_:S/^-//}:M[Yy][Ee][Ss]}
+
+.  if "${_pkg_}" == "x11-links" || "${_pkg_}" == "-x11-links"
+     # (nothing)
+.  elif empty(_enter_)
+     # entering a package (in the buildlink tree)
+     #.say "${_stack_:C/.*/  /} ${_pkg_}:"
+     _stack_:=${_ok_} ${_stack_}
+     _ok_:=yes
+.  else
+     # leaving a package (in the buildlink tree)
+.    if !empty(_use_)
+       # this package is going to use the builtin version
+.      if ${_ok_} == no
+         # not ok for it to be builtin; force it to pkgsrc
+         USE_BUILTIN.${_pkg_:S/^-//}:=no
+         FORCED_PKGSRC+=${_pkg_:S/^-//}
+         #.say "${_stack_:C/.*/  /} ${_pkg_:S/^-//} pkgsrc FORCED"
+.      else
+         #.say "${_stack_:C/.*/  /} ${_pkg_:S/^-//} built-in"
+.      endif
+.    else
+       # no builtin version or not using it
+       #.say "${_stack_:C/.*/  /} ${_pkg_:S/^-//} pkgsrc"
+       _ok_:=no
+.    endif
+     # pop the stack
+.    if ${_ok_} == yes
+       _ok_:=${_stack_:[1]}
+.    endif
+     _stack_:=${_stack_:[2..-1]}
+.  endif
+.endfor
+.if ${_stack_} != "bot"
+.error "The above loop through BUILDLINK_TREE failed to balance"
+.endif
 
 # Sorted and unified version of BUILDLINK_TREE without recursion
 # data.
