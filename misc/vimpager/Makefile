@@ -1,15 +1,15 @@
-# $NetBSD: Makefile,v 1.1 2013/04/17 13:42:48 obache Exp $
+# $NetBSD: Makefile,v 1.3 2013/06/07 13:26:56 ryoon Exp $
 
-DISTNAME=	vimpager-1.8.1
+DISTNAME=	vimpager-1.8.2
 CATEGORIES=	misc
-MASTER_SITES=	-http://nodeload.github.com/rkitover/vimpager/tar.gz/${PKGVERSION_NOREV}
+MASTER_SITES=	-https://github.com/rkitover/vimpager/archive/${PKGVERSION_NOREV}${EXTRACT_SUFX}
 
 MAINTAINER=	nonakap@gmail.com
 HOMEPAGE=	http://www.vim.org/scripts/script.php?script_id=1723
 COMMENT=	Use ViM as PAGER
 LICENSE=	2-clause-bsd
 
-DEPENDS+=	vim{,-gtk,gtk2,-motif,-xaw}>=7.0:../../editors/vim
+DEPENDS+=	vim{,-gtk,-gtk2,-motif,-xaw}>=7.0:../../editors/vim
 
 NO_BUILD=	yes
 
