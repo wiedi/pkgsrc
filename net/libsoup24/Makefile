@@ -1,8 +1,8 @@
-# $NetBSD: Makefile,v 1.54 2013/05/27 11:57:19 drochner Exp $
+# $NetBSD: Makefile,v 1.56 2013/06/10 18:57:55 joerg Exp $
 
 DISTNAME=	libsoup-2.42.2
 PKGNAME=	${DISTNAME:S/libsoup/libsoup24/}
-PKGREVISION=	2
+PKGREVISION=	3
 CATEGORIES=	net gnome
 MASTER_SITES=	${MASTER_SITE_GNOME:=sources/libsoup/2.42/}
 EXTRACT_SUFX=	.tar.xz
@@ -34,6 +34,10 @@ TEST_TARGET=	check
 CONFIGURE_ARGS+= 	--disable-more-warnings
 .endif
 
+.if !empty(PKGSRC_COMPILER:Mclang)
+_WRAP_EXTRA_ARGS.CC+=	-Wno-error=format-nonliteral
+.endif
+
 REPLACE_PYTHON= libsoup/tld-parser.py
 PYTHON_FOR_BUILD_ONLY= yes
 .include "../../lang/python/application.mk"
@@ -41,5 +45,9 @@ PYTHON_FOR_BUILD_ONLY= yes
 .include "../../databases/sqlite3/buildlink3.mk"
 BUILDLINK_API_DEPENDS.glib2+=	glib2>=2.31.7
 .include "../../devel/glib2/buildlink3.mk"
+BUILDLINK_API_DEPENDS.gobject-introspection+=	gobject-introspection>=0.9.5
+BUILDLINK_DEPMETHOD.gobject-introspection+=	build
+.include "../../devel/gobject-introspection/buildlink3.mk"
+CONFIGURE_ARGS+=	--enable-introspection
 .include "../../textproc/libxml2/buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"
