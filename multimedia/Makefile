@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.210 2013/05/21 12:24:48 markd Exp $
+# $NetBSD: Makefile,v 1.212 2013/06/13 14:01:34 obache Exp $
 #
 
 COMMENT=	Multimedia utilities
@@ -14,7 +14,6 @@ SUBDIR+=	bsdav
 SUBDIR+=	ccxstream
 SUBDIR+=	cfourcc
 SUBDIR+=	clutter-gst
-SUBDIR+=	clutter08-gst
 SUBDIR+=	deforaos-player
 SUBDIR+=	dirac
 SUBDIR+=	divxplayer
@@ -161,7 +160,6 @@ SUBDIR+=	py-ming
 SUBDIR+=	realplayer-codecs
 SUBDIR+=	regionset
 SUBDIR+=	replex
-SUBDIR+=	ruby-clutter-gst
 SUBDIR+=	ruby-gnome2-gstreamer
 SUBDIR+=	ruby-ming
 SUBDIR+=	schroedinger
