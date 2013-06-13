@@ -278,7 +278,8 @@ CHECK-ADD)
 		"")	continue ;;
 		*)	group_exists $group $groupid
 			case $? in
-			0|3)	case ${_PKGINSTALL_IGNORE_UIDGID} in
+			0)	continue ;;
+			2)	case ${_PKGINSTALL_IGNORE_UIDGID} in
 				yes)	continue ;;
 				esac
 				;;
@@ -295,7 +296,15 @@ CHECK-ADD)
 		esac
 		case $groupid in
 		"")	${ECHO} "	$group" ;;
-		*)	${ECHO} "	$group (gid = $groupid)" ;;
+		*)	${ECHO} "	$group (gid = $groupid)"
+			${ECHO} ""
+			${ECHO} "If you wish to ignore this check and either re-use an existing '$group' group"
+			${ECHO} "or create a new one with a system-assigned gid then set"
+			${ECHO} ""
+			${ECHO} "	PKGINSTALL_IGNORE_UIDGID=yes"
+			${ECHO} ""
+			${ECHO} "in the environment."
+			;;
 		esac
 	done
 	case "$printed_header" in
@@ -317,7 +326,7 @@ CHECK-ADD)
 		*)	user_exists $user $userid
 			case $? in
 			0)	continue ;;
-			3)	case ${_PKGINSTALL_IGNORE_UIDGID} in
+			2)	case ${_PKGINSTALL_IGNORE_UIDGID} in
 				yes)	continue ;;
 				esac
 				;;
@@ -336,7 +345,15 @@ CHECK-ADD)
 		: ${shell:="@PKG_USER_SHELL@"}
 		case $userid in
 		"")	${ECHO} "	$user: $group, $home, $shell" ;;
-		*)	${ECHO} "	$user (uid = $userid): $group, $home, $shell" ;;
+		*)	${ECHO} "	$user (uid = $userid): $group, $home, $shell"
+			${ECHO} ""
+			${ECHO} "If you wish to ignore this check and either re-use an existing '$user' user"
+			${ECHO} "or create a new one with a system-assigned uid then set"
+			${ECHO} ""
+			${ECHO} "	PKGINSTALL_IGNORE_UIDGID=yes"
+			${ECHO} ""
+			${ECHO} "in the environment."
+			;;
 		esac
 	done
 	case "$printed_header" in
