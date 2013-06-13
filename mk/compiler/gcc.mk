@@ -547,7 +547,7 @@ _USE_GCC_SHLIB= yes
 # When using multiarch we cannot rely on MACHINE_GNU_PLATFORM as it differs
 # # between ABIs, so provide a common directory for the runtime libraries.
 .if !empty(MULTIARCH:M[Yy][Ee][Ss])
-GCC_TARGET_MACHINE=	runtime
+LIBGCC_TARGET_MACHINE=	runtime
 .endif
 
 .if !empty(USE_NATIVE_GCC:M[yY][eE][sS]) && !empty(_IS_BUILTIN_GCC:M[yY][eE][sS])
