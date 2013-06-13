@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.651 2013/06/09 13:25:56 obache Exp $
+# $NetBSD: Makefile,v 1.653 2013/06/13 14:01:34 obache Exp $
 #
 
 COMMENT=	Graphics tools and libraries
@@ -50,12 +50,9 @@ SUBDIR+=	circos
 SUBDIR+=	claraocr
 SUBDIR+=	clutter
 SUBDIR+=	clutter-box2d
-SUBDIR+=	clutter-cairo
 SUBDIR+=	clutter-gtk
 SUBDIR+=	clutter-mx
 SUBDIR+=	clutter-qt
-SUBDIR+=	clutter08
-SUBDIR+=	clutter08-gtk
 SUBDIR+=	cnxtview
 SUBDIR+=	comix
 SUBDIR+=	compface
@@ -414,10 +411,6 @@ SUBDIR+=	resize_image
 SUBDIR+=	ristretto
 SUBDIR+=	ruby-RMagick
 SUBDIR+=	ruby-chunky_png
-SUBDIR+=	ruby-clutter
-SUBDIR+=	ruby-clutter-cairo
-SUBDIR+=	ruby-clutter-core
-SUBDIR+=	ruby-clutter-gtk
 SUBDIR+=	ruby-color
 SUBDIR+=	ruby-color-japanese
 SUBDIR+=	ruby-color-tools
