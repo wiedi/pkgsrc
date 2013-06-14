@@ -29,6 +29,10 @@ CONFIGURE_ENV+=	lt_cv_deplibs_check_method='match_pattern /lib[^/]+(\.so\.[0-9]+
 GNU_CONFIGURE_PREFIX?=	${PREFIX}
 CONFIGURE_ARGS+=	--prefix=${GNU_CONFIGURE_PREFIX:Q}
 
+.if defined(_MULTIARCH) && !empty(USE_MULTIARCH:Mlib) && !defined(NO_MULTIARCH_LIBDIR)
+SET_LIBDIR=		yes
+.endif
+
 .if defined(GNU_CONFIGURE_LIBSUBDIR) && !empty(GNU_CONFIGURE_LIBSUBDIR)
 CONFIGURE_ARGS+=	--libdir=${GNU_CONFIGURE_PREFIX}/lib${LIBARCHSUFFIX}/${GNU_CONFIGURE_LIBSUBDIR}
 .elif defined(SET_LIBDIR) && !empty(SET_LIBDIR)
