@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.970 2013/06/06 03:00:57 taca Exp $
+# $NetBSD: Makefile,v 1.972 2013/06/16 21:21:30 wiz Exp $
 #
 
 COMMENT=	Networking tools
@@ -281,6 +281,7 @@ SUBDIR+=	mcast-tools
 SUBDIR+=	md-whois
 SUBDIR+=	microdc2
 SUBDIR+=	mikutter
+SUBDIR+=	mimms
 SUBDIR+=	miniupnpd
 SUBDIR+=	miredo
 SUBDIR+=	mirror
@@ -665,6 +666,7 @@ SUBDIR+=	tsclient
 SUBDIR+=	tsocks
 SUBDIR+=	tspc
 SUBDIR+=	ttt
+SUBDIR+=	twittering-mode
 SUBDIR+=	twitux
 SUBDIR+=	ucarp
 SUBDIR+=	ucspi-ssl

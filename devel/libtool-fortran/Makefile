@@ -65,7 +65,7 @@ CONFIGURE_ARGS+=	--disable-ltdl-install
 
 USE_TOOLS+=		echo
 
-INSTALLATION_DIRS+=	bin
+INSTALLATION_DIRS+=	bin${BINARCHSUFFIX}
 
 .PHONY: fix-libtool
 fix-libtool:
@@ -83,8 +83,8 @@ post-build:
 		${FILESDIR}/shlibtool-fortran.in > ${WRKSRC}/shlibtool-fortran
 
 do-install:
-	${INSTALL_SCRIPT} ${WRKSRC}/shlibtool-fortran ${DESTDIR}${PREFIX}/bin/shlibtool-fortran
-	${INSTALL_SCRIPT} ${WRKSRC}/libtool ${DESTDIR}${PREFIX}/bin/libtool-fortran
+	${INSTALL_SCRIPT} ${WRKSRC}/shlibtool-fortran ${DESTDIR}${PREFIX}/bin${BINARCHSUFFIX}/shlibtool-fortran
+	${INSTALL_SCRIPT} ${WRKSRC}/libtool ${DESTDIR}${PREFIX}/bin${BINARCHSUFFIX}/libtool-fortran
 
 BUILDLINK_DEPMETHOD.dlcompat=	build
 

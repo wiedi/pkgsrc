@@ -1,8 +1,7 @@
-# $NetBSD: Makefile,v 1.18 2013/05/31 12:41:51 wiz Exp $
-#
+# $NetBSD: Makefile,v 1.20 2013/06/16 21:50:56 wiz Exp $
 
-DISTNAME=	dnssec-tools-1.12.2
-PKGREVISION=	4
+DISTNAME=	dnssec-tools-1.14
+PKGREVISION=	1
 CATEGORIES=	security
 MASTER_SITES=	http://www.dnssec-tools.org/download/
 
@@ -20,7 +19,9 @@ BUILD_DEFS+=	IPV6_READY
 
 USE_TOOLS+=	perl
 
-REPLACE_PERL=	tools/modules/rollrec.pm tools/modules/timetrans.pm
+REPLACE_PERL+=	tools/modules/realm.pm
+REPLACE_PERL+=	tools/modules/rollrec.pm
+REPLACE_PERL+=	tools/modules/timetrans.pm
 REPLACE_PERL+=	tools/modules/tooloptions.pm
 REPLACE_PERL+=	tools/convertar/lib/Net/DNS/SEC/Tools/TrustAnchor/Makefile.PL
 
