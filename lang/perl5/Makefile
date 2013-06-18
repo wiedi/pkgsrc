@@ -1,8 +1,9 @@
-# $NetBSD: Makefile,v 1.202 2013/06/06 14:20:14 jperkin Exp $
+# $NetBSD: Makefile,v 1.204 2013/06/17 06:54:13 wiz Exp $
 
 .include "license.mk"
 .include "Makefile.common"
 
+PKGREVISION=	1
 COMMENT=	Practical Extraction and Report Language
 
 CONFLICTS=	perl-base-[0-9]* perl-thread-[0-9]*			\
@@ -10,7 +11,7 @@ CONFLICTS=	perl-base-[0-9]* perl-thread-[0-9]*			\
 		p5-Tie-File-0.96{,nb*}					\
 		p5-Memoize-1.01{,nb*}					\
 		p5-I18N-LangTags<0.35					\
-		p5-Locale-Maketext-1.[0-9]*{,nb*}			\
+		p5-Locale-Maketext<1.22					\
 		p5-Locale-Maketext-Simple<0.21				\
 		p5-Digest<=1.16						\
 		p5-Digest-MD5<=2.39					\
