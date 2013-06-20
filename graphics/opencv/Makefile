@@ -30,6 +30,11 @@ CHECK_WRKREF_SKIP=	${PREFIX}/lib/libopencv_core.*
 
 .include "options.mk"
 
+.include "../../mk/compiler.mk"
+.if !empty(PKGSRC_COMPILER:Mclang)
+CXXFLAGS+=	-std=c++11
+.endif
+
 .include "../../devel/zlib/buildlink3.mk"
 .include "../../graphics/jasper/buildlink3.mk"
 .include "../../graphics/openexr/buildlink3.mk"
