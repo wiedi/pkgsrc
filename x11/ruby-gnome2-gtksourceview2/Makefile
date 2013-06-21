@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.34 2013/06/15 09:39:34 obache Exp $
+# $NetBSD: Makefile,v 1.36 2013/06/20 09:12:15 obache Exp $
 #
 
 PKGNAME=		${RUBY_PKGPREFIX}-gnome2-gtksourceview2-${VERSION}
