@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.2 2013/06/15 12:23:41 obache Exp $
+# $NetBSD: Makefile,v 1.4 2013/06/20 09:12:14 obache Exp $
 #
 
 PKGNAME=		${RUBY_PKGPREFIX}-gnome2-webkit-gtk2-${VERSION}

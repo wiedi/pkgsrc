@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.27 2013/03/14 12:30:41 obache Exp $
+# $NetBSD: Makefile,v 1.29 2013/06/20 09:12:13 obache Exp $
 #
 
 DISTNAME=	milter-manager-1.8.6

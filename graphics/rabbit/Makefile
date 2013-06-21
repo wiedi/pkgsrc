@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.41 2013/06/16 08:39:43 obache Exp $
+# $NetBSD: Makefile,v 1.43 2013/06/20 09:12:13 obache Exp $
 #
 
 DISTNAME=	rabbit-2.0.9
