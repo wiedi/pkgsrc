@@ -16,6 +16,8 @@ NOT_FOR_PLATFORM=	NetBSD-1.[0-4]*-alpha NetBSD-1.5-alpha \
 
 PKG_INSTALLATION_TYPES=	overwrite pkgviews
 
+USE_GCC_RUNTIME=	yes
+
 TEST_TARGET=		check
 USE_TOOLS+=		gmake gzip:run makeinfo perl:run sed unzip:run xmkmf
 USE_TOOLS+=		pkg-config
