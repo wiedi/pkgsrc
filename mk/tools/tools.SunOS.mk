@@ -158,7 +158,7 @@ TOOLS_PLATFORM.openssl?=	/usr/bin/openssl
 # Don't use GNU patch
 #TOOLS_PLATFORM.gpatch?=		/usr/bin/gpatch
 #TOOLS_PLATFORM.patch?=		/usr/bin/gpatch
-TOOLS_PLATFORM.pax?=		/bin/pax
+#TOOLS_PLATFORM.pax?=		/bin/pax
 #.if exists(/usr/bin/perl)
 #TOOLS_PLATFORM.perl?=		/usr/bin/perl
 #TOOLS_PLATFORM.pod2man?=	/usr/perl5/bin/pod2man
