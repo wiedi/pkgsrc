@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.68 2013/06/06 12:55:08 wiz Exp $
+# $NetBSD: Makefile,v 1.70 2013/06/27 15:52:19 joerg Exp $
 
 DISTNAME=	AfterStep-2.2.11
 PKGNAME=	${DISTNAME:S/AfterStep/afterstep/}
@@ -13,6 +13,7 @@ COMMENT=	Window manager based on the look and feel of the NeXTStep interface
 LICENSE=	mit
 
 PKG_INSTALLATION_TYPES=	overwrite pkgviews
+MAKE_JOBS_SAFE=	no
 
 USE_TOOLS+=		bash:run gmake perl:run pkg-config
 GNU_CONFIGURE=		yes
@@ -21,6 +22,14 @@ REPLACE_PERL+=		tools/ascommand.pl tools/installastheme.pl.in tools/makeastheme.
 REPLACE_BASH+=		tools/importasmenu
 
 INSTALLATION_DIRS+=	share/gnome/wm-properties
+
+.include "../../mk/bsd.prefs.mk"
+
+# for backtrace
+.if ${OPSYS} == "NetBSD" && exists(/usr/include/execinfo.h)
+LIBS+=	-lexecinfo
+MAKE_ENV+=	EXTRA_LIBRARIES=-lexecinfo
+.endif
 
 .include "../../graphics/MesaLib/buildlink3.mk"
 .include "../../graphics/freetype2/buildlink3.mk"
