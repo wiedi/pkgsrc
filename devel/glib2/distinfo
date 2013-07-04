@@ -3,7 +3,7 @@ $NetBSD: distinfo,v 1.190 2013/06/16 20:37:07 joerg Exp $
 SHA1 (glib-2.36.3.tar.xz) = aafba69934b9ba77cc8cb0e5d8105aa1d8463eba
 RMD160 (glib-2.36.3.tar.xz) = 2db71aacc028a6d39ec5fdeacf326b7a19e8bb28
 Size (glib-2.36.3.tar.xz) = 6626972 bytes
-SHA1 (patch-aa) = 71405ed89d2abd25edec375d52c43fe50c9f7c82
+SHA1 (patch-aa) = d6d6a4fcde3e2ed2ed61dce21bb30e3ef2b64f95
 SHA1 (patch-ab) = 04bde955a2a588011a8c77ada4923d5464a0d544
 SHA1 (patch-ac) = 96e153339675457356f71e35d20375bed669d337
 SHA1 (patch-ae) = 09f16e8e14bdea3ee0e478d335f65cb66939e5f5
@@ -11,7 +11,7 @@ SHA1 (patch-af) = 45c46d5d01517563fde21ba1a2fdd7d0485932ca
 SHA1 (patch-ah) = 64765bc71ed7d75ff3e47f77359ecfce63c0e851
 SHA1 (patch-aha) = 3249929122a567eec3c421a1efa0ac510f1474b7
 SHA1 (patch-ai) = 037e2bb85fbc473c431bbf736dae89825236ff31
-SHA1 (patch-ak) = 950b7ca1e414560123b6ba56bb273baaa42364f7
+SHA1 (patch-ak) = 90da73355e56d3602f1c23e7fa0974e91595229f
 SHA1 (patch-al) = bde29693322c568f9a4ad090f1d469de5f69920e
 SHA1 (patch-am) = 99f54927d76580dfeda2a6b1909e1bea5dbdc293
 SHA1 (patch-an) = 2d4eaa904347481bec55668e56d2ac431b567bc9
