@@ -1,4 +1,4 @@
-# $NetBSD: mozilla-common.mk,v 1.5 2013/06/07 15:15:23 ryoon Exp $
+# $NetBSD: mozilla-common.mk,v 1.8 2013/07/04 08:07:09 martin Exp $
 #
 # common Makefile fragment for mozilla packages based on gecko 2.0.
 #
@@ -23,11 +23,10 @@ GCC_REQD+=		4.5
 
 CHECK_PORTABILITY_SKIP+=${MOZILLA_DIR}security/nss/tests/libpkix/libpkix.sh
 CHECK_PORTABILITY_SKIP+=${MOZILLA_DIR}security/nss/tests/multinit/multinit.sh
-CHECK_INTERPRETER_SKIP+=lib/xulrunner-sdk/sdk/bin/xpt.py
 
 CONFIGURE_ARGS+=	--disable-tests --disable-pedantic
 CONFIGURE_ARGS+=	--enable-crypto
-CONFIGURE_ARGS+=	--enable-optimize=-O2 --with-pthreads
+CONFIGURE_ARGS+=	--with-pthreads
 CONFIGURE_ARGS+=	--disable-javaxpcom
 CONFIGURE_ARGS+=	--enable-default-toolkit=cairo-gtk2
 CONFIGURE_ARGS+=	--enable-svg --enable-mathml
@@ -67,6 +66,8 @@ CONFIG_SUB_OVERRIDE+=		${MOZILLA_DIR}/js/ctypes/libffi/config.sub
 PYTHON_FOR_BUILD_ONLY=		yes
 .include "../../lang/python/application.mk"
 CONFIGURE_ENV+=		PYTHON=${PYTHONBIN:Q}
+
+#BUILD_MAKE_FLAGS+=		MOZ_WEBRTC_IN_LIBXUL=1
 
 SUBST_CLASSES+=		python
 SUBST_STAGE.python=	pre-configure
@@ -131,8 +132,7 @@ BUILDLINK_API_DEPENDS.nspr+=	nspr>=4.9.6
 BUILDLINK_API_DEPENDS.nss+=	nss>=3.14.3
 .include "../../devel/nss/buildlink3.mk"
 .include "../../devel/zlib/buildlink3.mk"
-## xulrunner-18.0 or later really requires libjpeg-turbo
-#.include "../../mk/jpeg.buildlink3.mk"
+.include "../../mk/jpeg.buildlink3.mk"
 .include "../../graphics/MesaLib/buildlink3.mk"
 BUILDLINK_API_DEPENDS.cairo+=	cairo>=1.10.2nb4
 .include "../../graphics/cairo/buildlink3.mk"
@@ -142,8 +142,4 @@ BUILDLINK_API_DEPENDS.cairo+=	cairo>=1.10.2nb4
 BUILDLINK_API_DEPENDS.gtk2+=	gtk2+>=2.18.3nb1
 .include "../../x11/gtk2/buildlink3.mk"
 .include "../../x11/libXt/buildlink3.mk"
-.if (${OPSYS} == "Linux") || (${OPSYS} == "Darwin") || \
-(${OPSYS} == "FreeBSD") || (${OPSYS} == "OpenBSD")
-.include "../../graphics/libv4l/buildlink3.mk"
-.endif
 
