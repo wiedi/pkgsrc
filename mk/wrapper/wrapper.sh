@@ -101,7 +101,7 @@ init_queue argbuf
 init_queue cmdbuf
 
 append_extra_args=yes
-#. $scan
+. $scan
 
 case $append_extra_args in
 yes)
