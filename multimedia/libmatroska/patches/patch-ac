@@ -8,7 +8,7 @@ $NetBSD: patch-ac,v 1.13 2013/04/12 13:36:56 drochner Exp $
  endif
 -libdir=$(prefix)/lib
 -includedir=$(prefix)/include/matroska
-+libdir=$(PREFIX)/lib
++libdir=$(PREFIX)/lib${LIBARCHSUFFIX}
 +includedir=$(PREFIX)/include/matroska
  
  # Programs
@@ -25,7 +25,7 @@ $NetBSD: patch-ac,v 1.13 2013/04/12 13:36:56 drochner Exp $
  INSTALL_OPTS = -m 644
  INSTALL_OPTS_LIB = -m 644
  INSTALL_DIR_OPTS = -m 755
-@@ -53,7 +53,7 @@ MUX_LIBS=-lmatroska -lebml $(LIBICONV)
+@@ -53,7 +53,7 @@
  
  # Names
  LIBRARY=libmatroska.a
@@ -49,11 +49,11 @@ $NetBSD: patch-ac,v 1.13 2013/04/12 13:36:56 drochner Exp $
 -	$(CXX) -shared -Wl,-soname,$(LIBRARY_SO_VER) -o $(LIBRARY_SO_VER) $(objects_so) -lebml
 -	rm -f $(LIBRARY_SO)
 -	ln -s $(LIBRARY_SO_VER) $(LIBRARY_SO)
-+	$(LIBTOOL) --mode=link $(CXX) -o $(LIBRARY_SO) $(objects_so) -lebml -rpath $(PREFIX)/lib -version-info 0
++	$(LIBTOOL) --mode=link $(CXX) -o $(LIBRARY_SO) $(objects_so) -lebml -rpath $(PREFIX)/lib${LIBARCHSUFFIX} -version-info 0
  
  clean:	cleantest
  	rm -f $(objects) $(objects_so)
-@@ -153,23 +151,22 @@ install: install_staticlib install_share
+@@ -153,23 +151,22 @@
  endif
  
  install_headers:
