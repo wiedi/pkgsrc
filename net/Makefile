@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.972 2013/06/16 21:21:30 wiz Exp $
+# $NetBSD: Makefile,v 1.974 2013/07/02 11:06:30 rodent Exp $
 #
 
 COMMENT=	Networking tools
@@ -528,6 +528,7 @@ SUBDIR+=	py-foolscap
 SUBDIR+=	py-google
 SUBDIR+=	py-irclib
 SUBDIR+=	py-kenosis
+SUBDIR+=	py-kombu
 SUBDIR+=	py-libdnet
 SUBDIR+=	py-libpcap
 SUBDIR+=	py-medusa
@@ -722,6 +723,7 @@ SUBDIR+=	x2vnc
 SUBDIR+=	xfce4-wavelan-plugin
 SUBDIR+=	xfindproxy
 SUBDIR+=	xipdump
+SUBDIR+=	xl2tpd
 SUBDIR+=	xmftp
 SUBDIR+=	xnap
 SUBDIR+=	xorp
