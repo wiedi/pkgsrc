@@ -24,7 +24,9 @@ BUILD_DEPENDS+=	${PYPKGPREFIX}-test-[0-9]*:../../devel/py-test
 BUILD_DEPENDS+=	${PYPKGPREFIX}-test-runner-[0-9]*:../../devel/py-test-runner
 
 post-install:
-	${MV} ${DESTDIR}${PREFIX}/bin/flake8 ${DESTDIR}${PREFIX}/bin/flake8-${PYVERSSUFFIX}
+	if [ -f ${DESTDIR}${PREFIX}/bin/flake8 ]; then \
+	${MV} ${DESTDIR}${PREFIX}/bin/flake8 ${DESTDIR}${PREFIX}/bin/flake8-${PYVERSSUFFIX}; \
+	fi
 
 .include "../../lang/python/egg.mk"
 .include "../../mk/bsd.pkg.mk"

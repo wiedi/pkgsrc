@@ -54,6 +54,7 @@ CONF_FILES+=		${EGDIR}/logging.conf.example \
 				${CONFDIR}/logging.conf
 
 post-install:
+	if [ -f ${DESTDIR}${PREFIX}/bin/trytond-admin ]; then \
 	${MV} ${DESTDIR}${PREFIX}/bin/trytond-admin \
 		${DESTDIR}${PREFIX}/bin/trytond-admin${PYVERSSUFFIX}
 	${MV} ${DESTDIR}${PREFIX}/bin/trytond-cron \
@@ -64,6 +65,7 @@ post-install:
 		${DESTDIR}${PREFIX}/${EGDIR}/trytond.conf.example
 	${INSTALL_DATA} ${FILESDIR}/logging.conf.example \
 		${DESTDIR}${PREFIX}/${EGDIR}/logging.conf.example
+	fi
 
 .include "../../lang/python/application.mk"
 .include "../../lang/python/egg.mk"
