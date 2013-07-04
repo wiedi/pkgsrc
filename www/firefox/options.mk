@@ -1,12 +1,17 @@
-# $NetBSD: options.mk,v 1.13 2013/05/23 13:12:13 ryoon Exp $
+# $NetBSD: options.mk,v 1.15 2013/07/04 08:07:09 martin Exp $
 
 PKG_OPTIONS_VAR=	PKG_OPTIONS.firefox
 PKG_SUPPORTED_OPTIONS=	official-mozilla-branding
-PKG_SUPPORTED_OPTIONS+=	debug mozilla-jemalloc gnome pulseaudio
+PKG_SUPPORTED_OPTIONS+=	debug mozilla-jemalloc gnome pulseaudio webrtc
 PLIST_VARS+=		gnome jemalloc debug
 
 .if ${OPSYS} == "Linux" || ${OPSYS} == "SunOS"
 PKG_SUGGESTED_OPTIONS+=	mozilla-jemalloc
+.endif
+
+# On NetBSD/amd64 6.99.21 libxul.so is invalid when --enable-webrtc is set.
+.if (${OPSYS} == "FreeBSD") || (${OPSYS} == "Linux") || (${OPSYS} == "OpenBSD")
+PKG_SUGGESTED_OPTIONS+=	webrtc
 .endif
 
 .include "../../mk/bsd.options.mk"
@@ -32,12 +37,13 @@ CONFIGURE_ARGS+=	--disable-jemalloc
 .endif
 
 .if !empty(PKG_OPTIONS:Mdebug)
-CONFIGURE_ARGS+=	--enable-debug --enable-debug-symbols
+CONFIGURE_ARGS+=	--enable-debug="-g -O0" --enable-debug-symbols --disable-optimize
 CONFIGURE_ARGS+=	--disable-install-strip
 PLIST.debug=		yes
 .else
 CONFIGURE_ARGS+=	--disable-debug --disable-debug-symbols
 CONFIGURE_ARGS+=	--enable-install-strip
+CONFIGURE_ARGS+=	--enable-optimize=-O2 
 .endif
 
 .if !empty(PKG_OPTIONS:Mpulseaudio)
@@ -55,4 +61,12 @@ NO_BIN_ON_CDROM=	${RESTRICTED}
 NO_BIN_ON_FTP=		${RESTRICTED}
 .else
 PLIST.nobranding=	yes
+.endif
+
+PLIST_VARS+=		webrtc
+.if !empty(PKG_OPTIONS:Mwebrtc)
+.include "../../graphics/libv4l/buildlink3.mk"
+CONFIGURE_ARGS+=	--enable-webrtc
+.else
+CONFIGURE_ARGS+=	--disable-webrtc
 .endif

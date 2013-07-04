@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.472 2013/06/14 09:41:25 kleink Exp $
+# $NetBSD: Makefile,v 1.474 2013/07/03 16:04:22 sno Exp $
 #
 
 COMMENT=	Security tools
@@ -87,6 +87,7 @@ SUBDIR+=	gpgme
 SUBDIR+=	gsasl
 SUBDIR+=	gss
 SUBDIR+=	gtk-systrace
+SUBDIR+=	guardtime
 SUBDIR+=	hackbot
 SUBDIR+=	hashcash
 SUBDIR+=	heimdal
@@ -121,6 +122,7 @@ SUBDIR+=	libfwbuilder
 SUBDIR+=	libgcrypt
 SUBDIR+=	libgnome-keyring
 SUBDIR+=	libgpg-error
+SUBDIR+=	libguardtime
 SUBDIR+=	libidea
 SUBDIR+=	libident
 SUBDIR+=	libksba
@@ -230,6 +232,8 @@ SUBDIR+=	p5-Crypt-Rijndael
 SUBDIR+=	p5-Crypt-SSLeay
 SUBDIR+=	p5-Crypt-SmbHash
 SUBDIR+=	p5-Crypt-Twofish
+SUBDIR+=	p5-Crypt-URandom
+SUBDIR+=	p5-Dancer-Plugin-Auth-RBAC
 SUBDIR+=	p5-Data-SimplePassword
 SUBDIR+=	p5-Digest
 SUBDIR+=	p5-Digest-BubbleBabble
