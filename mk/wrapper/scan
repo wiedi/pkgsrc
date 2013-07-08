@@ -38,6 +38,9 @@
 # Optional argument processing.
 for arg do
 	case $arg in
+	# Append extra libs to output objects, but not when using 'ld -r'.
+	-o)	append_extra_libs=yes ;;
+	-r)	rflag=yes ;;
 	*)	;;
 	esac
 done
