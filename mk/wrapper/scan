@@ -35,13 +35,9 @@
 # POSSIBILITY OF SUCH DAMAGE.
 #
 
-# Optional argument processing where we can set "append_extra_args=no"
-# if necessary.
+# Optional argument processing.
 for arg do
 	case $arg in
-	# We previously skipped -v commands but it was not clear of the
-	# reasoning for this, and it actively broke certain cases.
-	#-v)	append_extra_args=no; break ;;
 	*)	;;
 	esac
 done
