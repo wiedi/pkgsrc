@@ -35,10 +35,9 @@
 # POSSIBILITY OF SUCH DAMAGE.
 #
 
-# Don't append extra arguments if "-v" is passed to the command.
+# Optional argument processing.
 for arg do
 	case $arg in
-	-v)	append_extra_args=no; break ;;
 	*)	;;
 	esac
 done
