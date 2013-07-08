@@ -101,12 +101,32 @@ init_queue argbuf
 init_queue cmdbuf
 
 append_extra_args=yes
+append_extra_libs=no
+rflag=no
 . $scan
+
+case $append_extra_libs in
+yes)
+	# ld -r -o should not append extra libraries
+	if [ "$wrapper_type" = "LD" -a "$rflag" = "yes" ]; then
+		append_extra_libs=no
+	fi
+	;;
+esac
 
 case $append_extra_args in
 yes)
 	$debug_log $wrapperlog "    (wrapper.sh) append args: @_WRAP_EXTRA_ARGS@"
 	set -- "$@" @_WRAP_EXTRA_ARGS@
+	;;
+*)
+	;;
+esac
+
+case $append_extra_libs in
+yes)
+	$debug_log $wrapperlog "    (wrapper.sh) append libs: @_WRAP_EXTRA_LIBS@"
+	set -- "$@" @_WRAP_EXTRA_LIBS@
 	;;
 *)
 	;;
