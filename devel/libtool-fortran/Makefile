@@ -70,8 +70,8 @@ INSTALLATION_DIRS+=	bin${BINARCHSUFFIX}
 .PHONY: fix-libtool
 fix-libtool:
 	cd ${WRKSRC}; for f in libtool; do				\
-		${SED}  -e "s,-L${BUILDLINK_DIR}/lib *,,"		\
-			-e "s,${BUILDLINK_DIR}/lib *,,"			\
+		${SED}	-e "s,-L${BUILDLINK_DIR}/lib${LIBARCHSUFFIX} *,,"	\
+			-e "s,${BUILDLINK_DIR}/lib${LIBARCHSUFFIX} *,,"		\
 			$$f > $$f.new;					\
 		if [ -x $$f ]; then ${CHMOD} +x $$f.new; fi;		\
 		${MV} -f $$f.new $$f;					\
