@@ -103,10 +103,15 @@ init_queue cmdbuf
 append_extra_args=yes
 append_extra_libs=no
 rflag=no
+preproc=no
 . $scan
 
 case $append_extra_libs in
 yes)
+	# do not append libraries in preprocessor mode
+	if [ "$wrapper_type" = "CC" -o "$wrapper_type" = "CXX" ] && [ "$preproc" = "yes" ]; then
+		append_extra_libs=no
+	fi
 	# ld -r -o should not append extra libraries
 	if [ "$wrapper_type" = "LD" -a "$rflag" = "yes" ]; then
 		append_extra_libs=no
