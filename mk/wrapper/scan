@@ -41,6 +41,8 @@ for arg do
 	# Append extra libs to output objects, but not when using 'ld -r'.
 	-o)	append_extra_libs=yes ;;
 	-r)	rflag=yes ;;
+	-E)	preproc=yes ;;
+	-M*)	preproc=yes ;;
 	*)	;;
 	esac
 done
