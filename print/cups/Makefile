@@ -35,13 +35,15 @@ USE_LIBTOOL=		yes
 # patch-a[jkl] were added for 2.60
 AUTOCONF_REQD=		2.60
 
+MULTIARCH_DIRS.lib=	lib libexec
+
 GNU_CONFIGURE=		yes
 CONFIGURE_ARGS+=	--localedir=${PREFIX}/${PKGLOCALEDIR}/locale
 CONFIGURE_ARGS+=	--sysconfdir=${PKG_SYSCONFBASEDIR}
 CONFIGURE_ARGS+=	--localstatedir=${VARBASE}
 CONFIGURE_ARGS+=	--with-cachedir=${CUPS_CACHE:Q}
 CONFIGURE_ARGS+=	--with-docdir=${PREFIX}/share/doc/cups
-CONFIGURE_ARGS+=	--with-serverbindir=${PREFIX}/libexec/cups
+CONFIGURE_ARGS+=	--with-serverbindir=${PREFIX}/libexec${LIBARCHSUFFIX}/cups
 CONFIGURE_ARGS+=	--with-cups-user=${CUPS_USER}
 CONFIGURE_ARGS+=	--with-cups-group=${CUPS_GROUP}
 CONFIGURE_ARGS+=	--with-system-groups=${CUPS_SYSTEM_GROUPS:Q}
@@ -118,7 +120,7 @@ RCD_SCRIPTS=		cupsd
 OWN_DIRS=		${CUPS_CONFDIR}
 OWN_DIRS+=		${CUPS_CONFDIR}/interfaces
 OWN_DIRS+=		${CUPS_CONFDIR}/ppd
-OWN_DIRS+=		${PREFIX}/libexec/cups/driver
+OWN_DIRS+=		${PREFIX}/libexec${LIBARCHSUFFIX}/cups/driver
 OWN_DIRS+=		${CUPS_LOGDIR}
 OWN_DIRS+=		${CUPS_STATEDIR}
 OWN_DIRS_PERMS=		${CUPS_STATEDIR}/certs ${CUPS_USER} ${CUPS_GROUP} 0711
@@ -173,7 +175,7 @@ post-install:
 	${INSTALL_DATA} ${WRKDIR}/cups.pam ${DESTDIR}${EGDIR}
 .endif
 .if !empty(PKG_OPTIONS:Mdnssd)
-	${LN} -s ${DESTDIR}${PREFIX}/libexec/cups/backend/dnssd ${DESTDIR}${PREFIX}/libexec/cups/backend/mdns
+	${LN} -s ${DESTDIR}${PREFIX}/libexec${LIBARCHSUFFIX}/cups/backend/dnssd ${DESTDIR}${PREFIX}/libexec${LIBARCHSUFFIX}/cups/backend/mdns
 .endif
 
 .include "../../converters/libiconv/buildlink3.mk"
