@@ -38,8 +38,9 @@ MOTIF_TYPE_DEFAULT?=	motif
 .endif
 
 # Builtin defaults which make sense for this platform.
-PREFER.solaris-pam?=	native
+PREFER.libexecinfo?=	native
 PREFER.openssl?=	pkgsrc
+PREFER.solaris-pam?=	native
 
 _OPSYS_EMULDIR.solaris=		# empty
 _OPSYS_EMULDIR.solaris32=	# empty
