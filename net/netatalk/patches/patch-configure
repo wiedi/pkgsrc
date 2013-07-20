@@ -1,0 +1,15 @@
+$NetBSD$
+
+We decide bitness ourselves.
+
+--- configure.orig	Fri Sep 28 07:49:32 2012
++++ configure	Tue Jul 16 22:11:07 2013
+@@ -17535,7 +17535,7 @@
+ 	   # check for isainfo, if not found it has to be a 32 bit kernel (<=2.6)
+ 	   if test -x /usr/bin/isainfo; then
+ 		# check for 64 bit platform
+-		if isainfo -kv | grep '^64-bit'; then
++		if test "$MACHINE_ARCH" = "x86_64"; then
+ 			COMPILE_64BIT_KMODULE=yes
+ 		fi
+ 	   fi

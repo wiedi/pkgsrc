@@ -44,6 +44,7 @@ CONFIGURE_ARGS+= --with-nss-libs=${BUILDLINK_PREFIX.nss}/lib/nss
 PLIST.perl=		yes
 CONFIGURE_ARGS+=	--enable-perl
 USE_TOOLS+=		perl:run
+BUILDLINK_TRANSFORM+=	rm:-fstack-protector
 .  include "../../lang/perl5/buildlink3.mk"
 .endif
 

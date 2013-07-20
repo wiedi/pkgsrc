@@ -11,23 +11,45 @@ if [ "${config_version}" != "@PBULK_CONFIG_VERSION@" ]; then
 	exit 1
 fi
 
-for client in ${build_clients}; do
+if [ -n "${build_clients}" ]; then
+	for client in ${build_clients}; do
+		if [ -n "${chroot_create}" -a \
+		     -n "${chroot_delete}" -a \
+		     -n "${chroot_dir}" ]; then
+			if [ -n "${build_chroots}" -a ${build_chroots} -gt 1 ]; then
+				ssh $client "
+					i=1
+					while true; do
+						{ ${chroot_create} ${chroot_dir}-build-\${i}; PBULK_CONF=${PBULK_CONF} /usr/sbin/chroot ${chroot_dir}-build-\${i} @SH@ -c \"${pbuild} -c ${master_port_build} -b ${pbuild_script}\"; ${chroot_delete} ${chroot_dir}-build-\${i}; } &
+						i=\`expr \$i + 1\`
+						if [ \$i -gt ${build_chroots} ]; then
+							break
+						fi
+					done" &
+			else
+				ssh $client "${chroot_create} ${chroot_dir}-build; PBULK_CONF=${PBULK_CONF} /usr/sbin/chroot ${chroot_dir}-build @SH@ -c \"${pbuild} -c ${master_port_build} -b ${pbuild_script}\"; ${chroot_delete} ${chroot_dir}-build" &
+			fi
+		else
+			ssh $client "PBULK_CONF=${PBULK_CONF} ${pbuild} -c ${master_port_build} -b ${pbuild_script}" &
+		fi
+	done
+else
 	if [ -n "${chroot_create}" -a \
 	     -n "${chroot_delete}" -a \
 	     -n "${chroot_dir}" ]; then
 		if [ -n "${build_chroots}" -a ${build_chroots} -gt 1 ]; then
 			i=1
 			while true; do
-				ssh $client "${chroot_create} ${chroot_dir}-${i}; PBULK_CONF=${PBULK_CONF} /usr/sbin/chroot ${chroot_dir}-${i} /bin/bash -c \"${pbuild} -c ${master_port_build} -b ${pbuild_script}\"; ${chroot_delete} ${chroot_dir}-${i}" &
+				{ ${chroot_create} ${chroot_dir}-build-${i}; PBULK_CONF=${PBULK_CONF} /usr/sbin/chroot ${chroot_dir}-build-${i} @SH@ -c "${pbuild} -c ${master_port_build} -b ${pbuild_script}"; ${chroot_delete} ${chroot_dir}-build-${i}; } &
 				i=`expr $i + 1`
 				if [ $i -gt ${build_chroots} ]; then
 					break
 				fi
 			done
 		else
-			ssh $client "${chroot_create} ${chroot_dir}; PBULK_CONF=${PBULK_CONF} /usr/sbin/chroot ${chroot_dir} /bin/bash -c \"${pbuild} -c ${master_port_build} -b ${pbuild_script}\"; ${chroot_delete} ${chroot_dir}" &
+			{ ${chroot_create} ${chroot_dir}-build; PBULK_CONF=${PBULK_CONF} /usr/sbin/chroot ${chroot_dir}-build @SH@ -c \"${pbuild} -c ${master_port_build} -b ${pbuild_script}\"; ${chroot_delete} ${chroot_dir}-build; } &
 		fi
 	else
-		ssh $client "PBULK_CONF=${PBULK_CONF} ${pbuild} -c ${master_port_build} -b ${pbuild_script}" &
+		PBULK_CONF=${PBULK_CONF} ${pbuild} -c ${master_port_build} -b ${pbuild_script} &
 	fi
-done
+fi
