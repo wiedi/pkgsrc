@@ -22,6 +22,8 @@ USE_TOOLS+=		makeinfo
 INFO_FILES=		yes
 TEXINFO_REQD=		4.0
 
+USE_GCC_RUNTIME=	yes
+
 PKG_INSTALLATION_TYPES=	overwrite pkgviews
 
 .include "../../mk/bsd.prefs.mk"
