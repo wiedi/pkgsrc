@@ -166,4 +166,5 @@ BUILDLINK_API_DEPENDS.tdb+= tdb>=1.2.10
 .include "../../devel/readline/buildlink3.mk"
 .include "../../devel/zlib/buildlink3.mk"
 .include "../../security/openssl/buildlink3.mk"
+.include "../../textproc/libxml2/buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"
