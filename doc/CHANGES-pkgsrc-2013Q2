@@ -1,6 +1,39 @@
-$NetBSD: CHANGES-pkgsrc-2013Q2,v 1.1.2.1 2013/07/02 00:22:28 agc Exp $
+$NetBSD: CHANGES-pkgsrc-2013Q2,v 1.1.2.11 2013/07/22 09:45:34 tron Exp $
 
 Changes to the packages collection and infrastructure on the
 pkgsrc-2013Q2 branch:
 
 Created pkgsrc-2013Q2 branch [agc 2013-07-02 00:05 UTC]
+
+Pullup ticket #4168 - requested by martin
+www/firefox: build fix
+Pullup ticket #4170 - requested by ryoon
+www/firefox-l10n: installation fix
+Pullup ticket #4173 - requested by rodent
+audio/libfishsound: build fix
+Pullup ticket #4174 - requested by ryoon
+audio/nas: bug fix patch
+Pullup ticket #4175 - requested by obache
+multimedia/adobe-flash-plugin11: security update
+Pullup ticket #4176 - requested by obache
+lang/sun-jdk7: security update
+lang/sun-jre7: security update
+Pullup ticket #4184 - requested by tron
+www/apache22: security update
+Pullup ticket #4177 - requested by taca
+x11/libXi: security update
+Pullup ticket #4178 - requested by taca
+www/squid3: security update
+Pullup ticket #4182 - requested by taca
+mail/roundcube: dependency fix
+Pullup ticket #4183 - requested by taca
+lang/php53: security update
+Pullup ticket #4179 - requested by taca
+misc/rubygems: build fix
+textproc/ruby-xslt: build fix
+Pullup ticket #4180 - requested by taca
+devel/ruby-rdoc: bug fix patch
+Pullup ticket #4181 - requested by taca
+devel/ruby-stream: build fix
+Pullup ticket #4186 - requested by taca
+x11/ruby-tk: build fix
