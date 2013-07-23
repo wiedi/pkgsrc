@@ -27,10 +27,12 @@ BUILDLINK_API_DEPENDS.akonadi+=	akonadi>=1.8.51
 .include "../../devel/libuuid/buildlink3.mk"
 .endif
 .include "../../devel/qjson/buildlink3.mk"
+.include "../../devel/zlib/buildlink3.mk"
 .include "../../mail/akonadi/buildlink3.mk"
 .include "../../misc/nepomuk-core/buildlink3.mk"
 .include "../../security/cyrus-sasl/buildlink3.mk"
 .include "../../security/gpgme/buildlink3.mk"
+.include "../../textproc/libxml2/buildlink3.mk"
 .include "../../time/libical/buildlink3.mk"
 .include "../../x11/kdelibs4/buildlink3.mk"
 
