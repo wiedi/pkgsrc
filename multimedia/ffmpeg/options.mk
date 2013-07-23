@@ -33,7 +33,9 @@ PKG_SUGGESTED_OPTIONS+=	vaapi
 .if !empty(PKG_OPTIONS:Mass)
 USE_TOOLS+=		pkg-config
 CONFIGURE_ARGS+=	--enable-libass
+.include "../../converters/libiconv/buildlink3.mk"
 .include "../../multimedia/libass/buildlink3.mk"
+LDFLAGS.SunOS+=		-liconv
 .else
 CONFIGURE_ARGS+=	--disable-libass
 .endif
