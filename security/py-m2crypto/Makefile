@@ -18,6 +18,8 @@ LICENSE=		m2crypto-license
 # -- wiz 20060115
 BUILDLINK_API_DEPENDS.openssl+=	openssl>=0.9.7i{,nb*}
 
+PYSETUPBUILDARGS=	build_ext --openssl=${BUILDLINK_PREFIX.openssl}
+
 .include "../../lang/python/extension.mk"
 .include "../../lang/python/egg.mk"
 .include "../../devel/swig/buildlink3.mk"
