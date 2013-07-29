@@ -44,9 +44,9 @@ FILES_SUBST+=		MACHINE_GNU_PLATFORM=${MACHINE_GNU_PLATFORM}
 SUBST_CLASSES+=		vars
 SUBST_STAGE.vars=	pre-configure
 SUBST_FILES.vars=	gcc/Makefile.in
-SUBST_FILES.vars+=	gcc/config/sol2-bi.h gcc/config/sol2.h
+#SUBST_FILES.vars+=	gcc/config/sol2-bi.h gcc/config/sol2.h
 SUBST_VARS.vars=	GCC_TARGET_MACHINE
-SUBST_VARS.vars+=	PREFIX
+#SUBST_VARS.vars+=	PREFIX
 
 .include "../../mk/bsd.prefs.mk"
 
@@ -71,9 +71,7 @@ CONFIGURE_ENV+=		LDFLAGS_FOR_TARGET=${LDFLAGS_FOR_TARGET:Q}
 CONFIGURE_ARGS+=	--enable-languages=${LANGS:Q}
 CONFIGURE_ARGS+=	--enable-shared
 CONFIGURE_ARGS+=	--enable-long-long
-.if ${LOCALBASE} != "/usr"
-CONFIGURE_ARGS+=	--with-local-prefix=${LOCALBASE:Q}
-.endif
+CONFIGURE_ARGS+=	--with-local-prefix=${GCC_PREFIX:Q}
 CONFIGURE_ARGS+=	--enable-libssp
 CONFIGURE_ARGS+=	--enable-threads=posix
 CONFIGURE_ARGS+=	--with-boot-ldflags=${BOOT_LDFLAGS:Q}
