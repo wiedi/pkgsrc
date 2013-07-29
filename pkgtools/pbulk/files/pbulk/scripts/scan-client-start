@@ -17,45 +17,26 @@ else
 	extra_pscan_args=""
 fi
 
-if [ -n "${scan_clients}" ]; then
-	for client in ${scan_clients}; do
-		if [ -n "${chroot_create}" -a \
-		     -n "${chroot_delete}" -a \
-		     -n "${chroot_dir}" ]; then
-			if [ -n "${scan_chroots}" -a ${scan_chroots} -gt 1 ]; then
-				ssh $client "
-					i=1
-					while true; do
-						{ ${chroot_create} ${chroot_dir}-scan-\${i}; PBULK_CONF=${PBULK_CONF} /usr/sbin/chroot ${chroot_dir}-scan-\${i} @SH@ -c \"${pscan_prepare} && ${pscan} -c ${master_port_scan} -M ${make} ${extra_pscan_args} ${pkgsrc}\"; ${chroot_delete} ${chroot_dir}-scan-\${i}; } &
-						i=\`expr \$i + 1\`
-						if [ \$i -gt ${scan_chroots} ]; then
-							break
-						fi
-					done" &
-			else
-				ssh $client "${chroot_create} ${chroot_dir}-scan; PBULK_CONF=${PBULK_CONF} /usr/sbin/chroot ${chroot_dir}-scan @SH@ -c \"${pscan_prepare} && ${pscan} -c ${master_port_scan} -M ${make} ${extra_pscan_args} ${pkgsrc}\"; ${chroot_delete} ${chroot_dir}-scan" &
-			fi
-		else
-			ssh $client "PBULK_CONF=${PBULK_CONF}; export PBULK_CONF; ${pscan_prepare} && ${pscan} -c ${master_port_scan} -M ${make} ${extra_pscan_args} ${pkgsrc}" &
-		fi
-	done
-else
-	if [ -n "${chroot_create}" -a \
-	     -n "${chroot_delete}" -a \
-	     -n "${chroot_dir}" ]; then
-		if [ -n "${scan_chroots}" -a ${scan_chroots} -gt 1 ]; then
-			i=1
-			while true; do
-				{ ${chroot_create} ${chroot_dir}-scan-${i}; PBULK_CONF=${PBULK_CONF} /usr/sbin/chroot ${chroot_dir}-scan-${i} @SH@ -c "${pscan_prepare} && ${pscan} -c ${master_port_scan} -M ${make} ${extra_pscan_args} ${pkgsrc}"; ${chroot_delete} ${chroot_dir}-scan-${i}; } &
-				i=`expr $i + 1`
-				if [ $i -gt ${scan_chroots} ]; then
-					break
-				fi
-			done
-		else
-			{ ${chroot_create} ${chroot_dir}-scan; PBULK_CONF=${PBULK_CONF} /usr/sbin/chroot ${chroot_dir}-scan @SH@ -c "${pscan_prepare} && ${pscan} -c ${master_port_scan} -M ${make} ${extra_pscan_args} ${pkgsrc}"; ${chroot_delete} ${chroot_dir}-scan; } &
-		fi
+# Start scan processes inside chroots.  We assume that the chroots were
+# created successfully.
+if [ -n "${chroot_create}" -a "${chroot_dir}" ]; then
+	if [ -n "${scan_clients}" ]; then
+		for client in ${scan_clients}; do
+			ssh $client "for dir in ${chroot_dir}-scan*; do
+				PBULK_CONF=${PBULK_CONF} /usr/sbin/chroot \${dir} @SH@ -c \"${pscan_prepare} && ${pscan} -c ${master_port_scan} -M ${make} ${extra_pscan_args} ${pkgsrc}\"
+			done" &
+		done
 	else
-		{ PBULK_CONF=${PBULK_CONF}; export PBULK_CONF; ${pscan_prepare} && ${pscan} -c ${master_port_scan} -M ${make} ${extra_pscan_args} ${pkgsrc}; } &
+		for dir in ${chroot_dir}-scan*; do
+			PBULK_CONF=${PBULK_CONF} /usr/sbin/chroot ${dir} @SH@ -c "${pscan_prepare} && ${pscan} -c ${master_port_scan} -M ${make} ${extra_pscan_args} ${pkgsrc}"
+		done &
+	fi
+else
+	if [ -n "${scan_clients}" ]; then
+		for client in ${scan_clients}; do
+			ssh $client "PBULK_CONF=${PBULK_CONF} ${pscan_prepare} && PBULK_CONF=${PBULK_CONF} ${pscan} -c ${master_port_scan} -M ${make} ${extra_pscan_args} ${pkgsrc}" &
+		done
+	else
+		PBULK_CONF=${PBULK_CONF} ${pscan_prepare} && PBULK_CONF=${PBULK_CONF} ${pscan} -c ${master_port_scan} -M ${make} ${extra_pscan_args} ${pkgsrc} &
 	fi
 fi
