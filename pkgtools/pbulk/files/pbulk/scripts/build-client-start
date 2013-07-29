@@ -17,13 +17,13 @@ if [ -n "${chroot_create}" -a "${chroot_dir}" ]; then
 	if [ -n "${build_clients}" ]; then
 		for client in ${build_clients}; do
 			ssh $client "for dir in ${chroot_dir}-build*; do
-				PBULK_CONF=${PBULK_CONF} /usr/sbin/chroot \${dir} @SH@ -c \"${pbuild} -c ${master_port_build} -b ${pbuild_script}\"
+				PBULK_CONF=${PBULK_CONF} /usr/sbin/chroot \${dir} @SH@ -c \"${pbuild} -c ${master_port_build} -b ${pbuild_script}\" &
 			done" &
 		done
 	else
 		for dir in ${chroot_dir}-build*; do
-			PBULK_CONF=${PBULK_CONF} /usr/sbin/chroot ${dir} @SH@ -c "${pbuild} -c ${master_port_build} -b ${pbuild_script}"
-		done &
+			PBULK_CONF=${PBULK_CONF} /usr/sbin/chroot ${dir} @SH@ -c "${pbuild} -c ${master_port_build} -b ${pbuild_script}" &
+		done
 	fi
 else
 	if [ -n "${build_clients}" ]; then

@@ -23,13 +23,13 @@ if [ -n "${chroot_create}" -a "${chroot_dir}" ]; then
 	if [ -n "${scan_clients}" ]; then
 		for client in ${scan_clients}; do
 			ssh $client "for dir in ${chroot_dir}-scan*; do
-				PBULK_CONF=${PBULK_CONF} /usr/sbin/chroot \${dir} @SH@ -c \"${pscan_prepare} && ${pscan} -c ${master_port_scan} -M ${make} ${extra_pscan_args} ${pkgsrc}\"
+				PBULK_CONF=${PBULK_CONF} /usr/sbin/chroot \${dir} @SH@ -c \"${pscan_prepare} && ${pscan} -c ${master_port_scan} -M ${make} ${extra_pscan_args} ${pkgsrc}\" &
 			done" &
 		done
 	else
 		for dir in ${chroot_dir}-scan*; do
-			PBULK_CONF=${PBULK_CONF} /usr/sbin/chroot ${dir} @SH@ -c "${pscan_prepare} && ${pscan} -c ${master_port_scan} -M ${make} ${extra_pscan_args} ${pkgsrc}"
-		done &
+			PBULK_CONF=${PBULK_CONF} /usr/sbin/chroot ${dir} @SH@ -c "${pscan_prepare} && ${pscan} -c ${master_port_scan} -M ${make} ${extra_pscan_args} ${pkgsrc}" &
+		done
 	fi
 else
 	if [ -n "${scan_clients}" ]; then
