@@ -39,21 +39,21 @@ if [ "${config_version}" != "@PBULK_CONFIG_VERSION@" ]; then
 fi
 
 cleanup() {
-	if [ "$keep_wrkdir" = yes ]; then
-		${make} pbulk-save-wrkdir INTO=${logpkgdir}/wrkdir.tar.gz TAR="${tar}"
+	if [ -n "${local_bulklog}" ]; then
+		mv ${logpkgdir} ${bulklog}/${pkgname}
 	fi
-	if [ "$keep_prefix" = yes ] && [ -f ${logpkgdir}/install.log ]; then
+	if [ "$keep_wrkdir" = yes ]; then
+		${make} pbulk-save-wrkdir INTO=${bulklog}/${pkgname}/wrkdir.tar.gz TAR="${tar}"
+	fi
+	if [ "$keep_prefix" = yes ] && [ -f ${bulklog}/${pkgname}/install.log ]; then
 		if [ "$cross_compile" != "no" ]; then
 			cur_destdir=${target_destdir}
 		else
 			cur_destdir=
 		fi
-		${tar} -czf ${logpkgdir}/prefix.tar.gz ${cur_destdir}${prefix}
+		${tar} -czf ${bulklog}/${pkgname}/prefix.tar.gz ${cur_destdir}${prefix}
 	fi
-	${make} clean > /dev/null 2>&1 || true
-	if [ -n "${local_bulklog}" ]; then
-		mv ${logpkgdir} ${bulklog}/${pkgname}
-	fi
+	${make} clean >> ${bulklog}/${pkgname}/clean.log 2>&1 || true
 	exit 1
 }
 
