@@ -35,6 +35,14 @@ CHECK_WRKREF_SKIP=	${PREFIX}/lib/libopencv_core.*
 CXXFLAGS+=	-std=c++11
 .endif
 
+.include "../../mk/bsd.prefs.mk"
+
+.if ${MACHINE_PLATFORM} == "SunOS-5.11-i386"
+CMAKE_ARGS+=	-DENABLE_SSE:BOOL=OFF
+CMAKE_ARGS+=	-DENABLE_SSE2:BOOL=OFF
+CMAKE_ARGS+=	-DENABLE_SSE3:BOOL=OFF
+.endif
+
 .include "../../devel/zlib/buildlink3.mk"
 .include "../../graphics/jasper/buildlink3.mk"
 .include "../../graphics/openexr/buildlink3.mk"
