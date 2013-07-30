@@ -23,6 +23,8 @@ MAKE_ENV+=		VALAC=${VALAC}
 
 REPLACE_SH+=		configure
 
+BUILDLINK_TRANSFORM+=	rm:-Wl,--no-as-needed
+
 .include "../../databases/sqlite3/buildlink3.mk"
 .include "../../devel/GConf/buildlink3.mk"
 .include "../../devel/glib2/schemas.mk"
