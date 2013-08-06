@@ -1,6 +1,6 @@
 # $NetBSD: Makefile,v 1.40 2013/06/14 21:28:42 wiz Exp $
 
-DISTNAME=	opencv-2.4.5
+DISTNAME=	opencv-2.4.6.1
 CATEGORIES=	graphics devel
 MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=opencvlibrary/}
 
@@ -33,14 +33,6 @@ CHECK_WRKREF_SKIP=	${PREFIX}/lib/libopencv_core.*
 .include "../../mk/compiler.mk"
 .if !empty(PKGSRC_COMPILER:Mclang)
 CXXFLAGS+=	-std=c++11
-.endif
-
-.include "../../mk/bsd.prefs.mk"
-
-.if ${MACHINE_PLATFORM} == "SunOS-5.11-i386"
-CMAKE_ARGS+=	-DENABLE_SSE:BOOL=OFF
-CMAKE_ARGS+=	-DENABLE_SSE2:BOOL=OFF
-CMAKE_ARGS+=	-DENABLE_SSE3:BOOL=OFF
 .endif
 
 .include "../../devel/zlib/buildlink3.mk"
