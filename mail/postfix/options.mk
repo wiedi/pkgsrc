@@ -73,7 +73,7 @@ AUXLIBS+=	-L${BUILDLINK_PREFIX.mysql-client}/lib/mysql		\
 .  include "../../mk/pgsql.buildlink3.mk"
 .  include "../../security/openssl/buildlink3.mk"
 CCARGS+=	-DHAS_PGSQL -I${PGSQL_PREFIX}/include/pgsql
-AUXLIBS+=	-L${PGSQL_PREFIX}/lib -lpq \
+AUXLIBS+=	-L${PGSQL_PREFIX}/lib -lpq -L/system/usr/lib${LIBABISUFFIX} \
 		-L${BUILDLINK_PREFIX.openssl}/lib -lcrypt -lssl -lcrypto
 .endif
 
