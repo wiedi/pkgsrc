@@ -216,6 +216,8 @@ lib/libopencv_videostab.so
 lib/libopencv_videostab.so.2.4
 lib/libopencv_videostab.so.2.4.6
 lib/pkgconfig/opencv.pc
+${PLIST.python}${PYSITELIB}/cv.py
+${PLIST.python}${PYSITELIB}/cv2.so
 share/OpenCV/OpenCVConfig-version.cmake
 share/OpenCV/OpenCVConfig.cmake
 share/OpenCV/haarcascades/haarcascade_eye.xml
