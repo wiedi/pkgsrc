@@ -1,4 +1,4 @@
-$NetBSD: CHANGES-pkgsrc-2013Q2,v 1.1.2.13 2013/07/27 11:50:57 tron Exp $
+$NetBSD: CHANGES-pkgsrc-2013Q2,v 1.1.2.21 2013/08/11 18:29:28 tron Exp $
 
 Changes to the packages collection and infrastructure on the
 pkgsrc-2013Q2 branch:
@@ -45,3 +45,36 @@ Pullup ticket #4189 - requested by taca
 net/bind99: security update
 Pullup ticket #4190 - requested by taca
 net/bind98: security update
+Pullup ticket #4193 - requested by ryoon
+www/apache24: security update
+Pullup ticket #4194 - requested by is
+lang/swi-prolog-lite: bug fix patch
+Pullup ticket #4195 - requested by bouyer
+mail/spamassassin: bug fix patch
+Pullup ticket #4191 - requested by tron
+databases/phpmyadmin: security update
+Pullup ticket #4192 - requested by tron
+net/wireshark: security update
+Pullup ticket #4196 - requested by taca
+lang/php54: security patch
+Pullup ticket #4197 - requested by taca
+www/typo3_45: security update
+Pullup ticket #4198 - requested by taca
+www/typo3_47: security update
+Pullup ticket #4199 - requested by taca
+www/typo3_60: security update
+Pullup ticket #4200 - requested by spz
+databases/mysql55-client: distfile update
+databases/mysql55-server: distfile update
+Pullup ticket #4201 - requested by obache
+net/nagios-base: security update
+Pullup ticket #4202 - requested by taca
+lang/php54: security update
+Pullup ticket #4203 - requested by bouyer
+mail/dovecot2: bug fix patch
+Pullup ticket #4204 - requested by bouyer
+time/kronolith: packaging fix patch
+Pullup ticket #4205 - requested by khorben
+graphics/glx-utils: build fix
+Pullup ticket #4206 - requested by ryoon
+mail/thunderbird: security update
