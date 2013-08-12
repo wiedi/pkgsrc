@@ -11,7 +11,7 @@ COMMENT=	PHP/MySQL/web based bugtracking system
 LICENSE=	gnu-gpl-v2
 
 DEPENDS+=	${APACHE_PKG_PREFIX}-${PHP_PKG_PREFIX}>=4.0.6:../../www/ap-php
-DEPENDS+=	${PHP_PKG_PREFIX}-mysql>=4.0.6:../../databases/php-mysql
+DEPENDS+=	${PHP_PKG_PREFIX}-${MYSQL_PKG_PREFIX}>=4.0.6:../../databases/php-mysql
 
 NO_BUILD=	YES
 
