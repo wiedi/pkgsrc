@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.15 2013/07/04 12:25:31 obache Exp $
+# $NetBSD: Makefile,v 1.17 2013/07/06 01:13:48 obache Exp $
 
 # Note: Regen distinfo with PKG_OPTIONS.sun-jre7+=sun-jre-jce
 # Note: Update DOWNLOAD_NAME when you update the JRE version
@@ -63,7 +63,7 @@ FETCH_MESSAGE+=	"As sun-jre-jce is enabled UnlimitedJCEPolicyJDK7.zip is also ne
 # Some of the binaries require libX11, so ensure that requirement is
 # satisfied when the package is installed on the native OS.
 #
-.if defined(EMUL_IS_NATIVE)
+.if defined(EMUL_IS_NATIVE) && ${OPSYS} != "SunOS"
 .  if ${X11_TYPE} == "native"
 X11_LIBDIR=	${X11BASE}/lib${LIBABISUFFIX}
 .    if ${_OPSYS_SHLIB_TYPE} == "dylib"
@@ -102,9 +102,11 @@ create-library-symlinks:
 	${RUN}${LN} -fs ${X11_LIBDIR}/libXi.so.6 ${DESTDIR}${ARCH_LIBDIR}
 	${RUN}${LN} -fs ${X11_LIBDIR}/libXt.so.6 ${DESTDIR}${ARCH_LIBDIR}
 	${RUN}${LN} -fs ${X11_LIBDIR}/libXtst.so.6 ${DESTDIR}${ARCH_LIBDIR}
+.  if ${EMUL_OPSYS} == "linux"
 	${RUN}${LN} -fs ${ALSA_LIBDIR}/libasound.so.2 ${DESTDIR}${ARCH_LIBDIR}
 	${RUN}${LN} -fs ${ODBC_LIBDIR}/libodbc.so ${DESTDIR}${ARCH_LIBDIR}
 	${RUN}${LN} -fs ${ODBC_LIBDIR}/libodbcinst.so ${DESTDIR}${ARCH_LIBDIR}
+.  endif
 
 PLIST.native=	yes
 .endif

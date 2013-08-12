@@ -1,4 +1,4 @@
-# $NetBSD: buildlink3.mk,v 1.46 2013/06/06 12:53:56 wiz Exp $
+# $NetBSD: buildlink3.mk,v 1.50 2013/07/16 08:15:35 obache Exp $
 
 BUILDLINK_TREE+=	pygtk2
 
@@ -13,12 +13,6 @@ BUILDLINK_PKGSRCDIR.pygtk2?=	../../x11/py-gtk2
 
 .include "../../devel/py-gobject/buildlink3.mk"
 .include "../../devel/libglade/buildlink3.mk"
-.if (!empty(MACHINE_ARCH:Mi386) || !empty(MACHINE_ARCH:Mx86_64) || \
-	!empty(MACHINE_ARCH:Mia64) || !empty(MACHINE_ARCH:Mpowerpc*) || \
-	!empty(MACHINE_ARCH:Mhppa) || !empty(MACHINE_ARCH:Msparc*) || \
-	!empty(MACHINE_ARCH:Malpha) || !empty(MACHINE_ARCH:Mmips*))
-.include "../../math/py-numpy/buildlink3.mk"
-.endif
 .include "../../x11/gtk2/buildlink3.mk"
 .endif # PYGTK2_BUILDLINK3_MK
 

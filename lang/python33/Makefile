@@ -1,6 +1,8 @@
-# $NetBSD: Makefile,v 1.7 2013/05/26 17:56:09 wiz Exp $
+# $NetBSD: Makefile,v 1.10 2013/08/09 10:54:17 drochner Exp $
 
 .include "dist.mk"
+
+PKGREVISION=	1
 
 PKGNAME=	python33-${PY_DISTVERSION}
 CATEGORIES=	lang python
@@ -104,6 +106,12 @@ REPLACE.py33.old=	.*python[^ ]*
 REPLACE.py33.new=	${PREFIX}/bin/python${PY_VER_SUFFIX}
 REPLACE_FILES.py33=	Lib/*.py Lib/*/*.py Lib/*/*/*.py Lib/*/*/*/*.py
 
+SUBST_CLASSES+=		findlib
+SUBST_MESSAGE.findlib=	Fixing find_library_file on Darwin.
+SUBST_STAGE.findlib=	pre-configure
+SUBST_FILES.findlib=	Lib/distutils/unixccompiler.py
+SUBST_SED.findlib=	-e 's,/usr/local,${PREFIX},'
+
 CHECK_INTERPRETER_SKIP=	lib/python${PY_VER_SUFFIX}/venv/scripts/posix/pydoc
 
 SUBST_CLASSES+=		vars
@@ -138,7 +146,6 @@ post-install:
 		${DESTDIR}/${PREFIX}/include/python${PY_VER_SUFFIX}
 .endif
 
-USE_GNU_READLINE=			yes
 BUILDLINK_DEPMETHOD.readline=		build
 
 .include "../../archivers/bzip2/buildlink3.mk"

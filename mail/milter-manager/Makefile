@@ -1,7 +1,7 @@
-# $NetBSD: Makefile,v 1.31 2013/06/29 12:35:10 obache Exp $
+# $NetBSD: Makefile,v 1.33 2013/07/28 13:21:55 obache Exp $
 #
 
-DISTNAME=	milter-manager-1.8.9
+DISTNAME=	milter-manager-2.0.0
 CATEGORIES=	mail
 MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=milter-manager/}
 
