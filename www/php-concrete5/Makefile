@@ -51,4 +51,5 @@ do-install:
 
 .include "../../lang/php/phpversion.mk"
 .include "../../lang/python/application.mk"
+.include "../../mk/mysql.buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"
