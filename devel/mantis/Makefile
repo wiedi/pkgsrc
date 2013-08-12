@@ -72,4 +72,5 @@ do-install:
 
 .include "../../lang/php/phpversion.mk"
 .include "../../mk/apache.mk"
+.include "../../mk/mysql.buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"

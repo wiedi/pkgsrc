@@ -51,4 +51,5 @@ do-install:
 	touch ${DESTDIR}${PREFIX}/${PW_DIR}/upload/.empty
 
 .include "../../lang/php/phpversion.mk"
+.include "../../mk/mysql.buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"

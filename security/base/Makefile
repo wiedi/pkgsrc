@@ -13,6 +13,7 @@ COMMENT=	Analysis engine to process a database of security events
 PKG_DESTDIR_SUPPORT=	destdir
 
 .include "../../mk/apache.mk"
+.include "../../mk/mysql.buildlink3.mk"
 .include "../../lang/php/phpversion.mk"
 
 DEPENDS+=	adodb>=4.96a:../../databases/adodb

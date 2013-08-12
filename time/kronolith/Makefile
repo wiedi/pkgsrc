@@ -91,4 +91,5 @@ do-install:
 	${FIND} ${DESTDIR}${KRONOLITHDIR} -type f -print | ${XARGS} ${CHMOD} ${SHAREMODE}
 
 .include "../../lang/php/phpversion.mk"
+.include "../../mk/mysql.buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"

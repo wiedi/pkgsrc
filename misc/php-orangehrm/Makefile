@@ -40,4 +40,5 @@ do-install:
 		${DESTDIR}${PREFIX}/${OHRDIR}
 
 .include "../../lang/php/phpversion.mk"
+.include "../../mk/mysql.buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"
