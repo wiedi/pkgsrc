@@ -1,4 +1,4 @@
-# $NetBSD: SunOS.mk,v 1.51 2013/05/16 17:09:07 jperkin Exp $
+# $NetBSD: SunOS.mk,v 1.53 2013/07/15 12:06:45 jperkin Exp $
 #
 # Variable definitions for the SunOS/Solaris operating system.
 
@@ -38,8 +38,9 @@ MOTIF_TYPE_DEFAULT?=	motif
 .endif
 
 # Builtin defaults which make sense for this platform.
-PREFER.solaris-pam?=	native
+PREFER.libexecinfo?=	native
 PREFER.openssl?=	pkgsrc
+PREFER.solaris-pam?=	native
 
 _OPSYS_EMULDIR.solaris=		# empty
 _OPSYS_EMULDIR.solaris32=	# empty
@@ -66,6 +67,10 @@ _USE_RPATH=		yes		# add rpath to LDFLAGS
 # ld is not currently supported.
 _OPSYS_WHOLE_ARCHIVE_FLAG=	-z allextract
 _OPSYS_NO_WHOLE_ARCHIVE_FLAG=	-z defaultextract
+
+# Remove flags specific to GNU ld.
+BUILDLINK_TRANSFORM+=	rm:-Wl,--export-dynamic
+BUILDLINK_TRANSFORM+=	rm:-export-dynamic
 
 # Solaris has /usr/include/iconv.h, but it's not GNU iconv, so mark it
 # incompatible.

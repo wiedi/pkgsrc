@@ -1,6 +1,6 @@
-# $NetBSD: Makefile,v 1.23 2013/07/04 13:57:03 tron Exp $
+# $NetBSD: Makefile,v 1.29 2013/07/28 20:42:35 wiz Exp $
 
-EGG_VERSION=		0.7.7
+EGG_VERSION=		0.9.8
 DISTNAME=		setuptools-${EGG_VERSION}
 EGG_NAME=		setuptools-${EGG_VERSION}
 PKGNAME=		${PYPKGPREFIX}-setuptools-${EGG_VERSION}
@@ -35,9 +35,9 @@ PYSETUPINSTALLARGS+=	--root=/
 DEPENDS+=	${PYPKGPREFIX}-expat-[0-9]*:../../textproc/py-expat
 .endif
 
-# Force using "curl" for fetching the distribution file. It is only available
-# over HTTPS and "curl" is the only fetch program which always supports HTTPS.
-FETCH_USING=	curl
+post-install:
+	${RM} ${DESTDIR}${PREFIX}/${PYSITELIB}/${EGG_NAME}-py${PYVERSSUFFIX}.egg-info/entry_points.txt.orig
+	${CHMOD} ${SHAREMODE} ${DESTDIR}${PREFIX}/${PYSITELIB}/${EGG_NAME}-py${PYVERSSUFFIX}.egg-info/*
 
 .include "../../lang/python/application.mk"
 .include "../../lang/python/extension.mk"

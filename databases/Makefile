@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.432 2013/07/03 18:55:31 sno Exp $
+# $NetBSD: Makefile,v 1.435 2013/07/06 00:57:34 rodent Exp $
 
 COMMENT=	Databases
 
@@ -63,6 +63,7 @@ SUBDIR+=	libgnomedb
 SUBDIR+=	libpqxx
 SUBDIR+=	libpqxx-doc
 SUBDIR+=	lua-sqlite
+SUBDIR+=	lua-sqlite3
 SUBDIR+=	lua-tokyocabinet
 SUBDIR+=	luma
 SUBDIR+=	maatkit
@@ -108,6 +109,7 @@ SUBDIR+=	p5-CatalystX-CRUD-Model-RDBO
 SUBDIR+=	p5-CatalystX-CRUD-ModelAdapter-DBIC
 SUBDIR+=	p5-Class-DBI
 SUBDIR+=	p5-Class-DBI-AbstractSearch
+SUBDIR+=	p5-Class-DBI-BaseDSN
 SUBDIR+=	p5-Class-DBI-Pg
 SUBDIR+=	p5-Class-DBI-Plugin
 SUBDIR+=	p5-Class-DBI-Plugin-DeepAbstractSearch
@@ -398,6 +400,7 @@ SUBDIR+=	ruby-vapor
 SUBDIR+=	sdbm
 SUBDIR+=	shared-mime-info
 SUBDIR+=	slony1
+SUBDIR+=	soci
 SUBDIR+=	sqlite
 SUBDIR+=	sqlite3
 SUBDIR+=	sqlite3-docs

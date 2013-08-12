@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.733 2013/07/03 16:16:28 sno Exp $
+# $NetBSD: Makefile,v 1.738 2013/07/21 12:15:29 richard Exp $
 #
 
 COMMENT=	Text processing utilities (does not include desktop publishing)
@@ -276,6 +276,7 @@ SUBDIR+=	ja-grep
 SUBDIR+=	ja-groff
 SUBDIR+=	ja-sed
 SUBDIR+=	jade
+SUBDIR+=	jansson
 SUBDIR+=	java-mecab
 SUBDIR+=	java-native-hyperestraier
 SUBDIR+=	java-pure-hyperestraier
@@ -353,6 +354,8 @@ SUBDIR+=	p5-Feed-Find
 SUBDIR+=	p5-File-ReadBackwards
 SUBDIR+=	p5-Filter
 SUBDIR+=	p5-FormValidator-Simple
+SUBDIR+=	p5-HTML-FormatText-WithLinks
+SUBDIR+=	p5-HTML-FormatText-WithLinks-AndTables
 SUBDIR+=	p5-Kwalify
 SUBDIR+=	p5-Lingua-EN-FindNumber
 SUBDIR+=	p5-Lingua-EN-Inflect
@@ -373,6 +376,7 @@ SUBDIR+=	p5-Lingua-Stem-Ru
 SUBDIR+=	p5-Lingua-Stem-Snowball
 SUBDIR+=	p5-Lingua-Stem-Snowball-Da
 SUBDIR+=	p5-List-Compare
+SUBDIR+=	p5-Locale-Maketext-Gettext
 SUBDIR+=	p5-Net-Dict
 SUBDIR+=	p5-Number-Format
 SUBDIR+=	p5-Number-Spell
@@ -614,11 +618,13 @@ SUBDIR+=	py-mecab
 SUBDIR+=	py-pdf-parser
 SUBDIR+=	py-prettytable
 SUBDIR+=	py-pygments
+SUBDIR+=	py-relatorio
 SUBDIR+=	py-sphinx
 SUBDIR+=	py-sphinx-theme-cloud
 SUBDIR+=	py-textile
 SUBDIR+=	py-vobject
 SUBDIR+=	py-xlrd
+SUBDIR+=	py-xlwt
 SUBDIR+=	py-xml
 SUBDIR+=	py-yamcha
 SUBDIR+=	py-yaml

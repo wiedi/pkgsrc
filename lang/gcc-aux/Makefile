@@ -1,9 +1,9 @@
-# $NetBSD: Makefile,v 1.9 2013/05/31 12:41:10 wiz Exp $
+# $NetBSD: Makefile,v 1.11 2013/07/20 19:47:19 marino Exp $
 #
 
 PKGNAME=	gcc-aux-${SNAPSHOT}
 DISTNAME=	gcc-${GCC_VERSION}
-PKGREVISION=	1
+PKGREVISION=	2
 CATEGORIES=	lang
 MASTER_SITES=	${MASTER_SITE_GNU:=gcc/gcc-${GCC_VERSION}/}
 DISTFILES=	${DISTNAME}.tar.bz2
@@ -71,6 +71,11 @@ LINK_HEADER=		/usr/include/sys/link_elf.h
    NSUFF=	7.0_DEV
 .else
    NSUFF=	${OS_VERSION}
+.endif
+# Special handling of clang may be required for all platforms
+# but currently this is confirmed only for NetBSD
+.if ${PKGSRC_COMPILER} == clang
+MY_CONFIGURE_ENV+=	LDFLAGS=-lm
 .endif
 .if ${MACHINE_ARCH} == "i386"
    OS_LABEL4VERS=	[NetBSD]

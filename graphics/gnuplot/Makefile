@@ -1,7 +1,7 @@
-# $NetBSD: Makefile,v 1.79 2013/06/06 12:54:30 wiz Exp $
+# $NetBSD: Makefile,v 1.81 2013/07/15 02:02:22 ryoon Exp $
 
 DISTNAME=	gnuplot-4.6.3
-PKGREVISION=	3
+PKGREVISION=	4
 CATEGORIES+=	graphics
 MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=gnuplot/}
 
@@ -27,21 +27,9 @@ CONFIGURE_ARGS+=	--without-tutorial
 CONFIGURE_ARGS+=	ac_cv_prog_EMACS=
 INFO_FILES=		yes
 
-# Use BSD editline wherever possible:
-.include "../../mk/bsd.prefs.mk"
-
-.if !empty(OPSYS:M*BSD) || ${OPSYS} == "DragonFly" || ${OPSYS} == "Darwin"
-.  if ${OPSYS} == "NetBSD" && !empty(OS_VERSION:M[01234].*)
-CONFIGURE_ARGS+=	--with-readline=${BUILDLINK_PREFIX.readline}
-.include "../../devel/readline/buildlink3.mk"
-.  else
 CONFIGURE_ARGS+=	--with-readline=bsd
+.include "../../mk/readline.buildlink3.mk"
 .include "../../mk/curses.buildlink3.mk"
-.  endif
-.else
-CONFIGURE_ARGS+=	--with-readline=${BUILDLINK_PREFIX.readline}
-.include "../../devel/readline/buildlink3.mk"
-.endif
 
 LDFLAGS.SunOS+=		-liconv
 

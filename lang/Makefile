@@ -1,10 +1,11 @@
-# $NetBSD: Makefile,v 1.349 2013/06/20 06:07:23 wiz Exp $
+# $NetBSD: Makefile,v 1.354 2013/07/29 16:41:39 taca Exp $
 #
 
 COMMENT=	Programming languages
 
 SUBDIR+=	Cg-compiler
 SUBDIR+=	LuaJIT
+SUBDIR+=	LuaJIT2
 SUBDIR+=	STk
 SUBDIR+=	SmartEiffel
 SUBDIR+=	a60
@@ -67,6 +68,7 @@ SUBDIR+=	gcc48-libs
 SUBDIR+=	gforth
 SUBDIR+=	ghc
 SUBDIR+=	gnat-aux
+SUBDIR+=	go
 SUBDIR+=	gpc
 SUBDIR+=	gprolog
 SUBDIR+=	guile
@@ -136,6 +138,7 @@ SUBDIR+=	pforth
 SUBDIR+=	php5-perl
 SUBDIR+=	php53
 SUBDIR+=	php54
+SUBDIR+=	php55
 SUBDIR+=	picoc
 SUBDIR+=	pict
 SUBDIR+=	polyml
@@ -164,6 +167,8 @@ SUBDIR+=	ruby18
 SUBDIR+=	ruby18-base
 SUBDIR+=	ruby193
 SUBDIR+=	ruby193-base
+SUBDIR+=	ruby200
+SUBDIR+=	ruby200-base
 SUBDIR+=	runawk
 SUBDIR+=	sablevm
 SUBDIR+=	sablevm-classpath

@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.212 2013/06/13 14:01:34 obache Exp $
+# $NetBSD: Makefile,v 1.215 2013/08/04 10:29:44 adam Exp $
 #
 
 COMMENT=	Multimedia utilities
@@ -29,10 +29,12 @@ SUBDIR+=	dvdview
 SUBDIR+=	farsight2
 SUBDIR+=	ffmpeg
 SUBDIR+=	ffmpeg010
+SUBDIR+=	ffmpeg2
 SUBDIR+=	ffmpeg2theora
 SUBDIR+=	ffmpegthumbnailer
 SUBDIR+=	ffmpegthumbs
 SUBDIR+=	ffplay
+SUBDIR+=	ffplay2
 SUBDIR+=	flashplayer
 SUBDIR+=	fuppes
 SUBDIR+=	fxtv
@@ -73,6 +75,7 @@ SUBDIR+=	gst-plugins1-ogg
 SUBDIR+=	gst-plugins1-resindvd
 SUBDIR+=	gst-plugins1-theora
 SUBDIR+=	gst-plugins1-ugly
+SUBDIR+=	gst-plugins1-v4l2
 SUBDIR+=	gst-plugins1-vpx
 SUBDIR+=	gst-plugins1-x264
 SUBDIR+=	gst123
@@ -154,7 +157,6 @@ SUBDIR+=	phonon-backend-vlc
 SUBDIR+=	php-ming
 SUBDIR+=	pitivi
 SUBDIR+=	pspvc
-SUBDIR+=	py-clutter-gst
 SUBDIR+=	py-gstreamer0.10
 SUBDIR+=	py-ming
 SUBDIR+=	realplayer-codecs

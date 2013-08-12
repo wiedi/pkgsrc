@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.655 2013/06/26 20:14:05 joerg Exp $
+# $NetBSD: Makefile,v 1.661 2013/08/03 08:30:46 ryoon Exp $
 #
 
 COMMENT=	Graphics tools and libraries
@@ -52,8 +52,8 @@ SUBDIR+=	clutter
 SUBDIR+=	clutter-box2d
 SUBDIR+=	clutter-gtk
 SUBDIR+=	clutter-mx
-SUBDIR+=	clutter-qt
 SUBDIR+=	cnxtview
+SUBDIR+=	cogl
 SUBDIR+=	comix
 SUBDIR+=	compface
 SUBDIR+=	cpia2view
@@ -190,6 +190,7 @@ SUBDIR+=	gri
 SUBDIR+=	gst-plugins0.10-cairo
 SUBDIR+=	gst-plugins0.10-jpeg
 SUBDIR+=	gst-plugins0.10-png
+SUBDIR+=	gst-plugins1-cairo
 SUBDIR+=	gst-plugins1-jpeg
 SUBDIR+=	gst-plugins1-png
 SUBDIR+=	gthumb
@@ -377,8 +378,6 @@ SUBDIR+=	py-actdiag
 SUBDIR+=	py-biggles
 SUBDIR+=	py-blockdiag
 SUBDIR+=	py-cairo
-SUBDIR+=	py-clutter
-SUBDIR+=	py-clutter-gtk
 SUBDIR+=	py-gd
 SUBDIR+=	py-gdchart
 SUBDIR+=	py-gnuplot
@@ -391,6 +390,8 @@ SUBDIR+=	py-matplotlib-gtk2
 SUBDIR+=	py-matplotlib-tk
 SUBDIR+=	py-nwdiag
 SUBDIR+=	py-piddle
+SUBDIR+=	py-pycha
+SUBDIR+=	py-pydot
 SUBDIR+=	py-pyfits
 SUBDIR+=	py-seqdiag
 SUBDIR+=	py-sk1libs
