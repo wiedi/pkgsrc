@@ -40,7 +40,7 @@ DEPENDS+=	${PHP_PKG_PREFIX}-pgsql>=5.1:../../databases/php-pgsql
 DEPENDS+=	p5-DBD-{mysql,percona}*-[0-9]*:../../databases/p5-DBD-mysql
 .if !empty(PKG_OPTIONS:Mwebui)
 DEPENDS+=	${PHP_PKG_PREFIX}-pear-MDB2_Driver_mysql>1.5:../../databases/pear-MDB2_Driver_mysql
-DEPENDS+=	${PHP_PKG_PREFIX}-mysql>=5.1:../../databases/php-mysql
+DEPENDS+=	${PHP_PKG_PREFIX}-${MYSQL_PKG_PREFIX}>=5.1:../../databases/php-mysql
 .endif
 .endif
 
