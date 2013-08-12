@@ -1,13 +1,14 @@
-# $NetBSD: Makefile,v 1.34 2013/05/31 12:41:20 wiz Exp $
+# $NetBSD: Makefile,v 1.36 2013/07/14 21:57:09 wiz Exp $
 
 DISTNAME=	postgrey-1.33
-PKGREVISION=	6
+PKGREVISION=	8
 CATEGORIES=	mail
 MASTER_SITES=	http://postgrey.schweikert.ch/pub/
 
 MAINTAINER=	kim@tac.nyc.ny.us
 HOMEPAGE=	http://postgrey.schweikert.ch/
 COMMENT=	Postfix Greylist Policy Server
+LICENSE=	gnu-gpl-v2
 
 DEPENDS+=	p5-BerkeleyDB-[0-9]*:../../databases/p5-BerkeleyDB
 DEPENDS+=	p5-Digest-SHA1-[0-9]*:../../security/p5-Digest-SHA1

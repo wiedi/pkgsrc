@@ -1,9 +1,9 @@
-# $NetBSD: Makefile,v 1.204 2013/06/17 06:54:13 wiz Exp $
+# $NetBSD: Makefile,v 1.208 2013/07/26 10:59:53 ryoon Exp $
 
 .include "license.mk"
 .include "Makefile.common"
 
-PKGREVISION=	1
+PKGREVISION=	2
 COMMENT=	Practical Extraction and Report Language
 
 CONFLICTS=	perl-base-[0-9]* perl-thread-[0-9]*			\
@@ -124,6 +124,7 @@ LIBSWANTED.Cygwin=	m crypt dl
 LIBSWANTED.Darwin=	m c
 LIBSWANTED.DragonFly=	m crypt
 LIBSWANTED.FreeBSD=	m crypt
+LIBSWANTED.GNUkFreeBSD=	m crypt dl nsl
 LIBSWANTED.HPUX=	cl pthread $$libswanted # see Perl's README.hpux
 LIBSWANTED.IRIX=	m crypt
 LIBSWANTED.Interix=	m dl

@@ -1,8 +1,7 @@
-# $NetBSD: Makefile,v 1.24 2013/02/06 23:23:54 jperkin Exp $
+# $NetBSD: Makefile,v 1.26 2013/08/03 04:40:24 obache Exp $
 #
 
-DISTNAME=	groonga-2.0.3
-PKGREVISION=	2
+DISTNAME=	groonga-3.0.6
 CATEGORIES=	textproc
 MASTER_SITES=	http://packages.groonga.org/source/groonga/
 
@@ -51,5 +50,6 @@ REPLACE_RUBY+=	data/munin/groonga_query_performance
 REPLACE_RUBY+=	data/munin/groonga_status
 .include "../../lang/ruby/replace.mk"
 
+.include "../../devel/editline/buildlink3.mk"
 .include "../../devel/glib2/buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"

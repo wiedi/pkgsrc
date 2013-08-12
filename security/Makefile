@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.474 2013/07/03 16:04:22 sno Exp $
+# $NetBSD: Makefile,v 1.480 2013/08/07 04:55:10 agc Exp $
 #
 
 COMMENT=	Security tools
@@ -10,6 +10,7 @@ SUBDIR+=	EasyPG
 SUBDIR+=	HElib
 SUBDIR+=	KeePass
 SUBDIR+=	MyPasswordSafe
+SUBDIR+=	PACK
 SUBDIR+=	PAM
 SUBDIR+=	aide
 SUBDIR+=	aide06
@@ -116,6 +117,7 @@ SUBDIR+=	libassuan
 SUBDIR+=	libassuan2
 SUBDIR+=	libbf
 SUBDIR+=	libcrack
+SUBDIR+=	libcurvecpr
 SUBDIR+=	libdes
 SUBDIR+=	libfprint
 SUBDIR+=	libfwbuilder
@@ -202,6 +204,7 @@ SUBDIR+=	p5-Authen-SASL-Cyrus
 SUBDIR+=	p5-Authen-Simple
 SUBDIR+=	p5-Authen-TacacsPlus
 SUBDIR+=	p5-BSD-arc4random
+SUBDIR+=	p5-Bytes-Random-Secure
 SUBDIR+=	p5-Crypt-Blowfish
 SUBDIR+=	p5-Crypt-CAST5_PP
 SUBDIR+=	p5-Crypt-CBC
@@ -228,6 +231,8 @@ SUBDIR+=	p5-Crypt-RIPEMD160
 SUBDIR+=	p5-Crypt-RSA
 SUBDIR+=	p5-Crypt-RandPasswd
 SUBDIR+=	p5-Crypt-Random
+SUBDIR+=	p5-Crypt-Random-Seed
+SUBDIR+=	p5-Crypt-Random-TESHA2
 SUBDIR+=	p5-Crypt-Rijndael
 SUBDIR+=	p5-Crypt-SSLeay
 SUBDIR+=	p5-Crypt-SmbHash
@@ -335,6 +340,7 @@ SUBDIR+=	py-oauth
 SUBDIR+=	py-oauth2
 SUBDIR+=	py-openid
 SUBDIR+=	py-paramiko
+SUBDIR+=	py-passlib
 SUBDIR+=	py-prewikka
 SUBDIR+=	py-smbpasswd
 SUBDIR+=	py-tlslite

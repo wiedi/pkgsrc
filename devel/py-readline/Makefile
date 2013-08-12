@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.27 2013/04/20 09:38:04 obache Exp $
+# $NetBSD: Makefile,v 1.28 2013/07/15 02:02:21 ryoon Exp $
 #
 
 PKGNAME=	${PYPKGPREFIX}-readline-${PY_DISTVERSION}
@@ -13,7 +13,6 @@ PYTHON_VERSIONS_INCLUDE_3X=	yes
 EXTRACT_ELEMENTS=	${PYSUBDIR}/Modules/readline.c
 
 USE_GCC_RUNTIME=	yes
-USE_GNU_READLINE=	# defined
 
 PYDISTUTILSPKG=	yes
 PY_PATCHPLIST=	yes

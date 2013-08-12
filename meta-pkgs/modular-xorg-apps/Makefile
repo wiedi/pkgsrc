@@ -1,7 +1,7 @@
-# $NetBSD: Makefile,v 1.24 2013/05/31 11:37:25 rodent Exp $
+# $NetBSD: Makefile,v 1.27 2013/08/03 07:45:49 wiz Exp $
 
 DISTNAME=	# empty
-PKGNAME=	modular-xorg-apps-1.14
+PKGNAME=	modular-xorg-apps-1.14.1.1
 CATEGORIES=	meta-pkgs x11
 MASTER_SITES=	${MASTER_SITE_XORG:=app/}
 DISTFILES=	# empty
@@ -42,6 +42,7 @@ DEPENDS+=	xeyes-[0-9]*:../../x11/xeyes
 DEPENDS+=	xfd-[0-9]*:../../x11/xfd
 DEPENDS+=	xfindproxy-[0-9]*:../../net/xfindproxy
 DEPENDS+=	xfontsel-[0-9]*:../../x11/xfontsel
+DEPENDS+=	xfwp-[0-9]*:../../x11/xfwp
 DEPENDS+=	xgamma-[0-9]*:../../x11/xgamma
 DEPENDS+=	xgc-[0-9]*:../../graphics/xgc
 DEPENDS+=	xhost-[0-9]*:../../x11/xhost
@@ -68,8 +69,6 @@ DEPENDS+=	xrdb-[0-9]*:../../x11/xrdb
 DEPENDS+=	xrefresh-[0-9]*:../../x11/xrefresh
 DEPENDS+=	xscope-[0-9]*:../../x11/xscope
 DEPENDS+=	xset-[0-9]*:../../x11/xset
-DEPENDS+=	xsetmode-[0-9]*:../../x11/xsetmode
-DEPENDS+=	xsetpointer-[0-9]*:../../x11/xsetpointer
 DEPENDS+=	xsetroot-[0-9]*:../../x11/xsetroot
 DEPENDS+=	xsm-[0-9]*:../../x11/xsm
 DEPENDS+=	xstdcmap-[0-9]*:../../x11/xstdcmap

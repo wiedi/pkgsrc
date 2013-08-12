@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.49 2013/02/10 05:55:07 manu Exp $
+# $NetBSD: Makefile,v 1.51 2013/07/31 06:53:21 adam Exp $
 
 DISTNAME=	${OPENVPN_DISTNAME}
 CATEGORIES=	net
@@ -38,7 +38,7 @@ PKG_GROUPS=		${OPENVPN_GROUP}
 PKG_USERS=		${OPENVPN_USER}:${OPENVPN_GROUP}
 PKG_GECOS.${OPENVPN_USER}=	OpenVPN\ server\ user
 
-MESSAGE_SUBST+= OPENVPN_PLUGINSDIR=${PREFIX:Q}/${OPENVPN_PLUGINSDIR:Q}
+MESSAGE_SUBST+=	OPENVPN_PLUGINSDIR=${PREFIX}/${OPENVPN_PLUGINSDIR}
 
 post-install:
 	set -e; cd ${WRKSRC}/sample/sample-config-files; for file in *; do \
