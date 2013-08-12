@@ -274,4 +274,5 @@ do-install:
 	${MV} -f vendor_config.php.pkgsrc vendor_config.php
 
 .include "../../lang/php/phpversion.mk"
+.include "../../mk/mysql.buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"

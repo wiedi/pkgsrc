@@ -59,4 +59,5 @@ do-install:
 		pax -rw ${DESTDIR}${PREFIX}/${FO_DIR}
 
 .include "../../lang/php/phpversion.mk"
+.include "../../mk/mysql.buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"
