@@ -1,12 +1,10 @@
-# $NetBSD: Makefile,v 1.40 2013/06/09 01:52:47 ryoon Exp $
+# $NetBSD: Makefile,v 1.42 2013/07/27 22:38:36 tron Exp $
 
-VERSION_DATE=	2013.05.23
-DISTNAME=	youtube-dl
-PKGNAME=	youtube-dl-${VERSION_DATE:S/.//g}
+VERSION_DATE=	2013.07.25.2
+DISTNAME=	youtube-dl-${VERSION_DATE}
+PKGNAME=	youtube-dl-${VERSION_DATE:S/.//S/.//}
 CATEGORIES=	net
 MASTER_SITES=	http://youtube-dl.org/downloads/${VERSION_DATE}/
-EXTRACT_SUFX=	# none
-DIST_SUBDIR=	${PKGNAME_NOREV}
 
 MAINTAINER=	pkgsrc-users@NetBSD.org
 HOMEPAGE=	http://rg3.github.com/youtube-dl/
@@ -15,21 +13,15 @@ LICENSE=	public-domain
 
 USE_LANGUAGES=			# none
 NO_BUILD=			yes
-WRKSRC=				${WRKDIR}
+WRKSRC=				${WRKDIR}/youtube-dl
+USE_TOOLS+=			gmake
 
-INSTALLATION_DIRS=	bin
+REPLACE_PYTHON=		youtube-dl
 
-REPLACE_PYTHON+=	${DISTNAME}
+MAKE_FLAGS+=		PREFIX=${PREFIX} \
+			BASHCOMPDIR=${PREFIX}/share/bash-completion/completions
 
 .include "../../mk/bsd.prefs.mk"
-
-# Force using "curl" for fetching the distribution file. It is only available
-# over HTTPS and "curl" is the only fetch program which always supports HTTPS.
-#FETCH_USING=	curl
-
-do-install:
-	${INSTALL_SCRIPT} ${WRKSRC}/${DISTNAME} \
-	  ${DESTDIR}${PREFIX}/bin/youtube-dl
 
 .include "../../lang/python/application.mk"
 .include "../../mk/bsd.pkg.mk"

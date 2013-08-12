@@ -1,7 +1,7 @@
-# $NetBSD: Makefile,v 1.132 2013/06/26 11:32:12 ryoon Exp $
+# $NetBSD: Makefile,v 1.134 2013/08/07 12:17:54 ryoon Exp $
 
 FIREFOX_VER=	${MOZ_BRANCH}${MOZ_BRANCH_MINOR}
-MOZ_BRANCH=	22.0
+MOZ_BRANCH=	23.0
 MOZ_BRANCH_MINOR=	
 
 DISTNAME=	firefox-${FIREFOX_VER}.source
@@ -30,6 +30,14 @@ LDFLAGS.SunOS+=		-lm
 
 ALL_ENV+=		MOZILLA_PKG_NAME=firefox
 
+.include "../../mk/bsd.prefs.mk"
+
+# Avoid ld "invalid section index" errors.
+.if ${OPSYS} == "SunOS"
+BUILDLINK_TRANSFORM+=	rm:-fdata-sections
+BUILDLINK_TRANSFORM+=	rm:-ffunction-sections
+.endif
+
 LDFLAGS.DragonFly=	-lplc4 -lnspr4
 LDFLAGS.FreeBSD=	-lplc4 -lnspr4
 LDFLAGS.Linux=		-lnspr4
@@ -37,10 +45,10 @@ LDFLAGS.Linux=		-lnspr4
 .include "../../www/firefox/mozilla-common.mk"
 .include "options.mk"
 
-CHECK_INTERPRETER_SKIP+=lib/firefox/sdk/bin/header.py
-CHECK_INTERPRETER_SKIP+=lib/firefox/sdk/bin/typelib.py
-CHECK_INTERPRETER_SKIP+=lib/firefox/sdk/bin/xpidl.py
-CHECK_INTERPRETER_SKIP+=lib/firefox/sdk/bin/xpt.py
+CHECK_INTERPRETER_SKIP+=lib/firefox-sdk/sdk/bin/header.py
+CHECK_INTERPRETER_SKIP+=lib/firefox-sdk/sdk/bin/typelib.py
+CHECK_INTERPRETER_SKIP+=lib/firefox-sdk/sdk/bin/xpidl.py
+CHECK_INTERPRETER_SKIP+=lib/firefox-sdk/sdk/bin/xpt.py
 
 MOZILLA=firefox
 MOZILLA_ICON=	${WRKSRC}/dist/firefox/browser/chrome/icons/default/default48.png

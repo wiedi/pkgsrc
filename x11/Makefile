@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.701 2013/06/18 08:53:36 wiz Exp $
+# $NetBSD: Makefile,v 1.707 2013/08/03 07:29:58 wiz Exp $
 #
 
 COMMENT=	Packages to support the X window system
@@ -108,10 +108,12 @@ SUBDIR+=	gtkglarea
 SUBDIR+=	gtkglarea2
 SUBDIR+=	gtkmm
 SUBDIR+=	gtkmm-utils
+SUBDIR+=	gtkmm3
 SUBDIR+=	gtksourceview
 SUBDIR+=	gtksourceview-sharp2
 SUBDIR+=	gtksourceview2
 SUBDIR+=	gtksourceview3
+SUBDIR+=	gtksourceviewmm
 SUBDIR+=	gtkstep
 SUBDIR+=	gtkterm2
 SUBDIR+=	gxmessage
@@ -465,6 +467,7 @@ SUBDIR+=	xcalib
 SUBDIR+=	xcb
 SUBDIR+=	xcb-proto
 SUBDIR+=	xcb-util
+SUBDIR+=	xcb-util-cursor
 SUBDIR+=	xcb-util-image
 SUBDIR+=	xcb-util-keysyms
 SUBDIR+=	xcb-util-renderutil
@@ -565,6 +568,7 @@ SUBDIR+=	xflame
 SUBDIR+=	xfontsel
 SUBDIR+=	xforms
 SUBDIR+=	xfstt
+SUBDIR+=	xfwp
 SUBDIR+=	xgamma
 SUBDIR+=	xgas
 SUBDIR+=	xglobe
@@ -640,8 +644,6 @@ SUBDIR+=	xscript
 SUBDIR+=	xsel
 SUBDIR+=	xservers
 SUBDIR+=	xset
-SUBDIR+=	xsetmode
-SUBDIR+=	xsetpointer
 SUBDIR+=	xsetroot
 SUBDIR+=	xsm
 SUBDIR+=	xsnow
