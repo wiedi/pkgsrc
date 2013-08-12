@@ -20,7 +20,7 @@ NO_BUILD=	yes
 DEPENDS+=	${PHP_PKG_PREFIX}-zip>=5.2.0:../../archivers/php-zip
 DEPENDS+=	${PHP_PKG_PREFIX}-zlib>=5.2.0:../../archivers/php-zlib
 DEPENDS+=	${PHP_PKG_PREFIX}-mbstring>=5.2.0:../../converters/php-mbstring
-DEPENDS+=	${PHP_PKG_PREFIX}-mysql>=5.2.0:../../databases/php-mysql
+DEPENDS+=	${PHP_PKG_PREFIX}-${MYSQL_PKG_PREFIX}>=5.2.0:../../databases/php-mysql
 DEPENDS+=	${PHP_PKG_PREFIX}-posix>=5.2.0:../../devel/php-posix
 DEPENDS+=	${PHP_PKG_PREFIX}-gd>=5.3.0:../../graphics/php-gd
 DEPENDS+=	${PHP_PKG_PREFIX}-imap>=5.2.0:../../mail/php-imap

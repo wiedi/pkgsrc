@@ -18,7 +18,7 @@ PKG_DESTDIR_SUPPORT=	destdir
 DEPENDS+=	adodb>=4.96a:../../databases/adodb
 DEPENDS+=	${PHP_PKG_PREFIX}-gd>=4.0.4:../../graphics/php-gd
 DEPENDS+=	${PHP_PKG_PREFIX}-sockets>=4.0.4:../../net/php-sockets
-DEPENDS+=	${PHP_PKG_PREFIX}-mysql>=4.0.4:../../databases/php-mysql
+DEPENDS+=	${PHP_PKG_PREFIX}-${MYSQL_PKG_PREFIX}>=4.0.4:../../databases/php-mysql
 DEPENDS+=	${PHP_PKG_PREFIX}-pear-Log-[0-9]*:../../sysutils/pear-Log
 DEPENDS+=	${PHP_PKG_PREFIX}-pear-Numbers_Words-[0-9]*:../../math/pear-Numbers_Words
 DEPENDS+=	${PHP_PKG_PREFIX}-pear-Numbers_Roman-[0-9]*:../../math/pear-Numbers_Roman
