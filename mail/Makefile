@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.434 2013/07/02 11:44:44 rodent Exp $
+# $NetBSD: Makefile,v 1.436 2013/07/24 15:32:48 drochner Exp $
 #
 
 COMMENT=	Electronic mail utilities
@@ -27,9 +27,7 @@ SUBDIR+=	claws-mail-attachwarner
 SUBDIR+=	claws-mail-attremover
 SUBDIR+=	claws-mail-bogofilter
 SUBDIR+=	claws-mail-cachesaver
-SUBDIR+=	claws-mail-dillo-viewer
 SUBDIR+=	claws-mail-fetchinfo
-SUBDIR+=	claws-mail-gtkhtml
 SUBDIR+=	claws-mail-mailmbox
 SUBDIR+=	claws-mail-newmail
 SUBDIR+=	claws-mail-notification
@@ -43,7 +41,6 @@ SUBDIR+=	claws-mail-spamassassin
 SUBDIR+=	claws-mail-spamreport
 SUBDIR+=	claws-mail-synce
 SUBDIR+=	claws-mail-tnef
-SUBDIR+=	claws-mail-trayicon
 SUBDIR+=	claws-mail-vcalendar
 SUBDIR+=	clawsker
 SUBDIR+=	cone
@@ -209,6 +206,7 @@ SUBDIR+=	p5-Mail-Audit
 SUBDIR+=	p5-Mail-Box
 SUBDIR+=	p5-Mail-ClamAV
 SUBDIR+=	p5-Mail-DKIM
+SUBDIR+=	p5-Mail-DeliveryStatus-BounceParser
 SUBDIR+=	p5-Mail-Ezmlm
 SUBDIR+=	p5-Mail-IMAPClient
 SUBDIR+=	p5-Mail-ListDetector

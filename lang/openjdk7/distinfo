@@ -1,4 +1,4 @@
-$NetBSD: distinfo,v 1.28 2013/07/04 07:25:41 wiz Exp $
+$NetBSD: distinfo,v 1.30 2013/07/09 05:21:56 obache Exp $
 
 SHA1 (openjdk7/UnlimitedJCEPolicyJDK7.zip) = 7d3c9ee89536b82cd21c680088b1bced16017253
 RMD160 (openjdk7/UnlimitedJCEPolicyJDK7.zip) = a4a6a284579f43d2df3532d279e143d2f03c2c3f
@@ -51,18 +51,15 @@ Size (openjdk7/icedtea7-02bbff3d71ff.tar.bz2) = 3796898 bytes
 SHA1 (openjdk7/jaxp145_01.zip) = 106db88c8e53abb1a064e83d41cc7acd16b7713c
 RMD160 (openjdk7/jaxp145_01.zip) = af91b95e7eb7a68fc62f450dc7b5fe5c2be4a228
 Size (openjdk7/jaxp145_01.zip) = 6389175 bytes
-SHA1 (openjdk7/jdk-7u21-20130526.diff) = 3ca00a1674222aa45707fa5b3020ea87ec6552da
-RMD160 (openjdk7/jdk-7u21-20130526.diff) = a7117644fc9c52945ccd1723682713573b320d98
-Size (openjdk7/jdk-7u21-20130526.diff) = 4388188 bytes
 SHA1 (openjdk7/jdk7-jaf-2010_08_19.zip) = 63ea970dcf129fbbba39a132d8f71add19fbf1f0
 RMD160 (openjdk7/jdk7-jaf-2010_08_19.zip) = fbadfbb781dc2aa8cfa384b8d5cd618522e55128
 Size (openjdk7/jdk7-jaf-2010_08_19.zip) = 70613 bytes
 SHA1 (openjdk7/jdk7-jaxws2_2_4-b03-2011_05_27.zip) = 539bcf80b9a86c97406a3c79e7d10684b213a4be
 RMD160 (openjdk7/jdk7-jaxws2_2_4-b03-2011_05_27.zip) = 49273489651c1950376966955f28e4069165e818
 Size (openjdk7/jdk7-jaxws2_2_4-b03-2011_05_27.zip) = 6046353 bytes
-SHA1 (openjdk7/openjdk-7u6-fcs-src-b24-09_aug_2012.zip) = ebdf9ef3dd6fa9bbd22f8f97be807b85aac0f439
-RMD160 (openjdk7/openjdk-7u6-fcs-src-b24-09_aug_2012.zip) = ee9837701f7243f6a4edca7d343bcac4a492ad7f
-Size (openjdk7/openjdk-7u6-fcs-src-b24-09_aug_2012.zip) = 103796914 bytes
+SHA1 (openjdk7/openjdk-1.7.25-20130626.tar.bz2) = 321507c7414d9791f91957cccae4abeaccfdc4ee
+RMD160 (openjdk7/openjdk-1.7.25-20130626.tar.bz2) = e49134aecb30fe81d62efa8b1a6e432e58fd4f92
+Size (openjdk7/openjdk-1.7.25-20130626.tar.bz2) = 51508647 bytes
 SHA1 (openjdk7/rhino1_7R3.zip) = 81f39d6e24529d62b23a6a92a1a09af95495d7c1
 RMD160 (openjdk7/rhino1_7R3.zip) = 3fdc3e1540d0fa35ba7dec1bf34a70b0d41cedd0
 Size (openjdk7/rhino1_7R3.zip) = 4651597 bytes

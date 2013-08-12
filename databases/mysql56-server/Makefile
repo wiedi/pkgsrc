@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.6 2013/06/04 18:17:25 adam Exp $
+# $NetBSD: Makefile,v 1.9 2013/07/31 09:51:38 adam Exp $
 
 PKGNAME=	${DISTNAME:S/-/-server-/}
 SVR4_PKGNAME=	mysqs
@@ -85,6 +85,5 @@ CXXFLAGS+=		-D_POSIX_C_SOURCE=199506L -D__EXTENSIONS__
 
 BUILDLINK_AUTO_DIRS.mysql-client=	no
 .include "../../databases/mysql56-client/buildlink3.mk"
-.include "../../devel/readline/buildlink3.mk"
 .include "../../security/tcp_wrappers/buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"

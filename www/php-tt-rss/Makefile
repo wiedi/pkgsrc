@@ -1,7 +1,7 @@
-# $NetBSD: Makefile,v 1.4 2013/06/09 04:24:11 ryoon Exp $
+# $NetBSD: Makefile,v 1.6 2013/07/23 10:56:01 ryoon Exp $
 #
 
-TTRVER=		1.7.9
+TTRVER=		1.9
 DISTNAME=	Tiny-Tiny-RSS-${TTRVER}
 PKGNAME=	${PHP_PKG_PREFIX}-tt-rss-${TTRVER}
 CATEGORIES=	www
