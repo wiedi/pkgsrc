@@ -52,5 +52,6 @@ do-install:
 	${FIND} ${DESTDIR}${INSTDIR} -name '*.orig' | ${XARGS} ${RM} -f
 
 .include "../../mk/apache.mk"
+.include "../../mk/mysql.buildlink3.mk"
 .include "../../lang/php/phpversion.mk"
 .include "../../mk/bsd.pkg.mk"

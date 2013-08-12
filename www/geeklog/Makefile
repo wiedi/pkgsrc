@@ -121,5 +121,6 @@ do-install:
 	cd ${WRKSRC}/public_html; pax -rw . ${DESTDIR}${PREFIX}/${GEEKLOG_PUB}
 
 .include "../../mk/apache.mk"
+.include "../../mk/mysql.buildlink3.mk"
 .include "../../lang/php/phpversion.mk"
 .include "../../mk/bsd.pkg.mk"

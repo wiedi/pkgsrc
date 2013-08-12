@@ -19,6 +19,7 @@ DEPENDS+=	${PHP_PKG_PREFIX}-pgsql-[0-9]*:../../databases/php-pgsql
 ###
 ### Use MySQL for storing Drupal data
 ###
+.include "../../mk/mysql.buildlink3.mk"
 DEPENDS+=	${PHP_PKG_PREFIX}-${MYSQL_PKG_PREFIX}>=4.3.3:../../databases/php-mysql
 .endif
 
