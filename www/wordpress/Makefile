@@ -39,7 +39,7 @@ OWN_DIRS_PERMS+=	${WPHOME}/wp-content/uploads \
 
 INSTALLATION_DIRS+=	${DOCDIR} ${WPHOME} ${EGDIR}
 
-DEPENDS+=		${PHP_PKG_PREFIX}-mysql>=4.3.3:../../databases/php-mysql
+DEPENDS+=		${PHP_PKG_PREFIX}-${MYSQL_PKG_PREFIX}>=4.3.3:../../databases/php-mysql
 
 do-install:
 	${INSTALL_DATA} ${WRKSRC}/readme.html ${DESTDIR}${DOCDIR}
