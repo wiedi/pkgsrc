@@ -85,6 +85,5 @@ CXXFLAGS+=		-D_POSIX_C_SOURCE=199506L -D__EXTENSIONS__
 
 BUILDLINK_AUTO_DIRS.mysql-client=	no
 .include "../../databases/mysql56-client/buildlink3.mk"
-.include "../../devel/readline/buildlink3.mk"
 .include "../../security/tcp_wrappers/buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"
