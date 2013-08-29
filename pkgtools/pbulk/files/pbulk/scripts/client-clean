@@ -20,8 +20,6 @@ fi
 # Clean build system first
 rm -rf ${cur_destdir}${prefix} ${cur_destdir}${pkgdb} 2> /dev/null || true
 rm -rf ${cur_destdir}${varbase}/qmail 2> /dev/null || true
-# XXX: hardcoded
-rm -rf ${cur_destdir}/home/pbulk/build 2> /dev/null || true
 # Note: It is not an error if ${prefix} still exists at this point,
 # because it might be a mount point.
 
