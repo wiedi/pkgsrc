@@ -413,9 +413,6 @@ check_already_installed(struct pkg_task *pkg)
 		return 1;
 	}
 
-	if (Force)
-		return 1;
-
 	/* We can only arrive here for explicitly requested packages. */
 	if (!Automatic && is_automatic_installed(pkg->pkgname)) {
 		if (Fake ||
