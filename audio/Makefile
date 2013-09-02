@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.486 2013/07/02 12:04:57 rodent Exp $
+# $NetBSD: Makefile,v 1.488 2013/08/21 15:28:03 drochner Exp $
 #
 
 COMMENT=	Audio tools
@@ -42,6 +42,7 @@ SUBDIR+=	bladeenc
 SUBDIR+=	blop
 SUBDIR+=	bml
 SUBDIR+=	bmp
+SUBDIR+=	bmp-crossfade
 SUBDIR+=	bmp-esound
 SUBDIR+=	bmp-flac
 SUBDIR+=	bmp-mac
@@ -354,6 +355,7 @@ SUBDIR+=	py-audiotools
 SUBDIR+=	py-beets
 SUBDIR+=	py-cddb
 SUBDIR+=	py-daap
+SUBDIR+=	py-discogs_client
 SUBDIR+=	py-dynampd
 SUBDIR+=	py-id3
 SUBDIR+=	py-id3lib

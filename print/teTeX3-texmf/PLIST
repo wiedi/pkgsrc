@@ -1,4 +1,4 @@
-@comment $NetBSD: PLIST,v 1.36 2012/11/16 14:39:45 jaapb Exp $
+@comment $NetBSD: PLIST,v 1.38 2013/08/25 10:50:42 tron Exp $
 share/texmf-dist/aliases
 share/texmf-dist/bibtex/bst/adrconv/adrconv.bst
 share/texmf-dist/bibtex/bst/adrconv/adrfax.bst
@@ -6457,8 +6457,6 @@ share/texmf-dist/tex/latex/mwcls/mwbk10.clo
 share/texmf-dist/tex/latex/mwcls/mwbk11.clo
 share/texmf-dist/tex/latex/mwcls/mwbk12.clo
 share/texmf-dist/tex/latex/mwcls/mwrep.cls
-share/texmf-dist/tex/latex/ntheorem/ntheorem.std
-share/texmf-dist/tex/latex/ntheorem/ntheorem.sty
 share/texmf-dist/tex/latex/oberdiek/vpe.sty
 share/texmf-dist/tex/latex/onlyamsmath/onlyamsmath.sty
 share/texmf-dist/tex/latex/overpic/overpic.sty

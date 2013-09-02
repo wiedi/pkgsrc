@@ -1,4 +1,4 @@
-# $NetBSD: phpversion.mk,v 1.38 2013/07/29 16:38:12 taca Exp $
+# $NetBSD: phpversion.mk,v 1.43 2013/08/23 03:12:49 taca Exp $
 #
 # This file selects a PHP version, based on the user's preferences and
 # the installed packages. It does not add a dependency on the PHP
@@ -82,8 +82,8 @@ PHPVERSION_MK=	defined
 
 # Define each PHP's version.
 PHP53_VERSION=	5.3.27
-PHP54_VERSION=	5.4.17
-PHP55_VERSION=	5.5.1
+PHP54_VERSION=	5.4.19
+PHP55_VERSION=	5.5.3
 
 # Define initial release of major version.
 PHP53_RELDATE=	20090630
@@ -166,7 +166,7 @@ PKG_PHP_MAJOR_VERS:=	5
 PHP_CHECK_INSTALLED?=	Yes
 
 # if installed PHP isn't compatible with required PHP, bail out
-.if !empty(PHP_CHECK_INSTALLED:M[nN][oO])
+.if empty(PHP_CHECK_INSTALLED:M[nN][oO])
 .if defined(_PHP_INSTALLED) && !defined(_PHP_VERSION_${_PHP_VERSION}_INSTALLED)
 PKG_SKIP_REASON+=	"Package accepts ${PKG_PHP}, but different version is installed"
 .endif

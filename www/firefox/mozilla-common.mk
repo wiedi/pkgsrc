@@ -1,4 +1,4 @@
-# $NetBSD: mozilla-common.mk,v 1.10 2013/08/10 08:56:17 ryoon Exp $
+# $NetBSD: mozilla-common.mk,v 1.14 2013/08/29 20:49:26 martin Exp $
 #
 # common Makefile fragment for mozilla packages based on gecko 2.0.
 #
@@ -13,10 +13,15 @@ USE_LANGUAGES+=		c99 c++
 UNLIMIT_RESOURCES+=	datasize
 
 .include "../../mk/bsd.prefs.mk"
+.include "../../mk/endian.mk"
 # gcc45-4.5.3 of lang/gcc45 does not generate proper binary,
 # but gcc 4.5.4 of NetBSD 7 generates working binary.
 .if !empty(MACHINE_PLATFORM:MNetBSD-5.*)
 GCC_REQD+=		4.6
+.  if ${MACHINE_ARCH} == "i386"
+# Fix for PR pkg/48152.
+CPPFLAGS+=		-march=i486
+.  endif
 .else
 GCC_REQD+=		4.5
 .endif
@@ -93,7 +98,18 @@ SUBST_MESSAGE.python=	Fixing path to python.
 SUBST_FILES.python+=	media/webrtc/trunk/build/common.gypi
 SUBST_SED.python+=	-e 's,<!(python,<!(${PYTHONBIN},'
 
-PLIST_VARS+=	sps vorbis tremor
+PLIST_VARS+=	sps vorbis tremor glskia throwwrapper
+
+.if ${MACHINE_ENDIAN} == "little"
+PLIST.glskia=	yes
+.endif
+
+.if ${MACHINE_ARCH} != "sparc64"
+# For some reasons the configure test for GCC bug 26905 still triggers on
+# sparc64, which makes mozilla skip the installation of a few wrapper headers.
+# Other archs end up with one additional file in the SDK headers
+PLIST.throwwrapper=	yes
+.endif
 
 .if !empty(MACHINE_PLATFORM:S/i386/x86/:MLinux-*-x86*)
 PLIST.sps=	yes
