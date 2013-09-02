@@ -1,4 +1,4 @@
-@comment $NetBSD: PLIST,v 1.2 2013/06/27 16:17:55 taca Exp $
+@comment $NetBSD: PLIST,v 1.4 2013/08/27 16:08:03 taca Exp $
 ${CT_WEBDIR}/.gitignore
 ${CT_WEBDIR}/README.md
 ${CT_WEBDIR}/assets/ace/1.0.01/ace.js
@@ -721,6 +721,8 @@ ${CT_WEBDIR}/assets/tinymce/plugins/typolinks/js/typobox.js
 ${CT_WEBDIR}/assets/tinymce/plugins/typolinks/js/typobox_src.js
 ${CT_WEBDIR}/assets/tinymce/plugins/typolinks/js/typolinks.js
 ${CT_WEBDIR}/assets/tinymce/plugins/typolinks/js/typolinks_src.js
+${CT_WEBDIR}/assets/tinymce/plugins/typolinks/langs/cs.js
+${CT_WEBDIR}/assets/tinymce/plugins/typolinks/langs/cs_dlg.js
 ${CT_WEBDIR}/assets/tinymce/plugins/typolinks/langs/da.js
 ${CT_WEBDIR}/assets/tinymce/plugins/typolinks/langs/da_dlg.js
 ${CT_WEBDIR}/assets/tinymce/plugins/typolinks/langs/de.js
@@ -985,6 +987,7 @@ ${CT_WEBDIR}/share/index.php
 ${CT_WEBDIR}/system/.htaccess
 ${CT_WEBDIR}/system/bin/minify
 ${CT_WEBDIR}/system/bin/yuicompressor-2.4.6.jar
+${CT_WEBDIR}/system/config/default.php
 ${CT_WEBDIR}/system/cron/.htaccess
 ${CT_WEBDIR}/system/cron/cron.php
 ${CT_WEBDIR}/system/docs/CHANGELOG.md

@@ -1,8 +1,9 @@
-# $NetBSD: Makefile,v 1.27 2013/05/14 09:57:58 fhajny Exp $
+# $NetBSD: Makefile,v 1.29 2013/09/01 12:14:07 obache Exp $
 #
 
 DISTNAME=		tables-2.4.0
 PKGNAME=		${PYPKGPREFIX}-py${DISTNAME}
+PKGREVISION=		1
 CATEGORIES=		math python
 MASTER_SITES=		${MASTER_SITE_SOURCEFORGE:=pytables/}
 
@@ -21,6 +22,8 @@ PYSETUPBUILDARGS=	--hdf5=${BUILDLINK_PREFIX.hdf5}
 .if !empty(PKG_OPTIONS:Mlzo)
 PYSETUPBUILDARGS+=	--lzo=${BUILDLINK_PREFIX.lzo}
 .include "../../archivers/lzo/buildlink3.mk"
+.else
+PYSETUPBUILDARGS+=	--lzo=XXX
 .endif
 PYSETUPINSTALLARGS=	${PYSETUPBUILDARGS}
 PLIST_SUBST+=		PYVERSSUFFIX=${PYVERSSUFFIX:Q}

@@ -1,8 +1,8 @@
-$NetBSD: distinfo,v 1.109 2013/08/07 12:17:54 ryoon Exp $
+$NetBSD: distinfo,v 1.112 2013/08/22 21:19:00 joerg Exp $
 
-SHA1 (firefox-23.0.source.tar.bz2) = 31936d2ddb727640c96a3ae697bf145c42a2a20e
-RMD160 (firefox-23.0.source.tar.bz2) = f0a2861b299f956a6ec61f18d6d14a3258023131
-Size (firefox-23.0.source.tar.bz2) = 115821591 bytes
+SHA1 (firefox-23.0.1.source.tar.bz2) = 937bcd41aa316afff60b04fa4813f59bb9608631
+RMD160 (firefox-23.0.1.source.tar.bz2) = 524f2c2872c39f0496ead812675d84ece1c394ee
+Size (firefox-23.0.1.source.tar.bz2) = 115727982 bytes
 SHA1 (patch-aa) = 25ec9ff7f812957f731aa95733624765630844f3
 SHA1 (patch-ak) = 971ddb1f12b14bcee604c9d7e72da5e7bf47d9be
 SHA1 (patch-al) = 553c6042a98e4b381a46eec50c02cff349d88bd2
@@ -52,6 +52,7 @@ SHA1 (patch-ipc_glue_AsyncChannel.cpp) = 0185791ada8e903943bcd245376486315b1c651
 SHA1 (patch-ipc_glue_GeckoChildProcessHost.cpp) = fe9ac2d0af8dd4757c93f50e6f74a31697f7e23c
 SHA1 (patch-ipc_ipdl_ipdl_lower.py) = 4025c0a4e149d9b2087331e10b342734fa77a905
 SHA1 (patch-js__public__HeapAPI.h) = 8dc656293d75c92118c19b0fe070542f534bebd4
+SHA1 (patch-js__public__Value.h) = 38892a07c475001bcda87700f50504cb6a3dcedb
 SHA1 (patch-js__src__gc__Marking.cpp) = f2ee6320b2c7c9a4374c0cbb844ae6368ad03a13
 SHA1 (patch-js__src__gc__Memory.cpp) = 905b99349d6c40b402b52cac53b4d9afa732b13a
 SHA1 (patch-js__src__gc__Memory.h) = 4496889c2aa7417fa4e02236dfe0ef39069d436a
@@ -136,6 +137,7 @@ SHA1 (patch-pg) = 7037f30166162bbccbdedd34e95a71723d26d24a
 SHA1 (patch-rc) = 2733724442a2cb49c5091146fd7e6001af686121
 SHA1 (patch-security_manager_ssl_src_nsNSSComponent.cpp) = 15e9466d60e60f93a27fe23aadfea6e1d59ad0bc
 SHA1 (patch-toolkit_library_Makefile.in) = 0c91d647f0f3a4653d39f11c9d8fd63611235932
+SHA1 (patch-toolkit_mozapps_update_updater_updater.cpp) = 6936e5408fc7f0110768f3fc8f27506c0e7879fa
 SHA1 (patch-toolkit_toolkit.mozbuild) = 07e87d977cee59c0f5a5d14a8d41dc2a4230c01e
 SHA1 (patch-toolkit_xre_nsEmbedFunctions.cpp) = 6ee6fba04a3ecc6596f8aed67f752a1075901fa8
 SHA1 (patch-xb) = 30eea880b40cee45d1235d3292fead4b5a54bbaa

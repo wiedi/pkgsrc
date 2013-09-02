@@ -1,4 +1,4 @@
-@comment $NetBSD: PLIST,v 1.68 2013/08/07 12:17:54 ryoon Exp $
+@comment $NetBSD: PLIST,v 1.70 2013/08/29 18:48:25 martin Exp $
 bin/firefox
 include/firefox/AbstractMediaDecoder.h
 include/firefox/AccEvent.h
@@ -58,7 +58,7 @@ include/firefox/FramePropertyTable.h
 include/firefox/GLContext.h
 include/firefox/GLContextProvider.h
 include/firefox/GLContextProviderImpl.h
-include/firefox/GLContextSkia.h
+${PLIST.glskia}include/firefox/GLContextSkia.h
 include/firefox/GLContextSymbols.h
 include/firefox/GLContextTypes.h
 include/firefox/GLDefs.h
@@ -1303,7 +1303,7 @@ include/firefox/mozilla/storage/StatementCache.h
 include/firefox/mozilla/storage/Variant.h
 include/firefox/mozilla/storage/Variant_inl.h
 include/firefox/mozilla/threads/nsThreadIDs.h
-include/firefox/mozilla/throw_gcc.h
+${PLIST.throwwrapper}include/firefox/mozilla/throw_gcc.h
 include/firefox/mozilla/unused.h
 include/firefox/mozpngconf.h
 include/firefox/necko-config.h

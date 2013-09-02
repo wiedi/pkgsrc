@@ -1,6 +1,6 @@
-# $NetBSD: Makefile,v 1.112 2013/08/02 18:24:18 adam Exp $
+# $NetBSD: Makefile,v 1.114 2013/08/31 19:32:02 adam Exp $
 
-PKGNAME=	ffmpeg-20130728.${DISTVERSION}
+PKGNAME=	ffmpeg-20130827.${DISTVERSION}
 MAINTAINER=	pkgsrc-users@NetBSD.org
 HOMEPAGE=	http://ffmpeg.mplayerhq.hu/
 COMMENT=	Decoding, encoding and streaming software
@@ -43,14 +43,13 @@ post-install:
 # no alignment options needed for gcc >= 4.6 on i386
 .if ${MACHINE_ARCH} == "i386"
 .  if !empty(MACHINE_PLATFORM:MDarwin-*-i386) \
-   || !empty(MACHINE_PLATFORM:MSunOS-*-i386)
+   || !empty(MACHINE_PLATFORM:MSunOS-*-i386) \
+   || !empty(CC_VERSION:Mgcc-[123]*) \
+   || !empty(CC_VERSION:Mgcc-4.[01]*) \
+   ||  empty(CC_VERSION:Mgcc*)
 CONFIGURE_ARGS+=	--disable-asm
 .  elif !empty(CC_VERSION:Mgcc-4.[2345]*)
 CFLAGS+=		-mstackrealign -mpreferred-stack-boundary=4
-.  elif !empty(CC_VERSION:Mgcc-[123]*) \
-     || !empty(CC_VERSION:Mgcc-4.[01]*) \
-     || empty(CC_VERSION:Mgcc*)
-CONFIGURE_ARGS+=	--disable-asm
 .  endif
 .endif
 
