@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.1767 2013/07/29 16:44:09 taca Exp $
+# $NetBSD: Makefile,v 1.1771 2013/08/26 10:00:49 abs Exp $
 #
 
 COMMENT=	Development utilities
@@ -17,6 +17,7 @@ SUBDIR+=	Renaissance
 SUBDIR+=	SDL
 SUBDIR+=	SDL-intro-en
 SUBDIR+=	SDL-intro-ko
+SUBDIR+=	SDL2
 SUBDIR+=	SDL_Pango
 SUBDIR+=	SDL_gfx
 SUBDIR+=	SDL_ttf
@@ -370,6 +371,7 @@ SUBDIR+=	libinotify
 SUBDIR+=	libixp
 SUBDIR+=	libjit
 SUBDIR+=	libjudy
+SUBDIR+=	liblangtag
 SUBDIR+=	libltdl
 SUBDIR+=	libmaa
 SUBDIR+=	libmatchbox
@@ -685,6 +687,7 @@ SUBDIR+=	p5-Data-ShowTable
 SUBDIR+=	p5-Data-Taxi
 SUBDIR+=	p5-Data-TemporaryBag
 SUBDIR+=	p5-Data-UUID
+SUBDIR+=	p5-Data-Uniqid
 SUBDIR+=	p5-Data-Visitor
 SUBDIR+=	p5-Date-Business
 SUBDIR+=	p5-Date-Calc
@@ -1411,6 +1414,7 @@ SUBDIR+=	py-mock
 SUBDIR+=	py-msgpack
 SUBDIR+=	py-multiprocessing
 SUBDIR+=	py-nose
+SUBDIR+=	py-open-vcdiff
 SUBDIR+=	py-ordereddict
 SUBDIR+=	py-pep8
 SUBDIR+=	py-pexpect

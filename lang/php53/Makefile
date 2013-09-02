@@ -1,10 +1,10 @@
-# $NetBSD: Makefile,v 1.41 2013/07/29 16:19:24 taca Exp $
+# $NetBSD: Makefile,v 1.43 2013/08/14 15:42:56 taca Exp $
 
 #
 # We can't omit PKGNAME here to handle PKG_OPTIONS.
 #
 PKGNAME=		php-${PHP_BASE_VERS}
-PKGREVISION=		1
+PKGREVISION=		2
 CATEGORIES=		lang
 
 HOMEPAGE=		http://www.php.net/
@@ -16,6 +16,8 @@ TEST_TARGET=		test
 USE_TOOLS+=		gmake lex pkg-config
 LIBTOOL_OVERRIDE=	# empty
 PHP_CHECK_INSTALLED=	No
+
+PHP_VERSIONS_ACCEPTED?=		53
 
 .include "Makefile.php"
 
