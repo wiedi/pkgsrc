@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.738 2013/07/21 12:15:29 richard Exp $
+# $NetBSD: Makefile,v 1.740 2013/08/26 00:56:32 wen Exp $
 #
 
 COMMENT=	Text processing utilities (does not include desktop publishing)
@@ -294,6 +294,7 @@ SUBDIR+=	libexttextcat
 SUBDIR+=	liblinebreak
 SUBDIR+=	liblrdf
 SUBDIR+=	libnxml
+SUBDIR+=	libodfgen
 SUBDIR+=	libplist
 SUBDIR+=	libunicode
 SUBDIR+=	libunistring
@@ -394,6 +395,7 @@ SUBDIR+=	p5-Pod-Elemental
 SUBDIR+=	p5-Pod-Elemental-PerlMunger
 SUBDIR+=	p5-Pod-Escapes
 SUBDIR+=	p5-Pod-Eventual
+SUBDIR+=	p5-Pod-Markdown
 SUBDIR+=	p5-Pod-POM
 SUBDIR+=	p5-Pod-Parser
 SUBDIR+=	p5-Pod-Readme

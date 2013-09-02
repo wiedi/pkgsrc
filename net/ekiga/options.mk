@@ -1,4 +1,4 @@
-# $NetBSD: options.mk,v 1.2 2013/05/11 20:11:38 riastradh Exp $
+# $NetBSD: options.mk,v 1.4 2013/08/16 09:20:40 obache Exp $
 
 PKG_OPTIONS_VAR=	PKG_OPTIONS.ekiga
 PKG_SUPPORTED_OPTIONS+= avahi dbus evolution-data-server gconf gnome notify

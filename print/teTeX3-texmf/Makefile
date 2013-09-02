@@ -1,9 +1,8 @@
-# $NetBSD: Makefile,v 1.61 2012/11/16 14:39:45 jaapb Exp $
-#
+# $NetBSD: Makefile,v 1.63 2013/08/25 10:50:42 tron Exp $
 
 DISTNAME=	tetex-texmf-3.0
 PKGNAME=	${DISTNAME:C/tetex/teTeX/}
-PKGREVISION=	39
+PKGREVISION=	41
 CATEGORIES=	print
 MASTER_SITES=	${MASTER_SITE_TEX_CTAN:=obsolete/systems/unix/teTeX/3.0/distrib/}
 
@@ -131,6 +130,7 @@ DEPENDS+=	tex-needspace-[0-9]*:../../print/tex-needspace
 DEPENDS+=	tex-nextpage-[0-9]*:../../print/tex-nextpage
 DEPENDS+=	tex-nomencl-[0-9]*:../../print/tex-nomencl
 DEPENDS+=	tex-ntgclass-[0-9]*:../../print/tex-ntgclass
+DEPENDS+=	tex-ntheorem-[0-9]*:../../print/tex-ntheorem
 DEPENDS+=	tex-oubraces-[0-9]*:../../print/tex-oubraces
 DEPENDS+=	tex-paralist-[0-9]*:../../print/tex-paralist
 DEPENDS+=	tex-pdfpages-[0-9]*:../../print/tex-pdfpages
@@ -514,6 +514,7 @@ post-extract:
 	rm -rf ${WRKSRC}/tex/latex/multirow
 	rm -rf ${WRKSRC}/tex/latex/n[a-s]*
 	rm -rf ${WRKSRC}/tex/latex/ntgclass
+	rm -rf ${WRKSRC}/tex/latex/ntheorem
 	rm -f ${WRKSRC}/tex/latex/oberdiek/[a-u]*
 	rm -rf ${WRKSRC}/tex/latex/optional
 	rm -rf ${WRKSRC}/tex/latex/par*
