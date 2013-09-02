@@ -16,6 +16,7 @@ PKG_INSTALLATION_TYPES=	overwrite pkgviews
 
 USE_TOOLS+=	bash:run gmake lex pax perl
 USE_FEATURES=	snprintf
+USE_GCC_RUNTIME=yes
 USE_MULTIARCH=	lib
 
 INSTALL_TARGET=	install-dev install-run

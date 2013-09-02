@@ -14,6 +14,7 @@ EXTRACT_ELEMENTS=	${PYSUBDIR}/Modules/_elementtree.c
 
 MULTIARCH_DIRS.lib=	${PYLIB}/lib-dynload
 
+USE_GCC_RUNTIME=yes
 USE_TOOLS+=	patch
 
 PYDISTUTILSPKG=	yes
