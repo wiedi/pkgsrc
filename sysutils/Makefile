@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.580 2013/07/06 01:00:01 rodent Exp $
+# $NetBSD: Makefile,v 1.584 2013/08/28 11:43:42 jperkin Exp $
 #
 
 COMMENT=	System utilities
@@ -37,6 +37,7 @@ SUBDIR+=	boxbackup-client
 SUBDIR+=	boxbackup-server
 SUBDIR+=	brasero
 SUBDIR+=	brasero-nautilus
+SUBDIR+=	bsdinstall
 SUBDIR+=	bsign
 SUBDIR+=	btpin-qt
 SUBDIR+=	bubblemon
@@ -261,7 +262,6 @@ SUBDIR+=	libgksu
 SUBDIR+=	libgtop
 SUBDIR+=	libirman
 SUBDIR+=	libnotify
-SUBDIR+=	libnotify07
 SUBDIR+=	libol
 SUBDIR+=	liboobs
 SUBDIR+=	libpciaccess
@@ -302,6 +302,7 @@ SUBDIR+=	munin-node
 SUBDIR+=	munin-server
 SUBDIR+=	nautilus
 SUBDIR+=	nautilus-sendto
+SUBDIR+=	ncdu
 SUBDIR+=	ndesk-dbus
 SUBDIR+=	ndesk-dbus-glib
 SUBDIR+=	neb-wipe
@@ -381,6 +382,7 @@ SUBDIR+=	ruby-activesambaldap
 SUBDIR+=	ruby-directory-watcher
 SUBDIR+=	ruby-facter
 SUBDIR+=	ruby-fssm
+SUBDIR+=	ruby-libnotify
 SUBDIR+=	ruby-notify
 SUBDIR+=	ruby-quota
 SUBDIR+=	ruby-rb-appscript

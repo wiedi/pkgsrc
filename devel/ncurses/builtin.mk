@@ -1,10 +1,14 @@
-# $NetBSD: builtin.mk,v 1.31 2011/02/28 11:02:46 adam Exp $
+# $NetBSD: builtin.mk,v 1.33 2013/08/21 14:27:30 richard Exp $
 
 BUILTIN_PKG:=	ncurses
+
+# what we really need for builtin on solaris is in /usr/gnu/lib
+#
 
 BUILTIN_FIND_LIBS:=		ncurses curses terminfo
 BUILTIN_FIND_FILES_VAR:=	H_NCURSES H_CURSES H_CURSES1
 BUILTIN_FIND_FILES.H_NCURSES=	/usr/include/ncurses.h /usr/include/curses.h
+#BUILTIN_FIND_FILES.H_NCURSES+=	/usr/include/ncurses/curses.h
 BUILTIN_FIND_FILES.H_NCURSES+=	/boot/develop/headers/3rdparty/curses.h
 BUILTIN_FIND_GREP.H_NCURSES=	\#define[ 	]*NCURSES_VERSION
 BUILTIN_FIND_FILES.H_CURSES=	/usr/include/ncurses.h /usr/include/curses.h

@@ -1,5 +1,5 @@
 #! @PERL@
-# $NetBSD: pkglint.pl,v 1.856 2013/05/26 18:09:24 wiz Exp $
+# $NetBSD: pkglint.pl,v 1.859 2013/09/01 05:30:15 obache Exp $
 #
 
 # pkglint - static analyzer and checker for pkgsrc packages
@@ -2527,6 +2527,13 @@ sub checkline_rcsid_regex($$$) {
 
 	if ($line->text !~ m"^${prefix_regex}\$(${id})(?::[^\$]+|)\$$") {
 		$line->log_error("\"${prefix}\$${opt_rcsidstring}\$\" expected.");
+		$line->explain_error(
+"Several files in pkgsrc must contain the CVS Id, so that their current",
+"version can be traced back later from a binary package. This is to",
+"ensure reproducible builds, for example for finding bugs.",
+"",
+"Please insert the text from the above error message (without the quotes)",
+"at this position in the file.");
 		return false;
 	}
 	return true;
@@ -4253,7 +4260,7 @@ sub checkline_mk_vartype_basic($$$$$$$$) {
 				$line->log_warning("${varname} must be a positive integer number.");
 			}
 			if ($line->fname !~ m"(?:^|/)Makefile$") {
-				$line->log_error("${varname} must not be set outside the package Makefile.");
+				$line->log_error("${varname} only makes sense directly in the package Makefile.");
 				$line->explain_error(
 "Usually, different packages using the same Makefile.common have",
 "different dependencies and will be bumped at different times (e.g. for",
@@ -4399,7 +4406,10 @@ sub checkline_mk_vartype_basic($$$$$$$$) {
 		},
 
 		Tool => sub {
-			if ($value =~ m"^([-\w]+|\[)(?::(\w+))?$") {
+			if ($varname eq "TOOLS_NOOP" && $op eq "+=") {
+				# no warning for package-defined tool definitions
+
+			} elsif ($value =~ m"^([-\w]+|\[)(?::(\w+))?$") {
 				my ($toolname, $tooldep) = ($1, $2);
 				if (!exists(get_tool_names()->{$toolname})) {
 					$line->log_error("Unknown tool \"${toolname}\".");
@@ -4964,6 +4974,7 @@ sub checklines_package_Makefile_varorder($) {
 		[ "Dependencies", optional,
 			[
 				[ "BUILD_DEPENDS", many ],
+				[ "TOOL_DEPENDS", many ],
 				[ "DEPENDS", many ],
 			]
 		]
@@ -6142,7 +6153,7 @@ sub checkfile_package_Makefile($$) {
 	}
 
 	if (!exists($pkgctx_vardef->{"LICENSE"})) {
-		log_error($fname, NO_LINE_NUMBER, "All packages must define their LICENSE.");
+		log_error($fname, NO_LINE_NUMBER, "Each package must define its LICENSE.");
 	}
 
 	if (exists($pkgctx_vardef->{"GNU_CONFIGURE"}) && exists($pkgctx_vardef->{"USE_LANGUAGES"})) {
@@ -6230,6 +6241,9 @@ sub checkfile_package_Makefile($$) {
 
 			if (dewey_cmp($effective_pkgversion, "<", $suggver)) {
 				$effective_pkgname_line->log_warning("This package should be updated to ${suggver}${comment}.");
+				$effective_pkgname_line->explain_warning(
+"The wishlist for package updates in doc/TODO mentions that a newer",
+"version of this package is available.");
 			}
 			if (dewey_cmp($effective_pkgversion, "==", $suggver)) {
 				$effective_pkgname_line->log_note("The update request to ${suggver} from doc/TODO${comment} has been done.");
@@ -6281,6 +6295,16 @@ sub checkfile_patch($) {
 		CFA CH CHD CLD0 CLD CLA0 CLA
 		UFA UH UL
 	);
+
+	my @comment_explanation = (
+"Each patch must document why it is necessary. If it has been applied",
+"because of a security issue, a reference to the CVE should be mentioned",
+"as well.",
+"",
+"Since it is our goal to have as few patches as possible, all patches",
+"should be sent to the upstream maintainers of the package. After you",
+"have done so, you should add a reference to the bug report containing",
+"the patch.");
 
 	my ($line, $m);
 
@@ -6433,11 +6457,13 @@ sub checkfile_patch($) {
 		}], [PST_TEXT, re_patch_cfd, PST_CFA, sub() {
 			if (!$seen_comment) {
 				$line->log_error("Comment expected.");
+				$line->explain_error(@comment_explanation);
 			}
 			$line->log_warning("Please use unified diffs (diff -u) for patches.");
 		}], [PST_TEXT, re_patch_ufd, PST_UFA, sub() {
 			if (!$seen_comment) {
 				$line->log_error("Comment expected.");
+				$line->explain_error(@comment_explanation);
 			}
 		}], [PST_TEXT, re_patch_text, PST_TEXT, sub() {
 			$seen_comment = true;
@@ -6450,6 +6476,7 @@ sub checkfile_patch($) {
 				$opt_warn_space and $line->log_note("Empty line expected.");
 			} else {
 				$line->log_error("Comment expected.");
+				$line->explain_error(@comment_explanation);
 			}
 			$line->log_warning("Please use unified diffs (diff -u) for patches.");
 		}], [PST_CENTER, re_patch_ufd, PST_UFA, sub() {
@@ -6457,6 +6484,7 @@ sub checkfile_patch($) {
 				$opt_warn_space and $line->log_note("Empty line expected.");
 			} else {
 				$line->log_error("Comment expected.");
+				$line->explain_error(@comment_explanation);
 			}
 		}], [PST_CENTER, undef, PST_TEXT, sub() {
 			$opt_warn_space and $line->log_note("Empty line expected.");
@@ -6914,9 +6942,10 @@ sub checkfile_PLIST($) {
 			} elsif ($pkgpath ne "graphics/hicolor-icon-theme" && $text =~ m"^share/icons/hicolor(?:$|/)") {
 				my $f = "../../graphics/hicolor-icon-theme/buildlink3.mk";
 				if (defined($pkgctx_included) && !exists($pkgctx_included->{$f})) {
-					$line->log_error("Please .include \"$f\"");
+					$line->log_error("Please .include \"$f\" in the Makefile");
 					$line->explain_error(
-"If hicolor icon themes are installed, icon theme cache must be maintained.");
+"If hicolor icon themes are installed, icon theme cache must be",
+"maintained. The hicolor-icon-theme package takes care of that.");
 				}
 
 			} elsif ($pkgpath ne "graphics/gnome-icon-theme" && $text =~ m"^share/icons/gnome(?:$|/)") {
@@ -7147,12 +7176,14 @@ sub checkdir_root() {
 				next;
 			}
 
-			if (defined($prev_subdir) && $subdir eq $prev_subdir) {
-				$line->log_error("${subdir} must only appear once.");
-			} elsif (defined($prev_subdir) && $subdir lt $prev_subdir) {
-				$line->log_warning("${subdir} should come before ${prev_subdir}.");
-			} else {
+			if (!defined($prev_subdir) || $subdir gt $prev_subdir) {
 				# correctly ordered
+			} elsif ($subdir eq $prev_subdir) {
+				$line->log_error("${subdir} must only appear once.");
+			} elsif ($prev_subdir eq "x11" && $subdir eq "archivers") {
+				# ignore that one, since it is documented in the top-level Makefile
+			} else {
+				$line->log_warning("${subdir} should come before ${prev_subdir}.");
 			}
 
 			$prev_subdir = $subdir;

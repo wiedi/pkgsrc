@@ -1,4 +1,4 @@
-# $NetBSD: options.mk,v 1.3 2013/01/05 12:17:56 obache Exp $
+# $NetBSD: options.mk,v 1.5 2013/08/16 09:20:40 obache Exp $
 
 PKG_OPTIONS_VAR=	PKG_OPTIONS.gnome-mplayer
 PKG_SUPPORTED_OPTIONS=	gnome musicbrainz libgpod
