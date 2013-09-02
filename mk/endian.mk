@@ -16,6 +16,8 @@
 
 .include "../../mk/bsd.prefs.mk"
 
+.include "../../mk/compiler.mk"
+
 .if !defined(MACHINE_ENDIAN)
 .  if exists(/usr/include/endian.h)
 _ENDIAN_H=	endian.h			# Linux
@@ -41,7 +43,7 @@ MACHINE_ENDIAN!=							\
 	  ${ECHO} "\#define BYTE_ORDER 1234";				\
 	  ${ECHO} "\#endif";						\
 	  ${ECHO} "\#endif";						\
-	  ${ECHO} "BYTE_ORDER"; } | ${CC} -E - |			\
+	  ${ECHO} "BYTE_ORDER"; } | ${CCPATH} -E - |			\
 	{ while read line; do						\
 		case $$line in						\
 		1234)	${ECHO} "little"; exit 0 ;;			\
