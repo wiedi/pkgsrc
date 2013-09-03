@@ -64,7 +64,7 @@ ${DESTDIR}${PREFIX}/${SMF_METHOD_FILE}:
 
 .PHONY: smf-message
 smf-message:
-	@${STEP_MSG} "Generating SMF manifest/method files for ${PKGNAME}"
+	@${STEP_MSG} "Generating SMF files for ${PKGNAME}"
 
 post-install: smf-message ${SMF_TARGETS}
 .  endif
