@@ -503,9 +503,10 @@ _INSTALL_FILES_DATAFILE=	${_PKGINSTALL_DIR}/files-data
 _INSTALL_UNPACK_TMPL+=		${_INSTALL_FILES_FILE}
 _INSTALL_DATA_TMPL+=		${_INSTALL_FILES_DATAFILE}
 
+# Only generate init scripts if we are using rc.d
 _INSTALL_RCD_SCRIPTS=	# empty
 
-.if ${INIT_SERVICE} == "rc.d"
+.if ${INIT_SYSTEM} == "rc.d"
 _INSTALL_RCD_SCRIPTS=	${RCD_SCRIPTS}
 .endif
 

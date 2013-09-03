@@ -39,7 +39,7 @@ MOTIF_TYPE_DEFAULT?=	motif
 
 # Use SMF by default from Solaris 10
 .if ${OS_VERSION} >= 5.10
-INIT_SERVICE_DEFAULT?=	smf
+INIT_SYSTEM_DEFAULT?=	smf
 .endif
 
 # Comes with a builtin implementation based on mit-krb5
