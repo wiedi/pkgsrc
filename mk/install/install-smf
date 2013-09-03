@@ -1,35 +1,28 @@
 case ${STAGE} in
 POST-INSTALL)
 	cat <<EOF
-//////////////////////////////////////////////////////////////////////////////
+===========================================================================
+This package is SMF enabled.  You may use svcadm(1M) to 'enable', 'disable'
+or 'restart' the service, for example:
 
-This package is SMF enabled, which means you can use SMF to 'enable',
-'disable' or 'restart' the persistent daemon process, e.g.:
+	/usr/sbin/svcadm enable svc:/@SMF_PREFIX@/@SMF_NAME@:@SMF_INSTANCE@
 
-  svcadm enable @SMF_NAME@:@SMF_INSTANCE@
-
+Use svcs(1) to check on service status.  See smf(5) for more information.
 EOF
 	if [ -z "${PKG_SKIP_SMF}" ]; then
-	  /usr/sbin/svccfg import ${PKG_PREFIX}/@SMF_MANIFEST_FILE@
-	  cat <<EOF
-The SMF manifest was automatically imported now.
-
-EOF
+		/usr/sbin/svccfg import ${PKG_PREFIX}/@SMF_MANIFEST_FILE@
 	else
-	  cat <<EOF
-PKG_SKIP_SMF variable detected, automatic import of SMF manifests was skipped.
-You must import the SMF manifest first:
+		cat <<EOF
 
-  /usr/sbin/svccfg import ${PKG_PREFIX}/@SMF_MANIFEST_FILE@
+The PKG_SKIP_SMF variable was set, automatic import of SMF manifests was
+skipped.  You must import the SMF manifest first:
+
+	/usr/sbin/svccfg import ${PKG_PREFIX}/@SMF_MANIFEST_FILE@
 
 EOF
 	fi
 	cat <<EOF
-See our wiki on what's SMF and how to use it to your advantage:
-
-  http://wiki.joyent.com/display/smart/About+the+Service+Management+Facility
-
-//////////////////////////////////////////////////////////////////////////////
+===========================================================================
 EOF
 	;;
 esac

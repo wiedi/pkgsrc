@@ -37,6 +37,11 @@ MOTIF_TYPE_DEFAULT?=	dt		# default 2.0 compatible libs type
 MOTIF_TYPE_DEFAULT?=	motif
 .endif
 
+# Use SMF by default from Solaris 10
+.if ${OS_VERSION} >= 5.10
+INIT_SERVICE_DEFAULT?=	smf
+.endif
+
 # Comes with a builtin implementation based on mit-krb5
 KRB5_DEFAULT?=		mit-krb5
 
