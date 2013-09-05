@@ -11,6 +11,7 @@ COMMENT=	Portable multi-buffered tape streaming utility
 INSTALLATION_DIRS=	bin ${PKGMANDIR}/cat1 ${PKGMANDIR}/man1
 
 USE_BSD_MAKEFILE=	yes
+USE_TOOLS=		nroff
 
 PLIST_SRC=	${WRKDIR}/PLIST
 

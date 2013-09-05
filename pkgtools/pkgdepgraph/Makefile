@@ -53,7 +53,11 @@ do-build:
 do-install:
 	${INSTALL_SCRIPT} ${WRKSRC}/pkgdepgraph ${DESTDIR}${PREFIX}/bin/pkgdepgraph
 .if !empty(MANINSTALL:Mcatinstall)
+.  if defined(CATMAN_SECTION_SUFFIX) && !empty(CATMAN_SECTION_SUFFIX:M[Yy][Ee][Ss])
+	${INSTALL_MAN} ${WRKSRC}/pkgdepgraph.0 ${DESTDIR}${PREFIX}/${PKGMANDIR}/cat1/pkgdepgraph.1
+.  else
 	${INSTALL_MAN} ${WRKSRC}/pkgdepgraph.0 ${DESTDIR}${PREFIX}/${PKGMANDIR}/cat1
+.  endif
 .endif
 .if !empty(MANINSTALL:Mmaninstall)
 	${INSTALL_MAN} ${WRKSRC}/pkgdepgraph.1 ${DESTDIR}${PREFIX}/${PKGMANDIR}/man1

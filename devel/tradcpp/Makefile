@@ -11,6 +11,7 @@ COMMENT=	Traditional (K&R-style) C preprocessor
 LICENSE=	modified-bsd
 
 USE_BSD_MAKEFILE=	yes
+USE_TOOLS=		nroff
 INSTALLATION_DIRS=	bin ${PKGMANDIR}/cat1 ${PKGMANDIR}/man1
 
 .include "../../mk/bsd.pkg.mk"

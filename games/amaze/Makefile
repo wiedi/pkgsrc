@@ -14,6 +14,7 @@ LICENSE=	public-domain
 
 INSTALLATION_DIRS=	bin ${PKGMANDIR}/cat6 ${PKGMANDIR}/man6
 USE_BSD_MAKEFILE=	yes
+USE_TOOLS=		nroff
 
 .include "../../mk/curses.buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"

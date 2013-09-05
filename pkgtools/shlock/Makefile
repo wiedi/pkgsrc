@@ -11,6 +11,7 @@ MAINTAINER=	pkgsrc-users@NetBSD.org
 COMMENT=	Shell utility to perform dot-locking
 
 USE_BSD_MAKEFILE=	yes
+USE_TOOLS=		nroff
 
 INSTALLATION_DIRS+=	bin ${PKGMANDIR}/man1 ${PKGMANDIR}/cat1
 PKGSRC_LOCKTYPE=	none	# avoid "bootstrapping problem"

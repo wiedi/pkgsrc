@@ -9,6 +9,7 @@ MAINTAINER=	christos@NetBSD.org
 COMMENT=	Convert strings from/to a visual format
 
 USE_FEATURES+=		cdefs
+USE_TOOLS=		nroff
 USE_BSD_MAKEFILE=	yes
 INSTALLATION_DIRS=	bin ${PKGMANDIR}/cat1 ${PKGMANDIR}/man1
 

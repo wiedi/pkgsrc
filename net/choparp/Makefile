@@ -11,6 +11,8 @@ COMMENT=	Simple proxy arp daemon
 
 NOT_FOR_PLATFORM=	Interix-*-* # does not have bpf(4) device
 
+USE_TOOLS=	nroff
+
 MANCOMPRESSED_IF_MANZ=	yes
 MAKE_ENV+=	${BSD_MAKE_ENV}
 INSTALLATION_DIRS=	${PKGMANDIR}/cat8 ${PKGMANDIR}/man8 sbin
