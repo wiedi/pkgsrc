@@ -20,6 +20,7 @@ INSTALLATION_DIRS=	${PKGMANDIR}/cat8 ${PKGMANDIR}/man8 sbin
 INSTALL_MAKE_FLAGS+=	PREFIX=${PREFIX} DESTDIR=${DESTDIR}
 
 USE_BSD_MAKEFILE=	yes
+USE_TOOLS=		nroff
 
 .include "../../lang/ruby/buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"

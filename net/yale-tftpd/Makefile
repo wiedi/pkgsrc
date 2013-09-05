@@ -9,6 +9,7 @@ MAINTAINER=	pkgsrc-users@NetBSD.org
 COMMENT=	Enhanced tftpd(8) from Yale University and cisco Systems
 
 USE_BSD_MAKEFILE=	yes
+USE_TOOLS=		nroff
 
 WRKSRC=				${WRKDIR}
 

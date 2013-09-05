@@ -11,6 +11,8 @@ COMMENT=	Watch a program with update intervals
 LICENSE=	gnu-gpl-v2
 
 USE_BSD_MAKEFILE=	yes
+USE_TOOLS=		nroff
+
 MAKE_FILE=	${FILESDIR}/Makefile
 MAKE_ENV+=	LIBS=${LIBS:Q}
 
