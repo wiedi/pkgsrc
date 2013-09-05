@@ -991,10 +991,31 @@ TOOLS_PATH.${_t_}=	${TOOLS_PREFIX.${_t_}}/bin/g${_t_}
 
 ######################################################################
 
+# These tools are supplied by textproc/mdocml as replacements for their
+# groff counterparts.  As this package has fewer dependencies it should
+# be preferred over groff wherever possible.
+#
+_TOOLS.mdocml=	nroff
+
+.for _t_ in ${_TOOLS.mdocml}
+.  if !defined(TOOLS_IGNORE.${_t_}) && !empty(_USE_TOOLS:M${_t_})
+.    if !empty(PKGPATH:Mtextproc/mdocml)
+MAKEFLAGS+=		TOOLS_IGNORE.${_t_}=
+.    elif !empty(_TOOLS_USE_PKGSRC.${_t_}:M[yY][eE][sS])
+TOOLS_DEPENDS.${_t_}?=	mdocml>=1.12.0nb3:../../textproc/mdocml
+TOOLS_CREATE+=		${_t_}
+TOOLS_FIND_PREFIX+=	TOOLS_PREFIX.${_t_}=mdocml
+TOOLS_PATH.${_t_}=	${TOOLS_PREFIX.${_t_}}/bin/mandoc
+.    endif
+.  endif
+.endfor
+
+######################################################################
+
 # These tools are all supplied by the textproc/groff package if there is
 # no native tool available.
 #
-_TOOLS.groff=	groff nroff soelim tbl
+_TOOLS.groff=	groff soelim tbl
 
 .for _t_ in ${_TOOLS.groff}
 .  if !defined(TOOLS_IGNORE.${_t_}) && !empty(_USE_TOOLS:M${_t_})
