@@ -54,5 +54,9 @@ install:
 	$(INSTALL) -m 444 $(PROG).1 ${DESTDIR}$(man1dir)/$(PROG).1
 .if defined(MANINSTALL) && !empty(MANINSTALL:Mcatinstall)
 	$(INSTALL) -m 755 -d ${DESTDIR}$(cat1dir)
+.  if defined(CATMAN_SECTION_SUFFIX) && !empty(CATMAN_SECTION_SUFFIX:M[Yy][Ee][Ss])
+	$(INSTALL) -m 444 $(PROG).cat ${DESTDIR}$(cat1dir)/$(PROG).1
+.  else
 	$(INSTALL) -m 444 $(PROG).cat ${DESTDIR}$(cat1dir)/$(PROG).0
+.  endif
 .endif

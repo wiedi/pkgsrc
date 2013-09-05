@@ -11,6 +11,7 @@ PS?=		/bin/ps
 SU?=		/usr/bin/su
 TYPE?=		/usr/bin/type
 
+CATMAN_SECTION_SUFFIX?=	yes
 CPP_PRECOMP_FLAGS?=	# unset
 DEF_UMASK?=		022
 DEFAULT_SERIAL_DEVICE?=	/dev/null
