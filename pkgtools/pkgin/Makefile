@@ -1,9 +1,10 @@
-# $NetBSD: Makefile,v 1.38 2013/06/16 14:37:33 imil Exp $
+# $NetBSD: Makefile,v 1.40 2013/09/02 11:01:42 jperkin Exp $
 #
 
 GHCOMMIT=		3859170568fbe4fe21b5660dbaeca8d65ac10f1b
 DISTNAME=		${GHCOMMIT}
 PKGNAME=		pkgin-0.6.4
+PKGREVISION=		1
 CATEGORIES=		pkgtools
 MASTER_SITES=		https://github.com/NetBSDfr/pkgin/archive/
 FETCH_USING=		curl
@@ -50,7 +51,7 @@ CFLAGS.SunOS+=		-D_FILE_OFFSET_BITS=64
 
 MAKE_ENV+=		MACHINE_ARCH=${MACHINE_ARCH}
 
-DEPENDS+=		pkg_install>=20110215:../../pkgtools/pkg_install
+DEPENDS+=		pkg_install>=20130901:../../pkgtools/pkg_install
 
 # those have official repositories
 .if ${OPSYS} == "NetBSD" || ${OPSYS} == "DragonFly" || ${OPSYS} == "Minix"
