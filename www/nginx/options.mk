@@ -131,6 +131,6 @@ MESSAGE_SRC+=		MESSAGE.passenger
 pre-configure: build-passenger-files
 
 build-passenger-files:
-	cd ${WRKDIR}/passenger/build && ${RAKE} nginx:clean nginx
+	cd ${WRKDIR}/passenger/build && ${SETENV} ${MAKE_ENV} ${RAKE} nginx
 
 .endif
