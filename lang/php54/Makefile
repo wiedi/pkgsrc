@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.8 2013/03/16 01:58:53 taca Exp $
+# $NetBSD: Makefile,v 1.8.4.3 2013/08/31 16:51:50 tron Exp $
 
 #
 # We can't omit PKGNAME here to handle PKG_OPTIONS.
@@ -15,6 +15,8 @@ TEST_TARGET=		test
 USE_TOOLS+=		gmake lex pkg-config
 LIBTOOL_OVERRIDE=	# empty
 
+PHP_VERSIONS_ACCEPTED=		54
+
 .include "Makefile.php"
 
 CGIDIR=			${PREFIX}/libexec/cgi-bin
@@ -30,7 +32,7 @@ PLIST_SUBST+=		PHPEXTDIR="${PHP_EXTENSION_DIR}"
 SUBST_CLASSES+=		path
 SUBST_MESSAGE.path=	Fixing common paths.
 SUBST_STAGE.path=	pre-configure
-SUBST_FILES.path=	configure ext/phar/phar/phar.php
+SUBST_FILES.path=	ext/phar/phar/phar.php
 SUBST_FILES.path+=	php.ini-development php.ini-production run-tests.php
 SUBST_FILES.path+=	sapi/cgi/Makefile.frag
 SUBST_SED.path=		-e 's,@CGIDIR@,${CGIDIR},g'
