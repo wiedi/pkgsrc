@@ -1,11 +1,17 @@
 case ${STAGE} in
 POST-INSTALL)
 	cat <<EOF
-===========================================================================
-This package is SMF enabled.  You may use svcadm(1M) to 'enable', 'disable'
-or 'restart' the service, for example:
+============================================================================
+This package has SMF support.  You may use svcadm(1M) to 'enable', 'disable'
+or 'restart' services.  To enable the instance(s) for this package, run:
 
-	/usr/sbin/svcadm enable svc:/@SMF_PREFIX@/@SMF_NAME@:@SMF_INSTANCE@
+EOF
+	for svc in @SMF_INSTANCES@; do
+		cat <<EOF
+	/usr/sbin/svcadm enable svc:/@SMF_PREFIX@/@SMF_NAME@:${svc}
+EOF
+	done
+	cat <<EOF
 
 Use svcs(1) to check on service status.  See smf(5) for more information.
 EOF
@@ -15,14 +21,14 @@ EOF
 		cat <<EOF
 
 The PKG_SKIP_SMF variable was set, automatic import of SMF manifests was
-skipped.  You must import the SMF manifest first:
+skipped.  You must import the SMF manifest first with:
 
 	/usr/sbin/svccfg import ${PKG_PREFIX}/@SMF_MANIFEST_FILE@
 
 EOF
 	fi
 	cat <<EOF
-===========================================================================
+============================================================================
 EOF
 	;;
 esac
