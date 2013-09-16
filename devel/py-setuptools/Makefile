@@ -1,6 +1,6 @@
-# $NetBSD: Makefile,v 1.29 2013/07/28 20:42:35 wiz Exp $
+# $NetBSD: Makefile,v 1.33 2013/09/15 17:30:50 wiz Exp $
 
-EGG_VERSION=		0.9.8
+EGG_VERSION=		1.1.5
 DISTNAME=		setuptools-${EGG_VERSION}
 EGG_NAME=		setuptools-${EGG_VERSION}
 PKGNAME=		${PYPKGPREFIX}-setuptools-${EGG_VERSION}
@@ -35,8 +35,10 @@ PYSETUPINSTALLARGS+=	--root=/
 DEPENDS+=	${PYPKGPREFIX}-expat-[0-9]*:../../textproc/py-expat
 .endif
 
+# upstream often forgets deleting files, and packages on Windows,
+# so permissions are usually wrong
 post-install:
-	${RM} ${DESTDIR}${PREFIX}/${PYSITELIB}/${EGG_NAME}-py${PYVERSSUFFIX}.egg-info/entry_points.txt.orig
+	${RM} -f ${DESTDIR}${PREFIX}/${PYSITELIB}/${EGG_NAME}-py${PYVERSSUFFIX}.egg-info/*.orig
 	${CHMOD} ${SHAREMODE} ${DESTDIR}${PREFIX}/${PYSITELIB}/${EGG_NAME}-py${PYVERSSUFFIX}.egg-info/*
 
 .include "../../lang/python/application.mk"

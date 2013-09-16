@@ -1,14 +1,13 @@
-# $NetBSD: Makefile,v 1.122 2013/07/06 23:14:07 wiz Exp $
+# $NetBSD: Makefile,v 1.128 2013/09/10 06:40:20 wiz Exp $
 
-DISTNAME=	graphviz-2.26.3
-PKGREVISION=	29
+DISTNAME=	graphviz-2.34.0
 CATEGORIES=	graphics
 MASTER_SITES=	http://www.graphviz.org/pub/graphviz/stable/SOURCES/
 
 MAINTAINER=	sno@NetBSD.org
 HOMEPAGE=	http://www.graphviz.org/
 COMMENT=	Graph Drawing Programs from AT&T Research and Lucent Bell Labs
-LICENSE=	cpl-1.0
+LICENSE=	epl-v1.0
 
 PKG_INSTALLATION_TYPES=	overwrite pkgviews
 
@@ -28,6 +27,7 @@ CONFIGURE_ARGS+=	--disable-ruby
 CONFIGURE_ARGS+=	--disable-sharp
 CONFIGURE_ARGS+=	--disable-r
 CONFIGURE_ARGS+=	--with-gts=no
+CONFIGURE_ARGS+=	--with-qt=no
 # build fails when PHP and/or Ruby are also installed
 CONFIGURE_ENV+=		ac_cv_prog_PHP=
 CONFIGURE_ENV+=		ac_cv_prog_RUBY=
@@ -56,7 +56,7 @@ REPLACE.tclsh.old=	.*tclsh
 REPLACE.tclsh.new=	${PREFIX}/bin/tclsh
 REPLACE_FILES.tclsh=	tclpkg/gv/demo/modgraph.tcl
 
-REPLACE_PERL+=		config/config_perl.pl lib/gd/configure.pl \
+REPLACE_PERL+=		config/config_perl.pl \
 			tclpkg/gv/demo/modgraph.pl contrib/dotmcl.pl \
 			contrib/dirgraph/dirgraph.pl
 
@@ -69,7 +69,7 @@ BUILDLINK_TRANSFORM+=	rm:-Wno-unused-parameter
 
 # Prevent another config.status run.
 pre-build:
-	touch ${WRKSRC}/Makefile
+	touch ${WRKSRC}/Makefile ${WRKSRC}/graphviz_version.h
 
 # Remove temporary files and directories created by re-linking "libgv_lua.la".
 post-install:
