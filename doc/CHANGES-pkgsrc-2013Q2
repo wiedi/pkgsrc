@@ -1,4 +1,4 @@
-$NetBSD: CHANGES-pkgsrc-2013Q2,v 1.1.2.31 2013/09/04 09:11:13 tron Exp $
+$NetBSD: CHANGES-pkgsrc-2013Q2,v 1.1.2.34 2013/09/13 13:07:44 tron Exp $
 
 Changes to the packages collection and infrastructure on the
 pkgsrc-2013Q2 branch:
@@ -121,3 +121,11 @@ lang/php53: build fix
 lang/php54: build fix
 Pullup ticket #4228 - requested by spz
 mk/defaults/mk.conf: build fix for various packages
+Pullup ticket #4230 - requested by taca
+www/typo3_60: security update
+Pullup ticket #4231 - requested by obache
+multimedia/adobe-flash-plugin11: security update
+Pullup ticket #4233 - requested by wen
+www/mediawiki: security update
+Pullup ticket #4234 - requested by morr
+www/wordpress: security update
