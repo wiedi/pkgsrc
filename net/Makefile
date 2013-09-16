@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.975 2013/07/16 02:13:30 rodent Exp $
+# $NetBSD: Makefile,v 1.978 2013/09/15 18:47:46 taca Exp $
 #
 
 COMMENT=	Networking tools
@@ -508,6 +508,7 @@ SUBDIR+=	powerdns-mysql
 SUBDIR+=	powerdns-pgsql
 SUBDIR+=	powerdns-recursor
 SUBDIR+=	powerdns-sqlite
+SUBDIR+=	powerdns-sqlite3
 SUBDIR+=	pppd
 SUBDIR+=	pptp
 SUBDIR+=	proftpd
@@ -556,6 +557,7 @@ SUBDIR+=	quvi
 SUBDIR+=	ra-rtsp-proxy
 SUBDIR+=	rabbiter
 SUBDIR+=	rabbitmq
+SUBDIR+=	rabbitmq-c
 SUBDIR+=	radiusclient-ng
 SUBDIR+=	radiusd-cistron
 SUBDIR+=	rancid
@@ -577,6 +579,7 @@ SUBDIR+=	ruby-amq-protocol
 SUBDIR+=	ruby-amqp
 SUBDIR+=	ruby-dnsruby
 SUBDIR+=	ruby-domain_name
+SUBDIR+=	ruby-em-socksify
 SUBDIR+=	ruby-icmp
 SUBDIR+=	ruby-net-ldap
 SUBDIR+=	ruby-net-ping
