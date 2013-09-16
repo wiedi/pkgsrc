@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.584 2013/08/28 11:43:42 jperkin Exp $
+# $NetBSD: Makefile,v 1.586 2013/09/13 10:32:16 sno Exp $
 #
 
 COMMENT=	System utilities
@@ -274,6 +274,7 @@ SUBDIR+=	logrot
 SUBDIR+=	logrotate
 SUBDIR+=	lsof
 SUBDIR+=	magicrescue
+SUBDIR+=	manifold
 SUBDIR+=	mbmon
 SUBDIR+=	mc
 SUBDIR+=	mc46
@@ -345,6 +346,7 @@ SUBDIR+=	p5-Sys-Syslog
 SUBDIR+=	p5-Sys-Utmp
 SUBDIR+=	p5-UPS-Nut
 SUBDIR+=	p5-Unix-ConfigFile
+SUBDIR+=	p5-Unix-Statgrab
 SUBDIR+=	p5-Unix-Syslog
 SUBDIR+=	pciutils
 SUBDIR+=	pcmanfm

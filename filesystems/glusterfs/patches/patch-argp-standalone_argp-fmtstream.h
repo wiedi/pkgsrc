@@ -1,6 +1,6 @@
-$NetBSD: patch-argp-standalone_argp-fmtstream.h,v 1.1 2012/12/20 21:53:20 joerg Exp $
+$NetBSD: patch-argp-standalone_argp-fmtstream.h,v 1.3 2013/09/15 12:29:21 joerg Exp $
 
---- argp-standalone/argp-fmtstream.h.orig	2012-10-11 17:38:19.000000000 +0000
+--- argp-standalone/argp-fmtstream.h.orig	2013-07-12 17:43:25.000000000 +0000
 +++ argp-standalone/argp-fmtstream.h
 @@ -153,6 +153,7 @@ extern ssize_t argp_fmtstream_printf (ar
  				      __const char *__fmt, ...)

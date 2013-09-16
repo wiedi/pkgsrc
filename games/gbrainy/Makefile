@@ -1,11 +1,12 @@
-# $NetBSD: Makefile,v 1.68 2013/07/02 06:37:45 wiz Exp $
+# $NetBSD: Makefile,v 1.70 2013/09/12 20:53:25 wiz Exp $
 
 DISTNAME=	gbrainy-2.2.1
 PKGNAME=	gbrainy-2.21
+PKGREVISION=	1
 CATEGORIES=	games
 MASTER_SITES=	http://gent.softcatala.org/jmas/gbrainy/
 
-MAINTAINER=	wiz@NetBSD.org
+MAINTAINER=	pkgsrc-users@NetBSD.org
 HOMEPAGE=	http://live.gnome.org/gbrainy
 COMMENT=	Brain teaser game and trainer
 LICENSE=	gnu-gpl-v2

@@ -1,7 +1,6 @@
-# $NetBSD: Makefile,v 1.109 2013/06/06 12:54:57 wiz Exp $
+# $NetBSD: Makefile,v 1.112 2013/09/14 14:11:25 drochner Exp $
 
-DISTNAME=	nmap-6.25
-PKGREVISION=	3
+DISTNAME=	nmap-6.40
 CATEGORIES=	net security
 MASTER_SITES=	http://nmap.org/dist/
 EXTRACT_SUFX=	.tar.bz2

@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.740 2013/08/26 00:56:32 wen Exp $
+# $NetBSD: Makefile,v 1.744 2013/09/15 16:31:47 taca Exp $
 #
 
 COMMENT=	Text processing utilities (does not include desktop publishing)
@@ -122,6 +122,7 @@ SUBDIR+=	coccigrep
 SUBDIR+=	colorit
 SUBDIR+=	convertlit
 SUBDIR+=	crimson
+SUBDIR+=	crush-tools
 SUBDIR+=	dadadodo
 SUBDIR+=	db2latex
 SUBDIR+=	dblatex
@@ -309,6 +310,7 @@ SUBDIR+=	lit2epub
 SUBDIR+=	lout
 SUBDIR+=	lq-sp
 SUBDIR+=	lua-expat
+SUBDIR+=	lua-slnunicode
 SUBDIR+=	makeindexk
 SUBDIR+=	makeztxt
 SUBDIR+=	markdown-mode
@@ -684,9 +686,11 @@ SUBDIR+=	ruby-oniguruma
 SUBDIR+=	ruby-plist
 SUBDIR+=	ruby-pure-hyperestraier
 SUBDIR+=	ruby-rdtool
+SUBDIR+=	ruby-redcarpet
 SUBDIR+=	ruby-redcloth
 SUBDIR+=	ruby-rison
 SUBDIR+=	ruby-rttool
+SUBDIR+=	ruby-safe_yaml
 SUBDIR+=	ruby-sary
 SUBDIR+=	ruby-simple-rss
 SUBDIR+=	ruby-stringex
