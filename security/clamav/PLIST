@@ -27,5 +27,3 @@ man/man8/clamd.8
 sbin/clamd
 share/examples/clamav/clamd.conf
 share/examples/clamav/freshclam.conf
-share/examples/rc.d/clamd
-share/examples/rc.d/freshclamd

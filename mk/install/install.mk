@@ -380,20 +380,6 @@ ${tgt}-multi:
 .endif
 
 ######################################################################
-### post-install-smf (PUBLIC, override)
-######################################################################
-### post-install-smf is a special target to add SMF manifest and
-### (optionally) method file to a package, to support SMF on SunOS
-### operating systems
-###
-.PHONY: post-install-smf
-
-.if !target(post-install-smf)
-post-install-smf:
-	@${DO_NADA}
-.endif
-
-######################################################################
 ### install-strip-debug (PRIVATE)
 ######################################################################
 ### install-strip-debug tries to strip debug information from
