@@ -1,8 +1,7 @@
-# $NetBSD: Makefile,v 1.20 2013/05/31 12:41:31 wiz Exp $
+# $NetBSD: Makefile,v 1.24 2013/09/15 17:28:45 dbj Exp $
 
-DISTNAME=	libvpx-v1.1.0
+DISTNAME=	libvpx-v1.2.0
 PKGNAME=	${DISTNAME:S/-v/-/}
-PKGREVISION=	3
 CATEGORIES=	multimedia
 MASTER_SITES=	http://webm.googlecode.com/files/
 EXTRACT_SUFX=	.tar.bz2
@@ -40,6 +39,7 @@ REPLACE_BASH=		configure \
 
 .if ${OPSYS} == "Darwin"
 BUILDLINK_TRANSFORM+=	rm:-Wl,-Bsymbolic
+CONFIGURE_ARGS+=	--disable-unit-tests
 .  if ${MACHINE_ARCH} == "i386"
 .    if !empty(OS_VERSION:M12.*)
 CONFIGURE_ARGS+=	--target=x86-darwin12-gcc
@@ -67,6 +67,11 @@ CONFIGURE_ARGS+=	--target=x86_64-darwin8-gcc
 .  endif
 .endif
 
+.include "../../mk/compiler.mk"
+.if !empty(PKGSRC_COMPILER:Mclang)
+CXXFLAGS+=	-std=c++11
+.endif
+
 .if ${OPSYS} == "NetBSD" && ${MACHINE_ARCH}
 CONFIGURE_ARGS+=	--target=mips32-linux-gcc
 .endif
@@ -76,5 +81,8 @@ BUILD_TARGET=	# none
 post-extract:
 	${CP} ${FILESDIR}/strip_fPIC.sh ${WRKSRC}
 
+.if empty(CONFIGURE_ARGS:M--disable-unit-tests)
+.include "../../devel/googletest/buildlink3.mk"
+.endif
 .include "../../mk/pthread.buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"
