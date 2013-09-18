@@ -224,6 +224,7 @@ post-build:
 		${FILESDIR}/perllink.in > ${WRKDIR}/perllink.sh
 
 INSTALLATION_DIRS=	bin${BINARCHSUFFIX} ${PKGMANDIR}/man1
+INSTALLATION_DIRS+=	${PERL5_PERLBASE}/bin${BINARCHSUFFIX}
 PERL5_PACKLIST_DIR_cmd=	for conf in ${WRKSRC}*/config.sh; do \
 				if [ -f $$conf ]; then \
 					. $$conf; \
