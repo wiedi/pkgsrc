@@ -1,4 +1,4 @@
-$NetBSD: TODO,v 1.12558 2013/09/15 17:32:52 wiz Exp $
+$NetBSD: TODO,v 1.12560 2013/09/18 22:20:24 tron Exp $
 
 Suggested new packages
 ======================
@@ -799,7 +799,6 @@ For possible Perl packages updates, see http://www.NetBSD.org/~wiz/perl.html.
 	o munin-server-1.4.6
 	o muse-0.9.2
 	o mypaint-1.1.0
-	o mysqlcc-1.0.2
 	o nano-2.3.2
 	o nap-1.5.3
 	o nautilus-actions-2.30.3 [GNOME 2.30]
@@ -868,7 +867,6 @@ For possible Perl packages updates, see http://www.NetBSD.org/~wiz/perl.html.
 	o php-jpgraph-3.0.6
 	o php-sugarcrm-6.5.15
 	o php-tiki6-6.10
-	o phpmyadmin-4.0.6
 	o picp-0.6.8
 	o pim6dd-20040819a
 	o pim6sd-20040824a
