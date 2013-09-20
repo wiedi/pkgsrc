@@ -17,6 +17,7 @@ SMF_NAME?=			${PKGBASE:tl}
 SMF_INSTANCES?=			default
 SMF_MANIFEST?=			manifest.xml
 SMF_METHODS?=			# empty
+SMF_METHOD_SHELL?=		/sbin/sh
 SMF_SRCDIR?=			${FILESDIR}/smf
 
 # A manifest file is a pre-requisite for anything to happen
@@ -32,8 +33,10 @@ FILES_SUBST+=			SMF_NAME=${SMF_NAME:Q}
 FILES_SUBST+=			SMF_INSTANCES=${SMF_INSTANCES:Q}
 FILES_SUBST+=			SMF_MANIFEST=${SMF_MANIFEST:Q}
 FILES_SUBST+=			SMF_MANIFEST_FILE=${SMF_MANIFEST_FILE:Q}
+FILES_SUBST+=			SMF_METHOD_SHELL=${SMF_METHOD_SHELL:Q}
 
 INSTALLATION_DIRS+=		${PKG_SMF_MANIFEST_DIR}
+MULTIARCH_SKIP_DIRS.lib+=	${PKG_SMF_DIR}
 
 .PHONY: generate-smf-manifest
 generate-smf-manifest: ${SMF_MANIFEST_WRK}

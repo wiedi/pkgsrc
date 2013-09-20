@@ -1,20 +1,28 @@
-#!@RCD_SCRIPTS_SHELL@
+#!@SMF_METHOD_SHELL@
 #
-# $NetBSD: freshclamd.sh,v 1.1.1.1 2010/12/24 07:11:05 kefren Exp $
+# $NetBSD$
 #
-# PROVIDE: freshclamd
-# REQUIRE: DAEMON LOGIN clamd
+# Init script for freshclam(1).
+#
 
-name="freshclamd"
-rcvar=$name
-command="@PREFIX@/bin/freshclam"
-required_files="@PKG_SYSCONFDIR@/freshclam.conf"
-pidfile="@CLAMAV_DBDIR@/${name}.pid"
-freshclamd_user="@CLAMAV_USER@"
-freshclamd_flags=${freshclamd_flags:=-c 2}
-command_args="-d -p $pidfile"
+. /lib/svc/share/smf_include.sh
 
-. /etc/rc.subr
+PIDFILE="@CLAMAV_DBDIR@/freshclamd.pid"
 
-load_rc_config $name
-run_rc_command "$1"
+case "$1" in
+start)
+	@PREFIX@/bin/freshclam -c 2 -d -p ${PIDFILE} -u @CLAMAV_USER@
+	;;
+stop)
+	kill `@HEAD@ -1 ${PIDFILE}`
+	;;
+refresh)
+	kill -HUP `@HEAD@ -1 ${PIDFILE}`
+	;;
+*)
+	echo "Usage: $0 {start|stop|refresh}" >&2
+	exit 1
+	;;
+esac
+
+exit $SMF_EXIT_OK
