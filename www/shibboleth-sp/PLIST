@@ -80,7 +80,6 @@ share/doc/shibboleth-${PKGVERSION}/README.txt
 share/doc/shibboleth-${PKGVERSION}/RELEASE.txt
 share/doc/shibboleth-${PKGVERSION}/logo.jpg
 share/doc/shibboleth-${PKGVERSION}/main.css
-share/examples/rc.d/shibd
 share/examples/shibboleth/accessError.html
 share/examples/shibboleth/accessError.html.dist
 share/examples/shibboleth/apache.config
