@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.71 2013/09/17 21:15:37 joerg Exp $
+# $NetBSD: Makefile,v 1.73 2013/09/19 10:11:47 fhajny Exp $
 #
 
 DISTNAME=	groff-1.20.1
