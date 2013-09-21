@@ -4,9 +4,9 @@ $NetBSD: patch-au,v 1.9 2012/04/14 10:47:19 obache Exp $
 
 Support multiarch.
 
---- Makefile.pre.in.orig	2012-12-13 09:15:55.034476271 +0000
-+++ Makefile.pre.in	2012-12-13 09:19:22.056556167 +0000
-@@ -104,7 +104,7 @@
+--- Makefile.pre.in.orig	2012-04-10 15:32:08.000000000 +0000
++++ Makefile.pre.in
+@@ -104,7 +104,7 @@ LIBP=		$(LIBDIR)/python$(VERSION)
  SO=		@SO@
  LDSHARED=	@LDSHARED@
  BLDSHARED=	@BLDSHARED@
@@ -15,7 +15,16 @@ Support multiarch.
  
  # Executable suffix (.exe on Windows and Mac OS X)
  EXE=		@EXEEXT@
-@@ -781,12 +781,13 @@
+@@ -768,7 +768,7 @@ bininstall:	altbininstall
+ # Install the interpreter with $(VERSION) affixed
+ # This goes into $(exec_prefix)
+ altbininstall:	$(BUILDPYTHON)
+-	@for i in $(BINDIR) $(LIBDIR); \
++	@for i in $(BINDIR) $(LIBDIR)@LIBARCHSUFFIX@; \
+ 	do \
+ 		if test ! -d $(DESTDIR)$$i; then \
+ 			echo "Creating directory $$i"; \
+@@ -781,12 +781,13 @@ altbininstall:	$(BUILDPYTHON)
  		if test -n "$(DLLLIBRARY)" ; then \
  			$(INSTALL_SHARED) $(DLLLIBRARY) $(DESTDIR)$(BINDIR); \
  		else \
@@ -32,7 +41,7 @@ Support multiarch.
  	fi
  
  # Install the manual page
-@@ -936,7 +937,7 @@
+@@ -936,7 +937,7 @@ inclinstall:
  
  # Install the library and miscellaneous stuff needed for extending/embedding
  # This goes into $(exec_prefix)
