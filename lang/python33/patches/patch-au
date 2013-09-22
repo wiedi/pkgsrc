@@ -1,5 +1,7 @@
 $NetBSD: patch-au,v 1.2 2013/05/26 17:56:09 wiz Exp $
 
+Support multiarch.
+
 --- Makefile.pre.in.orig	2013-05-15 16:32:57.000000000 +0000
 +++ Makefile.pre.in
 @@ -81,7 +81,7 @@ PY_CFLAGS=	$(BASECFLAGS) $(OPT) $(CONFIG
@@ -29,6 +31,15 @@ $NetBSD: patch-au,v 1.2 2013/05/26 17:56:09 wiz Exp $
  
  Python/formatter_unicode.o: $(srcdir)/Python/formatter_unicode.c \
  				$(BYTESTR_DEPS)
+@@ -930,7 +930,7 @@ $(DESTSHARED):
+ # Install the interpreter with $(VERSION) affixed
+ # This goes into $(exec_prefix)
+ altbininstall: $(BUILDPYTHON)
+-	@for i in $(BINDIR) $(LIBDIR); \
++	@for i in $(BINDIR) $(LIBDIR)@LIBARCHSUFFIX@; \
+ 	do \
+ 		if test ! -d $(DESTDIR)$$i; then \
+ 			echo "Creating directory $$i"; \
 @@ -949,13 +949,13 @@ altbininstall: $(BUILDPYTHON)
  		if test -n "$(DLLLIBRARY)" ; then \
  			$(INSTALL_SHARED) $(DLLLIBRARY) $(DESTDIR)$(BINDIR); \

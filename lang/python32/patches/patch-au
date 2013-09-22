@@ -2,9 +2,9 @@ $NetBSD: patch-au,v 1.1.1.1 2012/05/06 13:12:12 obache Exp $
 
 Support multiarch.
 
---- Makefile.pre.in.orig	2012-12-13 14:17:54.112438650 +0000
-+++ Makefile.pre.in	2012-12-13 14:22:28.135427769 +0000
-@@ -75,7 +75,7 @@
+--- Makefile.pre.in.orig	2012-04-11 06:54:06.000000000 +0000
++++ Makefile.pre.in
+@@ -75,7 +75,7 @@ PY_CFLAGS=	$(BASECFLAGS) $(OPT) $(CONFIG
  # be able to build extension modules using the directories specified in the
  # environment variables
  PY_CPPFLAGS=	-I. -IInclude -I$(srcdir)/Include $(CONFIGURE_CPPFLAGS) $(CPPFLAGS)
@@ -13,7 +13,7 @@ Support multiarch.
  NO_AS_NEEDED=	@NO_AS_NEEDED@
  LDLAST=		@LDLAST@
  SGI_ABI=	@SGI_ABI@
-@@ -120,7 +120,7 @@
+@@ -120,7 +120,7 @@ SO=		@SO@
  LDSHARED=	@LDSHARED@ $(PY_LDFLAGS)
  BLDSHARED=	@BLDSHARED@ $(PY_LDFLAGS)
  LDCXXSHARED=	@LDCXXSHARED@
@@ -22,7 +22,7 @@ Support multiarch.
  
  # Executable suffix (.exe on Windows and Mac OS X)
  EXE=		@EXEEXT@
-@@ -649,7 +649,7 @@
+@@ -649,7 +649,7 @@ Objects/setobject.o: $(srcdir)/Objects/s
  $(OPCODETARGETS_H): $(OPCODETARGETGEN_FILES)
  	$(OPCODETARGETGEN) $(OPCODETARGETS_H)
  
@@ -31,7 +31,16 @@ Support multiarch.
  
  Python/formatter_unicode.o: $(srcdir)/Python/formatter_unicode.c \
  				$(BYTESTR_DEPS) \
-@@ -862,15 +862,16 @@
+@@ -843,7 +843,7 @@ $(DESTSHARED):
+ # Install the interpreter with $(VERSION) affixed
+ # This goes into $(exec_prefix)
+ altbininstall: $(BUILDPYTHON)
+-	@for i in $(BINDIR) $(LIBDIR); \
++	@for i in $(BINDIR) $(LIBDIR)@LIBARCHSUFFIX@; \
+ 	do \
+ 		if test ! -d $(DESTDIR)$$i; then \
+ 			echo "Creating directory $$i"; \
+@@ -862,15 +862,16 @@ altbininstall: $(BUILDPYTHON)
  		if test -n "$(DLLLIBRARY)" ; then \
  			$(INSTALL_SHARED) $(DLLLIBRARY) $(DESTDIR)$(BINDIR); \
  		else \
@@ -52,7 +61,7 @@ Support multiarch.
  	fi
  
  bininstall: altbininstall
-@@ -1051,10 +1052,10 @@
+@@ -1051,10 +1052,10 @@ inclinstall:
  
  # Install the library and miscellaneous stuff needed for extending/embedding
  # This goes into $(exec_prefix)
