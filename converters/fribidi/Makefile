@@ -31,6 +31,6 @@ TEST_TARGET=		check
 
 post-install:
 	cd ${DESTDIR}${PREFIX}/${PKGMANDIR}/man3 && \
-		rm fribidi_set_debug.3 fribidi_unicode_version.3 fribidi_version_info.3
+		rm -f fribidi_set_debug.3 fribidi_unicode_version.3 fribidi_version_info.3
 
 .include "../../mk/bsd.pkg.mk"
