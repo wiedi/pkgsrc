@@ -1,4 +1,4 @@
-@comment $NetBSD: PLIST,v 1.71 2013/09/19 12:37:49 ryoon Exp $
+@comment $NetBSD: PLIST,v 1.74 2013/09/21 11:40:57 ryoon Exp $
 bin/firefox
 include/firefox/AbstractMediaDecoder.h
 include/firefox/AccEvent.h
@@ -3313,7 +3313,7 @@ include/firefox/theora/codec.h
 include/firefox/theora/theora.h
 include/firefox/theora/theoradec.h
 include/firefox/theora/theoraenc.h
-include/firefox/tremor/ivorbiscodec.h
+${PLIST.tremor}include/firefox/tremor/ivorbiscodec.h
 include/firefox/txIEXSLTRegExFunctions.h
 include/firefox/txIFunctionEvaluationContext.h
 include/firefox/txINodeSet.h
@@ -3321,6 +3321,7 @@ include/firefox/txIXPathObject.h
 include/firefox/uconvutil.h
 include/firefox/updatedefines.h
 include/firefox/updatelogging.h
+${PLIST.vorbis}include/firefox/vorbis/codec.h
 include/firefox/webvtt/cue.h
 include/firefox/webvtt/error.h
 include/firefox/webvtt/node.h
@@ -3378,7 +3379,8 @@ lib/firefox/browser/chrome.manifest
 ${PLIST.nobranding}lib/firefox/browser/chrome/browser/content/branding/about-background.png
 lib/firefox/browser/chrome/browser/content/branding/about-logo.png
 lib/firefox/browser/chrome/browser/content/branding/about-logo@2x.png
-lib/firefox/browser/chrome/browser/content/branding/about-wordmark.svg
+${PLIST.branding}lib/firefox/browser/chrome/browser/content/branding/about-wordmark.png
+${PLIST.nobranding}lib/firefox/browser/chrome/browser/content/branding/about-wordmark.svg
 lib/firefox/browser/chrome/browser/content/branding/about.png
 lib/firefox/browser/chrome/browser/content/branding/aboutDialog.css
 lib/firefox/browser/chrome/browser/content/branding/icon16.png
