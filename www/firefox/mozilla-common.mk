@@ -1,4 +1,4 @@
-# $NetBSD: mozilla-common.mk,v 1.15 2013/09/04 16:25:50 drochner Exp $
+# $NetBSD: mozilla-common.mk,v 1.17 2013/09/21 20:35:46 ryoon Exp $
 #
 # common Makefile fragment for mozilla packages based on gecko 2.0.
 #
@@ -13,7 +13,6 @@ USE_LANGUAGES+=		c99 c++
 UNLIMIT_RESOURCES+=	datasize
 
 .include "../../mk/bsd.prefs.mk"
-.include "../../mk/endian.mk"
 # gcc45-4.5.3 of lang/gcc45 does not generate proper binary,
 # but gcc 4.5.4 of NetBSD 7 generates working binary.
 .if !empty(MACHINE_PLATFORM:MNetBSD-5.*)
@@ -43,6 +42,7 @@ CONFIGURE_ARGS+=	--enable-system-pixman
 CONFIGURE_ARGS+=	--with-system-libvpx
 CONFIGURE_ARGS+=	--enable-system-hunspell
 CONFIGURE_ARGS+=	--enable-system-ffi
+CONFIGURE_ARGS+=	--with-system-icu
 CONFIGURE_ARGS+=	--with-system-nss
 CONFIGURE_ARGS+=	--with-system-nspr
 CONFIGURE_ARGS+=	--with-system-jpeg
@@ -69,6 +69,8 @@ CONFIGURE_ARGS+=	--enable-url-classifier
 #CONFIGURE_ARGS+=	--enable-startup-notification
 CONFIGURE_ARGS+=	--enable-shared-js
 CONFIGURE_ARGS+=	--with-system-ply
+CONFIGURE_ARGS+=	--disable-icf
+CONFIGURE_ARGS+=	--disable-necko-wifi
 
 SUBST_CLASSES+=			fix-paths
 SUBST_STAGE.fix-paths=		pre-configure
@@ -101,6 +103,7 @@ SUBST_SED.python+=	-e 's,<!(python,<!(${PYTHONBIN},'
 
 PLIST_VARS+=	sps vorbis tremor glskia throwwrapper
 
+.include "../../mk/endian.mk"
 .if ${MACHINE_ENDIAN} == "little"
 PLIST.glskia=	yes
 .endif
@@ -164,6 +167,7 @@ BUILDLINK_API_DEPENDS.libevent+=	libevent>=1.1
 .include "../../devel/libffi/buildlink3.mk"
 BUILDLINK_API_DEPENDS.nspr+=	nspr>=4.9.6
 .include "../../devel/nspr/buildlink3.mk"
+.include "../../textproc/icu/buildlink3.mk"
 BUILDLINK_API_DEPENDS.nss+=	nss>=3.15
 .include "../../devel/nss/buildlink3.mk"
 .include "../../devel/zlib/buildlink3.mk"
