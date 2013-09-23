@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.24 2013/09/15 17:28:45 dbj Exp $
+# $NetBSD: Makefile,v 1.27 2013/09/19 11:22:44 ryoon Exp $
 
 DISTNAME=	libvpx-v1.2.0
 PKGNAME=	${DISTNAME:S/-v/-/}
@@ -20,6 +20,7 @@ CONFIGURE_ARGS+=	--disable-postproc
 CONFIGURE_ARGS+=	--enable-pic
 CONFIGURE_ARGS+=	--enable-runtime-cpu-detect
 CONFIGURE_ARGS+=	--prefix=${PREFIX}
+CONFIGURE_ARGS+=	--disable-unit-tests
 
 .include "../../mk/bsd.prefs.mk"
 
@@ -37,7 +38,6 @@ REPLACE_BASH=		configure \
 
 .if ${OPSYS} == "Darwin"
 BUILDLINK_TRANSFORM+=	rm:-Wl,-Bsymbolic
-CONFIGURE_ARGS+=	--disable-unit-tests
 .  if ${MACHINE_ARCH} == "i386"
 .    if !empty(OS_VERSION:M12.*)
 CONFIGURE_ARGS+=	--target=x86-darwin12-gcc
@@ -79,8 +79,5 @@ BUILD_TARGET=	# none
 post-extract:
 	${CP} ${FILESDIR}/strip_fPIC.sh ${WRKSRC}
 
-.if empty(CONFIGURE_ARGS:M--disable-unit-tests)
-.include "../../devel/googletest/buildlink3.mk"
-.endif
 .include "../../mk/pthread.buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"
