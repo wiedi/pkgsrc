@@ -1,4 +1,4 @@
-$NetBSD: CHANGES-2013,v 1.3560 2013/09/19 13:11:49 ryoon Exp $
+$NetBSD: CHANGES-2013,v 1.3574 2013/09/22 12:24:42 obache Exp $
 
 Changes to the packages collection and infrastructure in 2013:
 
@@ -5019,3 +5019,20 @@ Changes to the packages collection and infrastructure in 2013:
 	Updated devel/scons to 2.3.0nb1 [jperkin 2013-09-19]
 	Updated www/firefox to 24.0 [ryoon 2013-09-19]
 	Updated www/firefox-l10n to 24.0 [ryoon 2013-09-19]
+	Updated parallel/py-billiard to 2.7.3.32 [rodent 2013-09-20]
+	Updated lang/python27 to 2.7.5nb3 [ryoon 2013-09-20]
+	Updated www/py-nevow to 0.10.0nb2 [wiz 2013-09-20]
+	Updated lang/g95 to 0.93nb4 [joerg 2013-09-20]
+	Added mail/gmime20 version 2.2.25 [obache 2013-09-21]
+	Updated net/bind96 to 9.6.3.1.ESV.10 [taca 2013-09-21]
+	Updated net/bind98 to 9.8.6 [taca 2013-09-21]
+	Updated net/bind99 to 9.9.4 [taca 2013-09-21]
+	Updated lang/php54 to 5.4.20 [taca 2013-09-21]
+	Updated lang/php55 to 5.5.4 [taca 2013-09-21]
+	Updated graphics/tiff to 4.0.3nb6 [dholland 2013-09-21]
+	Updated www/shibboleth-sp to 2.5.2 [pettai 2013-09-21]
+	Updated security/dnssec-tools to 2.0 [pettai 2013-09-21]
+	Updated mail/opendkim to 2.8.4 [pettai 2013-09-21]
+	Updated net/nsd to 3.2.16 [pettai 2013-09-21]
+	Updated security/p5-Authen-TacacsPlus to 0.24 [pettai 2013-09-22]
+	Updated net/p5-Net-Amazon to 0.62 [obache 2013-09-22]
