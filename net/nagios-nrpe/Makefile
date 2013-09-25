@@ -34,6 +34,7 @@ CONFIGURE_ARGS+=	--with-nagios-group=${NAGIOS_GROUP:Q}
 
 CONF_FILES+=		${PREFIX}/share/examples/nagios/nrpe.cfg ${PKG_SYSCONFDIR}/nrpe.cfg
 RCD_SCRIPTS+=		nrpe
+SMF_NAME=		nrpe
 
 INSTALLATION_DIRS=	sbin libexec/nagios share/examples/nagios share/examples/rc.d
 

@@ -35,6 +35,7 @@ USE_TOOLS+=		mail:run perl
 CONFIGURE_ARGS+=	--with-mail=${TOOLS_PLATFORM.mail:Q}
 
 RCD_SCRIPTS+=		nagios
+SMF_NAME=		nagios
 FILES_SUBST+=		NAGIOS_USER=${NAGIOS_USER}
 
 INSTALL_TARGET=		install install-config
