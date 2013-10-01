@@ -14,6 +14,8 @@ LICENSE=	mit
 
 PKG_INSTALLATION_TYPES=	overwrite pkgviews
 
+USE_MULTIARCH=	bin lib
+
 .include "../../mk/bsd.prefs.mk"
 
 USE_LIBTOOL=	yes
@@ -23,7 +25,7 @@ MAKE_ENV+=	INSTALL_DATA=${INSTALL_DATA:Q}
 CFLAGS+=	-DLUA_ROOT=\"${PREFIX}/\"
 
 PKGCONFIG_OVERRIDE=	${WRKSRC}/lua.pc
-INSTALLATION_DIRS+=	lib/pkgconfig share/doc/lua
+INSTALLATION_DIRS+=	lib${LIBARCHSUFFIX}/pkgconfig share/doc/lua
 
 .if ${OPSYS} == "FreeBSD"
 BUILD_TARGET=	freebsd
@@ -48,7 +50,7 @@ pre-configure:
 		${FILESDIR}/lua.pc.in > ${WRKSRC}/lua.pc
 
 post-install:
-	${INSTALL_DATA} ${WRKSRC}/lua.pc ${DESTDIR}${PREFIX}/lib/pkgconfig
+	${INSTALL_DATA} ${WRKSRC}/lua.pc ${DESTDIR}${PREFIX}/lib${LIBARCHSUFFIX}/pkgconfig
 	${INSTALL_DATA} ${WRKSRC}/doc/*.??? ${DESTDIR}${PREFIX}/share/doc/lua
 	${INSTALL_DATA} ${WRKSRC}/doc/*.???? ${DESTDIR}${PREFIX}/share/doc/lua
 

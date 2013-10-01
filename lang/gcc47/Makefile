@@ -50,6 +50,12 @@ SUBST_VARS.vars+=	PREFIX
 
 .include "../../mk/bsd.prefs.mk"
 
+.if !empty(MULTIARCH:M[Yy][Ee][Ss])
+SUBST_SED.vars+=	-e 's,@MARCH64_SUBDIR@,ARCH64_SUBDIR,g'
+.else
+SUBST_SED.vars+=	-e 's,@MARCH64_SUBDIR@,,g'
+.endif
+
 LANGS=			c
 
 # In some cases LINKER_RPATH_FLAG needs a trailing space.
