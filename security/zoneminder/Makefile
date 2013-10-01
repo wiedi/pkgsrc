@@ -29,7 +29,7 @@ USE_TOOLS+=	aclocal autoconf autoheader automake gmake perl
 DEPENDS+=	p5-Archive-Zip-[0-9]*:../../archivers/p5-Archive-Zip
 DEPENDS+=	p5-Date-Manip-[0-9]*:../../devel/p5-Date-Manip
 DEPENDS+=	p5-Device-SerialPort-[0-9]*:../../comms/p5-Device-SerialPort
-DEPENDS+=	p5-DBD-mysql-[0-9]*:../../databases/p5-DBD-mysql
+DEPENDS+=	p5-DBD-{mysql,percona}*-[0-9]*:../../databases/p5-DBD-mysql
 DEPENDS+=	p5-MIME-Lite-[0-9]*:../../mail/p5-MIME-Lite
 DEPENDS+=	p5-MIME-tools-[0-9]*:../../mail/p5-MIME-tools
 DEPENDS+=	p5-PHP-Serialization-[0-9]*:../../devel/p5-PHP-Serialization
@@ -101,7 +101,7 @@ CONFIGURE_ARGS+=	--with-webgroup=${APACHE_GROUP}
 # If we're using Apache we're going to need PHP, and PHP MySQL support.
 .include "../../lang/php/phpversion.mk"
 DEPENDS+=	${APACHE_PKG_PREFIX}-${PHP_PKG_PREFIX}-[0-9]*:../../www/ap-php
-DEPENDS+=	${PHP_PKG_PREFIX}-mysql-[0-9]*:../../databases/php-mysql
+DEPENDS+=	${PHP_PKG_PREFIX}-${MYSQL_PKG_PREFIX}-[0-9]*:../../databases/php-mysql
 .endif
 
 # This directory contains state, so use OWN_DIRS instead of MAKE_DIRS.
