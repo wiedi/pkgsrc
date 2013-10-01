@@ -14,6 +14,5 @@ sbin/nsd-patch
 sbin/nsd-xfer
 sbin/nsdc
 sbin/zonec
-share/examples/rc.d/nsd
 share/examples/nsd/nsd.conf
 share/examples/nsd/nsd.zones2nsd.conf

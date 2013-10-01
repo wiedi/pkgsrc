@@ -45,7 +45,6 @@ share/doc/squid/README.OpenBSD
 share/doc/squid/README.Solaris
 share/doc/squid/RELEASENOTES.html
 share/doc/squid/debug-sections.txt
-share/examples/rc.d/squid
 share/examples/squid/cachemgr.conf
 share/examples/squid/errorpage.css
 share/examples/squid/mime.conf
