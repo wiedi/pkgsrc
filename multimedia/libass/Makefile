@@ -19,8 +19,11 @@ USE_TOOLS+=	pkg-config
 
 PKGCONFIG_OVERRIDE+=	libass.pc.in
 
+LDFLAGS.SunOS+=	-liconv
+
 BUILDLINK_API_DEPENDS.fribidi+=	fribidi>=0.19.0
 .include "../../converters/fribidi/buildlink3.mk"
+.include "../../converters/libiconv/buildlink3.mk"
 .include "../../graphics/freetype2/buildlink3.mk"
 .include "../../fonts/fontconfig/buildlink3.mk"
 .include "../../textproc/enca/buildlink3.mk"
