@@ -16,7 +16,8 @@ COMMENT=	MIT Kerberos 5 authentication system
 
 MAKE_JOBS_SAFE=		no
 
-WRKSRC=		${WRKDIR}/${DISTNAME}/src
+CONFIGURE_DIRS=	src
+PATCH_ARGS=	-d ${WRKSRC}/src --forward --quiet -E ${PATCH_STRIP}
 
 BUILD_TARGET=	generate-files-mac all
 
@@ -27,6 +28,7 @@ CONFLICTS+=	kth-krb4-[0-9]*
 
 USE_LANGUAGES=		c c++
 USE_LIBTOOL=		yes
+USE_MULTIARCH=		lib
 USE_TOOLS+=		autoconf gmake m4 perl yacc msgfmt
 MAKE_PROGRAM=		gmake
 GNU_CONFIGURE=		yes
@@ -60,7 +62,8 @@ INSTALLATION_DIRS=	bin include/gssapi include/gssrpc ${PKGINFODIR}	\
 			${PKGMANDIR}/man1 ${PKGMANDIR}/man5		\
 			${PKGMANDIR}/man8 sbin share/examples/krb5	\
 			share/et share/examples/rc.d share/gnats	\
-			lib/krb5/plugins/kdb lib/krb5/plugins/preauth	\
+			lib${LIBARCHSUFFIX}/krb5/plugins/kdb		\
+			lib${LIBARCHSUFFIX}/krb5/plugins/preauth	\
 			include/krb5 include/kadm5
 
 # The MIT krb5 distribution is actually a tar file that contains the
@@ -69,14 +72,17 @@ post-extract:
 	@${ECHO} "=> Extracting internal tarball";			\
 	extract_file="${WRKDIR}/${DISTNAME}.tar.gz";			\
 	cd ${WRKDIR} && ${EXTRACT_CMD}
+.if !empty(MULTIARCH:M[Yy][Ee][Ss])
+	mv ${WRKDIR}/${DISTNAME} ${WRKSRC}
+.endif
 
 pre-configure:
 	@${ECHO} "=> Generating configure";				\
-	cd ${WRKSRC}; autoconf -I ${WRKSRC} -f;
+	cd ${WRKSRC}/src; autoconf -I ${WRKSRC} -f;
 
 post-install:
 	@${ECHO} "=> Installing info files";				\
-	cd ${WRKDIR}/${DISTNAME}/doc;					\
+	cd ${WRKSRC}/doc;						\
 	for f in *.info *.info-[0-9]*; do				\
 		${TEST} ! -f "$$f" ||					\
 		${INSTALL_MAN} "$$f" ${DESTDIR}${PREFIX}/${PKGINFODIR};	\
