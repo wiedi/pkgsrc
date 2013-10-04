@@ -80,7 +80,7 @@ do-install:
 		${DESTDIR}${QTPREFIX}/imports${LIBARCHSUFFIX}/Qt/labs/particles/
 	${LIBTOOL} --mode=install ${INSTALL_LIB} \
 		${WRKSRC}/imports/Qt/labs/shaders/libqmlshadersplugin.la \
-		${DESTDIR}${QTPREFIX}/imports/Qt${LIBARCHSUFFIX}/labs/shaders/
+		${DESTDIR}${QTPREFIX}/imports${LIBARCHSUFFIX}/Qt/labs/shaders/
 	${LIBTOOL} --mode=install ${INSTALL_LIB} \
 		${WRKSRC}/imports/QtWebKit/libqmlwebkitplugin.la \
 		${DESTDIR}${QTPREFIX}/imports${LIBARCHSUFFIX}/QtWebKit/
