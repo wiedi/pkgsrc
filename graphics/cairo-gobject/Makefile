@@ -7,7 +7,7 @@ PKGNAME=	${DISTNAME:S/-/-gobject-/}
 BUILD_DIRS=	util/cairo-gobject
 INSTALL_DIRS=	util/cairo-gobject
 
-INSTALLATION_DIRS+=	lib/pkgconfig
+INSTALLATION_DIRS+=	lib${LIBARCHSUFFIX}/pkgconfig
 
 .include "../../mk/bsd.prefs.mk"
 

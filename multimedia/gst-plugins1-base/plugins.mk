@@ -23,6 +23,7 @@ PATCHDIR=	${.CURDIR}/../../multimedia/gst-plugins1-${GST_PLUGINS1_TYPE}/patches
 GNU_CONFIGURE=		yes
 USE_TOOLS+=		gmake pkg-config
 USE_LIBTOOL=		yes
+USE_MULTIARCH=		lib
 USE_PKGLOCALEDIR=	yes
 
 CONFIGURE_ARGS+=	--disable-examples
@@ -73,7 +74,7 @@ SUBST_FILES.libs=
 .  for _d_ in ${GST_PLUGINS1_DIRS}
 SUBST_FILES.libs+=	${_d_}/Makefile.in
 .  endfor
-SUBST_SED.libs=		-e 's|$$(top_builddir)/gst-libs/gst/.*/libgst|${BUILDLINK_PREFIX.gst-plugins1-${GST_PLUGINS1_TYPE}}/lib/libgst|g'
+SUBST_SED.libs=		-e 's|$$(top_builddir)/gst-libs/gst/.*/libgst|${BUILDLINK_PREFIX.gst-plugins1-${GST_PLUGINS1_TYPE}}/lib${LIBARCHSUFFIX}/libgst|g'
 
 .include "../../multimedia/gst-plugins1-${GST_PLUGINS1_TYPE}/buildlink3.mk"
 .endif

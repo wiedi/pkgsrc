@@ -91,7 +91,7 @@ do-install:
 	cd ${DESTDIR}${PREFIX} && find qt4/include -type f -print > ${WRKDIR}/PLIST
 .for f in Qt3Support QtCore QtDeclarative QtGui QtMultimedia QtNetwork QtOpenGL QtScript QtScriptTools QtSql QtSvg QtTest QtWebKit QtXml QtXmlPatterns jscore webcore
 	${LIBTOOL} --mode=install ${INSTALL_LIB} ${WRKSRC}/lib/lib${f}.la \
-		${DESTDIR}${QTPREFIX}/lib/
+		${DESTDIR}${QTPREFIX}/lib${LIBARCHSUFFIX}/
 	sed	-e "s:${WRKSRC}:${QTPREFIX}:g" \
 		-e "s:${QTPREFIX}/lib${LIBARCHSUFFIX}/lib\\([A-Za-z3]*\\)\\.la:-l\\1:g" \
 		${WRKSRC}/lib/pkgconfig/${f}.pc > ${WRKDIR}/${f}.pc
