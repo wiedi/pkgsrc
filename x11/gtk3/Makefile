@@ -16,6 +16,7 @@ USE_PKGLOCALEDIR=	yes
 USE_TOOLS+=		gmake msgfmt perl pkg-config bash
 USE_LANGUAGES=		c c++
 USE_LIBTOOL=		yes
+USE_MULTIARCH=		bin lib
 PTHREAD_AUTO_VARS=	yes
 
 GNU_CONFIGURE=		yes
@@ -37,9 +38,9 @@ PKGCONFIG_OVERRIDE+=	gtk+-3.0.pc.in
 PKGCONFIG_OVERRIDE+=	gtk+-unix-print-3.0.pc.in
 PKGCONFIG_OVERRIDE+=	gail-3.0.pc.in
 
-INSTALLATION_DIRS+=	lib/gtk-3.0/immodules
-INSTALLATION_DIRS+=	lib/gtk-3.0/modules
-INSTALLATION_DIRS+=	lib/gtk-3.0/3.0.0/filesystems
+INSTALLATION_DIRS+=	lib${LIBARCHSUFFIX}/gtk-3.0/immodules
+INSTALLATION_DIRS+=	lib${LIBARCHSUFFIX}/gtk-3.0/modules
+INSTALLATION_DIRS+=	lib${LIBARCHSUFFIX}/gtk-3.0/3.0.0/filesystems
 
 #REQD_DIRS+=		${PREFIX}/libdata/gtk-2.0
 
