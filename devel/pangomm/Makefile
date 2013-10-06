@@ -15,6 +15,7 @@ CONFLICTS+=		gtkmm<=2.13.5
 
 USE_LANGUAGES=		c c++
 USE_LIBTOOL=		yes
+USE_MULTIARCH=		lib
 USE_PKGLOCALEDIR=	yes
 USE_TOOLS+=		gmake pkg-config perl:run
 GNU_CONFIGURE=		yes
