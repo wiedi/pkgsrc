@@ -15,6 +15,7 @@ LICENSE=		gnu-gpl-v2
 USE_TOOLS+=		gmake intltool msgfmt pkg-config
 USE_PKGLOCALEDIR=	yes
 USE_LIBTOOL=		yes
+USE_MULTIARCH=		lib
 GNU_CONFIGURE=		yes
 
 CONFIGURE_ENV+=		PYTHON=true
