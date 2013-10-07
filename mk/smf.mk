@@ -20,6 +20,9 @@ SMF_METHODS?=			# empty
 SMF_METHOD_SHELL?=		/sbin/sh
 SMF_SRCDIR?=			${FILESDIR}/smf
 
+# Dynamically remove rc.d entries, primarily for pkgsrc-{joyent,wip}
+PLIST_AWK+=			-f ${PKGSRCDIR}/mk/plist/plist-smf.awk
+
 # A manifest file is a pre-requisite for anything to happen
 .  if exists(${SMF_SRCDIR}/${SMF_MANIFEST})
 
