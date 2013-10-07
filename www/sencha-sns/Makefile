@@ -14,7 +14,7 @@ COMMENT=	Social Networking Service software that supports Timeline
 LICENSE=	gnu-gpl-v2 AND mit
 
 DEPENDS+=	${PHP_PKG_PREFIX}-gd>=5.2.0:../../graphics/php-gd
-DEPENDS+=	${PHP_PKG_PREFIX}-${MYSQL_PKG_PREFIX}>=5.2.0:../../databases/php-mysql
+DEPENDS+=	${PHP_PKG_PREFIX}-mysql>=5.2.0:../../databases/php-mysql
 DEPENDS+=	${PHP_PKG_PREFIX}-mbstring>=5.2.0:../../converters/php-mbstring
 
 USE_PKGLOCALEDIR=	yes
@@ -68,5 +68,4 @@ do-install:
 		${DESTDIR}${PREFIX}/${SENCHADIR}
 
 .include "../../lang/php/phpversion.mk"
-.include "../../mk/mysql.buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"

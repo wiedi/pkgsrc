@@ -18,7 +18,7 @@ DEPENDS+=	${PHP_PKG_PREFIX}-curl-[0-9]*:../../www/php-curl
 DEPENDS+=	${PHP_PKG_PREFIX}-gd-[0-9]*:../../graphics/php-gd
 DEPENDS+=	${PHP_PKG_PREFIX}-json-[0-9]*:../../textproc/php-json
 DEPENDS+=	${PHP_PKG_PREFIX}-iconv-[0-9]*:../../converters/php-iconv
-DEPENDS+=	${PHP_PKG_PREFIX}-${MYSQL_PKG_PREFIX}-[0-9]*:../../databases/php-mysql
+DEPENDS+=	${PHP_PKG_PREFIX}-mysql-[0-9]*:../../databases/php-mysql
 DEPENDS+=	${PHP_PKG_PREFIX}-sockets-[0-9]*:../../net/php-sockets
 DEPENDS+=	${PHP_PKG_PREFIX}-xsl-[0-9]*:../../textproc/php-xsl
 DEPENDS+=	${PHP_PKG_PREFIX}-zip-[0-9]*:../../archivers/php-zip
@@ -77,5 +77,4 @@ do-install:
 
 .include "../../lang/php/phpversion.mk"
 .include "../../mk/apache.mk"
-.include "../../mk/mysql.buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"

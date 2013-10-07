@@ -33,7 +33,7 @@ DEPENDS+=	${PHP_PKG_PREFIX}-ldap>=${PHP_BASE_VERS}<${NEXT_VERS}:../../databases/
 DEPENDS+=	${PHP_PKG_PREFIX}-mbstring>=${PHP_BASE_VERS}<${NEXT_VERS}:../../converters/php-mbstring
 DEPENDS+=	${PHP_PKG_PREFIX}-mcrypt>=${PHP_BASE_VERS}<${NEXT_VERS}:../../security/php-mcrypt
 DEPENDS+=	${PHP_PKG_PREFIX}-mssql>=${PHP_BASE_VERS}<${NEXT_VERS}:../../databases/php-mssql
-DEPENDS+=	${PHP_PKG_PREFIX}-{mysql,percona}*-[0-9]*:../../databases/php-mysql
+DEPENDS+=	${PHP_PKG_PREFIX}-mysql>=${PHP_BASE_VERS}<${NEXT_VERS}:../../databases/php-mysql
 DEPENDS+=	${PHP_PKG_PREFIX}-mysqli>=${PHP_BASE_VERS}<${NEXT_VERS}:../../databases/php-mysqli
 # broken
 # DEPENDS+=	${PHP_PKG_PREFIX}-odbc>=${PHP_BASE_VERS}<${NEXT_VERS}:../../databases/php-odbc

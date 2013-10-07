@@ -17,6 +17,5 @@ DEPENDS+=	${PHP_PKG_PREFIX}-ldap>=4.3.3:../../databases/php-ldap
 ### Use MySQL for storing data
 ###
 .if !empty(PKG_OPTIONS:Mmysql)
-.include "../../mk/mysql.buildlink3.mk"
-DEPENDS+=	${PHP_PKG_PREFIX}-${MYSQL_PKG_PREFIX}>=4.3.3:../../databases/php-mysql
+DEPENDS+=	${PHP_PKG_PREFIX}-mysql>=4.3.3:../../databases/php-mysql
 .endif

@@ -33,7 +33,7 @@ DEPENDS+=	${PHP_PKG_PREFIX}-ldap>=${PHP_BASE_VERS}<${NEXT_VERS}:../../databases/
 DEPENDS+=	${PHP_PKG_PREFIX}-mbstring>=${PHP_BASE_VERS}<${NEXT_VERS}:../../converters/php-mbstring
 DEPENDS+=	${PHP_PKG_PREFIX}-mcrypt>=${PHP_BASE_VERS}<${NEXT_VERS}:../../security/php-mcrypt
 DEPENDS+=	${PHP_PKG_PREFIX}-mssql>=${PHP_BASE_VERS}<${NEXT_VERS}:../../databases/php-mssql
-DEPENDS+=	${PHP_PKG_PREFIX}-${MYSQL_PKG_PREFIX}>=${PHP_BASE_VERS}<${NEXT_VERS}:../../databases/php-mysql
+DEPENDS+=	${PHP_PKG_PREFIX}-mysql>=${PHP_BASE_VERS}<${NEXT_VERS}:../../databases/php-mysql
 DEPENDS+=	${PHP_PKG_PREFIX}-mysqli>=${PHP_BASE_VERS}<${NEXT_VERS}:../../databases/php-mysqli
 # broken
 # DEPENDS+=	${PHP_PKG_PREFIX}-odbc>=${PHP_BASE_VERS}<${NEXT_VERS}:../../databases/php-odbc
@@ -66,5 +66,4 @@ META_PACKAGE=		yes
 
 .include "../../lang/php/phpversion.mk"
 .include "../../mk/apache.mk"
-.include "../../mk/mysql.buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"

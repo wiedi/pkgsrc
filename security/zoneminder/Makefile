@@ -101,7 +101,7 @@ CONFIGURE_ARGS+=	--with-webgroup=${APACHE_GROUP}
 # If we're using Apache we're going to need PHP, and PHP MySQL support.
 .include "../../lang/php/phpversion.mk"
 DEPENDS+=	${APACHE_PKG_PREFIX}-${PHP_PKG_PREFIX}-[0-9]*:../../www/ap-php
-DEPENDS+=	${PHP_PKG_PREFIX}-${MYSQL_PKG_PREFIX}-[0-9]*:../../databases/php-mysql
+DEPENDS+=	${PHP_PKG_PREFIX}-mysql-[0-9]*:../../databases/php-mysql
 .endif
 
 # This directory contains state, so use OWN_DIRS instead of MAKE_DIRS.
