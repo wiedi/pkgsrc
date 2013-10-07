@@ -13,7 +13,7 @@ COMMENT=	Horde calendar application
 LICENSE=	gnu-gpl-v2
 
 DEPENDS+=	horde>=3.2:../../www/horde
-DEPENDS+=	${PHP_PKG_PREFIX}-${MYSQL_PKG_PREFIX}>=4.3.3:../../databases/php-mysql
+DEPENDS+=	${PHP_PKG_PREFIX}-mysql>=4.3.3:../../databases/php-mysql
 DEPENDS+=	${PHP_PKG_PREFIX}-pear-Date-[0-9]*:../../time/pear-Date
 
 USE_TOOLS+=	pax
@@ -91,5 +91,4 @@ do-install:
 	${FIND} ${DESTDIR}${KRONOLITHDIR} -type f -print | ${XARGS} ${CHMOD} ${SHAREMODE}
 
 .include "../../lang/php/phpversion.mk"
-.include "../../mk/mysql.buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"

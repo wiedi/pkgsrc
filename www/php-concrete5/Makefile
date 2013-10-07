@@ -15,7 +15,7 @@ LICENSE=	mit
 
 DEPENDS+=	${PHP_PKG_PREFIX}-gd>=5.2.0:../../graphics/php-gd
 DEPENDS+=	${PHP_PKG_PREFIX}-iconv>=5.2.0:../../converters/php-iconv
-DEPENDS+=	${PHP_PKG_PREFIX}-${MYSQL_PKG_PREFIX}>=5.2.0:../../databases/php-mysql
+DEPENDS+=	${PHP_PKG_PREFIX}-mysql>=5.2.0:../../databases/php-mysql
 
 USE_LANGUAGES=	# none
 NO_BUILD=	yes
@@ -52,5 +52,4 @@ do-install:
 
 .include "../../lang/php/phpversion.mk"
 .include "../../lang/python/application.mk"
-.include "../../mk/mysql.buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"
