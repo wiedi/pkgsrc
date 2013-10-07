@@ -14,8 +14,7 @@ PKG_SUGGESTED_OPTIONS=	apache mysql
 ### Use mysql or postgresql backend
 ###
 .if !empty(PKG_OPTIONS:Mmysql)
-.include "../../mk/mysql.buildlink3.mk"
-DEPENDS+=	${PHP_PKG_PREFIX}-${MYSQL_PKG_PREFIX}>=4.3.10:../../databases/php-mysql
+DEPENDS+=	${PHP_PKG_PREFIX}-mysql>=4.3.10:../../databases/php-mysql
 .elif !empty(PKG_OPTIONS:Mpgsql)
 DEPENDS+=	${PHP_PKG_PREFIX}-pgsql>=5:../../databases/php-pgsql
 .endif

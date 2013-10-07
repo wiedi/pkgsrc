@@ -13,8 +13,7 @@ PKG_SUGGESTED_OPTIONS=	pgsql
 ### Use mysql or pgsql backend
 ###
 .if !empty(PKG_OPTIONS:Mmysql)
-.include "../../mk/mysql.buildlink3.mk"
-DEPENDS+=	${PHP_PKG_PREFIX}-${MYSQL_PKG_PREFIX}>=5.2.0:../../databases/php-mysql
+DEPENDS+=	${PHP_PKG_PREFIX}-mysql>=5.2.0:../../databases/php-mysql
 .elif !empty(PKG_OPTIONS:Mpgsql)
 DEPENDS+=	${PHP_PKG_PREFIX}-pgsql>=5.2.0:../../databases/php-pgsql
 .endif

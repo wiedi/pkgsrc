@@ -12,7 +12,7 @@ COMMENT=	PHP/MySQL based application for managing dynamic web content
 LICENSE=	gnu-gpl-v2
 
 DEPENDS+=	${APACHE_PKG_PREFIX}-${PHP_PKG_PREFIX}>=4.3.3:../../www/ap-php
-DEPENDS+=	${PHP_PKG_PREFIX}-${MYSQL_PKG_PREFIX}>=4.3.0:../../databases/php-mysql
+DEPENDS+=	${PHP_PKG_PREFIX}-mysql>=4.3.0:../../databases/php-mysql
 
 USE_TOOLS+=	pax
 
@@ -121,6 +121,5 @@ do-install:
 	cd ${WRKSRC}/public_html; pax -rw . ${DESTDIR}${PREFIX}/${GEEKLOG_PUB}
 
 .include "../../mk/apache.mk"
-.include "../../mk/mysql.buildlink3.mk"
 .include "../../lang/php/phpversion.mk"
 .include "../../mk/bsd.pkg.mk"

@@ -1,7 +1,6 @@
 # $NetBSD: Makefile,v 1.19 2013/03/16 02:00:33 taca Exp $
 
 MODNAME=		mysql
-PKGNAME=		${PHP_PKG_PREFIX}-${MYSQL_PKG_PREFIX}-${PHP_BASE_VERS}
 CATEGORIES+=		databases
 COMMENT=		PHP extension for MySQL databases
 
