@@ -12,8 +12,6 @@ LICENSE=	gnu-gpl-v2
 R_PKGNAME=	circular
 R_PKGVER=	0.4-3
 
-PKG_DESTDIR_SUPPORT=	none
-
 USE_LANGUAGES=	fortran c
 
 .include "../../devel/gettext-lib/buildlink3.mk"
