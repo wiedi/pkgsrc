@@ -14,9 +14,9 @@
       <service_fmri value='svc:/@SMF_PREFIX@/epmd' />
     </dependency>
     <method_context>
-      <method_credential user="@SMF_USER@" group="@SMF_GROUP@" />
+      <method_credential user="@RMQ_USER@" group="@RMQ_GROUP@" />
       <method_environment>
-        <envvar name="HOME" value="@SMF_HOME@" />
+        <envvar name="HOME" value="@RMQ_DIR@" />
 	<envvar name="PATH" value="@PREFIX@/sbin:@PREFIX@/bin:/sbin:/usr/sbin:/usr/bin" />
       </method_environment>
     </method_context>
