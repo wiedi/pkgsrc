@@ -18,7 +18,7 @@
     <exec_method name='stop' type='method' exec=':kill' timeout_seconds='30' />
     <property_group name='config' type='application'>
       <propval name='listen_ip' type='astring' value='127.0.0.1' />
-      <propval name='user' type='astring' value='@SMF_USER@' />
+      <propval name='user' type='astring' value='@MEMCACHED_USER@' />
       <propval name='memory' type='integer' value='64' />
     </property_group>
     <stability value='Evolving' />

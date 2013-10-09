@@ -21,8 +21,8 @@
     <dependency name='@SMF_NAME@-epmd' grouping='require_all' restart_on='none' type='service'>
       <service_fmri value='svc:/@SMF_PREFIX@/epmd' />
     </dependency>
-    <method_context working_directory='@SMF_HOME@'>
-      <method_credential user='@SMF_USER@' group='@SMF_GROUP@' />
+    <method_context working_directory='@EJABBERD_DB@'>
+      <method_credential user='@EJABBERD_USER@' group='@EJABBERD_GROUP@' />
     </method_context>
     <exec_method name='start' type='method' exec='@PREFIX@/sbin/ejabberdctl start' timeout_seconds='120' />
     <exec_method name='stop' type='method' exec='@PREFIX@/sbin/ejabberdctl stop' timeout_seconds='60' />
