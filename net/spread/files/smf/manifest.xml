@@ -13,8 +13,8 @@
     <dependency name='name-services' grouping='require_all' restart_on='refresh' type='service'>
       <service_fmri value='svc:/milestone/name-services' />
     </dependency>
-    <method_context working_directory='@SMF_HOME@'>
-      <method_credential group='@SMF_USER@' user='@SMF_GROUP@' />
+    <method_context working_directory='@SPREAD_DIR@'>
+      <method_credential group='@SPREAD_USER@' user='@SPREAD_GROUP@' />
     </method_context>
     <exec_method name='start' type='method' exec='@PREFIX@/sbin/spread' timeout_seconds='300' />
     <exec_method name='stop' exec=':kill' timeout_seconds='60' />
