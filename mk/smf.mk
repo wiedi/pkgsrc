@@ -23,8 +23,10 @@ SMF_SRCDIR?=			${FILESDIR}/smf
 # Dynamically remove rc.d entries, primarily for pkgsrc-{joyent,wip}
 PLIST_AWK+=			-f ${PKGSRCDIR}/mk/plist/plist-smf.awk
 
-# A manifest file is a pre-requisite for anything to happen
-.  if exists(${SMF_SRCDIR}/${SMF_MANIFEST})
+# A manifest file is a pre-requisite for anything to happen.  We cannot test
+# for existance if the manifest is under WRKDIR as the source has not yet been
+# unpacked, so we assume it will exist later when required.
+.  if exists(${SMF_SRCDIR}/${SMF_MANIFEST}) || !empty(SMF_SRCDIR:M${WRKDIR}*)
 
 SMF_MANIFEST_SRC?=		${SMF_SRCDIR}/${SMF_MANIFEST}
 SMF_MANIFEST_WRK?=		${WRKDIR}/.smf_${SMF_MANIFEST}
