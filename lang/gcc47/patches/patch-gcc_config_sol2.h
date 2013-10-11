@@ -9,8 +9,8 @@ $NetBSD$
 -   %{!YP,*:%{p|pg:-Y P,%R/usr/ccs/lib/libp:%R/usr/lib/libp:%R/usr/ccs/lib:%R/lib:%R/usr/lib} \
 -	   %{!p:%{!pg:-Y P,%R/usr/ccs/lib:%R/lib:%R/usr/lib}}}"
 +   -R@PREFIX@/lib \
-+   %{!YP,*:%{p|pg:-Y P,%R/usr/ccs/lib/libp:%R/usr/lib/libp:%R/usr/ccs/lib:%R/lib:%R/usr/lib:%R@PREFIX@/lib} \
-+	   %{!p:%{!pg:-Y P,%R/usr/ccs/lib:%R/lib:%R/usr/lib:%R@PREFIX@/lib}}}"
++   %{!YP,*:%{p|pg:-Y P,%R/system/usr/ccs/lib/libp:%R/system/usr/lib/libp:%R/system/usr/ccs/lib:%R/system/lib:%R/system/usr/lib:%R@PREFIX@/lib} \
++	   %{!p:%{!pg:-Y P,%R/system/usr/ccs/lib:%R/system/lib:%R/system/usr/lib:%R@PREFIX@/lib}}}"
  
  #undef LINK_ARCH32_SPEC
  #define LINK_ARCH32_SPEC LINK_ARCH32_SPEC_BASE

@@ -8,15 +8,28 @@ $NetBSD: patch-ca,v 1.16 2013/09/11 14:31:31 jperkin Exp $
 
 --- Configure.orig	2013-08-12 02:44:47.000000000 +0000
 +++ Configure
-@@ -1332,6 +1332,7 @@
+@@ -1344,9 +1344,10 @@ xlibpth='/usr/lib/386 /lib/386'
  : Possible local library directories to search.
  loclibpth="/usr/local/lib /opt/local/lib /usr/gnu/lib"
  loclibpth="$loclibpth /opt/gnu/lib /usr/GNU/lib /opt/GNU/lib"
 +loclibpth=''
  
  : general looking path for locating libraries
- glibpth="/lib /usr/lib $xlibpth"
-@@ -3274,13 +3274,14 @@ EOM
+-glibpth="/lib /usr/lib $xlibpth"
++glibpth="/lib /usr/lib /system/usr/lib $xlibpth"
+ glibpth="$glibpth /usr/ccs/lib /usr/ucblib /usr/local/lib"
+ test -f /usr/shlib/libc.so && glibpth="/usr/shlib $glibpth"
+ test -f /shlib/libc.so     && glibpth="/shlib $glibpth"
+@@ -3108,7 +3109,7 @@ $test -z "$myuname" && myuname=`hostname
+ # Remove newlines so myuname is sane to use elsewhere.
+ # tr '[A-Z]' '[a-z]' would not work in EBCDIC
+ # because the A-Z/a-z are not consecutive.
+-myuname=`echo $myuname | $sed -e "s,['/],,g" | \
++myuname=`echo $myuname | $sed -e 's/^[^= ]*=//' -e "s,['/],,g" | \
+ 	./tr '[A-Z]' '[a-z]' | $tr $trnl ' '`
+ newmyuname="$myuname"
+ dflt=n
+@@ -3274,13 +3275,14 @@ EOM
  			osvers="$3"
  			;;
  		dragonfly) osname=dragonfly
@@ -33,7 +46,7 @@ $NetBSD: patch-ca,v 1.16 2013/09/11 14:31:31 jperkin Exp $
  		genix)	osname=genix ;;
  		gnu)	osname=gnu
  			osvers="$3" ;;
-@@ -3302,7 +3303,7 @@ EOM
+@@ -3302,7 +3304,7 @@ EOM
  		MiNT)	osname=mint
  			;;
  		netbsd*) osname=netbsd
@@ -42,7 +55,7 @@ $NetBSD: patch-ca,v 1.16 2013/09/11 14:31:31 jperkin Exp $
  			;;
  		news-os) osvers="$3"
  			case "$3" in
-@@ -3313,7 +3314,7 @@ EOM
+@@ -3313,7 +3315,7 @@ EOM
  		next*) osname=next ;;
  		nonstop-ux) osname=nonstopux ;;
  		openbsd) osname=openbsd
@@ -51,7 +64,7 @@ $NetBSD: patch-ca,v 1.16 2013/09/11 14:31:31 jperkin Exp $
                  	;;
  		os2)	osname=os2
  			osvers="$4"
-@@ -4722,7 +4723,7 @@ case "$plibpth" in
+@@ -4722,7 +4724,7 @@ case "$plibpth" in
  esac
  case "$libpth" in
  ' ') dlist='';;
@@ -60,7 +73,7 @@ $NetBSD: patch-ca,v 1.16 2013/09/11 14:31:31 jperkin Exp $
  *) dlist="$libpth";;
  esac
  
-@@ -4730,7 +4731,7 @@ esac
+@@ -4730,7 +4732,7 @@ esac
  libpth=''
  for xxx in $dlist
  do
@@ -69,7 +82,7 @@ $NetBSD: patch-ca,v 1.16 2013/09/11 14:31:31 jperkin Exp $
  		case " $libpth " in
  		*" $xxx "*) ;;
  		*) libpth="$libpth $xxx";;
-@@ -4819,7 +4820,7 @@ lib_ext=$_a
+@@ -4819,7 +4821,7 @@ lib_ext=$_a
  obj_ext=$_o
  path_sep=$p_
  
@@ -78,7 +91,7 @@ $NetBSD: patch-ca,v 1.16 2013/09/11 14:31:31 jperkin Exp $
  
  : Which makefile gets called first.  This is used by make depend.
  case "$firstmakefile" in
-@@ -5119,8 +5120,10 @@ default|recommended)
+@@ -5119,8 +5121,10 @@ default|recommended)
  	# as that way the compiler can do the right implementation dependant
  	# thing. (NWC)
  	case "$gccversion" in
@@ -91,7 +104,7 @@ $NetBSD: patch-ca,v 1.16 2013/09/11 14:31:31 jperkin Exp $
  		;;
  	esac
  	;;
-@@ -6486,7 +6489,9 @@ rp='Pathname for the site-specific libra
+@@ -6486,7 +6490,9 @@ rp='Pathname for the site-specific libra
  . ./getfile
  prefixvar=sitelib
  . ./setprefixvar
@@ -102,7 +115,7 @@ $NetBSD: patch-ca,v 1.16 2013/09/11 14:31:31 jperkin Exp $
  
  : Determine list of previous versions to include in @INC
  $cat > getverlist <<EOPL
-@@ -6999,7 +7004,9 @@ case "$vendorprefix" in
+@@ -6999,7 +7005,9 @@ case "$vendorprefix" in
  	vendorlibexp="$ansexp"
  	;;
  esac
@@ -113,7 +126,7 @@ $NetBSD: patch-ca,v 1.16 2013/09/11 14:31:31 jperkin Exp $
  prefixvar=vendorlib
  . ./installprefix
  
-@@ -7476,6 +7483,15 @@ case "$nm_so_opt" in
+@@ -7476,6 +7484,15 @@ case "$nm_so_opt" in
  	;;
  esac
  
@@ -129,7 +142,7 @@ $NetBSD: patch-ca,v 1.16 2013/09/11 14:31:31 jperkin Exp $
  : Figure out where the libc is located
  case "$runnm" in
  true)
-@@ -8347,7 +8363,7 @@ if "$useshrplib"; then
+@@ -8347,7 +8364,7 @@ if "$useshrplib"; then
  		# next doesn't like the default...
  		;;
  	haiku)
@@ -138,7 +151,7 @@ $NetBSD: patch-ca,v 1.16 2013/09/11 14:31:31 jperkin Exp $
  		;;
  	hpux*)
  		# hpux doesn't like the default, either.
-@@ -9431,6 +9447,13 @@ esac
+@@ -9431,6 +9448,13 @@ esac
  : Check if we want perlio
  useperlio="$define"
  
@@ -152,7 +165,7 @@ $NetBSD: patch-ca,v 1.16 2013/09/11 14:31:31 jperkin Exp $
  : Set the vendorbin variables
  case "$vendorprefix" in
  '')	d_vendorbin="$undef"
-@@ -19243,7 +19266,15 @@ RCAT(Rei,ser)
+@@ -19243,7 +19267,15 @@ RCAT(Rei,ser)
  ACAT(Cir,cus)
  EOCP
  $cppstdin $cppflags $cppminus <cpp_stuff.c >cpp_stuff.out 2>&1
