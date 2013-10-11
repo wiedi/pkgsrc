@@ -140,14 +140,6 @@ BEGIN {
 }
 
 ###
-### Convert man/ to ${PKGMANDIR}/ for all man and catman page entries.
-###
-/^[^@]/ && \
-/^man\/([^\/]*\/)?(man[1-9ln]\/[^\/]*\.[1-9ln]|cat[1-9ln]\/[^\/]*\.[0-9])/ {
-	sub("^man/", PKGMANDIR "/")
-}
-
-###
 ### Fixup catman entries to use section suffixes if required.
 ###
 (CATMAN_SECTION_SUFFIX ~ /[yY][eE][sS]/)&& /^[^@]/ && \
@@ -155,4 +147,12 @@ BEGIN {
 	n = split($0, components, "/")
 	sub("^cat", "", components[n-1])
 	sub("0$", components[n-1], $0)
+}
+
+###
+### Convert man/ to ${PKGMANDIR}/ for all man and catman page entries.
+###
+/^[^@]/ && \
+/^man\/([^\/]*\/)?(man[1-9ln]\/[^\/]*\.[1-9ln]|cat[1-9ln]\/[^\/]*\.[0-9])/ {
+	sub("^man/", PKGMANDIR "/")
 }
