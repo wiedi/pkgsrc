@@ -1,4 +1,4 @@
-$NetBSD: CHANGES-pkgsrc-2013Q3,v 1.1.2.3 2013/10/05 21:05:44 spz Exp $
+$NetBSD: CHANGES-pkgsrc-2013Q3,v 1.1.2.6 2013/10/12 14:16:45 tron Exp $
 
 Changes to the packages collection and infrastructure on the
 pkgsrc-2013Q3 branch:
@@ -11,4 +11,13 @@ Pullup ticket #4239 - requested by wiz
 security/gnupg2: security update
 Pullup ticket #4237 - requested by obache
 www/ap2-subversion: functionality fix
-
+Pullup ticket #4240 - requested by wiz
+x11/modular-xorg-server: security fix
+Pullup ticket #4241 - requested by tez
+graphics/librsvg: security patch
+Pullup ticket #4242 - requested by taca
+sysutils/ruby-rb-appscript: build fix
+Pullup ticket #4243 - requested by he
+graphics/png: build fix
+Pullup ticket #4244 - requested by obache
+www/py-genshi: security update
