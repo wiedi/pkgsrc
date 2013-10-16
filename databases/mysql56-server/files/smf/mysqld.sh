@@ -17,7 +17,7 @@ start)
 		--basedir=@LOCALBASE@ \
 		--datadir=@MYSQL_DATADIR@ \
 		--pid-file=${PIDFILE} \
-		--log-error=@VARBASE@/log/mysql/error.log
+		--log-error=@VARBASE@/log/mysql/error.log &
 	;;
 stop)
 	[ -f ${PIDFILE} ] && kill `@HEAD@ -1 ${PIDFILE}`
