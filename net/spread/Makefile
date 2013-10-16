@@ -31,6 +31,12 @@ FILES_SUBST+=	SPREAD_USER=${SPREAD_USER:Q}
 FILES_SUBST+=	SPREAD_GROUP=${SPREAD_GROUP:Q}
 FILES_SUBST+=	RUNTIME_DIR=${RUNTIME_DIR:Q}
 
+SUBST_CLASSES+=		spread
+SUBST_STAGE.spread=	pre-configure
+SUBST_MESSAGE.spread=	Fix default config
+SUBST_FILES.spread=	sample.spread.conf spread_params.h
+SUBST_VARS.spread=	SPREAD_USER SPREAD_GROUP RUNTIME_DIR
+
 DOCSDIR=	${PREFIX}/share/doc/spread
 EXAMPLEDIR=	${PREFIX}/share/examples/spread
 RUNTIME_DIR=	${SPREAD_DIR}
