@@ -7,3 +7,5 @@ SHA1 (patch-ba) = 795938504e97da34e83e9e66b8b81ff894cbb5b4
 SHA1 (patch-bb) = 6b2e9ef29802c6f60776d7be4046087f96b8ffcb
 SHA1 (patch-bd) = d39aed08e98e81bca572a429c511ffb400b020c3
 SHA1 (patch-configure) = fb86443e2afe2c17206e73bcdbd2b872397e9d4a
+SHA1 (patch-sample.spread.conf) = d21e28aac33281f3c073915b7f817bb822b48456
+SHA1 (patch-spread__params.h) = 007eb9b1d5464e2cdb88d1838685541763601eab
