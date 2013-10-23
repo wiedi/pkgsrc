@@ -14,7 +14,7 @@ GNU_CONFIGURE=	yes
 USE_LIBTOOL=	yes
 USE_TOOLS+=	autoconf pkg-config
 
-LDFLAGS.SunOS+=	-lsocket -lns
+LDFLAGS.SunOS+=	-lsocket -lnsl
 
 pre-configure:
 	cd ${WRKSRC} && autoconf
