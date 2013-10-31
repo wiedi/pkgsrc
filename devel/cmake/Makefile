@@ -1,10 +1,8 @@
-# $NetBSD: Makefile,v 1.76 2013/09/12 18:58:07 adam Exp $
+# $NetBSD: Makefile,v 1.81 2013/10/24 04:54:15 obache Exp $
 
-DISTNAME=	cmake-${CMAKE_API}.11.2
-PKGREVISION=	1
+DISTNAME=	cmake-${CMAKE_API}.12
 CATEGORIES=	devel
 MASTER_SITES=	http://www.cmake.org/files/v${CMAKE_API}/
-PKG_REVISION=	1
 
 CMAKE_API=	2.8
 
@@ -26,6 +24,8 @@ CONFIGURE_ARGS+=	--mandir=/${PKGMANDIR}
 CONFIGURE_ARGS+=	--docdir=/share/doc/cmake-${CMAKE_API}
 CONFIGURE_ARGS+=	--prefix=${PREFIX}
 CONFIGURE_ARGS+=	--system-libs
+
+LDFLAGS.SunOS+=		-lsocket -lnsl
 
 .include "../../mk/bsd.prefs.mk"
 
@@ -62,6 +62,5 @@ BUILDLINK_API_DEPENDS.libarchive+=	libarchive>=2.8.4
 .include "../../devel/ncurses/buildlink3.mk"
 .include "../../devel/zlib/buildlink3.mk"
 .include "../../textproc/expat/buildlink3.mk"
-.include "../../textproc/xmlrpc-c/buildlink3.mk"
 .include "../../www/curl/buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"

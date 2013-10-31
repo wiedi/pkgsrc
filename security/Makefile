@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.481 2013/09/13 08:13:17 fhajny Exp $
+# $NetBSD: Makefile,v 1.485 2013/10/29 23:41:15 pettai Exp $
 #
 
 COMMENT=	Security tools
@@ -322,6 +322,7 @@ SUBDIR+=	pscan
 SUBDIR+=	putty
 SUBDIR+=	pwsafe
 SUBDIR+=	py-Des
+SUBDIR+=	py-Kerberos
 SUBDIR+=	py-OpenSSL
 SUBDIR+=	py-SSLCrypto
 SUBDIR+=	py-amkCrypto
@@ -331,7 +332,9 @@ SUBDIR+=	py-cryptkit
 SUBDIR+=	py-crypto
 SUBDIR+=	py-cryptopp
 SUBDIR+=	py-denyhosts
+SUBDIR+=	py-ecdsa
 SUBDIR+=	py-gnupg
+SUBDIR+=	py-hsm
 SUBDIR+=	py-itsdangerous
 SUBDIR+=	py-keyring
 SUBDIR+=	py-lasso
@@ -387,6 +390,7 @@ SUBDIR+=	sfs
 SUBDIR+=	sign
 SUBDIR+=	skey
 SUBDIR+=	sks
+SUBDIR+=	sleuthkit
 SUBDIR+=	smtpd
 SUBDIR+=	sniff
 SUBDIR+=	snortsnarf

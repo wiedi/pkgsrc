@@ -1,7 +1,7 @@
-# $NetBSD: Makefile,v 1.103 2013/08/24 16:45:08 richard Exp $
+# $NetBSD: Makefile,v 1.106 2013/10/19 09:06:56 adam Exp $
 
 DISTNAME=	heimdal-1.5.3
-PKGREVISION=	1
+PKGREVISION=	3
 CATEGORIES=	security
 MASTER_SITES=	http://www.h5l.org/dist/src/
 
@@ -70,6 +70,12 @@ PLIST.vis=	yes
 PLIST.glob=	yes
 .endif
 
+# Linux does not have include/vis.h and expected include/glob.h.
+.if ${OPSYS} == "Linux"
+PLIST.vis=	yes
+PLIST.glob=	yes
+.endif
+
 PLIST_VARS+=		afskauth hcrypto
 .if ${OPSYS} == "IRIX"
 PLIST.afskauth=		yes
@@ -103,7 +109,7 @@ pre-build:
 
 .include "../../databases/sqlite3/buildlink3.mk"
 .include "../../security/openssl/buildlink3.mk"
-.include "../../mk/curses.buildlink3.mk"
+.include "../../mk/termcap.buildlink3.mk"
 .include "../../mk/pthread.buildlink3.mk"
 .include "../../mk/readline.buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"

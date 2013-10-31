@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.357 2013/09/13 22:04:07 schmonz Exp $
+# $NetBSD: Makefile,v 1.360 2013/10/30 07:09:24 jnemeth Exp $
 #
 
 COMMENT=	Programming languages
@@ -11,6 +11,7 @@ SUBDIR+=	SmartEiffel
 SUBDIR+=	a60
 SUBDIR+=	abcl
 SUBDIR+=	algol68g
+SUBDIR+=	asn1c
 SUBDIR+=	awka
 SUBDIR+=	baci
 SUBDIR+=	basic256
@@ -99,7 +100,9 @@ SUBDIR+=	ksi
 SUBDIR+=	librep
 SUBDIR+=	libtcl-nothread
 SUBDIR+=	likepython
-SUBDIR+=	lua
+#SUBDIR+=	lua		# only contains Makefile fragments
+SUBDIR+=	lua51
+SUBDIR+=	lua52
 SUBDIR+=	lush
 SUBDIR+=	maude
 SUBDIR+=	mawk

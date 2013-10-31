@@ -1,6 +1,6 @@
-# $NetBSD: Makefile,v 1.120 2013/07/25 11:50:45 wiz Exp $
+# $NetBSD: Makefile,v 1.122 2013/10/26 23:30:29 wiz Exp $
 
-DISTNAME=	gnupg-1.4.14
+DISTNAME=	gnupg-1.4.15
 CATEGORIES=	security
 MASTER_SITES=	ftp://ftp.gnupg.org/gcrypt/gnupg/ \
 		http://gd.tuwien.ac.at/privacy/gnupg/gnupg/ \
@@ -19,7 +19,6 @@ CRYPTO=			yes
 GNU_CONFIGURE=		yes
 USE_PKGLOCALEDIR=	yes
 USE_TOOLS+=		gmake msgfmt
-CONFIGURE_ARGS+=	--with-static-rnd=auto
 CONFIGURE_ARGS+=	--with-mailprog=/usr/sbin/sendmail
 TEST_TARGET=		check
 INFO_FILES=		yes
