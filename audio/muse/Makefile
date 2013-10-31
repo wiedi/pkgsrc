@@ -1,9 +1,9 @@
-# $NetBSD: Makefile,v 1.49 2013/09/02 19:50:54 adam Exp $
+# $NetBSD: Makefile,v 1.51 2013/10/15 09:58:15 roy Exp $
 #
 
 DISTNAME=	MuSE-0.9
 PKGNAME=	${DISTNAME:S/MuSE/muse/}
-PKGREVISION=	27
+PKGREVISION=	29
 CATEGORIES=	audio
 MASTER_SITES=	ftp://ftp.dyne.org/muse/releases/ \
 		http://www.ljudmila.org/~jaromil/mirror/muse/releases/
@@ -36,7 +36,6 @@ SUBST_MESSAGE.dsp=	Fixing hardcoded audio device.
 .include "../../audio/lame/buildlink3.mk"
 .include "../../audio/libvorbis/buildlink3.mk"
 .include "../../audio/libsndfile/buildlink3.mk"
-.include "../../devel/ncurses/buildlink3.mk"
 .include "../../x11/gtk2/buildlink3.mk"
 .include "../../mk/pthread.buildlink3.mk"
 .include "../../mk/oss.buildlink3.mk"

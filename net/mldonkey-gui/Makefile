@@ -1,10 +1,10 @@
-# $NetBSD: Makefile,v 1.70 2013/09/04 12:31:26 obache Exp $
+# $NetBSD: Makefile,v 1.73 2013/10/19 09:07:10 adam Exp $
 #
 
 .include "../../net/mldonkey/Makefile.common"
 
 PKGNAME=		${DISTNAME:S/mldonkey/mldonkey-gui/}
-PKGREVISION=		14
+PKGREVISION=		17
 
 COMMENT+=		(GTK interface)
 

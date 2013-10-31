@@ -1,7 +1,7 @@
-# $NetBSD: Makefile,v 1.26 2013/08/03 04:40:24 obache Exp $
+# $NetBSD: Makefile,v 1.28 2013/10/29 11:50:24 obache Exp $
 #
 
-DISTNAME=	groonga-3.0.6
+DISTNAME=	groonga-3.0.9
 CATEGORIES=	textproc
 MASTER_SITES=	http://packages.groonga.org/source/groonga/
 
@@ -10,7 +10,7 @@ HOMEPAGE=	http://groonga.org/
 COMMENT=	Fulltext search engine and column store
 LICENSE=	gnu-lgpl-v2.1
 
-RUBY_VERSION_SUPPORTED=	193
+RUBY_VERSION_SUPPORTED=	200 193
 .include "../../lang/ruby/rubyversion.mk"
 DEPENDS+=	${RUBY_BASE}>=${RUBY_VERSION}:../../lang/${RUBY_BASE}
 

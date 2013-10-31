@@ -1,7 +1,7 @@
-# $NetBSD: Makefile,v 1.57 2013/06/06 12:55:13 wiz Exp $
+# $NetBSD: Makefile,v 1.59 2013/10/20 17:45:26 joerg Exp $
 
 DISTNAME=	gnustep-back-0.22.0
-PKGREVISION=	5
+PKGREVISION=	6
 CATEGORIES=	x11 gnustep
 MASTER_SITES=	${MASTER_SITE_GNUSTEP:=core/}
 
@@ -14,7 +14,7 @@ USE_LANGUAGES=		objc
 USE_TOOLS+=		pkg-config
 GNU_CONFIGURE=		yes
 CONFIGURE_ARGS+=	--exec-prefix=${PREFIX}/libexec/GNUstep
-LDFLAGS=		${LINKER_RPATH_FLAG}${PREFIX}/lib
+LDFLAGS=		${COMPILER_RPATH_FLAG}${PREFIX}/lib
 MAKE_FILE=		GNUmakefile
 
 pre-install:

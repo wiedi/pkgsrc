@@ -1,4 +1,4 @@
-# $NetBSD: rubyversion.mk,v 1.101 2013/07/21 02:27:45 taca Exp $
+# $NetBSD: rubyversion.mk,v 1.103 2013/10/29 23:25:33 taca Exp $
 #
 
 # This file determines which Ruby version is used as a dependency for
@@ -318,7 +318,7 @@ RUBY_BUILD_RI?=		Yes
 RUBY?=			${PREFIX}/bin/${RUBY_NAME}
 RDOC?=			${PREFIX}/bin/rdoc${RUBY_VER}
 
-RUBY_ARCH?= ${LOWER_ARCH}-${LOWER_OPSYS}${APPEND_ELF}${LOWER_OPSYS_VERSUFFIX}
+RUBY_ARCH?= ${MACHINE_ARCH}-${LOWER_OPSYS}${APPEND_ELF}${LOWER_OPSYS_VERSUFFIX}
 
 #
 # Ruby shared and static library version handling.
@@ -338,7 +338,11 @@ RUBY_SHLIBVER=		${RUBY_VER}
 RUBY_SHLIBVER=		${_RUBY_VER_MAJOR}${_RUBY_VER_MINOR}${_RUBY_API_MINOR}
 .endif
 .elif ${OPSYS} == "OpenBSD" || ${OPSYS} == "MirBSD"
+.if ${_RUBY_VER_MINOR} == 0
+RUBY_SHLIBVER=		${_RUBY_VER_MAJOR}.${_RUBY_API_MINOR}
+.else
 RUBY_SHLIBVER=		${_RUBY_VER_MAJOR}.${_RUBY_VER_MINOR}${_RUBY_API_MINOR}
+.endif
 .elif ${OPSYS} == "Darwin"
 RUBY_SHLIB=		${RUBY_VER}.${RUBY_SHLIBVER}.${RUBY_SLEXT}
 .if ${RUBY_VER} == "18"
