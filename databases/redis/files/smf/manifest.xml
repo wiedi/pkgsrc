@@ -10,8 +10,8 @@
     <dependency name="filesystem" grouping="require_all" restart_on="error" type="service">
       <service_fmri value="svc:/system/filesystem/local" />
     </dependency>
-    <method_context working_directory="@SMF_HOME@">
-      <method_credential user="@SMF_USER@" group="@SMF_GROUP@" />
+    <method_context working_directory="@REDIS_DATADIR@">
+      <method_credential user="@REDIS_USER@" group="@REDIS_GROUP@" />
     </method_context>
     <exec_method type="method" name="start" exec="@PREFIX@/bin/redis-server %{config_file}" timeout_seconds="60" />
     <exec_method type="method" name="stop" exec=":kill" timeout_seconds="60" />

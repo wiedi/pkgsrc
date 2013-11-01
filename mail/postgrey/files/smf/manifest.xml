@@ -22,10 +22,10 @@
     <dependency name='config-file' grouping='require_all' restart_on='none' type='path'>
       <service_fmri value='file://@PKG_SYSCONFDIR@/postgrey_whitelist_clients' />
     </dependency>
-    <method_context working_directory='@SMF_HOME@'>
-      <method_credential user='@SMF_USER@' group='@SMF_GROUP@' />
+    <method_context working_directory='@POSTGREY_DBDIR@'>
+      <method_credential user='@POSTGREY_USER@' group='@POSTGREY_GROUP@' />
     </method_context>
-    <exec_method name='start' type='method' exec='@PREFIX@/sbin/postgrey --daemonize --privacy --inet=%{postgrey/port} %{postgrey/targrey} --tarpit=%{postgrey/tarpit} --pidfile=@SMF_HOME@/postgrey.pid --greylist-action=%{postgrey/action} --greylist-text=%{postgrey/text} --delay=%{postgrey/delay} --max-age=%{postgrey/maxage} --retry-window=%{postgrey/retry}' timeout_seconds='30' />
+    <exec_method name='start' type='method' exec='@PREFIX@/sbin/postgrey --daemonize --privacy --inet=%{postgrey/port} %{postgrey/targrey} --tarpit=%{postgrey/tarpit} --pidfile=@POSTGREY_DBDIR@/postgrey.pid --greylist-action=%{postgrey/action} --greylist-text=%{postgrey/text} --delay=%{postgrey/delay} --max-age=%{postgrey/maxage} --retry-window=%{postgrey/retry}' timeout_seconds='30' />
     <exec_method name='stop' type='method' exec=':kill' timeout_seconds='30' />
     <property_group name='postgrey' type='application'>
       <propval name='port' type='integer' value='10025'/>

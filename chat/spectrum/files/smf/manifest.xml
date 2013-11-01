@@ -10,7 +10,7 @@
     </dependency>
     <instance name="default" enabled="false">
       <method_context>
-        <method_credential user="@SMF_USER@" group="@SMF_GROUP@" />
+        <method_credential user="@JABBER_USER@" group="@JABBER_GROUP@" />
       </method_context>
       <exec_method type="method" name="start" exec="@PREFIX@/bin/spectrum %{config_file}" timeout_seconds="60" />
       <exec_method type="method" name="stop" exec=":kill" timeout_seconds="60" />
