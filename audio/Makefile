@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.488 2013/08/21 15:28:03 drochner Exp $
+# $NetBSD: Makefile,v 1.494 2013/10/03 11:16:58 drochner Exp $
 #
 
 COMMENT=	Audio tools
@@ -128,13 +128,15 @@ SUBDIR+=	gkrellm-volume
 SUBDIR+=	glurp
 SUBDIR+=	gmp3info
 SUBDIR+=	gmpc
+SUBDIR+=	gmpc-alarm
 SUBDIR+=	gmpc-albumview
-SUBDIR+=	gmpc-lastfm
+SUBDIR+=	gmpc-jamendo
+SUBDIR+=	gmpc-libnotify
 SUBDIR+=	gmpc-lyrics
 SUBDIR+=	gmpc-lyricwiki
 SUBDIR+=	gmpc-magnatune
-SUBDIR+=	gmpc-mdcover
 SUBDIR+=	gmpc-tagedit
+SUBDIR+=	gmpc-wikipedia
 SUBDIR+=	gnome-audio
 SUBDIR+=	gnome-speech
 SUBDIR+=	gnome-speech-espeak
@@ -260,6 +262,7 @@ SUBDIR+=	libvisual0.2
 SUBDIR+=	libvisual0.2-plugins
 SUBDIR+=	libvorbis
 SUBDIR+=	libwildmidi
+SUBDIR+=	libxspf
 SUBDIR+=	liteamp
 SUBDIR+=	liveice
 SUBDIR+=	lmms

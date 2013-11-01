@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.709 2013/09/09 19:23:57 wiz Exp $
+# $NetBSD: Makefile,v 1.715 2013/10/19 21:04:27 markd Exp $
 #
 
 COMMENT=	Packages to support the X window system
@@ -14,6 +14,7 @@ SUBDIR+=	XmHTML
 SUBDIR+=	Xrender
 SUBDIR+=	alacarte
 SUBDIR+=	antiright
+SUBDIR+=	appmenu-qt
 SUBDIR+=	appres
 SUBDIR+=	asnap
 SUBDIR+=	aterm
@@ -511,24 +512,20 @@ SUBDIR+=	xf86-video-ati
 SUBDIR+=	xf86-video-ati6
 SUBDIR+=	xf86-video-chips
 SUBDIR+=	xf86-video-cirrus
-SUBDIR+=	xf86-video-cyrix
 SUBDIR+=	xf86-video-dummy
 SUBDIR+=	xf86-video-fbdev
 SUBDIR+=	xf86-video-glint
 SUBDIR+=	xf86-video-i128
 SUBDIR+=	xf86-video-i740
-SUBDIR+=	xf86-video-imstt
 SUBDIR+=	xf86-video-intel
 SUBDIR+=	xf86-video-mach64
 SUBDIR+=	xf86-video-mga
 SUBDIR+=	xf86-video-neomagic
 SUBDIR+=	xf86-video-newport
-SUBDIR+=	xf86-video-nsc
 SUBDIR+=	xf86-video-nv
 SUBDIR+=	xf86-video-nvxbox
 SUBDIR+=	xf86-video-openchrome
 SUBDIR+=	xf86-video-r128
-SUBDIR+=	xf86-video-radeonhd
 SUBDIR+=	xf86-video-rendition
 SUBDIR+=	xf86-video-s3
 SUBDIR+=	xf86-video-s3virge
@@ -543,7 +540,6 @@ SUBDIR+=	xf86-video-tga
 SUBDIR+=	xf86-video-trident
 SUBDIR+=	xf86-video-tseng
 SUBDIR+=	xf86-video-vesa
-SUBDIR+=	xf86-video-vga
 SUBDIR+=	xf86-video-vmware
 SUBDIR+=	xf86-video-wsfb
 SUBDIR+=	xf86bigfontproto

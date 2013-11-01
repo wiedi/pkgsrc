@@ -1,6 +1,6 @@
-# $NetBSD: Makefile,v 1.84 2013/06/04 06:39:45 adam Exp $
+# $NetBSD: Makefile,v 1.86 2013/10/19 08:47:36 adam Exp $
 
-DISTNAME=	icu4c-51_2-src
+DISTNAME=	icu4c-52_1-src
 PKGNAME=	${DISTNAME:S/4c//:S/-src//:S/_/./g}
 CATEGORIES=	textproc
 MASTER_SITES=	http://download.icu-project.org/files/icu4c/${PKGVERSION_NOREV}/
@@ -47,13 +47,15 @@ CFLAGS.SunOS+=		-std=c99
 PLIST_SUBST+=		MH_NAME=mh-irix
 .elif ${OPSYS} == "Darwin"
 PLIST_SUBST+=		MH_NAME=mh-darwin
+.elif ${OPSYS} == "Cygwin"
+PLIST_SUBST+=		MH_NAME=mh-cygwin
 .else
 # For unknown systems, set the filename to mh-unknown so that the user
 # gets a warning about missing files.
 PLIST_SUBST+=		MH_NAME=mh-unknown
 .endif
 
-.if ${OPSYS} == "Darwin"
+.if ${OPSYS} == "Darwin" || ${OPSYS} == "Cygwin"
 INSTALL_UNSTRIPPED=	yes
 .endif
 
@@ -64,6 +66,13 @@ INSTALL_UNSTRIPPED=	yes
 .  if ${MACHINE_ARCH} == "i386"
 CFLAGS+=	-march=i486
 .  endif
+.endif
+
+INSTALLATION_DIRS=	bin
+
+.if ${OPSYS} == "Cygwin"
+post-install:
+	mv ${DESTDIR}${PREFIX}/lib/cygicudata.dll ${DESTDIR}${PREFIX}/bin/
 .endif
 
 .include "../../mk/bsd.pkg.mk"

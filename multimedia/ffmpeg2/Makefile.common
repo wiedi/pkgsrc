@@ -1,8 +1,8 @@
-# $NetBSD: Makefile.common,v 1.3 2013/08/15 18:49:10 adam Exp $
+# $NetBSD: Makefile.common,v 1.6 2013/10/30 07:08:23 adam Exp $
 # used by multimedia/ffmpeg2/Makefile
 # used by multimedia/ffplay2/Makefile
 
-DISTNAME=	ffmpeg-2.0.1
+DISTNAME=	ffmpeg-2.1
 CATEGORIES=	multimedia
 MASTER_SITES=	http://www.ffmpeg.org/releases/
 EXTRACT_SUFX=	.tar.bz2
@@ -35,7 +35,7 @@ LDFLAGS+=		-Wl,-R${PREFIX}/lib/ffmpeg2
 
 PLIST_VARS+=		opencl
 
-.if ${OPSYS} == "Darwin"
+.if !empty(MACHINE_PLATFORM:MDarwin-1[23456789].*-*)
 CONFIGURE_ARGS+=	--enable-opencl
 PLIST.opencl=		yes
 .endif
