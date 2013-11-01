@@ -1,8 +1,8 @@
-# $NetBSD: Makefile,v 1.47 2013/09/02 19:51:32 adam Exp $
+# $NetBSD: Makefile,v 1.49 2013/10/24 10:31:02 wiz Exp $
 
 DISTNAME=	wxhaskell-src-0.9.4
 PKGNAME=	${DISTNAME:S/-src//}
-PKGREVISION=	30
+PKGREVISION=	31
 CATEGORIES=	x11
 MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=wxhaskell/}
 EXTRACT_SUFX=	.zip
@@ -12,6 +12,7 @@ HOMEPAGE=	http://haskell.org/haskellwiki/WxHaskell
 COMMENT=	Haskell wxGTK bindings
 
 PKG_DESTDIR_SUPPORT=	none
+BROKEN=			Does not support DESTDIR; will be removed after 2013Q4
 
 USE_LANGUAGES=		c c++
 USE_TOOLS+=		gmake

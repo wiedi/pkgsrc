@@ -1,8 +1,8 @@
-# $NetBSD: Makefile,v 1.27 2013/09/04 12:31:26 obache Exp $
+# $NetBSD: Makefile,v 1.29 2013/10/23 12:50:02 obache Exp $
 #
 
 DISTNAME=	ibus-m17n-1.3.4
-PKGREVISION=	12
+PKGREVISION=	14
 CATEGORIES=	inputmethod
 MASTER_SITES=	http://ibus.googlecode.com/files/
 

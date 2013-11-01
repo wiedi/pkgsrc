@@ -1,6 +1,6 @@
-# $NetBSD: Makefile,v 1.131 2013/08/13 17:07:32 adam Exp $
+# $NetBSD: Makefile,v 1.132 2013/10/17 07:56:36 adam Exp $
 
-DISTNAME=	curl-7.32.0
+DISTNAME=	curl-7.33.0
 CATEGORIES=	www
 MASTER_SITES=	http://curl.haxx.se/download/ \
 		ftp://ftp.sunet.se/pub/www/utilities/curl/
@@ -25,7 +25,7 @@ CONFIGURE_ARGS+=	--with-ca-path=${SSLCERTS}
 CONFIGURE_ARGS+=	--with-zlib=${BUILDLINK_PREFIX.zlib}
 PKGCONFIG_OVERRIDE=	libcurl.pc.in
 
-INSTALLATION_DIRS=	share/doc/curl share/examples/curl
+INSTALLATION_DIRS=	share/doc/curl
 
 .include "../../mk/bsd.prefs.mk"
 
@@ -46,16 +46,9 @@ do-install-multiarch-hook:
 		${DESTDIR}/${PREFIX}/include/curl/${INCARCHSUFFIX}
 
 post-install:
-	for _f in MANUAL TheArtOfHttpScripting FAQ			\
-		curl-config.pdf curl.pdf; do				\
-		${INSTALL_DATA} ${WRKSRC}/docs/$${_f}			\
-			 ${DESTDIR}${PREFIX}/share/doc/curl/${_f};	\
-	done
-	for _f in ${WRKSRC}/docs/examples/*.c				\
-		${WRKSRC}/docs/examples/README; do			\
-		${INSTALL_DATA} $${_f} 					\
-			${DESTDIR}${PREFIX}/share/examples/curl;	\
-	done
+.for f in MANUAL TheArtOfHttpScripting FAQ
+	${INSTALL_DATA} ${WRKSRC}/docs/${f} ${DESTDIR}${PREFIX}/share/doc/curl/
+.endfor
 .if !empty(MULTIARCH:M[Yy][Ee][Ss])
 	${INSTALL_DATA} ${FILESDIR}/curlbuild.h				\
 		${DESTDIR}/${PREFIX}/include/curl
