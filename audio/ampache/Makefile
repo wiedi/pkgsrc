@@ -14,7 +14,7 @@ DEPENDS+=       ${APACHE_PKG_PREFIX}-${PHP_PKG_PREFIX}>=5.2:../../www/ap-php
 DEPENDS+=       ${PHP_PKG_PREFIX}-gettext>=0:../../devel/php-gettext
 DEPENDS+=       ${PHP_PKG_PREFIX}-iconv>=0:../../converters/php-iconv
 DEPENDS+=       ${PHP_PKG_PREFIX}-mbstring>=0:../../converters/php-mbstring
-DEPENDS+=       ${PHP_PKG_PREFIX}-${MYSQL_PKG_PREFIX}>=0:../../databases/php-mysql
+DEPENDS+=       ${PHP_PKG_PREFIX}-mysql>=0:../../databases/php-mysql
 
 NO_BUILD=		yes
 USE_LANGUAGES=		# none
@@ -52,6 +52,5 @@ do-install:
 	${FIND} ${DESTDIR}${INSTDIR} -name '*.orig' | ${XARGS} ${RM} -f
 
 .include "../../mk/apache.mk"
-.include "../../mk/mysql.buildlink3.mk"
 .include "../../lang/php/phpversion.mk"
 .include "../../mk/bsd.pkg.mk"

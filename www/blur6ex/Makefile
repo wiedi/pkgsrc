@@ -11,7 +11,7 @@ HOMEPAGE=	http://www.blursoft.com/
 COMMENT=	Weblog and content framework
 
 DEPENDS+=	${APACHE_PKG_PREFIX}-${PHP_PKG_PREFIX}>=4.0.0:../../www/ap-php
-DEPENDS+=	${PHP_PKG_PREFIX}-${MYSQL_PKG_PREFIX}-[0-9]*:../../databases/php-mysql
+DEPENDS+=	${PHP_PKG_PREFIX}-mysql-[0-9]*:../../databases/php-mysql
 
 USE_TOOLS+=	pax
 
@@ -53,6 +53,5 @@ do-install:
 		${DESTDIR}${PREFIX}/${HTTPD_ROOT}/blog
 
 .include "../../mk/apache.mk"
-.include "../../mk/mysql.buildlink3.mk"
 .include "../../lang/php/phpversion.mk"
 .include "../../mk/bsd.pkg.mk"

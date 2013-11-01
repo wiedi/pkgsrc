@@ -39,7 +39,7 @@ OWN_DIRS_PERMS+=	${WPHOME}/wp-content/uploads \
 
 INSTALLATION_DIRS+=	${DOCDIR} ${WPHOME} ${EGDIR}
 
-DEPENDS+=		${PHP_PKG_PREFIX}-${MYSQL_PKG_PREFIX}>=4.3.3:../../databases/php-mysql
+DEPENDS+=		${PHP_PKG_PREFIX}-mysql>=4.3.3:../../databases/php-mysql
 
 do-install:
 	${INSTALL_DATA} ${WRKSRC}/readme.html ${DESTDIR}${DOCDIR}
@@ -59,5 +59,4 @@ do-install:
 	${FIND} ${DESTDIR}${WPHOME} \
 		-type f -exec ${CHMOD} ${SHAREMODE} "{}" \;
 
-.include "../../mk/mysql.buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"

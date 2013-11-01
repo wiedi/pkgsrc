@@ -15,7 +15,7 @@ USE_LANGUAGES=		# none
 USE_TOOLS+=		pax
 NO_BUILD=		yes
 
-DEPENDS+=		${PHP_PKG_PREFIX}-${MYSQL_PKG_PREFIX}-[0-9]*:../../databases/php-mysql
+DEPENDS+=		${PHP_PKG_PREFIX}-mysql-[0-9]*:../../databases/php-mysql
 DEPENDS+=		${PHP_PKG_PREFIX}-snmp-[0-9]*:../../net/php-snmp
 DEPENDS+=		${PHP_PKG_PREFIX}-sockets-[0-9]*:../../net/php-sockets
 DEPENDS+=		${APACHE_PKG_PREFIX}-${PHP_PKG_PREFIX}-[0-9]*:../../www/ap-php
@@ -23,7 +23,6 @@ DEPENDS+=		${APACHE_PKG_PREFIX}-${PHP_PKG_PREFIX}-[0-9]*:../../www/ap-php
 .include "../../mk/bsd.prefs.mk"
 .include "../../lang/php/phpversion.mk"
 .include "../../mk/apache.mk"
-.include "../../mk/mysql.buildlink3.mk"
 
 PKG_USERS=		${CACTI_USER}:${CACTI_GROUP}
 PKG_GROUPS=		${CACTI_GROUP}
