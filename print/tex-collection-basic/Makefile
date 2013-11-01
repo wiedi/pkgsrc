@@ -1,7 +1,8 @@
-# $NetBSD: Makefile,v 1.4 2010/12/25 05:44:34 minskim Exp $
+# $NetBSD: Makefile,v 1.6 2013/10/30 06:49:54 dholland Exp $
 
 DISTNAME=	collection-basic
 PKGNAME=	tex-${DISTNAME}-2010.${TEXLIVE_REV}
+PKGREVISION=	1
 CATEGORIES=	print
 MASTER_SITES=	# empty
 TEXLIVE_REV=	20730
@@ -27,7 +28,7 @@ DEPENDS+=	tex-hyphen-base>=2010:../../print/tex-hyphen-base
 DEPENDS+=	tex-ifluatex>=1.3:../../print/tex-ifluatex
 DEPENDS+=	tex-ifxetex>=0.6:../../print/tex-ifxetex
 DEPENDS+=	tex-kpathsea>=2010:../../print/tex-kpathsea
-DEPENDS+=	lua-alt-getopt>=0.7.0:../../devel/lua-alt-getopt
+DEPENDS+=	${LUA_PKGPREFIX}-alt-getopt>=0.7.0:../../devel/lua-alt-getopt
 DEPENDS+=	tex-luatex>=0.60.1:../../print/tex-luatex
 DEPENDS+=	tex-makeindex>=2.12:../../textproc/tex-makeindex
 DEPENDS+=	tex-metafont>=2009nb1:../../fonts/tex-metafont
@@ -48,4 +49,5 @@ DEPENDS+=	tex-xdvi>=22.84.16nb1:../../print/tex-xdvi
 
 META_PACKAGE=	yes
 
+.include "../../lang/lua/luaversion.mk"
 .include "../../mk/bsd.pkg.mk"

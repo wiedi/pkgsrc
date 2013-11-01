@@ -1,14 +1,12 @@
-$NetBSD: patch-tests_test__connect__delay.cpp,v 1.1 2013/07/30 04:00:25 obache Exp $
+$NetBSD: patch-tests_test__connect__delay.cpp,v 1.3 2013/10/04 18:36:54 joerg Exp $
 
-* error: no newline at end of file
-
---- tests/test_connect_delay.cpp.orig	2013-05-02 08:55:49.000000000 +0000
+--- tests/test_connect_delay.cpp.orig	2013-10-02 11:20:19.000000000 +0000
 +++ tests/test_connect_delay.cpp
-@@ -257,4 +257,5 @@ int main (void)
-     
-     rc = zmq_ctx_destroy(context2);
-     assert (rc == 0);
--}
-\ No newline at end of file
-+}
-+
+@@ -23,6 +23,7 @@
+ #include <string.h>
+ #include <unistd.h>
+ #include <string>
++#include <time.h>
+ 
+ #undef NDEBUG
+ #include <assert.h>

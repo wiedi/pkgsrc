@@ -1,4 +1,4 @@
-$NetBSD: patch-argp-standalone_argp-fmtstream.h,v 1.3 2013/09/15 12:29:21 joerg Exp $
+$NetBSD: patch-argp-standalone_argp-fmtstream.h,v 1.5 2013/10/04 08:07:23 manu Exp $
 
 --- argp-standalone/argp-fmtstream.h.orig	2013-07-12 17:43:25.000000000 +0000
 +++ argp-standalone/argp-fmtstream.h

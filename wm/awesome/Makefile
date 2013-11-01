@@ -1,7 +1,8 @@
-# $NetBSD: Makefile,v 1.43 2013/07/22 19:47:18 degroote Exp $
+# $NetBSD: Makefile,v 1.45 2013/10/30 06:49:55 dholland Exp $
 #
 
 DISTNAME=	awesome-3.5.1
+PKGREVISION=	1
 CATEGORIES=	x11 wm
 MASTER_SITES=	http://awesome.naquadah.org/download/
 EXTRACT_SUFX=	.tar.xz
@@ -44,7 +45,7 @@ BUILD_DEPENDS+=	asciidoc>=8.3.0:../../textproc/asciidoc
 BUILD_DEPENDS+=	xmlto-[0-9]*:../../textproc/xmlto
 BUILD_DEPENDS+=	docbook-xml-[0-9]*:../../textproc/docbook-xml
 
-DEPENDS+=		lua-gi-[0-9]*:../../devel/lua-gi
+DEPENDS+=		${LUA_PKGPREFIX}-gi-[0-9]*:../../devel/lua-gi
 
 LDFLAGS.SunOS+=		-liconv
 

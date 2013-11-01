@@ -1,18 +1,17 @@
-# $NetBSD: Makefile,v 1.120 2013/09/02 19:51:14 adam Exp $
-#
+# $NetBSD: Makefile,v 1.125 2013/10/21 10:46:48 wiz Exp $
 
 DISTNAME=	# empty
 PKGNAME=	thunderbird-${TB_VER}
-TB_VER=		17.0.8
-LIGHTNINGVER=	1.9
-PKGREVISION=	1
+TB_VER=		17.0.9
+#LIGHTNINGVER=	1.9
+PKGREVISION=	3
 CATEGORIES=	mail
 MASTER_SITES=	${MASTER_SITE_MOZILLA_ESR:=thunderbird/releases/${TB_VER}esr/source/} \
 		${MASTER_SITE_MOZILLA_ALL:=thunderbird/releases/${TB_VER}esr/source/}
-DISTFILES=	thunderbird-${TB_VER}esr.source.tar.bz2 \
-		lightning-${LIGHTNINGVER}.source.tar.bz2
-SITES.lightning-${LIGHTNINGVER}.source.tar.bz2=	${MASTER_SITE_MOZILLA:=calendar/lightning/releases/${LIGHTNINGVER}/source/}
-EXTRACT_DIR.lightning-${LIGHTNINGVER}.source.tar.bz2=	${WRKSRC}/lightning
+DISTFILES=	thunderbird-${TB_VER}esr.source.tar.bz2
+#DISTFILES+=	lightning-${LIGHTNINGVER}.source.tar.bz2
+#SITES.lightning-${LIGHTNINGVER}.source.tar.bz2=	${MASTER_SITE_MOZILLA:=calendar/lightning/releases/${LIGHTNINGVER}/source/}
+#EXTRACT_DIR.lightning-${LIGHTNINGVER}.source.tar.bz2=	${WRKSRC}/lightning
 
 MAINTAINER=	pkgsrc-users@NetBSD.org
 HOMEPAGE=	http://www.mozillamessaging.com/en-US/thunderbird/
@@ -40,10 +39,10 @@ ALL_ENV+=		MOZILLA_PKG_NAME=thunderbird
 #SUBST_FILES.ext-compat+=	calendar/*/*/install.rdf
 #SUBST_SED.ext-compat=		-e 's,\(<em:maxVersion>\).*<,\19.0<,g'
 
-post-extract:
-	cd ${WRKSRC} && ${RM} -r calendar
-	${CP} -r ${EXTRACT_DIR.lightning-${LIGHTNINGVER}.source.tar.bz2}/comm-beta/calendar ${WRKSRC}
-	${RM} -r ${EXTRACT_DIR.lightning-${LIGHTNINGVER}.source.tar.bz2}
+#post-extract:
+#	cd ${WRKSRC} && ${RM} -r calendar
+#	${CP} -r ${EXTRACT_DIR.lightning-${LIGHTNINGVER}.source.tar.bz2}/comm-beta/calendar ${WRKSRC}
+#	${RM} -r ${EXTRACT_DIR.lightning-${LIGHTNINGVER}.source.tar.bz2}
 
 pre-configure:
 	cd ${WRKSRC} && ${SETENV} ${CONFIGURE_ENV} autoconf
@@ -65,6 +64,7 @@ post-build:
 	  < ${FILESDIR}/desktop.in					\
 	  > ${WRKDIR}/desktop
 
+INSTALLATION_DIRS+=	lib/${MOZILLA}/extensions
 INSTALLATION_DIRS+=	share/applications share/pixmaps
 post-install:
 	${INSTALL_DATA} ${WRKDIR}/desktop				\

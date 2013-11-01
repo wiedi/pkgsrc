@@ -1,8 +1,8 @@
-# $NetBSD: Makefile,v 1.71 2013/09/02 19:51:24 adam Exp $
+# $NetBSD: Makefile,v 1.73 2013/10/10 14:42:31 ryoon Exp $
 
 .include "../../sysutils/cdrdao/Makefile.common"
 
-PKGREVISION=	25
+PKGREVISION=	27
 
 PKGNAME=	gcdmaster-${CDRDAO_VER}
 COMMENT=	Gnome UI frontend to cdrdao

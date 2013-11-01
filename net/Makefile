@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.979 2013/09/19 11:00:19 obache Exp $
+# $NetBSD: Makefile,v 1.984 2013/10/10 03:33:43 jnemeth Exp $
 #
 
 COMMENT=	Networking tools
@@ -58,6 +58,7 @@ SUBDIR+=	bug-buddy
 SUBDIR+=	bwping
 SUBDIR+=	cacti
 SUBDIR+=	calypso
+SUBDIR+=	cclive
 SUBDIR+=	ccrtp
 SUBDIR+=	cdpd
 SUBDIR+=	cftp
@@ -136,6 +137,7 @@ SUBDIR+=	freeDiameter
 SUBDIR+=	freenet-tools
 SUBDIR+=	freeradius
 SUBDIR+=	freeradius2
+SUBDIR+=	freerdp
 SUBDIR+=	ftplibpp
 SUBDIR+=	ftpproxy
 SUBDIR+=	gated
@@ -310,6 +312,7 @@ SUBDIR+=	nagios-nrpe
 SUBDIR+=	nagios-nsca
 SUBDIR+=	nagios-plugin-dumpdates
 SUBDIR+=	nagios-plugin-ldap
+SUBDIR+=	nagios-plugin-milter
 SUBDIR+=	nagios-plugin-mysql
 SUBDIR+=	nagios-plugin-pgsql
 SUBDIR+=	nagios-plugin-radius
@@ -678,6 +681,7 @@ SUBDIR+=	ucspi-tcp
 SUBDIR+=	udns
 SUBDIR+=	udpcast
 SUBDIR+=	udptunnel
+SUBDIR+=	uftp
 SUBDIR+=	unbound
 SUBDIR+=	unfs3
 SUBDIR+=	unison
