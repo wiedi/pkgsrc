@@ -1,6 +1,6 @@
-# $NetBSD: Makefile,v 1.33 2013/08/11 13:42:31 obache Exp $
+# $NetBSD: Makefile,v 1.35 2013/10/13 08:27:08 wiz Exp $
 
-DISTNAME=		libdrm-2.4.46
+DISTNAME=		libdrm-2.4.47
 CATEGORIES=		x11 graphics
 MASTER_SITES=		http://dri.freedesktop.org/libdrm/
 EXTRACT_SUFX=		.tar.bz2
@@ -11,6 +11,8 @@ COMMENT=		Userspace interface to kernel DRM services
 
 ONLY_FOR_PLATFORM=	NetBSD-*-* DragonFly-*-* FreeBSD-*-* OpenBSD-*-* \
 			Linux-*-* SunOS-*-*
+
+DIST_SUBDIR=		libdrm-2.4.47-rerelease
 
 USE_PKGLOCALEDIR=	yes
 USE_TOOLS+=		pkg-config

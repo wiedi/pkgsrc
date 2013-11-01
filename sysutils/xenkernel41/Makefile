@@ -1,9 +1,10 @@
-# $NetBSD: Makefile,v 1.24 2013/09/11 18:00:33 drochner Exp $
+# $NetBSD: Makefile,v 1.27 2013/10/22 19:41:58 drochner Exp $
 #
 
 VERSION=	4.1.6.1
 DISTNAME=	xen-${VERSION}
 PKGNAME=	xenkernel41-${VERSION}
+PKGREVISION=	2
 CATEGORIES=	sysutils
 MASTER_SITES=	http://bits.xensource.com/oss-xen/release/${VERSION}/
 
@@ -35,7 +36,8 @@ MESSAGE_SUBST+=		XENKERNELDIR=${XENKERNELDIR:Q}
 .include "../../mk/compiler.mk"
 .if !empty(PKGSRC_COMPILER:Mclang)
 EXTRA_CFLAGS+=	-Qunused-arguments -no-integrated-as -Wno-error=format \
-		-Wno-error=parentheses-equality -Wno-error=enum-conversion
+		-Wno-error=parentheses-equality -Wno-error=enum-conversion \
+		-Wno-error=unused-function
 .endif
 
 MAKE_ENV+=	EXTRA_CFLAGS=${EXTRA_CFLAGS:Q}

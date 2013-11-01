@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.990 2013/09/15 18:51:59 taca Exp $
+# $NetBSD: Makefile,v 1.994 2013/10/25 07:24:12 wiz Exp $
 #
 
 COMMENT=	Packages related to the World Wide Web
@@ -294,7 +294,6 @@ SUBDIR+=	p5-Catalyst-Manual
 SUBDIR+=	p5-Catalyst-Model-Adaptor
 SUBDIR+=	p5-Catalyst-Model-File
 SUBDIR+=	p5-Catalyst-Plugin-Authentication
-SUBDIR+=	p5-Catalyst-Plugin-Authentication-Store-DBIC
 SUBDIR+=	p5-Catalyst-Plugin-Authentication-Store-RDBO
 SUBDIR+=	p5-Catalyst-Plugin-Authorization-ACL
 SUBDIR+=	p5-Catalyst-Plugin-Authorization-Roles
@@ -405,6 +404,7 @@ SUBDIR+=	p5-HTTP-Tiny
 SUBDIR+=	p5-HTTPD-User-Manage
 SUBDIR+=	p5-Handel
 SUBDIR+=	p5-I18N-AcceptLanguage
+SUBDIR+=	p5-JSON-RPC
 SUBDIR+=	p5-JavaScript-Value-Escape
 SUBDIR+=	p5-Jemplate
 SUBDIR+=	p5-Kwiki
@@ -474,6 +474,7 @@ SUBDIR+=	p5-Rose-HTMLx-Form-Field-PopUpMenuNumeric
 SUBDIR+=	p5-Rose-HTMLx-Form-Field-Serial
 SUBDIR+=	p5-Rose-HTMLx-Form-Related
 SUBDIR+=	p5-Rose-URI
+SUBDIR+=	p5-Router-Simple
 SUBDIR+=	p5-SCGI
 SUBDIR+=	p5-SVN-Web
 SUBDIR+=	p5-Session-Storage-Secure

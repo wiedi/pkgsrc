@@ -1,4 +1,4 @@
-$NetBSD: patch-xlators_mount_fuse_src_fuse-helpers.c,v 1.1 2013/09/17 21:10:32 joerg Exp $
+$NetBSD: patch-xlators_mount_fuse_src_fuse-helpers.c,v 1.3 2013/10/04 08:07:23 manu Exp $
 
 --- xlators/mount/fuse/src/fuse-helpers.c.orig	2013-09-17 13:41:20.000000000 +0000
 +++ xlators/mount/fuse/src/fuse-helpers.c

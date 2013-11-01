@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.438 2013/09/13 08:40:24 fhajny Exp $
+# $NetBSD: Makefile,v 1.442 2013/10/07 10:13:04 joerg Exp $
 
 COMMENT=	Databases
 
@@ -36,6 +36,7 @@ SUBDIR+=	gramps3
 SUBDIR+=	gtkdbfeditor
 SUBDIR+=	gtksql
 SUBDIR+=	guile-pg
+SUBDIR+=	hsqldb18
 SUBDIR+=	idzebra
 SUBDIR+=	innotop
 SUBDIR+=	iodbc
@@ -60,7 +61,6 @@ SUBDIR+=	libdbi-driver-sqlite3
 SUBDIR+=	libgda
 SUBDIR+=	libgda-mysql
 SUBDIR+=	libgda-postgres
-SUBDIR+=	libgnomedb
 SUBDIR+=	libpqxx
 SUBDIR+=	libpqxx-doc
 SUBDIR+=	lua-sqlite
@@ -68,7 +68,6 @@ SUBDIR+=	lua-sqlite3
 SUBDIR+=	lua-tokyocabinet
 SUBDIR+=	luma
 SUBDIR+=	maatkit
-SUBDIR+=	mergeant
 SUBDIR+=	metakit-lib
 SUBDIR+=	myodbc
 SUBDIR+=	mysql-workbench
@@ -336,6 +335,7 @@ SUBDIR+=	py-sqlalchemy-migrate
 SUBDIR+=	py-sqlite
 SUBDIR+=	py-sqlite2
 SUBDIR+=	py-sqlite3
+SUBDIR+=	py-sqlparse
 SUBDIR+=	py-sybase
 SUBDIR+=	py-table
 SUBDIR+=	py-tokyocabinet
