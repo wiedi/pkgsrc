@@ -1,4 +1,4 @@
-$NetBSD: TODO,v 1.12690 2013/11/01 01:22:58 wiz Exp $
+$NetBSD: TODO,v 1.12697 2013/11/02 22:58:44 ryoon Exp $
 
 Suggested new packages
 ======================
@@ -405,7 +405,7 @@ For possible Perl packages updates, see http://www.NetBSD.org/~wiz/perl.html.
 	o bzr-2.6.0
 	o c4-1.10 [schmonz]
 	o cal3d-0.11.0
-	o calibre-1.8
+	o calibre-1.9
 	o calligra-2.4.3 [in wip; koffice successor]
 	o capc-calc-2.12.4.11
 	o cardboard-schedule-1.14c [at http://www.bright-green.com/downloads/]
@@ -523,14 +523,13 @@ For possible Perl packages updates, see http://www.NetBSD.org/~wiz/perl.html.
 	o fillets-ng-0.7.4
 	o fillets-ng-data-0.7.4
 	o findutils-4.4.2
-	o firefox-25.0
 	o fish-2.1
 	o flashplayer-0.4.13
 	o flightgear-2.12
 	o flpsed-0.4.4
 	o fltk2-2.0pre8323
 	o fluxbox-1.3.5
-	o fotoxx-13.10
+	o fotoxx-13.11
 	o fox-1.6.41
 	o freeciv-2.4.0
 	o freefont-20120503
@@ -656,7 +655,7 @@ For possible Perl packages updates, see http://www.NetBSD.org/~wiz/perl.html.
 	o hiawatha-9.2
 	o highlight-3.16
 	o honeyd-1.5c
-	o horde-5.1.4
+	o horde-5.1.5
 	o html2wml-0.4.11
 	o htop-1.0.2
 	o httptunnel-3.3
@@ -743,7 +742,6 @@ For possible Perl packages updates, see http://www.NetBSD.org/~wiz/perl.html.
 	o liboobs-2.32.0 [GNOME 2.32]
 	o libquantum-1.1.0 [pkg/43728, development release]
 	o libreoffice-4.1
-	o libreoffice4-bin-4.1
 	o librep-0.92.2.1
 	o libsecret-0.16
 	o libssh2-1.4.2
@@ -834,7 +832,6 @@ For possible Perl packages updates, see http://www.NetBSD.org/~wiz/perl.html.
 	o nulib2-220
 	o nut-19.0
 	o nxtvepg-2.8.1
-	o ocaml-4.01.0
 	o ocrad-0.22
 	o olvwm-4.5
 	o oo2c-2.1.7
@@ -915,7 +912,6 @@ For possible Perl packages updates, see http://www.NetBSD.org/~wiz/perl.html.
 	o py-httplib2-0.8
 	o py-kombu-2.5.14
 	o py-moin-1.9.7
-	o py-psutil-1.1.2
 	o py-pycha-0.7.0 [wait for fix to regression with bin/chavier - richard]
 	o py-sip-4.15.1 [don't update until pyqt3 and KDE problems are fixed -- still there in 4.15.1]
 	o py-qt4-4.10.3 [needs py-sip-4.15, see above]
@@ -923,13 +919,12 @@ For possible Perl packages updates, see http://www.NetBSD.org/~wiz/perl.html.
 	o py-simplejson-3.3.0
 	o py-sip-4.15.3
 	o py-sybase-0.37
-	o py-xattr-1.3.3
 	o qnetwalk-1.4
 	o qt4-qscintilla-2.7.2
 	o qt5-libs-5.1
 	o quilt-0.60
 	o radiance-3.7.2
-	o rails-4.0
+	o rails-4.0.1
 	o raine-0.61.1
 	o rat-4.2.25
 	o rc-1.7.1 [at ftp://quenix2.dyndns.org/FreeBSD/ports/distfiles/]
@@ -953,7 +948,7 @@ For possible Perl packages updates, see http://www.NetBSD.org/~wiz/perl.html.
 	o rtcw-1.41.3
 	o rtty-4.0 [at ftp://ftp.isc.org/isc/rtty/]
 	o ruby-2.0.0p0
-	o rudiments-0.43
+	o rudiments-0.44
 	o sabayon-2.30.1 [GNOME 2.30]
 	o sablecc-3.7
 	o samba-4.0.7 [wip]
@@ -1037,6 +1032,7 @@ For possible Perl packages updates, see http://www.NetBSD.org/~wiz/perl.html.
 	o tesseract-3.02.02
 	o tetrinetx-1.40c
 	o texlive-2012
+	o texmaker-4.1
 	o texworks-0.4.5
 	o tfmxplay-1.1.6
 	o thunderbird-24
@@ -1074,7 +1070,7 @@ For possible Perl packages updates, see http://www.NetBSD.org/~wiz/perl.html.
 	o vfu-4.09
 	o vicq-0.4.2
 	o viewvc-1.1.21
-	o vifm-0.7.5
+	o vifm-0.7.6
 	o vinagre-3.10.1
 	o vino-3.10.1
 	o visual-regexp-3.1

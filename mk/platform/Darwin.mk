@@ -1,4 +1,4 @@
-# $NetBSD: Darwin.mk,v 1.55 2013/09/04 15:14:45 jperkin Exp $
+# $NetBSD: Darwin.mk,v 1.57 2013/11/01 12:22:32 jperkin Exp $
 #
 # Variable definitions for the Darwin operating system.
 
@@ -94,6 +94,25 @@ _USE_RPATH=		no	# don't add rpath to LDFLAGS
 
 # Comes with a native mit-krb5 implementation
 KRB5_DEFAULT?=		mit-krb5
+
+#
+# Builtin overrides.
+#
+.if !empty(OS_VERSION:M[56].*)
+USE_BUILTIN.dl=		no	# Darwin-[56].* uses devel/dlcompat
+.endif
+#
+# OSX Mavericks and Xcode 5 no longer ship /usr/include headers, moving them
+# instead to SDK-specific locations.  This breaks various builtin header
+# checks, so we simply override builtins here that we know exist.
+#
+.if ${OS_VERSION:R} >= 13
+IS_BUILTIN.db1=		yes
+IS_BUILTIN.dl=		yes
+IS_BUILTIN.pthread=	yes
+IS_BUILTIN.termcap=	yes
+IS_BUILTIN.terminfo=	yes
+.endif
 
 # Builtin defaults which make sense for this platform.
 _OPSYS_PREFER.linux-pam?=	native

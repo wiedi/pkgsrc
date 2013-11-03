@@ -1,8 +1,10 @@
-$NetBSD: patch-ca,v 1.16 2013/09/11 14:31:31 jperkin Exp $
+$NetBSD: patch-ca,v 1.17 2013/11/01 14:02:37 jperkin Exp $
 
 * Use "uname -r" to get OS version for *BSD.
 
 * Move $loclibpth to the end of $dlist, instead of the beginning.
+
+* Disable -fstack-protector on SunOS
 
 * Several other changes.
 
@@ -83,10 +85,9 @@ $NetBSD: patch-ca,v 1.16 2013/09/11 14:31:31 jperkin Exp $
  	# thing. (NWC)
  	case "$gccversion" in
 -	?*)	set stack-protector -fstack-protector
--		eval $checkccflag
-+	?*)	if test "X$osname" != "solaris"; then
-+			set stack-protector -fstack-protector
-+			eval $checkccflag
++	?*)	if test "X$osname" != "Xsolaris"; then
++		set stack-protector -fstack-protector
+ 		eval $checkccflag
 +		fi
  		;;
  	esac
