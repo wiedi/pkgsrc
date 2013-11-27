@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.437 2013/09/21 13:22:35 obache Exp $
+# $NetBSD: Makefile,v 1.440 2013/11/18 22:51:00 pettai Exp $
 #
 
 COMMENT=	Electronic mail utilities
@@ -171,6 +171,7 @@ SUBDIR+=	nullmailer
 SUBDIR+=	oe2mbx
 SUBDIR+=	offlineimap
 SUBDIR+=	opendkim
+SUBDIR+=	opensmtpd
 SUBDIR+=	p5-App-Siesh
 SUBDIR+=	p5-Catalyst-View-Email
 SUBDIR+=	p5-Email-Abstract
@@ -322,6 +323,8 @@ SUBDIR+=	thunderbird
 SUBDIR+=	thunderbird-l10n
 SUBDIR+=	thunderbird10
 SUBDIR+=	thunderbird10-l10n
+SUBDIR+=	thunderbird17
+SUBDIR+=	thunderbird17-l10n
 SUBDIR+=	tmda
 SUBDIR+=	tnef
 SUBDIR+=	tnef2txt

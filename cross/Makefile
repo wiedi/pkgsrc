@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.51 2013/09/12 14:09:33 ryoon Exp $
+# $NetBSD: Makefile,v 1.55 2013/11/18 06:43:03 mef Exp $
 #
 
 COMMENT=	Cross-platform development utilities
@@ -38,6 +38,11 @@ SUBDIR+=	mingw-binutils
 SUBDIR+=	mingw-gcc
 SUBDIR+=	mingw-runtime-bin
 SUBDIR+=	mingw-w32api-bin
+#SUBDIR+=	nios2			# just contains makefile fragments
+SUBDIR+=	nios2-binutils
+SUBDIR+=	nios2-gcc
+SUBDIR+=	nios2-gcc3
+SUBDIR+=	nios2-gcc41
 SUBDIR+=	uisp
 
 .include "../mk/misc/category.mk"
