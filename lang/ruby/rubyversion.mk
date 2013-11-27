@@ -1,4 +1,4 @@
-# $NetBSD: rubyversion.mk,v 1.103 2013/10/29 23:25:33 taca Exp $
+# $NetBSD: rubyversion.mk,v 1.106 2013/11/24 14:22:03 taca Exp $
 #
 
 # This file determines which Ruby version is used as a dependency for
@@ -207,8 +207,8 @@ RUBY200_VERSION=	2.0.0
 
 # patch
 RUBY18_PATCHLEVEL=	pl374
-RUBY193_PATCHLEVEL=	p448
-RUBY200_PATCHLEVEL=	p247
+RUBY193_PATCHLEVEL=	p484
+RUBY200_PATCHLEVEL=	p353
 
 # current API compatible version; used for version of shared library
 RUBY18_API_VERSION=	1.8.7
@@ -318,7 +318,7 @@ RUBY_BUILD_RI?=		Yes
 RUBY?=			${PREFIX}/bin/${RUBY_NAME}
 RDOC?=			${PREFIX}/bin/rdoc${RUBY_VER}
 
-RUBY_ARCH?= ${MACHINE_ARCH}-${LOWER_OPSYS}${APPEND_ELF}${LOWER_OPSYS_VERSUFFIX}
+RUBY_ARCH?= ${MACHINE_GNU_ARCH}-${LOWER_OPSYS}${APPEND_ELF}${LOWER_OPSYS_VERSUFFIX}
 
 #
 # Ruby shared and static library version handling.
