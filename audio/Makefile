@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.494 2013/10/03 11:16:58 drochner Exp $
+# $NetBSD: Makefile,v 1.496 2013/11/23 13:59:10 drochner Exp $
 #
 
 COMMENT=	Audio tools
@@ -262,6 +262,7 @@ SUBDIR+=	libvisual0.2
 SUBDIR+=	libvisual0.2-plugins
 SUBDIR+=	libvorbis
 SUBDIR+=	libwildmidi
+SUBDIR+=	libxmp
 SUBDIR+=	libxspf
 SUBDIR+=	liteamp
 SUBDIR+=	liveice
@@ -376,6 +377,7 @@ SUBDIR+=	py-vorbis
 SUBDIR+=	qjackctl
 SUBDIR+=	qsynth
 SUBDIR+=	qtplay
+SUBDIR+=	quodlibet2
 SUBDIR+=	rexima
 SUBDIR+=	rhythmbox
 SUBDIR+=	rhythmbox-gtk3

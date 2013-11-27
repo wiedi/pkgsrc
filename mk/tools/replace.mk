@@ -1,4 +1,4 @@
-# $NetBSD: replace.mk,v 1.262 2013/09/12 10:48:51 jperkin Exp $
+# $NetBSD: replace.mk,v 1.265 2013/11/16 07:58:00 shattered Exp $
 #
 # Copyright (c) 2005 The NetBSD Foundation, Inc.
 # All rights reserved.
@@ -584,6 +584,17 @@ TOOLS_PATH.lha=			${TOOLS_PREFIX.lha}/bin/lha
 .  endif
 .endif
 
+.if !defined(TOOLS_IGNORE.lzip) && !empty(_USE_TOOLS:Mlzip)
+.  if !empty(PKGPATH:Marchivers/lzip)
+MAKEFLAGS+=			TOOLS_IGNORE.lzip=
+.  elif !empty(_TOOLS_USE_PKGSRC.lzip:M[yY][eE][sS])
+TOOLS_DEPENDS.lzip?=		lzip>=1.14:../../archivers/lzip
+TOOLS_CREATE+=			lzip
+TOOLS_FIND_PREFIX+=		TOOLS_PREFIX.lzip=lzip
+TOOLS_PATH.lzip=		${TOOLS_PREFIX.lzip}/bin/lzip
+.  endif
+.endif
+
 .if !defined(TOOLS_IGNORE.lzcat) && !empty(_USE_TOOLS:Mlzcat)
 .  if !empty(PKGPATH:Marchivers/xz)
 MAKEFLAGS+=			TOOLS_IGNORE.lzcat=
@@ -867,16 +878,19 @@ TOOLS_ARGS.xargs=		-r	# don't run command if stdin is empty
 .  endif
 .endif
 
-.if !defined(TOOLS_IGNORE.xzcat) && !empty(_USE_TOOLS:Mxzcat)
-.  if !empty(PKGPATH:Marchivers/xz)
-MAKEFLAGS+=			TOOLS_IGNORE.xzcat=
-.  elif !empty(_TOOLS_USE_PKGSRC.xzcat:M[yY][eE][sS])
-TOOLS_DEPENDS.xzcat?=		xz>=4.999.9betanb1:../../archivers/xz
-TOOLS_CREATE+=			xzcat
-TOOLS_FIND_PREFIX+=		TOOLS_PREFIX.xzcat=xzcat
-TOOLS_PATH.xzcat=		${TOOLS_PREFIX.xzcat}/bin/xzcat
+_TOOLS.xz=	xz xzcat
+.for _t_ in ${_TOOLS.xz}
+.  if !defined(TOOLS_IGNORE.${_t_}) && !empty(_USE_TOOLS:M${_t_})
+.    if !empty(PKGPATH:Marchivers/xz)
+MAKEFLAGS+=			TOOLS_IGNORE.${_t_}=
+.    elif !empty(_TOOLS_USE_PKGSRC.${_t_}:M[yY][eE][sS])
+TOOLS_DEPENDS.${_t_}?=		xz>=4.999.9betanb1:../../archivers/xz
+TOOLS_CREATE+=			${_t_}
+TOOLS_FIND_PREFIX+=		TOOLS_PREFIX.${_t_}=xz
+TOOLS_PATH.${_t_}=		${TOOLS_PREFIX.${_t_}}/bin/${_t_}
+.    endif
 .  endif
-.endif
+.endfor
 
 .if !defined(TOOLS_IGNORE.yacc) && !empty(_USE_TOOLS:Myacc)
 .  if !empty(PKGPATH:Mdevel/bison)
