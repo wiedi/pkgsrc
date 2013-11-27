@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.568 2013/10/19 20:43:38 markd Exp $
+# $NetBSD: Makefile,v 1.570 2013/11/18 19:11:40 minskim Exp $
 #
 
 COMMENT=	Desktop publishing
@@ -147,6 +147,8 @@ SUBDIR+=	teTeX3-texmf
 SUBDIR+=	teTeX3-texmfsrc
 SUBDIR+=	tex-2up
 SUBDIR+=	tex-2up-doc
+SUBDIR+=	tex-IEEEconf
+SUBDIR+=	tex-IEEEconf-doc
 SUBDIR+=	tex-IEEEtran
 SUBDIR+=	tex-IEEEtran-doc
 SUBDIR+=	tex-SIstyle
@@ -300,8 +302,6 @@ SUBDIR+=	tex-dehyph-exptl
 SUBDIR+=	tex-dehyph-exptl-doc
 SUBDIR+=	tex-draftwatermark
 SUBDIR+=	tex-draftwatermark-doc
-SUBDIR+=	tex-dvipdfm
-SUBDIR+=	tex-dvipdfm-doc
 SUBDIR+=	tex-dvipdfmx
 SUBDIR+=	tex-dvipdfmx-def
 SUBDIR+=	tex-dvipdfmx-doc

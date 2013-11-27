@@ -1,8 +1,8 @@
-# $NetBSD: Makefile,v 1.26 2013/07/05 13:29:44 ryoon Exp $
+# $NetBSD: Makefile,v 1.29 2013/11/20 20:04:40 adam Exp $
 
 DISTNAME=	kde-workspace-${_KDE_VERSION}
 PKGNAME=	${DISTNAME:S/-4/4-4/}
-PKGREVISION=	4
+PKGREVISION=	2
 CATEGORIES=	x11
 COMMENT=	Base workspace for the KDE 4 integrated X11 desktop
 
@@ -42,14 +42,13 @@ CONF_FILES+=		${PREFIX}/share/examples/kde4-dbus/org.kde.kcontrol.kcmclock.conf 
 			${PKG_SYSCONFDIR}/dbus-1/system.d/org.kde.kcontrol.kcmclock.conf
 CONF_FILES+=		${PREFIX}/share/examples/kde4-dbus/org.kde.kcontrol.kcmkdm.conf \
 			${PKG_SYSCONFDIR}/dbus-1/system.d/org.kde.kcontrol.kcmkdm.conf
-CONF_FILES+=		${PREFIX}/share/examples/kde4-dbus/org.kde.powerdevil.backlighthelper.conf \
-			${PKG_SYSCONFDIR}/dbus-1/system.d/org.kde.powerdevil.backlighthelper.conf
 
 SPECIAL_PERMS+=		${PREFIX}/lib/kde4/libexec/kcheckpass \
 			${REAL_ROOT_USER} ${REAL_ROOT_GROUP} 6555
 
 REPLACE_PERL+= \
 	kcontrol/keys/convertShortcuts.pl \
+	kwin/clients/oxygen/data/update_oxygen.pl \
 	kwin/data/kwin3_plugin.pl \
 	kwin/data/pluginlibFix.pl
 REPLACE_SH+=		libs/plasmagenericshell/widgetsexplorer/package/Messages.sh
@@ -146,6 +145,7 @@ BUILDLINK_DEPMETHOD.qt4-tools=	full
 .include "../../x11/libXxf86misc/buildlink3.mk"
 .include "../../x11/libXScrnSaver/buildlink3.mk"
 .include "../../x11/xcb-util-image/buildlink3.mk"
+.include "../../x11/xcb-util-keysyms/buildlink3.mk"
 .include "../../x11/xcb-util-renderutil/buildlink3.mk"
 
 .include "../../mk/pam.buildlink3.mk"

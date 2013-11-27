@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.4 2013/10/19 09:06:55 adam Exp $
+# $NetBSD: Makefile,v 1.6 2013/11/22 13:38:31 dholland Exp $
 
 DISTNAME=	mono-2.10.9
 PKGREVISION=	4
@@ -18,7 +18,7 @@ BUILD_DEPENDS+=	p5-XML-Parser-[0-9]*:../../textproc/p5-XML-Parser
 
 CONFLICTS=	pnet-[0-9]* mcsim-[0-9]* lc-[0-9]*
 
-ALL_ENV+=		MONO_SHARED_DIR=${WRKDIR:Q}
+ALL_ENV+=		MONO_SHARED_DIR=${WRKDIR:Q} PLATFORM=
 
 USE_TOOLS+=		bison gmake perl:run pkg-config bash:run msgfmt
 USE_LIBTOOL=		yes
