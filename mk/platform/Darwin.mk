@@ -1,4 +1,4 @@
-# $NetBSD: Darwin.mk,v 1.55 2013/09/04 15:14:45 jperkin Exp $
+# $NetBSD: Darwin.mk,v 1.60 2013/11/24 10:13:41 tron Exp $
 #
 # Variable definitions for the Darwin operating system.
 
@@ -71,9 +71,21 @@ _USER_DEPENDS=		user-darwin>=20130712:../../sysutils/user_darwin
 
 _OPSYS_EMULDIR.darwin=	# empty
 
+#
+# From Xcode 5 onwards system headers are no longer installed by default
+# into /usr/include, so we need to query their location.
+#
+.if exists(/usr/bin/xcrun)
+OSX_SDK_PATH!=	/usr/bin/xcrun --show-sdk-path 2>/dev/null || echo /nonexistent
+.endif
+
 _OPSYS_SYSTEM_RPATH?=		/usr/lib
 _OPSYS_LIB_DIRS?=		/usr/lib
+.if exists(/usr/include)
 _OPSYS_INCLUDE_DIRS?=		/usr/include
+.elif exists(${OSX_SDK_PATH}/usr/include)
+_OPSYS_INCLUDE_DIRS?=		${OSX_SDK_PATH}/usr/include
+.endif
 
 .if ${OS_VERSION:R} >= 6
 _OPSYS_HAS_INET6=	yes	# IPv6 is standard
@@ -94,6 +106,13 @@ _USE_RPATH=		no	# don't add rpath to LDFLAGS
 
 # Comes with a native mit-krb5 implementation
 KRB5_DEFAULT?=		mit-krb5
+
+#
+# Builtin overrides.
+#
+.if !empty(OS_VERSION:M[56].*)
+USE_BUILTIN.dl=		no	# Darwin-[56].* uses devel/dlcompat
+.endif
 
 # Builtin defaults which make sense for this platform.
 _OPSYS_PREFER.linux-pam?=	native

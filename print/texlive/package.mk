@@ -1,4 +1,4 @@
-# $NetBSD: package.mk,v 1.19 2013/10/17 07:07:26 minskim Exp $
+# $NetBSD: package.mk,v 1.21 2013/11/18 18:19:25 minskim Exp $
 #
 # This Makefile fragment is intended to be included by packages that build
 # TeX Live packages.
@@ -66,19 +66,31 @@ _texlive-set-permission:
 .endfor
 
 _texlive-info:
-	if [ -d ${WRKSRC}/texmf/doc/info ]; then \
-		${RM} -f ${WRKSRC}/texmf/doc/info/dir; \
+	if [ -d ${WRKSRC}/texmf-dist/doc/info ]; then \
+		${RM} -f ${WRKSRC}/texmf-dist/doc/info/dir; \
 		${MKDIR} ${WRKSRC}/info; \
-		${MV} ${WRKSRC}/texmf/doc/info/* ${WRKSRC}/info; \
-		${RMDIR} -p ${WRKSRC}/texmf/doc/info || ${TRUE}; \
+		${MV} ${WRKSRC}/texmf-dist/doc/info/* ${WRKSRC}/info; \
+		${RMDIR} -p ${WRKSRC}/texmf-dist/doc/info || ${TRUE}; \
+	fi
+	if [ -d ${WRKSRC}/doc/info ]; then \
+		${RM} -f ${WRKSRC}/doc/info/dir; \
+		${MKDIR} ${WRKSRC}/info; \
+		${MV} ${WRKSRC}/doc/info/* ${WRKSRC}/info; \
+		${RMDIR} -p ${WRKSRC}/doc/info || ${TRUE}; \
 	fi
 
 _texlive-man:
-	if [ -d ${WRKSRC}/texmf/doc/man ]; then \
+	if [ -d ${WRKSRC}/texmf-dist/doc/man ]; then \
 		${MKDIR} ${WRKSRC}/man; \
-		${MV} ${WRKSRC}/texmf/doc/man/* ${WRKSRC}/man; \
+		${MV} ${WRKSRC}/texmf-dist/doc/man/* ${WRKSRC}/man; \
 		${FIND} ${WRKSRC}/man -name \*.pdf -exec ${RM} {} \; ; \
-		${RMDIR} -p ${WRKSRC}/texmf/doc/man || ${TRUE}; \
+		${RMDIR} -p ${WRKSRC}/texmf-dist/doc/man || ${TRUE}; \
+	fi
+	if [ -d ${WRKSRC}/doc/man ]; then \
+		${MKDIR} ${WRKSRC}/man; \
+		${MV} ${WRKSRC}/doc/man/* ${WRKSRC}/man; \
+		${FIND} ${WRKSRC}/man -name \*.pdf -exec ${RM} {} \; ; \
+		${RMDIR} -p ${WRKSRC}/doc/man || ${TRUE}; \
 	fi
 
 _texlive-install:

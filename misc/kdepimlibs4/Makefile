@@ -1,8 +1,8 @@
-# $NetBSD: Makefile,v 1.55 2013/07/05 13:29:38 ryoon Exp $
+# $NetBSD: Makefile,v 1.58 2013/11/20 20:04:35 adam Exp $
 
 DISTNAME=	kdepimlibs-${_KDE_VERSION}
 PKGNAME=	${DISTNAME:S/-4/4-4/}
-PKGREVISION=	4
+PKGREVISION=	2
 CATEGORIES=	misc
 COMMENT=	Support libraries for PIM for the KDE integrated X11 desktop
 
