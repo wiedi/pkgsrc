@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.9 2013/11/01 11:30:23 jaapb Exp $
+# $NetBSD: Makefile,v 1.11 2013/12/02 20:38:12 jnemeth Exp $
 #
 
 VERSION=	4.2.3
@@ -6,7 +6,7 @@ VERSION_IPXE=	1.0.0
 
 DISTNAME=		xen-${VERSION}
 PKGNAME=		xentools42-${VERSION}
-PKGREVISION=		1
+PKGREVISION=		2
 CATEGORIES=		sysutils
 MASTER_SITES=		http://bits.xensource.com/oss-xen/release/${VERSION}/
 
@@ -240,7 +240,13 @@ EXTRA_HOSTCFLAGS+=	-Wno-error=ignored-attributes
 EXTRA_CFLAGS+=	-Wno-error=ignored-attributes -no-integrated-as \
 		-Wno-error=tautological-compare -Wno-error=null-dereference \
 		-Wno-error=empty-body -Wno-error=self-assign \
-		-Wno-error=sometimes-uninitialized
+		-Wno-error=sometimes-uninitialized \
+		-Wno-error=unused-function -Wno-error=format \
+		-Wno-error=unused-const-variable \
+		-Wno-error=gnu-designator -Wno-error=uninitialized \
+		-Wno-error=parentheses-equality
+BUILDLINK_TRANSFORM+=	rm:-falign-jumps=1 rm:-falign-loops=1 \
+			rm:-mpreferred-stack-boundary=2
 .endif
 
 MAKE_ENV+=	EXTRA_HOSTCFLAGS=${EXTRA_HOSTCFLAGS:Q} EXTRA_CFLAGS=${EXTRA_CFLAGS:M*:Q}

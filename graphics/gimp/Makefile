@@ -1,7 +1,6 @@
-# $NetBSD: Makefile,v 1.239 2013/10/10 14:41:50 ryoon Exp $
+# $NetBSD: Makefile,v 1.241 2013/12/01 11:58:44 adam Exp $
 
-DISTNAME=	gimp-2.8.6
-PKGREVISION=	5
+DISTNAME=	gimp-2.8.10
 CATEGORIES=	graphics
 MASTER_SITES=	ftp://ftp.gimp.org/pub/gimp/v${PKGVERSION_NOREV:R}/ \
 		${MASTER_SITE_GNU:=gimp/v${PKGVERSION_NOREV:R}/} \
@@ -69,6 +68,9 @@ PLIST.remote=	yes
 .include "../../x11/libSM/buildlink3.mk"
 .include "../../x11/libXmu/buildlink3.mk"
 .include "../../x11/libXpm/buildlink3.mk"
+.endif
+.if !empty(PKG_BUILD_OPTIONS.gtk2:Mquartz)
+.include "../../x11/gtk-mac-integration/buildlink3.mk"
 .endif
 .include "../../mk/pthread.buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"

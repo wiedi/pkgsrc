@@ -1,4 +1,4 @@
-# $NetBSD: mozilla-common.mk,v 1.19 2013/11/02 22:57:55 ryoon Exp $
+# $NetBSD: mozilla-common.mk,v 1.21 2013/11/21 15:24:38 ryoon Exp $
 #
 # common Makefile fragment for mozilla packages based on gecko 2.0.
 #
@@ -11,7 +11,6 @@ USE_TOOLS+=		pkg-config perl gmake autoconf213 unzip zip
 USE_LANGUAGES+=		c99 c++
 UNLIMIT_RESOURCES+=	datasize
 
-.include "../../mk/compiler.mk"
 .include "../../mk/bsd.prefs.mk"
 # gcc45-4.5.3 of lang/gcc45 does not generate proper binary,
 # but gcc 4.5.4 of NetBSD 7 generates working binary.
@@ -163,10 +162,10 @@ CONFIGURE_ENV+=	ac_cv_sqlite_secure_delete=yes	# c.f. patches/patch-al
 BUILDLINK_API_DEPENDS.libevent+=	libevent>=1.1
 .include "../../devel/libevent/buildlink3.mk"
 .include "../../devel/libffi/buildlink3.mk"
-BUILDLINK_API_DEPENDS.nspr+=	nspr>=4.9.6
+BUILDLINK_API_DEPENDS.nspr+=	nspr>=4.10.2
 .include "../../devel/nspr/buildlink3.mk"
 .include "../../textproc/icu/buildlink3.mk"
-BUILDLINK_API_DEPENDS.nss+=	nss>=3.15
+BUILDLINK_API_DEPENDS.nss+=	nss>=3.15.3
 .include "../../devel/nss/buildlink3.mk"
 .include "../../devel/zlib/buildlink3.mk"
 .include "../../mk/jpeg.buildlink3.mk"

@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.404 2013/10/04 14:46:41 ryoon Exp $
+# $NetBSD: Makefile,v 1.409 2013/12/02 12:33:05 wiz Exp $
 #
 
 COMMENT=	Miscellaneous utilities
@@ -119,7 +119,6 @@ SUBDIR+=	kde-wallpapers4
 SUBDIR+=	kdeaccessibility3
 SUBDIR+=	kdeaddons3
 SUBDIR+=	kdeadmin3
-SUBDIR+=	kdeadmin4
 SUBDIR+=	kdeartwork3
 SUBDIR+=	kdeartwork4
 SUBDIR+=	kdeedu3
@@ -150,8 +149,10 @@ SUBDIR+=	koffice-l10n-pl
 SUBDIR+=	kp
 SUBDIR+=	kremotecontrol
 SUBDIR+=	kstars
+SUBDIR+=	kteatime
 SUBDIR+=	ktouch
 SUBDIR+=	kturtle
+SUBDIR+=	ktux
 SUBDIR+=	kwordquiz
 SUBDIR+=	kz_h8write
 SUBDIR+=	labelnation
@@ -206,7 +207,6 @@ SUBDIR+=	p5-ControlX10-CM17
 SUBDIR+=	p5-File-MMagic
 SUBDIR+=	p5-File-MMagic-XS
 SUBDIR+=	p5-File-Tail
-SUBDIR+=	p5-I18N-LangTags
 SUBDIR+=	p5-Locale-Codes
 SUBDIR+=	p5-Locale-Maketext
 SUBDIR+=	p5-Locale-Maketext-Fuzzy

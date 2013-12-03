@@ -1,9 +1,8 @@
-# $NetBSD: Makefile,v 1.30 2013/10/15 20:46:41 joerg Exp $
+# $NetBSD: Makefile,v 1.32 2013/11/12 18:57:25 adam Exp $
 
 .include "dist.mk"
 
 PKGNAME=	python27-${PY_DISTVERSION}
-PKGREVISION=	3
 CATEGORIES=	lang python
 
 MAINTAINER=	pkgsrc-users@NetBSD.org
@@ -25,6 +24,7 @@ USE_MULTIARCH=		bin lib
 MULTIARCH_DIRS.lib=	# empty, manually set in PLIST
 NO_MULTIARCH_LIBDIR=	# defined, manually set
 CHECK_INTERPRETER=no	# $PREFIX/bin/python2.7 not created until pkg_add
+PKGCONFIG_OVERRIDE+=	Misc/python.pc.in
 
 LDFLAGS+=		-L${WRKSRC}
 

@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.236 2013/08/01 05:33:36 minskim Exp $
+# $NetBSD: Makefile,v 1.238 2013/11/18 19:05:35 minskim Exp $
 #
 
 COMMENT=	Fonts
@@ -225,6 +225,8 @@ SUBDIR+=	tex-eurosans
 SUBDIR+=	tex-eurosans-doc
 SUBDIR+=	tex-eurosym
 SUBDIR+=	tex-eurosym-doc
+SUBDIR+=	tex-fontinst
+SUBDIR+=	tex-fontinst-doc
 SUBDIR+=	tex-fontname
 SUBDIR+=	tex-fontname-doc
 SUBDIR+=	tex-fontspec
@@ -302,6 +304,7 @@ SUBDIR+=	tex-zapfding
 SUBDIR+=	thaixfonts
 SUBDIR+=	ttf2pk
 SUBDIR+=	ttf2pt1
+SUBDIR+=	ttfdump
 SUBDIR+=	ttftot42
 SUBDIR+=	ttmkfdir2
 SUBDIR+=	type1inst

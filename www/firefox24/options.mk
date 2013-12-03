@@ -1,8 +1,9 @@
-# $NetBSD: options.mk,v 1.1 2013/11/03 04:51:59 ryoon Exp $
+# $NetBSD: options.mk,v 1.3 2013/11/24 12:37:40 richard Exp $
 
 PKG_OPTIONS_VAR=	PKG_OPTIONS.firefox24
 PKG_SUPPORTED_OPTIONS=	official-mozilla-branding
 PKG_SUPPORTED_OPTIONS+=	alsa debug mozilla-jemalloc gnome pulseaudio webrtc
+PKG_SUPPORTED_OPTIONS+=	dtrace
 PLIST_VARS+=		gnome jemalloc debug
 
 .if ${OPSYS} == "Linux"
@@ -21,6 +22,8 @@ PKG_SUGGESTED_OPTIONS+=	webrtc
 .if !empty(PKG_OPTIONS:Malsa)
 CONFIGURE_ARGS+=	--enable-alsa
 .include "../../audio/alsa-lib/buildlink3.mk"
+.else
+CONFIGURE_ARGS+=	--disable-alsa
 .endif
 
 .if !empty(PKG_OPTIONS:Mgnome)
@@ -77,4 +80,12 @@ PLIST_VARS+=		webrtc
 CONFIGURE_ARGS+=	--enable-webrtc
 .else
 CONFIGURE_ARGS+=	--disable-webrtc
+.endif
+
+PLIST_VARS+=		dtrace
+.if !empty(PKG_OPTIONS:Mdtrace)
+CONFIGURE_ARGS+=    --enable-dtrace
+PLIST.dtrace=		yes
+.else
+CONFIGURE_ARGS+=    --disable-dtrace
 .endif

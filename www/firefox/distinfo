@@ -1,9 +1,9 @@
-$NetBSD: distinfo,v 1.119 2013/11/03 11:29:34 ryoon Exp $
+$NetBSD: distinfo,v 1.126 2013/11/29 13:00:32 joerg Exp $
 
-SHA1 (firefox-25.0.source.tar.bz2) = 854722e283659d2b6b2eacd38f757b3c5b63a448
-RMD160 (firefox-25.0.source.tar.bz2) = f320994b6b2f2030b5a68bc28cdd6904d9ef8ce3
-Size (firefox-25.0.source.tar.bz2) = 127524815 bytes
-SHA1 (patch-aa) = 1bb106361cf414a5204f26d24589832f7b2b35a9
+SHA1 (firefox-25.0.1.source.tar.bz2) = 592ebd242c4839ef0e18707a7e959d8bed2a98f3
+RMD160 (firefox-25.0.1.source.tar.bz2) = a1868d0299f6670b7fd8d7b92af7006ecefbc891
+Size (firefox-25.0.1.source.tar.bz2) = 127526415 bytes
+SHA1 (patch-aa) = c52746ff141b6de211380b848b174c22ba7909c4
 SHA1 (patch-ak) = 971ddb1f12b14bcee604c9d7e72da5e7bf47d9be
 SHA1 (patch-al) = 553c6042a98e4b381a46eec50c02cff349d88bd2
 SHA1 (patch-ao) = 3c777c8caf7f951a711c79612c08cee2cd338a57
@@ -31,7 +31,7 @@ SHA1 (patch-extensions_spellcheck_hunspell_src_mozHunspell.cpp) = 1f841becb14483
 SHA1 (patch-gfx__skia__include__core__SkPreConfig.h) = 6f99cf0eb5d4617d529c378707f537bc1e5cb28f
 SHA1 (patch-gfx_graphite2_src_Bidi.cpp) = 5e80b4a32a47ae44d237fec69ea87bdd612a76ce
 SHA1 (patch-gfx_skia_moz.build) = 72a4c39ce367ed25cbfef17283e87db10142163e
-SHA1 (patch-gfx_skia_src_utils_SkThreadUtils__pthread__linux.cpp) = 40da83981e1249ea28241b745e71fa047200ce9f
+SHA1 (patch-gfx_skia_src_utils_SkThreadUtils__pthread__linux.cpp) = 916d61bd9613df0fe2b6cfd0d6b1e49ffc40da5f
 SHA1 (patch-image_decoders_nsJPEGDecoder.cpp) = e5df11499b1ec14e1d4c9a1408c0611d1c4e0574
 SHA1 (patch-intl_hyphenation_src_hnjalloc.h) = 7fcc7b0fcf5a33486214197e925fbc8e6e22e2ee
 SHA1 (patch-ipc_chromium_Makefile.in) = 61ada3484c1ec0c07ee537aa7dd32e2c8411c10f
@@ -95,6 +95,9 @@ SHA1 (patch-media_webrtc_trunk_webrtc_modules_video__capture_video__capture__fac
 SHA1 (patch-media_webrtc_trunk_webrtc_system__wrappers_source_condition__variable.cc) = f4e7dd4356499589eaad642c875ad0c9e4b4cab5
 SHA1 (patch-media_webrtc_trunk_webrtc_system__wrappers_source_spreadsortlib_spreadsort.hpp) = 853b178ca1b95c6907ca2fc2de9865807661a8f5
 SHA1 (patch-media_webrtc_trunk_webrtc_system__wrappers_source_thread__posix.cc) = cde91cf030a827aca9de8ad31c2e724a183678d1
+SHA1 (patch-memory_mozalloc_fallible.h) = 8a60151465a07570db9636313f504004d73941d5
+SHA1 (patch-memory_mozalloc_mozalloc.cpp) = 802af1da05f60fcf8c206568c2adc396e3bb0e06
+SHA1 (patch-memory_mozalloc_mozalloc.h) = f2d9fd333ec28c075dfde8a6ee414b67b7f2cd26
 SHA1 (patch-memory_mozalloc_mozalloc__abort.cpp) = 9d9036ddd28c7b8ce37860e0120df2997a3a0c59
 SHA1 (patch-mfbt_Atomics.h) = 1a1df4189cf8da1182baa5c2e9909f9add6d2451
 SHA1 (patch-mfbt_Poison.cpp) = b582943c02f57835451c9eecd004c9912d42ce84
@@ -113,6 +116,8 @@ SHA1 (patch-pc) = 8b2baa88f0983a2fef4f801cf6b1ae425f6c813a
 SHA1 (patch-rc) = 2733724442a2cb49c5091146fd7e6001af686121
 SHA1 (patch-security_manager_ssl_src_JARSignatureVerification.cpp) = e9749dfeb0d3fcb4637935322ffd1e0cad4f8ec3
 SHA1 (patch-security_manager_ssl_src_nsNSSComponent.cpp) = c4c96b7d3cb0c5dbcfe3820fd52421eec2592452
+SHA1 (patch-toolkit_components_osfile_modules_osfile__unix__back.jsm) = de61b5ceaaea270bd298582c648704f4e68bebff
+SHA1 (patch-toolkit_components_osfile_modules_osfile__unix__front.jsm) = b05a21e1ecad8de6cd8057d2a3ee76167293cde2
 SHA1 (patch-toolkit_library_Makefile.in) = 0c91d647f0f3a4653d39f11c9d8fd63611235932
 SHA1 (patch-toolkit_mozapps_update_updater_updater.cpp) = 6936e5408fc7f0110768f3fc8f27506c0e7879fa
 SHA1 (patch-toolkit_toolkit.mozbuild) = 07e87d977cee59c0f5a5d14a8d41dc2a4230c01e

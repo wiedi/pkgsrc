@@ -1,4 +1,4 @@
-$NetBSD: distinfo,v 1.6 2013/08/07 02:41:30 mef Exp $
+$NetBSD: distinfo,v 1.8 2013/11/19 23:06:24 dsainty Exp $
 
 SHA1 (binutils-2.23.2.tar.bz2) = 042c51073205ebaf88c272d6168f9deb71984b56
 RMD160 (binutils-2.23.2.tar.bz2) = 9788e2a8c4a7c74360919347c3bc72040e87b898

@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.996 2013/11/03 13:35:51 ryoon Exp $
+# $NetBSD: Makefile,v 1.1003 2013/11/22 14:37:22 ryoon Exp $
 #
 
 COMMENT=	Packages related to the World Wide Web
@@ -113,6 +113,8 @@ SUBDIR+=	contao211-example
 SUBDIR+=	contao211-translations
 SUBDIR+=	contao31
 SUBDIR+=	contao31-example
+SUBDIR+=	contao32
+SUBDIR+=	contao32-example
 SUBDIR+=	cppcms
 SUBDIR+=	crawl
 SUBDIR+=	cronolog
@@ -447,6 +449,8 @@ SUBDIR+=	p5-Mojolicious
 SUBDIR+=	p5-Net-FastCGI
 SUBDIR+=	p5-Net-HTTP
 SUBDIR+=	p5-POE-Component-Server-PSGI
+SUBDIR+=	p5-POE-Component-Server-SOAP
+SUBDIR+=	p5-POE-Component-Server-SimpleHTTP
 SUBDIR+=	p5-POE-Filter-HTTP-Parser
 SUBDIR+=	p5-PSGI
 SUBDIR+=	p5-ParallelUserAgent
@@ -534,11 +538,13 @@ SUBDIR+=	pear-HTML_TreeMenu
 SUBDIR+=	pear-HTTP
 SUBDIR+=	pear-HTTP_Request
 SUBDIR+=	php-apc
+SUBDIR+=	php-basercms
 SUBDIR+=	php-concrete5
 SUBDIR+=	php-curl
 SUBDIR+=	php-eaccelerator
 SUBDIR+=	php-fpm
 SUBDIR+=	php-http
+SUBDIR+=	php-ja-wordpress
 SUBDIR+=	php-owncloud
 SUBDIR+=	php-phrasea2
 SUBDIR+=	php-piwigo
@@ -581,6 +587,7 @@ SUBDIR+=	py-django-reversion
 SUBDIR+=	py-django-sekizai
 SUBDIR+=	py-django-south
 SUBDIR+=	py-django-tagging
+SUBDIR+=	py-django14
 SUBDIR+=	py-djangorestframework
 SUBDIR+=	py-flask
 SUBDIR+=	py-flask-admin

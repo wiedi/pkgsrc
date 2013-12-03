@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.19 2013/05/31 12:41:34 wiz Exp $
+# $NetBSD: Makefile,v 1.20 2013/11/28 11:04:42 fhajny Exp $
 #
 
 DISTNAME=		nrpe-2.12
@@ -39,7 +39,7 @@ FILES_SUBST+=		NAGIOS_USER=${NAGIOS_USER}
 FILES_SUBST+=		NAGIOS_GROUP=${NAGIOS_GROUP}
 FILES_SUBST+=		NAGIOSDIR=${NAGIOSDIR}
 
-INSTALLATION_DIRS=	sbin libexec/nagios share/examples/nagios share/examples/rc.d
+INSTALLATION_DIRS=	sbin libexec/nagios share/examples/nagios
 
 .include "options.mk"
 
@@ -47,6 +47,5 @@ do-install:
 	${INSTALL_PROGRAM} ${WRKSRC}/src/nrpe ${DESTDIR}${PREFIX}/sbin
 	${INSTALL_PROGRAM} ${WRKSRC}/src/check_nrpe ${DESTDIR}${PREFIX}/libexec/nagios
 	${INSTALL_DATA} ${WRKSRC}/sample-config/nrpe.cfg ${DESTDIR}${PREFIX}/share/examples/nagios
-	${INSTALL_SCRIPT} ${WRKDIR}/nrpe ${DESTDIR}${PREFIX}/${RCD_SCRIPTS_EXAMPLEDIR}
 
 .include "../../mk/bsd.pkg.mk"
