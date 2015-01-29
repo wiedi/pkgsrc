@@ -1,4 +1,4 @@
-$NetBSD: distinfo,v 1.33 2015/01/23 16:10:34 taca Exp $
+$NetBSD: distinfo,v 1.32.2.1 2015/01/27 19:37:21 tron Exp $
 
 SHA1 (php-5.5.21.tar.bz2) = a6251bb3565f144593df4329fd15bedd70ae13a8
 RMD160 (php-5.5.21.tar.bz2) = eaea30ff8b5facbb03197ab81101f5b0e34463f5
