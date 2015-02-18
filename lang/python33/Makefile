@@ -31,6 +31,8 @@ PKGCONFIG_OVERRIDE+=	Misc/python.pc.in
 
 USE_LANGUAGES=		c c++
 
+MAKE_JOBS_SAFE=		no
+
 PTHREAD_OPTS+=	require
 .include "../../mk/pthread.buildlink3.mk"
 
