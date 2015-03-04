@@ -9,6 +9,7 @@ MAINTAINER=	pkgsrc-users@NetBSD.org
 HOMEPAGE=	http://www.tarsnap.com/spiped/
 COMMENT=	Tool for creating symmetrically encrypted and authenticated pipes
 LICENSE=	2-clause-bsd
+USE_LANGUAGES=	c99
 
 MAKE_FLAGS+=	BINDIR=${DESTDIR}${PREFIX}/bin
 MAKE_FLAGS+=	MAN1DIR=${DESTDIR}${PREFIX}/${PKGMANDIR}/man1
