@@ -19,6 +19,8 @@ MAKE_ENV+=			ADDITIONAL_LDFLAGS=-lpthread
 GNUSTEP_OVERRIDE_INSTALL=	YES
 NO_CONFIGURE=			YES
 
+.include "../../mk/compiler.mk"
+
 .include "../../devel/gnustep-make/buildlink3.mk"
 .include "../../mk/pthread.buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"
