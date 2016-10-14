@@ -2,10 +2,9 @@ $NetBSD: patch-sope-core_NGStreams_NGInternetSocketAddress.m,v 1.3 2014/03/13 14
 
 Add support for DragonFly.
 
---- sope-core/NGStreams/NGInternetSocketAddress.m.orig	2012-11-15 18:51:03.000000000 +0100
-+++ sope-core/NGStreams/NGInternetSocketAddress.m	2012-11-22 18:39:01.000000000 +0100
-@@ -47,9 +47,9 @@
- #include "NGInternetSocketAddress.h"
+--- sope-core/NGStreams/NGInternetSocketAddress.m.orig	2016-08-17 12:26:04.000000000 +0000
++++ sope-core/NGStreams/NGInternetSocketAddress.m
+@@ -48,7 +48,7 @@
  #include "NGInternetSocketDomain.h"
  #include "common.h"
  
@@ -14,4 +13,3 @@ Add support for DragonFly.
  #define USE_GETHOSTBYNAME_R 1
  #endif
  
- @implementation NGInternetSocketAddress
