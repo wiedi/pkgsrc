@@ -2,7 +2,7 @@
 
 DISTNAME=	libobjc2-1.6.1
 PKGNAME=	${DISTNAME:S/libobjc2/gnustep-objc/}
-PKGREVISION=	1
+PKGREVISION=	2
 CATEGORIES=	devel gnustep
 MASTER_SITES=	http://download.gna.org/gnustep/
 EXTRACT_SUFX=	.tar.bz2
@@ -18,6 +18,8 @@ MAKE_FILE=			GNUmakefile
 MAKE_ENV+=			ADDITIONAL_LDFLAGS=-lpthread
 GNUSTEP_OVERRIDE_INSTALL=	YES
 NO_CONFIGURE=			YES
+
+.include "../../mk/compiler.mk"
 
 .include "../../devel/gnustep-make/buildlink3.mk"
 .include "../../mk/pthread.buildlink3.mk"
