@@ -103,13 +103,6 @@ INSTALL_CMDS+=		certcgi certutil cmsutil crlutil derdump makepqg \
 			p7verify pk12util rsaperf shlibsign signtool signver \
 			ssltap strsclnt symkeyutil vfychain vfyserv
 
-CMDS_DIR=		${OPSYS}${OS_VERSION}_OPT.OBJ
-.for platform in ${LP64PLATFORMS}
-.  if ${MACHINE_PLATFORM:M${platform}}
-CMDS_DIR=		${OPSYS}${OS_VERSION}_64_OPT.OBJ
-.  endif
-.endfor
-
 post-extract:
 	find ${WRKSRC} -type f | xargs ${CHMOD} 644
 	find ${WRKSRC} -type d | xargs ${CHMOD} 755
@@ -125,8 +118,7 @@ do-install:
 	${INSTALL_DATA} ${WRKSRC}/nss.pc ${DESTDIR}${PREFIX}/lib/pkgconfig/nss.pc
 	${INSTALL_SCRIPT} ${WRKSRC}/nss-config ${DESTDIR}${PREFIX}/bin/nss-config
 .for cmd in ${INSTALL_CMDS}
-	${INSTALL_PROGRAM} ${WRKSRC}/dist/${CMDS_DIR}/bin/${cmd} \
-		${DESTDIR}${PREFIX}/bin
+	${INSTALL_PROGRAM} ${DIST}/*_OPT.OBJ/bin/${cmd} ${DESTDIR}${PREFIX}/bin
 .endfor
 
 # For consistency of libxul.so link in www/firefox.
