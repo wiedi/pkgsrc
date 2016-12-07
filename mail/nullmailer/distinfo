@@ -8,3 +8,4 @@ SHA1 (patch-aa) = 6e8fb0269fcca08fd450b08b865f67ab3bfa1675
 SHA1 (patch-ab) = cb6ed64a5cdf413837710a6f27ea22d1e37fd1b9
 SHA1 (patch-ac) = c542bbf35dfc2148dd133837799b7f4634b66489
 SHA1 (patch-lib_fdbuf_fdobuf.h) = 716854a1421ef2021f5383f3e63bd19ece900a23
+SHA1 (patch-src_inject.cc) = eaffa250d87bb9501e6ccac81c73c1efafb1ad54
