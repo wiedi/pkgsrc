@@ -16,6 +16,16 @@ LICENSE=		modified-bsd
 GO_SRCPATH=		golang.org/x/net
 GO_DIST_BASE=		${GITHUB_PROJECT}-${GITHUB_TAG}*
 
+.include "../../mk/bsd.prefs.mk"
+
+PLIST_VARS+=	notsunos
+
+.if ${OPSYS} != "SunOS"
+# route support is not yet implemented for sunos
+# h2i is missing terminal.MakeRaw and terminal.Restore
+PLIST.notsunos=	yes
+.endif
+
 .include "../../textproc/go-text/buildlink3.mk"
 .include "../../security/go-crypto/buildlink3.mk"
 .include "../../lang/go/go-package.mk"
