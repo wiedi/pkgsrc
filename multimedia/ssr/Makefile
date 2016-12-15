@@ -2,7 +2,7 @@
 #
 
 DISTNAME=	ssr-0.3.6
-PKGREVISION=	3
+PKGREVISION=	4
 CATEGORIES=	multimedia
 MASTER_SITES=	${MASTER_SITE_GITHUB:=MaartenBaert/}
 
@@ -18,6 +18,7 @@ USE_LANGUAGES=	c c++
 REPLACE_BASH=	scripts/ssr-glinject
 
 CFLAGS.NetBSD+=	-DBSD
+CFLAGS.SunOS+=	-DBSD
 
 .include "../../mk/dlopen.buildlink3.mk"
 BUILDLINK_TRANSFORM+=	opt:-ldl:${BUILDLINK_LDADD.dl:Q}

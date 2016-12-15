@@ -8,7 +8,7 @@ Linux gets environ from unistd.h
  #include <GL/glx.h>
  #include <X11/X.h>
  
-+#ifdef __NetBSD__
++#if defined(__NetBSD__) || defined(__sun)
 +extern char **environ;
 +#endif
 +
