@@ -53,6 +53,7 @@ CONFIGURE_ARGS+=	--without-libidn
 .endif
 
 .if !empty(PKG_OPTIONS:Mhttp2)
+USE_TOOLS+=		pkg-config
 CONFIGURE_ARGS+=	--with-nghttp2=${BUILDLINK_PREFIX.nghttp2}
 .include "../../www/nghttp2/buildlink3.mk"
 .else
