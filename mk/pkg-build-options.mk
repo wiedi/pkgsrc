@@ -51,6 +51,7 @@ PKG_BUILD_OPTIONS.${b}!= \
 	     && ${MAKE} ${MAKEFLAGS} show-var VARNAME=PKG_OPTIONS; }
 .        if defined(PBULK_CACHE_DIRECTORY)
 _PKG_BUILD_OPTIONS.${b}!= \
+	mkdir -p ${PBULK_CACHE_DIRECTORY:Q}; \
 	echo PKG_BUILD_OPTIONS.${b:Q}=${PKG_BUILD_OPTIONS.${b:Q}} > ${PBULK_CACHE_DIRECTORY:Q}/build-options.${pkgbase}.$$$$; \
 	mv ${PBULK_CACHE_DIRECTORY:Q}/build-options.${pkgbase}.$$$$ ${PBULK_CACHE_DIRECTORY:Q}/build-options.${pkgbase}
 .        endif
