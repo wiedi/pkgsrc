@@ -56,15 +56,15 @@ CONF_FILES+=		${EGDIR}/logging.conf.example \
 post-install:
 	if [ -f ${DESTDIR}${PREFIX}/bin/trytond-admin ]; then \
 	${MV} ${DESTDIR}${PREFIX}/bin/trytond-admin \
-		${DESTDIR}${PREFIX}/bin/trytond-admin${PYVERSSUFFIX}
+		${DESTDIR}${PREFIX}/bin/trytond-admin${PYVERSSUFFIX}; \
 	${MV} ${DESTDIR}${PREFIX}/bin/trytond-cron \
-		${DESTDIR}${PREFIX}/bin/trytond-cron${PYVERSSUFFIX}
+		${DESTDIR}${PREFIX}/bin/trytond-cron${PYVERSSUFFIX}; \
 	${MV} ${DESTDIR}${PREFIX}/bin/trytond \
-		${DESTDIR}${PREFIX}/bin/trytond${PYVERSSUFFIX}
+		${DESTDIR}${PREFIX}/bin/trytond${PYVERSSUFFIX}; \
 	${INSTALL_DATA} ${FILESDIR}/trytond.conf.example \
-		${DESTDIR}${PREFIX}/${EGDIR}/trytond.conf.example
+		${DESTDIR}${PREFIX}/${EGDIR}/trytond.conf.example; \
 	${INSTALL_DATA} ${FILESDIR}/logging.conf.example \
-		${DESTDIR}${PREFIX}/${EGDIR}/logging.conf.example
+		${DESTDIR}${PREFIX}/${EGDIR}/logging.conf.example; \
 	fi
 
 .include "../../lang/python/application.mk"
