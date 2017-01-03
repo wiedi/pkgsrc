@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.80 2016/12/02 12:21:17 adam Exp $
+# $NetBSD: Makefile,v 1.81 2017/01/03 13:23:04 jperkin Exp $
 
 DISTNAME=	Django-1.10.4
 PKGNAME=	${PYPKGPREFIX}-${DISTNAME:tl}
@@ -17,12 +17,10 @@ REPLACE_PYTHON+=	${WRKSRC}/django/conf/project_template/manage.py-tpl
 PYTHON_VERSIONED_DEPENDENCIES=	flup
 
 post-install:
-	@if [ -f ${DESTDIR}${PREFIX}/bin/django-admin ]; then \
-		${MV} ${DESTDIR}${PREFIX}/bin/django-admin \
-			${DESTDIR}${PREFIX}/bin/django-admin${PYVERSSUFFIX}; \
-		${MV} ${DESTDIR}${PREFIX}/bin/django-admin.py \
-			${DESTDIR}${PREFIX}/bin/django-admin${PYVERSSUFFIX}.py; \
-	fi
+	${MV} ${DESTDIR}${PREFIX}/bin/django-admin \
+		${DESTDIR}${PREFIX}/bin/django-admin${PYVERSSUFFIX} || ${TRUE}
+	${MV} ${DESTDIR}${PREFIX}/bin/django-admin.py \
+		${DESTDIR}${PREFIX}/bin/django-admin${PYVERSSUFFIX}.py || ${TRUE}
 
 .include "../../lang/python/application.mk"
 .include "../../lang/python/egg.mk"
