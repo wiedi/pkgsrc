@@ -40,6 +40,7 @@ SUBDIR+=	bbsload
 SUBDIR+=	bchunk
 SUBDIR+=	bcmfw
 SUBDIR+=	bcollect
+SUBDIR+=	beats
 SUBDIR+=	bkpupsd
 SUBDIR+=	boxbackup-client
 SUBDIR+=	boxbackup-server
