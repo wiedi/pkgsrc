@@ -1,5 +1,8 @@
 # $NetBSD: Makefile,v 1.14 2017/10/04 10:03:53 jperkin Exp $
 
+# set first because version.mk includes bsd.prefs.mk :/
+CTF_SUPPORTED=	no
+
 .include "../../lang/go/version.mk"
 
 DISTNAME=	go${GO14_VERSION}.src
@@ -72,6 +75,9 @@ CHECK_RELRO_SKIP=	go14/bin/go
 CHECK_RELRO_SKIP+=	go14/bin/gofmt
 # also does not support SSP at this time
 CHECK_SSP_SKIP=		${CHECK_RELRO_SKIP}
+
+# Stripping go binaries breaks them in interesting ways
+STRIP_DEBUG_SUPPORTED=	no
 
 # uses /bin/rc (for Plan 9)
 CHECK_INTERPRETER_SKIP+=	go14/include/plan9/mklibc.rc
