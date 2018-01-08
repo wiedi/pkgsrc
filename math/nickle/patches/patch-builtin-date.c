@@ -1,4 +1,4 @@
-$NetBSD: patch-builtin-date.c,v 1.1 2018/01/03 12:12:07 jperkin Exp $
+$NetBSD: patch-builtin-date.c,v 1.1.2.2 2018/01/04 21:07:13 spz Exp $
 
 Fix missing tm_zone on SunOS.
 Pull in upstream fix for missing timelocal().
