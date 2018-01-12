@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.744 2017/12/21 11:47:19 jmcneill Exp $
+# $NetBSD: Makefile,v 1.747 2018/01/12 09:06:59 jperkin Exp $
 #
 
 COMMENT=	System utilities
@@ -498,6 +498,7 @@ SUBDIR+=	rsyslog-gssapi
 SUBDIR+=	rsyslog-kafka
 SUBDIR+=	rsyslog-libgcrypt
 SUBDIR+=	rsyslog-mysql
+SUBDIR+=	rsyslog-omprog
 SUBDIR+=	rsyslog-pgsql
 SUBDIR+=	rsyslog-rabbitmq
 SUBDIR+=	rsyslog-relp
