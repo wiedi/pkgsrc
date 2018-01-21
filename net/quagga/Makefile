@@ -2,6 +2,7 @@
 #
 
 DISTNAME=	quagga-1.2.2
+PKGREVISION=	1
 CATEGORIES=	net
 MASTER_SITES=	http://download.savannah.gnu.org/releases/quagga/
 
